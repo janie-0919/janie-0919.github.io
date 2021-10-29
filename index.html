@@ -89,8 +89,8 @@
                     id: "my-id",
                     snap: {
                         snapTo: 1 / (SECTIONS.length - 1),
-                        duration: 0.3,
-                        ease: "power1.inOut",
+                        duration: 0.1,
+                        ease: "power0",
                     },
                     value: 100,
                     onUpdate(self) {
@@ -131,8 +131,8 @@
             ScrollTrigger.create({
                 snap: {
                     snapTo: 1 / (SECTIONS.length - 1),
-                    duration: 0.3,
-                    ease: "power1.inOut",
+                    duration: 0.1,
+                    ease: "power0"
                 },
                 onUpdate(self) {
                     $('#progress').css('width', `${self.progress * 100}%`);
