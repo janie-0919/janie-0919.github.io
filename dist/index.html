@@ -5,12 +5,12 @@
     <meta name="Referrer" content="origin"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="apple-mobile-web-app-title" content="이주연 포트폴리오" />
+    <meta name="apple-mobile-web-app-title" content="이주연 포트폴리오"/>
     <meta name="robots" content="index,nofollow"/>
     <meta name="description" content="이주연 퍼블리싱 포트폴리오"/>
     <meta name="keywords" content="이주연 퍼블리싱 포트폴리오"/>
     <link rel="shortcut icon" href="favicon.ico">
-    <title>Juyeon Portfolio</title>
+    <title>이주연 포트폴리오</title>
     <link type="text/css" rel="stylesheet" href="dist/css/style.css"/>
     <script src="dist/js/bundle.js"></script>
     <script src="dist/js/common.js"></script>
@@ -19,7 +19,21 @@
 <div class="progress" id="progress"></div>
 <div id="wrap">
     <section class="section01">
-        <h1>section01</h1>
+<!--        <img style="width: 100%; height: 100%;" class="bubble" src="dist/img/section-1-background.svg" alt="">-->
+        <svg style="position:absolute; left: 0; top: 0;" version="1.1" id="layer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 750 500"  xml:space="preserve">
+        <style type="text/css">
+            .st0 {
+                fill: #f6f7f8;
+            }
+        </style>
+            <linearGradient id="svg" gradientUnits="userSpaceOnUse" x1="0" y1="95.2545" x2="495.82" y2="95.2545">
+            <stop offset="0" style="stop-color:#D0D4DD"/>
+                <stop offset="1" style="stop-color:#DCDBDB"/>
+        </linearGradient>
+            <path class="st0" d="M495.82,0c-4.25,25.2-14.46,49.39-30.15,69.59c-30.96,39.84-82.29,62.95-132.64,59.7
+        c-5.35-0.34-10.74-0.95-16.15-1.68c-28.28-3.79-57.1-10.7-82.47,1.11c-21.54,10.03-35.31,31.55-54.75,45.2
+   c-25.43,17.86-59.66,20.78-89.24,11.25c-29.57-9.53-54.63-30.45-72.94-55.56C11.15,120.93,5.55,111.73,0,102.5V0H495.82z"/>
+</svg>
     </section>
     <section class="section02">
         <h1>section02</h1>
@@ -35,18 +49,50 @@
     </section>
 </div>
 <script>
+    var myAnimation = anime({
+        targets: "#layer path",
+        d: [
+            'M639.86,0c-5.48,25.2-18.66,49.39-38.91,69.59c-39.95,39.84-106.2,62.95-171.17,59.7\n' +
+            '\tc-6.9-0.34-13.86-0.95-20.84-1.68c-36.5-3.79-73.69-10.7-106.43,1.11c-27.8,10.03-45.57,31.55-70.66,45.2\n' +
+            '\tc-32.82,17.86-76.99,20.78-115.17,11.25c-38.16-9.53-70.5-30.45-94.13-55.56C14.39,120.93,7.16,111.73,0,102.5V0H639.86z',
+            'M495.82,0c-4.25,25.2-14.46,49.39-30.15,69.59c-30.96,39.84-82.29,62.95-132.64,59.7\n' +
+            '        c-5.35-0.34-10.74-0.95-16.15-1.68c-28.28-3.79-57.1-10.7-82.47,1.11c-21.54,10.03-35.31,31.55-54.75,45.2\n' +
+            '\tc-25.43,17.86-59.66,20.78-89.24,11.25c-29.57-9.53-54.63-30.45-72.94-55.56C11.15,120.93,5.55,111.73,0,102.5V0H495.82z'
+        ],
+        easing: "easeOutQuad",
+        duration: 3000,
+        loop: true,
+        direction: "alternate",
+    });
+    // anime({
+    //     targets: '#svg path',
+    //     points: [
+    //         { value: [
+    //                 '70 24 119.574 60.369 100.145 117.631 50.855 101.631 3.426 54.369',
+    //                 '70 41 118.574 59.369 111.145 132.631 60.855 84.631 20.426 60.369']
+    //         },
+    //         { value: '70 6 119.574 60.369 100.145 117.631 39.855 117.631 55.426 68.369' },
+    //         { value: '70 57 136.574 54.369 89.145 100.631 28.855 132.631 38.426 64.369' },
+    //         { value: '70 24 119.574 60.369 100.145 117.631 50.855 101.631 3.426 54.369' }
+    //     ],
+    //     easing: 'easeOutQuad',
+    //     duration: 2000,
+    //     loop: true
+    // });
+
+
     gsap.registerPlugin(ScrollTrigger);
     let SECTIONS = gsap.utils.toArray("section");
 
     gsap.to(SECTIONS, {
-        xPercent: -100 * ( SECTIONS.length -1 ),
+        xPercent: -100 * (SECTIONS.length - 1),
         ease: "none",
         scrollTrigger: {
             trigger: '#wrap',
-            end: ()=> "+=" + document.querySelector("#wrap").offsetWidth,
+            end: () => "+=" + document.querySelector("#wrap").offsetWidth,
             pin: true,
             scrub: 1,
-            snap: 1 / (SECTIONS.length -1),
+            snap: 1 / (SECTIONS.length - 1),
             value: 100,
             onUpdate(self) {
                 return $('#progress').css('width', `${self.progress * 100}%`);
