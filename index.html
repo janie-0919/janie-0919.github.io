@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="Referrer" content="origin"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <meta name="apple-mobile-web-app-title" content="이주연 포트폴리오"/>
     <meta name="robots" content="index,nofollow"/>
     <meta name="description" content="이주연 퍼블리싱 포트폴리오"/>
@@ -120,22 +120,12 @@
 
         // mobile
         "(max-width: 799px)": function() {
-            gsap.defaults({ease: "power1", duration: 3});
-
-            const tl = gsap.timeline();
-            tl.from(".section02", {xPercent: 100})
-                .from(".section03", {xPercent: 100})
-                .from(".section04", {xPercent: 100})
-                .from(".section05", {yPercent: 100});
-
             ScrollTrigger.create({
-                animation: tl,
-                trigger: "section",
-                start: "top top",
-                end: "+=4000",
-                pin: true,
-                scrub: true,
-                anticipatePin: 1
+                trigger:"#wrap",
+                start:"top top",
+                end:"bottom bottom",
+                markers: false,
+                onEnter: self => console.log(self.isActive)
             });
         },
     });
