@@ -17680,3 +17680,2305 @@
  */
 
 !function(n,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):n.anime=e()}(this,function(){"use strict";var n={update:null,begin:null,loopBegin:null,changeBegin:null,change:null,changeComplete:null,loopComplete:null,complete:null,loop:1,direction:"normal",autoplay:!0,timelineOffset:0},e={duration:1e3,delay:0,endDelay:0,easing:"easeOutElastic(1, .5)",round:0},t=["translateX","translateY","translateZ","rotate","rotateX","rotateY","rotateZ","scale","scaleX","scaleY","scaleZ","skew","skewX","skewY","perspective","matrix","matrix3d"],r={CSS:{},springs:{}};function a(n,e,t){return Math.min(Math.max(n,e),t)}function o(n,e){return n.indexOf(e)>-1}function u(n,e){return n.apply(null,e)}var i={arr:function(n){return Array.isArray(n)},obj:function(n){return o(Object.prototype.toString.call(n),"Object")},pth:function(n){return i.obj(n)&&n.hasOwnProperty("totalLength")},svg:function(n){return n instanceof SVGElement},inp:function(n){return n instanceof HTMLInputElement},dom:function(n){return n.nodeType||i.svg(n)},str:function(n){return"string"==typeof n},fnc:function(n){return"function"==typeof n},und:function(n){return void 0===n},nil:function(n){return i.und(n)||null===n},hex:function(n){return/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(n)},rgb:function(n){return/^rgb/.test(n)},hsl:function(n){return/^hsl/.test(n)},col:function(n){return i.hex(n)||i.rgb(n)||i.hsl(n)},key:function(t){return!n.hasOwnProperty(t)&&!e.hasOwnProperty(t)&&"targets"!==t&&"keyframes"!==t}};function c(n){var e=/\(([^)]+)\)/.exec(n);return e?e[1].split(",").map(function(n){return parseFloat(n)}):[]}function s(n,e){var t=c(n),o=a(i.und(t[0])?1:t[0],.1,100),u=a(i.und(t[1])?100:t[1],.1,100),s=a(i.und(t[2])?10:t[2],.1,100),f=a(i.und(t[3])?0:t[3],.1,100),l=Math.sqrt(u/o),d=s/(2*Math.sqrt(u*o)),p=d<1?l*Math.sqrt(1-d*d):0,v=1,h=d<1?(d*l-f)/p:-f+l;function g(n){var t=e?e*n/1e3:n;return t=d<1?Math.exp(-t*d*l)*(v*Math.cos(p*t)+h*Math.sin(p*t)):(v+h*t)*Math.exp(-t*l),0===n||1===n?n:1-t}return e?g:function(){var e=r.springs[n];if(e)return e;for(var t=0,a=0;;)if(1===g(t+=1/6)){if(++a>=16)break}else a=0;var o=t*(1/6)*1e3;return r.springs[n]=o,o}}function f(n){return void 0===n&&(n=10),function(e){return Math.ceil(a(e,1e-6,1)*n)*(1/n)}}var l,d,p=function(){var n=11,e=1/(n-1);function t(n,e){return 1-3*e+3*n}function r(n,e){return 3*e-6*n}function a(n){return 3*n}function o(n,e,o){return((t(e,o)*n+r(e,o))*n+a(e))*n}function u(n,e,o){return 3*t(e,o)*n*n+2*r(e,o)*n+a(e)}return function(t,r,a,i){if(0<=t&&t<=1&&0<=a&&a<=1){var c=new Float32Array(n);if(t!==r||a!==i)for(var s=0;s<n;++s)c[s]=o(s*e,t,a);return function(n){return t===r&&a===i?n:0===n||1===n?n:o(f(n),r,i)}}function f(r){for(var i=0,s=1,f=n-1;s!==f&&c[s]<=r;++s)i+=e;var l=i+(r-c[--s])/(c[s+1]-c[s])*e,d=u(l,t,a);return d>=.001?function(n,e,t,r){for(var a=0;a<4;++a){var i=u(e,t,r);if(0===i)return e;e-=(o(e,t,r)-n)/i}return e}(r,l,t,a):0===d?l:function(n,e,t,r,a){for(var u,i,c=0;(u=o(i=e+(t-e)/2,r,a)-n)>0?t=i:e=i,Math.abs(u)>1e-7&&++c<10;);return i}(r,i,i+e,t,a)}}}(),v=(l={linear:function(){return function(n){return n}}},d={Sine:function(){return function(n){return 1-Math.cos(n*Math.PI/2)}},Circ:function(){return function(n){return 1-Math.sqrt(1-n*n)}},Back:function(){return function(n){return n*n*(3*n-2)}},Bounce:function(){return function(n){for(var e,t=4;n<((e=Math.pow(2,--t))-1)/11;);return 1/Math.pow(4,3-t)-7.5625*Math.pow((3*e-2)/22-n,2)}},Elastic:function(n,e){void 0===n&&(n=1),void 0===e&&(e=.5);var t=a(n,1,10),r=a(e,.1,2);return function(n){return 0===n||1===n?n:-t*Math.pow(2,10*(n-1))*Math.sin((n-1-r/(2*Math.PI)*Math.asin(1/t))*(2*Math.PI)/r)}}},["Quad","Cubic","Quart","Quint","Expo"].forEach(function(n,e){d[n]=function(){return function(n){return Math.pow(n,e+2)}}}),Object.keys(d).forEach(function(n){var e=d[n];l["easeIn"+n]=e,l["easeOut"+n]=function(n,t){return function(r){return 1-e(n,t)(1-r)}},l["easeInOut"+n]=function(n,t){return function(r){return r<.5?e(n,t)(2*r)/2:1-e(n,t)(-2*r+2)/2}},l["easeOutIn"+n]=function(n,t){return function(r){return r<.5?(1-e(n,t)(1-2*r))/2:(e(n,t)(2*r-1)+1)/2}}}),l);function h(n,e){if(i.fnc(n))return n;var t=n.split("(")[0],r=v[t],a=c(n);switch(t){case"spring":return s(n,e);case"cubicBezier":return u(p,a);case"steps":return u(f,a);default:return u(r,a)}}function g(n){try{return document.querySelectorAll(n)}catch(n){return}}function m(n,e){for(var t=n.length,r=arguments.length>=2?arguments[1]:void 0,a=[],o=0;o<t;o++)if(o in n){var u=n[o];e.call(r,u,o,n)&&a.push(u)}return a}function y(n){return n.reduce(function(n,e){return n.concat(i.arr(e)?y(e):e)},[])}function b(n){return i.arr(n)?n:(i.str(n)&&(n=g(n)||n),n instanceof NodeList||n instanceof HTMLCollection?[].slice.call(n):[n])}function M(n,e){return n.some(function(n){return n===e})}function x(n){var e={};for(var t in n)e[t]=n[t];return e}function w(n,e){var t=x(n);for(var r in n)t[r]=e.hasOwnProperty(r)?e[r]:n[r];return t}function k(n,e){var t=x(n);for(var r in e)t[r]=i.und(n[r])?e[r]:n[r];return t}function O(n){return i.rgb(n)?(t=/rgb\((\d+,\s*[\d]+,\s*[\d]+)\)/g.exec(e=n))?"rgba("+t[1]+",1)":e:i.hex(n)?(r=n.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i,function(n,e,t,r){return e+e+t+t+r+r}),a=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(r),"rgba("+parseInt(a[1],16)+","+parseInt(a[2],16)+","+parseInt(a[3],16)+",1)"):i.hsl(n)?function(n){var e,t,r,a=/hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)/g.exec(n)||/hsla\((\d+),\s*([\d.]+)%,\s*([\d.]+)%,\s*([\d.]+)\)/g.exec(n),o=parseInt(a[1],10)/360,u=parseInt(a[2],10)/100,i=parseInt(a[3],10)/100,c=a[4]||1;function s(n,e,t){return t<0&&(t+=1),t>1&&(t-=1),t<1/6?n+6*(e-n)*t:t<.5?e:t<2/3?n+(e-n)*(2/3-t)*6:n}if(0==u)e=t=r=i;else{var f=i<.5?i*(1+u):i+u-i*u,l=2*i-f;e=s(l,f,o+1/3),t=s(l,f,o),r=s(l,f,o-1/3)}return"rgba("+255*e+","+255*t+","+255*r+","+c+")"}(n):void 0;var e,t,r,a}function C(n){var e=/[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?(%|px|pt|em|rem|in|cm|mm|ex|ch|pc|vw|vh|vmin|vmax|deg|rad|turn)?$/.exec(n);if(e)return e[1]}function P(n,e){return i.fnc(n)?n(e.target,e.id,e.total):n}function I(n,e){return n.getAttribute(e)}function D(n,e,t){if(M([t,"deg","rad","turn"],C(e)))return e;var a=r.CSS[e+t];if(!i.und(a))return a;var o=document.createElement(n.tagName),u=n.parentNode&&n.parentNode!==document?n.parentNode:document.body;u.appendChild(o),o.style.position="absolute",o.style.width=100+t;var c=100/o.offsetWidth;u.removeChild(o);var s=c*parseFloat(e);return r.CSS[e+t]=s,s}function B(n,e,t){if(e in n.style){var r=e.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase(),a=n.style[e]||getComputedStyle(n).getPropertyValue(r)||"0";return t?D(n,a,t):a}}function T(n,e){return i.dom(n)&&!i.inp(n)&&(!i.nil(I(n,e))||i.svg(n)&&n[e])?"attribute":i.dom(n)&&M(t,e)?"transform":i.dom(n)&&"transform"!==e&&B(n,e)?"css":null!=n[e]?"object":void 0}function E(n){if(i.dom(n)){for(var e,t=n.style.transform||"",r=/(\w+)\(([^)]*)\)/g,a=new Map;e=r.exec(t);)a.set(e[1],e[2]);return a}}function F(n,e,t,r){var a,u=o(e,"scale")?1:0+(o(a=e,"translate")||"perspective"===a?"px":o(a,"rotate")||o(a,"skew")?"deg":void 0),i=E(n).get(e)||u;return t&&(t.transforms.list.set(e,i),t.transforms.last=e),r?D(n,i,r):i}function A(n,e,t,r){switch(T(n,e)){case"transform":return F(n,e,r,t);case"css":return B(n,e,t);case"attribute":return I(n,e);default:return n[e]||0}}function N(n,e){var t=/^(\*=|\+=|-=)/.exec(n);if(!t)return n;var r=C(n)||0,a=parseFloat(e),o=parseFloat(n.replace(t[0],""));switch(t[0][0]){case"+":return a+o+r;case"-":return a-o+r;case"*":return a*o+r}}function S(n,e){if(i.col(n))return O(n);if(/\s/g.test(n))return n;var t=C(n),r=t?n.substr(0,n.length-t.length):n;return e?r+e:r}function L(n,e){return Math.sqrt(Math.pow(e.x-n.x,2)+Math.pow(e.y-n.y,2))}function j(n){for(var e,t=n.points,r=0,a=0;a<t.numberOfItems;a++){var o=t.getItem(a);a>0&&(r+=L(e,o)),e=o}return r}function q(n){if(n.getTotalLength)return n.getTotalLength();switch(n.tagName.toLowerCase()){case"circle":return o=n,2*Math.PI*I(o,"r");case"rect":return 2*I(a=n,"width")+2*I(a,"height");case"line":return L({x:I(r=n,"x1"),y:I(r,"y1")},{x:I(r,"x2"),y:I(r,"y2")});case"polyline":return j(n);case"polygon":return t=(e=n).points,j(e)+L(t.getItem(t.numberOfItems-1),t.getItem(0))}var e,t,r,a,o}function H(n,e){var t=e||{},r=t.el||function(n){for(var e=n.parentNode;i.svg(e)&&i.svg(e.parentNode);)e=e.parentNode;return e}(n),a=r.getBoundingClientRect(),o=I(r,"viewBox"),u=a.width,c=a.height,s=t.viewBox||(o?o.split(" "):[0,0,u,c]);return{el:r,viewBox:s,x:s[0]/1,y:s[1]/1,w:u,h:c,vW:s[2],vH:s[3]}}function V(n,e,t){function r(t){void 0===t&&(t=0);var r=e+t>=1?e+t:0;return n.el.getPointAtLength(r)}var a=H(n.el,n.svg),o=r(),u=r(-1),i=r(1),c=t?1:a.w/a.vW,s=t?1:a.h/a.vH;switch(n.property){case"x":return(o.x-a.x)*c;case"y":return(o.y-a.y)*s;case"angle":return 180*Math.atan2(i.y-u.y,i.x-u.x)/Math.PI}}function $(n,e){var t=/[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g,r=S(i.pth(n)?n.totalLength:n,e)+"";return{original:r,numbers:r.match(t)?r.match(t).map(Number):[0],strings:i.str(n)||e?r.split(t):[]}}function W(n){return m(n?y(i.arr(n)?n.map(b):b(n)):[],function(n,e,t){return t.indexOf(n)===e})}function X(n){var e=W(n);return e.map(function(n,t){return{target:n,id:t,total:e.length,transforms:{list:E(n)}}})}function Y(n,e){var t=x(e);if(/^spring/.test(t.easing)&&(t.duration=s(t.easing)),i.arr(n)){var r=n.length;2===r&&!i.obj(n[0])?n={value:n}:i.fnc(e.duration)||(t.duration=e.duration/r)}var a=i.arr(n)?n:[n];return a.map(function(n,t){var r=i.obj(n)&&!i.pth(n)?n:{value:n};return i.und(r.delay)&&(r.delay=t?0:e.delay),i.und(r.endDelay)&&(r.endDelay=t===a.length-1?e.endDelay:0),r}).map(function(n){return k(n,t)})}function Z(n,e){var t=[],r=e.keyframes;for(var a in r&&(e=k(function(n){for(var e=m(y(n.map(function(n){return Object.keys(n)})),function(n){return i.key(n)}).reduce(function(n,e){return n.indexOf(e)<0&&n.push(e),n},[]),t={},r=function(r){var a=e[r];t[a]=n.map(function(n){var e={};for(var t in n)i.key(t)?t==a&&(e.value=n[t]):e[t]=n[t];return e})},a=0;a<e.length;a++)r(a);return t}(r),e)),e)i.key(a)&&t.push({name:a,tweens:Y(e[a],n)});return t}function G(n,e){var t;return n.tweens.map(function(r){var a=function(n,e){var t={};for(var r in n){var a=P(n[r],e);i.arr(a)&&1===(a=a.map(function(n){return P(n,e)})).length&&(a=a[0]),t[r]=a}return t.duration=parseFloat(t.duration),t.delay=parseFloat(t.delay),t}(r,e),o=a.value,u=i.arr(o)?o[1]:o,c=C(u),s=A(e.target,n.name,c,e),f=t?t.to.original:s,l=i.arr(o)?o[0]:f,d=C(l)||C(s),p=c||d;return i.und(u)&&(u=f),a.from=$(l,p),a.to=$(N(u,l),p),a.start=t?t.end:0,a.end=a.start+a.delay+a.duration+a.endDelay,a.easing=h(a.easing,a.duration),a.isPath=i.pth(o),a.isPathTargetInsideSVG=a.isPath&&i.svg(e.target),a.isColor=i.col(a.from.original),a.isColor&&(a.round=1),t=a,a})}var Q={css:function(n,e,t){return n.style[e]=t},attribute:function(n,e,t){return n.setAttribute(e,t)},object:function(n,e,t){return n[e]=t},transform:function(n,e,t,r,a){if(r.list.set(e,t),e===r.last||a){var o="";r.list.forEach(function(n,e){o+=e+"("+n+") "}),n.style.transform=o}}};function z(n,e){X(n).forEach(function(n){for(var t in e){var r=P(e[t],n),a=n.target,o=C(r),u=A(a,t,o,n),i=N(S(r,o||C(u)),u),c=T(a,t);Q[c](a,t,i,n.transforms,!0)}})}function _(n,e){return m(y(n.map(function(n){return e.map(function(e){return function(n,e){var t=T(n.target,e.name);if(t){var r=G(e,n),a=r[r.length-1];return{type:t,property:e.name,animatable:n,tweens:r,duration:a.end,delay:r[0].delay,endDelay:a.endDelay}}}(n,e)})})),function(n){return!i.und(n)})}function R(n,e){var t=n.length,r=function(n){return n.timelineOffset?n.timelineOffset:0},a={};return a.duration=t?Math.max.apply(Math,n.map(function(n){return r(n)+n.duration})):e.duration,a.delay=t?Math.min.apply(Math,n.map(function(n){return r(n)+n.delay})):e.delay,a.endDelay=t?a.duration-Math.max.apply(Math,n.map(function(n){return r(n)+n.duration-n.endDelay})):e.endDelay,a}var J=0;var K=[],U=function(){var n;function e(t){for(var r=K.length,a=0;a<r;){var o=K[a];o.paused?(K.splice(a,1),r--):(o.tick(t),a++)}n=a>0?requestAnimationFrame(e):void 0}return"undefined"!=typeof document&&document.addEventListener("visibilitychange",function(){en.suspendWhenDocumentHidden&&(nn()?n=cancelAnimationFrame(n):(K.forEach(function(n){return n._onDocumentVisibility()}),U()))}),function(){n||nn()&&en.suspendWhenDocumentHidden||!(K.length>0)||(n=requestAnimationFrame(e))}}();function nn(){return!!document&&document.hidden}function en(t){void 0===t&&(t={});var r,o=0,u=0,i=0,c=0,s=null;function f(n){var e=window.Promise&&new Promise(function(n){return s=n});return n.finished=e,e}var l,d,p,v,h,g,y,b,M=(d=w(n,l=t),p=w(e,l),v=Z(p,l),h=X(l.targets),g=_(h,v),y=R(g,p),b=J,J++,k(d,{id:b,children:[],animatables:h,animations:g,duration:y.duration,delay:y.delay,endDelay:y.endDelay}));f(M);function x(){var n=M.direction;"alternate"!==n&&(M.direction="normal"!==n?"normal":"reverse"),M.reversed=!M.reversed,r.forEach(function(n){return n.reversed=M.reversed})}function O(n){return M.reversed?M.duration-n:n}function C(){o=0,u=O(M.currentTime)*(1/en.speed)}function P(n,e){e&&e.seek(n-e.timelineOffset)}function I(n){for(var e=0,t=M.animations,r=t.length;e<r;){var o=t[e],u=o.animatable,i=o.tweens,c=i.length-1,s=i[c];c&&(s=m(i,function(e){return n<e.end})[0]||s);for(var f=a(n-s.start-s.delay,0,s.duration)/s.duration,l=isNaN(f)?1:s.easing(f),d=s.to.strings,p=s.round,v=[],h=s.to.numbers.length,g=void 0,y=0;y<h;y++){var b=void 0,x=s.to.numbers[y],w=s.from.numbers[y]||0;b=s.isPath?V(s.value,l*x,s.isPathTargetInsideSVG):w+l*(x-w),p&&(s.isColor&&y>2||(b=Math.round(b*p)/p)),v.push(b)}var k=d.length;if(k){g=d[0];for(var O=0;O<k;O++){d[O];var C=d[O+1],P=v[O];isNaN(P)||(g+=C?P+C:P+" ")}}else g=v[0];Q[o.type](u.target,o.property,g,u.transforms),o.currentValue=g,e++}}function D(n){M[n]&&!M.passThrough&&M[n](M)}function B(n){var e=M.duration,t=M.delay,l=e-M.endDelay,d=O(n);M.progress=a(d/e*100,0,100),M.reversePlayback=d<M.currentTime,r&&function(n){if(M.reversePlayback)for(var e=c;e--;)P(n,r[e]);else for(var t=0;t<c;t++)P(n,r[t])}(d),!M.began&&M.currentTime>0&&(M.began=!0,D("begin")),!M.loopBegan&&M.currentTime>0&&(M.loopBegan=!0,D("loopBegin")),d<=t&&0!==M.currentTime&&I(0),(d>=l&&M.currentTime!==e||!e)&&I(e),d>t&&d<l?(M.changeBegan||(M.changeBegan=!0,M.changeCompleted=!1,D("changeBegin")),D("change"),I(d)):M.changeBegan&&(M.changeCompleted=!0,M.changeBegan=!1,D("changeComplete")),M.currentTime=a(d,0,e),M.began&&D("update"),n>=e&&(u=0,M.remaining&&!0!==M.remaining&&M.remaining--,M.remaining?(o=i,D("loopComplete"),M.loopBegan=!1,"alternate"===M.direction&&x()):(M.paused=!0,M.completed||(M.completed=!0,D("loopComplete"),D("complete"),!M.passThrough&&"Promise"in window&&(s(),f(M)))))}return M.reset=function(){var n=M.direction;M.passThrough=!1,M.currentTime=0,M.progress=0,M.paused=!0,M.began=!1,M.loopBegan=!1,M.changeBegan=!1,M.completed=!1,M.changeCompleted=!1,M.reversePlayback=!1,M.reversed="reverse"===n,M.remaining=M.loop,r=M.children;for(var e=c=r.length;e--;)M.children[e].reset();(M.reversed&&!0!==M.loop||"alternate"===n&&1===M.loop)&&M.remaining++,I(M.reversed?M.duration:0)},M._onDocumentVisibility=C,M.set=function(n,e){return z(n,e),M},M.tick=function(n){i=n,o||(o=i),B((i+(u-o))*en.speed)},M.seek=function(n){B(O(n))},M.pause=function(){M.paused=!0,C()},M.play=function(){M.paused&&(M.completed&&M.reset(),M.paused=!1,K.push(M),C(),U())},M.reverse=function(){x(),M.completed=!M.reversed,C()},M.restart=function(){M.reset(),M.play()},M.remove=function(n){rn(W(n),M)},M.reset(),M.autoplay&&M.play(),M}function tn(n,e){for(var t=e.length;t--;)M(n,e[t].animatable.target)&&e.splice(t,1)}function rn(n,e){var t=e.animations,r=e.children;tn(n,t);for(var a=r.length;a--;){var o=r[a],u=o.animations;tn(n,u),u.length||o.children.length||r.splice(a,1)}t.length||r.length||e.pause()}return en.version="3.2.1",en.speed=1,en.suspendWhenDocumentHidden=!0,en.running=K,en.remove=function(n){for(var e=W(n),t=K.length;t--;)rn(e,K[t])},en.get=A,en.set=z,en.convertPx=D,en.path=function(n,e){var t=i.str(n)?g(n)[0]:n,r=e||100;return function(n){return{property:n,el:t,svg:H(t),totalLength:q(t)*(r/100)}}},en.setDashoffset=function(n){var e=q(n);return n.setAttribute("stroke-dasharray",e),e},en.stagger=function(n,e){void 0===e&&(e={});var t=e.direction||"normal",r=e.easing?h(e.easing):null,a=e.grid,o=e.axis,u=e.from||0,c="first"===u,s="center"===u,f="last"===u,l=i.arr(n),d=l?parseFloat(n[0]):parseFloat(n),p=l?parseFloat(n[1]):0,v=C(l?n[1]:n)||0,g=e.start||0+(l?d:0),m=[],y=0;return function(n,e,i){if(c&&(u=0),s&&(u=(i-1)/2),f&&(u=i-1),!m.length){for(var h=0;h<i;h++){if(a){var b=s?(a[0]-1)/2:u%a[0],M=s?(a[1]-1)/2:Math.floor(u/a[0]),x=b-h%a[0],w=M-Math.floor(h/a[0]),k=Math.sqrt(x*x+w*w);"x"===o&&(k=-x),"y"===o&&(k=-w),m.push(k)}else m.push(Math.abs(u-h));y=Math.max.apply(Math,m)}r&&(m=m.map(function(n){return r(n/y)*y})),"reverse"===t&&(m=m.map(function(n){return o?n<0?-1*n:-n:Math.abs(y-n)}))}return g+(l?(p-d)/y:d)*(Math.round(100*m[e])/100)+v}},en.timeline=function(n){void 0===n&&(n={});var t=en(n);return t.duration=0,t.add=function(r,a){var o=K.indexOf(t),u=t.children;function c(n){n.passThrough=!0}o>-1&&K.splice(o,1);for(var s=0;s<u.length;s++)c(u[s]);var f=k(r,w(e,n));f.targets=f.targets||n.targets;var l=t.duration;f.autoplay=!1,f.direction=t.direction,f.timelineOffset=i.und(a)?l:N(a,l),c(t),t.seek(f.timelineOffset);var d=en(f);c(d),u.push(d);var p=R(u,n);return t.delay=p.delay,t.endDelay=p.endDelay,t.duration=p.duration,t.seek(0),t.reset(),t.autoplay&&t.play(),t},t},en.easing=h,en.penner=v,en.random=function(n,e){return Math.floor(Math.random()*(e-n+1))+n},en});
+/*!
+ *  __  __    _    ____ _   _ ___ _______   __
+ * |  \/  |  / \  / ___| \ | |_ _|  ___\ \ / /
+ * | |\/| | / _ \| |  _|  \| || || |_   \ V /
+ * | |  | |/ ___ \ |_| | |\  || ||  _|   | |
+ * |_|  |_/_/   \_\____|_| \_|___|_|     |_|
+ *
+ * jquery.magnify - v1.6.2
+ * A jQuery plugin to view images just like in windows
+ * https://github.com/nzbin/magnify#readme
+ *
+ * Copyright (c) 2017 nzbin
+ * Released under the MIT License
+ */
+;
+(function(factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as anonymous module.
+    define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+    // Node / CommonJS
+    factory(require('jquery'));
+  } else {
+    // Browser globals.
+    factory(jQuery);
+  }
+})(function($) {
+
+  'use strict';
+
+/**
+ * Private Functions
+ */
+
+/**
+ * Get image src from `data-src`
+ * @param {Object} el - image
+ */
+function getImageSrc(el) {
+  // Get data-src as image src at first
+  var src = $(el).attr('data-src') ? $(el).attr('data-src') : $(el).attr('href');
+  return src;
+}
+
+/**
+ * Throttle function
+ * @param {Function} fn - The function will be triggered
+ * @param {Number} delay - The throttle delay time
+ * @return {Function}
+ */
+function throttle(fn, delay) {
+  var timer = null;
+
+  return function () {
+    var context = this, args = arguments;
+
+    clearTimeout(timer);
+
+    timer = setTimeout(function () {
+      fn.apply(context, args);
+    }, delay);
+  };
+}
+
+/**
+ * Preload a image
+ * @param {String} src - The image src
+ * @param {Function} success - The callback of success
+ * @param {Function} error - The callback of error
+ */
+function preloadImage(src, success, error) {
+  var img = new Image();
+
+  img.onload = function () {
+    success(img);
+  };
+
+  img.onerror = function () {
+    error(img);
+  };
+
+  img.src = src;
+}
+
+/**
+ * Request fullscreen
+ * @param {type} element
+ */
+function requestFullscreen(element) {
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+}
+
+/**
+ * Exit fullscreen
+ */
+function exitFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  }
+}
+
+/**
+ * Get the image name from its url
+ * @param {String} url - The image src
+ * @return {String}
+ */
+function getImageNameFromUrl(url) {
+  var reg = /^.*?\/*([^/?]*)\.[a-z]+(\?.+|$)/gi, txt = url.replace(reg, '$1');
+  return txt;
+}
+
+/**
+ * Check if the document has a scrollbar
+ * @return {Boolean}
+ */
+function hasScrollbar() {
+  return (
+    document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight)
+  );
+}
+
+/**
+ * Get the scrollbar width
+ * @return {Number}
+ */
+function getScrollbarWidth() {
+  var scrollDiv = document.createElement('div');
+  scrollDiv.style.cssText = 'width: 99px; height: 99px; overflow: scroll; position: absolute; top: -9999px;';
+  document.body.appendChild(scrollDiv);
+  var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+  document.body.removeChild(scrollDiv);
+
+  return scrollbarWidth;
+}
+
+/**
+ * Set grab cursor when move image
+ * @param {Object} imageData - The image data
+ * @param {Object} stageData - The stage data
+ * @param {Object} stage - The stage element
+ * @param {Boolean} isRotate - The image rotated flag
+ */
+function setGrabCursor(imageData, stageData, stage, isRotated) {
+  var imageWidth = !isRotated ? imageData.w : imageData.h;
+  var imageHeight = !isRotated ? imageData.h : imageData.w;
+
+  if (imageHeight > stageData.h || imageWidth > stageData.w) {
+    stage.addClass('is-grab');
+  }
+  if (imageHeight <= stageData.h && imageWidth <= stageData.w) {
+    stage.removeClass('is-grab');
+  }
+}
+
+/**
+ * Check if browser support touch event
+ * @return {Boolean}
+ */
+function supportTouch() {
+  return !!(
+    'ontouchstart' in window || (window.DocumentTouch && document instanceof window.DocumentTouch)
+  );
+}
+
+/**
+ * Check if the browser is IE8
+ * @return {Boolean}
+ */
+function isIE8() {
+  return (
+    (navigator.appName == 'Microsoft Internet Explorer' && navigator.appVersion.indexOf('MSIE 8.0') > 0) ||
+    (navigator.appName == 'Microsoft Internet Explorer' && navigator.appVersion.indexOf('MSIE 7.0') > 0)
+  );
+}
+
+/**
+ * Private static constants
+ */
+
+var $W = $(window),
+  $D = $(document),
+  CLICK_EVENT = 'click',
+  RESIZE_EVENT = 'resize',
+  KEYDOWN_EVENT = 'keydown',
+  WHEEL_EVENT = 'wheel mousewheel DOMMouseScroll',
+  TOUCH_START_EVENT = supportTouch() ? 'touchstart' : 'mousedown',
+  TOUCH_MOVE_EVENT = supportTouch() ? 'touchmove' : 'mousemove',
+  TOUCH_END_EVENT = supportTouch() ? 'touchend' : 'mouseup',
+  NS = 'magnify',
+  EVENT_NS = '.' + NS,
+  // Plugin default options
+  DEFAULTS = {
+    // Enable modal to drag
+    draggable: true,
+    // Enable modal to resize
+    resizable: true,
+    // Enable image to move
+    movable: true,
+    // Enable keyboard navigation
+    keyboard: true,
+    // Shows the title
+    title: true,
+    // Min width of modal
+    modalWidth: 320,
+    // Min height of modal
+    modalHeight: 320,
+    // Enable the page content fixed
+    fixedContent: true,
+    // Disable the modal size fixed
+    fixedModalSize: false,
+    // Disable the image viewer maximized on init
+    initMaximized: false,
+    // Threshold of modal to browser window
+    gapThreshold: 0.02,
+    // Threshold of image ratio
+    ratioThreshold: 0.1,
+    // Min ratio of image when zoom out
+    minRatio: 0.05,
+    // Max ratio of image when zoom in
+    maxRatio: 16,
+    // Toolbar options in header
+    headerToolbar: ['maximize', 'close'],
+    // Toolbar options in footer
+    footerToolbar: [
+      'zoomIn',
+      'zoomOut',
+      'prev',
+      'fullscreen',
+      'next',
+      'actualSize',
+      'rotateRight'
+    ],
+    // Customize button icon
+    icons: {
+      minimize:
+        '<svg viewBox="0 0 1024 1024" class="svg-inline-icon">\
+          <path fill="currentColor" d="M1024 749.714v109.714c0 50.286-41.143 91.429-91.429 91.429\
+          h-841.143c-50.286 0-91.429-41.143-91.429-91.429v-109.714c0-50.286 41.143-91.429 91.429\
+          -91.429h841.143c50.286 0 91.429 41.143 91.429 91.429z"></path>\
+        </svg>',
+      maximize:
+        '<svg viewBox="0 0 1024 1024" class="svg-inline-icon">\
+          <path fill="currentColor" d="M146.286 804.571h731.429v-438.857h-731.429v438.857z\
+          M1024 164.571v694.857c0 50.286-41.143 91.429-91.429 91.429h-841.143c-50.286 0\
+          -91.429-41.143-91.429-91.429v-694.857c0-50.286 41.143-91.429 91.429-91.429\
+          h841.143c50.286 0 91.429 41.143 91.429 91.429z"></path>\
+        </svg>',
+      close:
+        '<svg viewBox="0 0 804.5714285714286 1024" class="svg-inline-icon">\
+          <path fill="currentColor" d="M741.714 755.429c0 14.286-5.714 28.571-16 38.857\
+          l-77.714 77.714c-10.286 10.286-24.571 16-38.857 16s-28.571-5.714-38.857-16l-168-168\
+          -168 168c-10.286 10.286-24.571 16-38.857 16s-28.571-5.714-38.857-16l-77.714-77.714\
+          c-10.286-10.286-16-24.571-16-38.857s5.714-28.571 16-38.857l168-168-168-168c-10.286-10.286\
+          -16-24.571-16-38.857s5.714-28.571 16-38.857l77.714-77.714c10.286-10.286 24.571-16 38.857\
+          -16s28.571 5.714 38.857 16l168 168 168-168c10.286-10.286 24.571-16 38.857-16\
+          s28.571 5.714 38.857 16l77.714 77.714c10.286 10.286 16 24.571 16 38.857s-5.714 28.571\
+          -16 38.857l-168 168 168 168c10.286 10.286 16 24.571 16 38.857z"></path>\
+        </svg>',
+      zoomIn:
+        '<svg viewBox="0 0 950.8571428571428 1024" class="svg-inline-icon">\
+          <path fill="currentColor" d="M585.143 457.143v36.571c0 9.714-8.571 18.286-18.286 18.286\
+          h-128v128c0 9.714-8.571 18.286-18.286 18.286h-36.571c-9.714 0-18.286-8.571-18.286-18.286\
+          v-128h-128c-9.714 0-18.286-8.571-18.286-18.286v-36.571c0-9.714 8.571-18.286 18.286-18.286\
+          h128v-128c0-9.714 8.571-18.286 18.286-18.286h36.571c9.714 0 18.286 8.571 18.286 18.286\
+          v128h128c9.714 0 18.286 8.571 18.286 18.286zM658.286 475.429c0-141.143-114.857-256-256\
+          -256s-256 114.857-256 256 114.857 256 256 256 256-114.857 256-256zM950.857 950.857\
+          c0 40.571-32.571 73.143-73.143 73.143-19.429 0-38.286-8-51.429-21.714l-196-195.429\
+          c-66.857 46.286-146.857 70.857-228 70.857-222.286 0-402.286-180-402.286-402.286s180\
+          -402.286 402.286-402.286 402.286 180 402.286 402.286c0 81.143-24.571 161.143-70.857 228\
+          l196 196c13.143 13.143 21.143 32 21.143 51.429z"></path>\
+        </svg>',
+      zoomOut:
+        '<svg viewBox="0 0 950.8571428571428 1024" class="svg-inline-icon">\
+          <path fill="currentColor" d="M585.143 457.143v36.571c0 9.714-8.571 18.286-18.286 18.286\
+          h-329.143c-9.714 0-18.286-8.571-18.286-18.286v-36.571c0-9.714 8.571-18.286 18.286-18.286\
+          h329.143c9.714 0 18.286 8.571 18.286 18.286zM658.286 475.429c0-141.143-114.857-256-256\
+          -256s-256 114.857-256 256 114.857 256 256 256 256-114.857 256-256zM950.857 950.857\
+          c0 40.571-32.571 73.143-73.143 73.143-19.429 0-38.286-8-51.429-21.714l-196-195.429\
+          c-66.857 46.286-146.857 70.857-228 70.857-222.286 0-402.286-180-402.286-402.286s180\
+          -402.286 402.286-402.286 402.286 180 402.286 402.286c0 81.143-24.571 161.143-70.857 228\
+          l196 196c13.143 13.143 21.143 32 21.143 51.429z"></path>\
+        </svg>',
+      prev:
+        '<svg viewBox="0 0 914.2857142857142 1024" class="svg-inline-icon">\
+          <path fill="currentColor" d="M877.714 512v73.143c0 38.857-25.714 73.143-66.857 73.143\
+          h-402.286l167.429 168c13.714 13.143 21.714 32 21.714 51.429s-8 38.286-21.714 51.429\
+          l-42.857 43.429c-13.143 13.143-32 21.143-51.429 21.143s-38.286-8-52-21.143l-372-372.571\
+          c-13.143-13.143-21.143-32-21.143-51.429s8-38.286 21.143-52l372-371.429c13.714\
+          -13.714 32.571-21.714 52-21.714s37.714 8 51.429 21.714l42.857 42.286\
+          c13.714 13.714 21.714 32.571 21.714 52s-8 38.286-21.714 52l-167.429 167.429h402.286\
+          c41.143 0 66.857 34.286 66.857 73.143z"></path>\
+        </svg>',
+      next:
+        '<svg viewBox="0 0 841.1428571428571 1024" class="svg-inline-icon">\
+          <path fill="currentColor" d="M841.143 548.571c0 19.429-7.429 38.286-21.143 52l-372 372\
+          c-13.714 13.143-32.571 21.143-52 21.143s-37.714-8-51.429-21.143l-42.857-42.857c-13.714\
+          -13.714-21.714-32.571-21.714-52s8-38.286 21.714-52l167.429-167.429h-402.286c-41.143 0\
+          -66.857-34.286-66.857-73.143v-73.143c0-38.857 25.714-73.143 66.857-73.143h402.286\
+          l-167.429-168c-13.714-13.143-21.714-32-21.714-51.429s8-38.286 21.714-51.429l42.857\
+          -42.857c13.714-13.714 32-21.714 51.429-21.714s38.286 8 52 21.714l372 372\
+          c13.714 13.143 21.143 32 21.143 51.429z"></path>\
+        </svg>',
+      fullscreen:
+        '<svg viewBox="0 0 1097.142857142857 1024" class="svg-inline-icon">\
+          <path fill="currentColor" d="M365.714 329.143c0 60.571-49.143 109.714-109.714 109.714\
+          s-109.714-49.143-109.714-109.714 49.143-109.714 109.714\
+          -109.714 109.714 49.143 109.714 109.714zM950.857 548.571v256h-804.571v-109.714l182.857\
+          -182.857 91.429 91.429 292.571-292.571zM1005.714 146.286h-914.286c-9.714 0-18.286 8.571\
+          -18.286 18.286v694.857c0 9.714 8.571 18.286 18.286 18.286h914.286c9.714 0 18.286\
+          -8.571 18.286-18.286v-694.857c0-9.714-8.571-18.286-18.286-18.286zM1097.143 164.571\
+          v694.857c0 50.286-41.143 91.429-91.429 91.429h-914.286c-50.286 0-91.429-41.143-91.429\
+          -91.429v-694.857c0-50.286 41.143-91.429 91.429-91.429h914.286\
+          c50.286 0 91.429 41.143 91.429 91.429z"></path>\
+        </svg>',
+      actualSize:
+        '<svg viewBox="0 0 877.7142857142857 1024" class="svg-inline-icon">\
+          <path fill="currentColor" d="M733.143 309.143l-202.857 202.857 202.857 202.857 82.286\
+          -82.286c10.286-10.857 26.286-13.714 40-8 13.143 5.714 22.286 18.857 22.286 33.714v256\
+          c0 20-16.571 36.571-36.571 36.571h-256c-14.857 0-28-9.143-33.714-22.857-5.714-13.143\
+          -2.857-29.143 8-39.429l82.286-82.286-202.857-202.857-202.857 202.857 82.286 82.286\
+          c10.857 10.286 13.714 26.286 8 39.429-5.714 13.714-18.857 22.857-33.714 22.857h-256\
+          c-20 0-36.571-16.571-36.571-36.571v-256c0-14.857 9.143-28 22.857-33.714 13.143\
+          -5.714 29.143-2.857 39.429 8l82.286 82.286 202.857-202.857-202.857-202.857-82.286 82.286\
+          c-6.857 6.857-16 10.857-25.714 10.857-4.571 0-9.714-1.143-13.714-2.857-13.714-5.714\
+          -22.857-18.857-22.857-33.714v-256c0-20 16.571-36.571 36.571-36.571h256\
+          c14.857 0 28 9.143 33.714 22.857 5.714 13.143 2.857 29.143-8 39.429\
+          l-82.286 82.286 202.857 202.857 202.857-202.857-82.286-82.286c-10.857-10.286-13.714\
+          -26.286-8-39.429 5.714-13.714 18.857-22.857 33.714-22.857h256\
+          c20 0 36.571 16.571 36.571 36.571v256c0 14.857-9.143 28-22.286 33.714-4.571 1.714\
+          -9.714 2.857-14.286 2.857-9.714 0-18.857-4-25.714-10.857z"></path>\
+        </svg>',
+      rotateLeft:
+        '<svg viewBox="0 0 877.7142857142857 1024" class="svg-inline-icon">\
+          <path fill="currentColor" d="M877.714 512c0 241.714-197.143 438.857-438.857 438.857\
+          -130.857 0-254.286-57.714-337.714-158.286-5.714-7.429-5.143-18.286 1.143-24.571l78.286\
+          -78.857c4-3.429 9.143-5.143 14.286\
+          -5.143 5.143 0.571 10.286 2.857 13.143 6.857 56 72.571 140 113.714 230.857 113.714 161.143 0 292.571\
+          -131.429 292.571-292.571s-131.429-292.571-292.571-292.571c-74.857 0-145.714 28.571\
+          -198.857 78.286l78.286 78.857c10.857 10.286 13.714 26.286 8 39.429-5.714 13.714\
+          -18.857 22.857-33.714 22.857h-256c-20 0-36.571-16.571-36.571-36.571v-256\
+          c0-14.857 9.143-28 22.857-33.714 13.143-5.714 29.143-2.857 39.429 8l74.286 73.714\
+          c80.571-76 189.714-121.143 302.286-121.143 241.714 0 438.857 197.143 438.857 438.857z"></path>\
+        </svg>',
+      rotateRight:
+        '<svg viewBox="0 0 877.7142857142857 1024" class="svg-inline-icon">\
+          <path fill="currentColor" d="M877.714 146.286v256c0 20-16.571 36.571-36.571 36.571h-256\
+          c-14.857 0-28-9.143-33.714-22.857-5.714-13.143-2.857-29.143 8-39.429l78.857-78.857\
+          c-53.714-49.714-124.571-78.286-199.429-78.286-161.143 0-292.571 131.429-292.571 292.571\
+          s131.429 292.571 292.571 292.571c90.857 0 174.857-41.143 230.857-113.714 2.857-4 8\
+          -6.286 13.143-6.857 5.143 0 10.286 1.714 14.286 5.143l78.286 78.857\
+          c6.857 6.286 6.857 17.143 1.143 24.571-83.429 100.571-206.857 158.286-337.714 158.286\
+          -241.714 0-438.857-197.143-438.857-438.857s197.143-438.857 438.857-438.857\
+          c112.571 0 221.714 45.143 302.286 121.143l74.286-73.714c10.286-10.857 26.286-13.714 40\
+          -8 13.143 5.714 22.286 18.857 22.286 33.714z"></path>\
+        </svg>'
+    },
+    // Customize language of button title
+    i18n: {
+      minimize: 'minimize',
+      maximize: 'maximize',
+      close: 'close',
+      zoomIn: 'zoom-in(+)',
+      zoomOut: 'zoom-out(-)',
+      prev: 'prev(←)',
+      next: 'next(→)',
+      fullscreen: 'fullscreen',
+      actualSize: 'actual-size(Ctrl+Alt+0)',
+      rotateLeft: 'rotate-left(Ctrl+,)',
+      rotateRight: 'rotate-right(Ctrl+.)'
+    },
+    // Enable multiple instances
+    multiInstances: true,
+    // Init trigger event
+    initEvent: 'click',
+    // Enable animation
+    initAnimation: true,
+    // Disable modal position fixed when change images
+    fixedModalPos: false,
+    // Modal z-index
+    zIndex: 1090,
+    // Selector of drag handler
+    dragHandle: false,
+    // Callback events
+    callbacks: {
+      beforeOpen: $.noop,
+      opened: $.noop,
+      beforeClose: $.noop,
+      closed: $.noop,
+      beforeChange: $.noop,
+      changed: $.noop
+    },
+    // Load the image progressively
+    progressiveLoading: true,
+    // Custom Buttons
+    customButtons: {}
+  },
+  PUBLIC_VARS = {
+    // Image moving flag
+    isMoving: false,
+    // Modal resizing flag
+    isResizing: false,
+    // Modal z-index setting
+    zIndex: DEFAULTS.zIndex
+  };
+
+// jQuery element of calling plugin
+var jqEl = null;
+
+/**
+ * Magnify Class
+ */
+var Magnify = function (el, options) {
+  var self = this;
+
+  this.options = $.extend(true, {}, DEFAULTS, options);
+
+  if (options && $.isArray(options.footerToolbar)) {
+    this.options.footerToolbar = options.footerToolbar;
+  }
+
+  if (options && $.isArray(options.headerToolbar)) {
+    this.options.headerToolbar = options.headerToolbar;
+  }
+
+  // Store element of clicked
+  this.$el = $(el);
+
+  // As we have multiple instances,
+  // so every instance has following variables.
+
+  // modal open flag
+  this.isOpened = false;
+  // modal maximize flag
+  this.isMaximized = false;
+  // image rotate 90*(2n+1) flag
+  this.isRotated = false;
+  // image rotate angle
+  this.rotateAngle = 0;
+
+  // if modal do resize
+  this.isDoResize = false;
+
+  // Store image data in every instance
+  this.imageData = {};
+  // Store modal data in every instance
+  this.modalData = {
+    width: null,
+    height: null,
+    left: null,
+    top: null
+  };
+
+  this.init(el, self.options);
+};
+
+/**
+ * Mangify Prototype
+ */
+Magnify.prototype = {
+  init: function (el, opts) {
+    // Get image src
+    var imgSrc = getImageSrc(el);
+
+    // Get image group
+    this.groupName = null;
+
+    var currentGroupName = $(el).attr('data-group'),
+      groupList = $D.find('[data-group="' + currentGroupName + '"]');
+
+    if (currentGroupName !== undefined) {
+      this.groupName = currentGroupName;
+      this.getImageGroup(groupList, imgSrc);
+    } else {
+      this.getImageGroup(jqEl.not('[data-group]'), imgSrc);
+    }
+
+    this.open();
+
+    this.loadImage(imgSrc);
+
+    // Draggable & Movable & Resizable
+    if (opts.draggable) {
+      this.draggable(this.$magnify, this.dragHandle, '.magnify-button');
+    }
+    if (opts.movable) {
+      this.movable(this.$stage, isIE8() ? '.magnify-image' : this.$image);
+    }
+    if (opts.resizable) {
+      this.resizable(
+        this.$magnify,
+        this.$stage,
+        isIE8() ? '.magnify-image' : this.$image,
+        opts.modalWidth,
+        opts.modalHeight
+      );
+    }
+  },
+  _createBtns: function (toolbar) {
+    var self = this;
+
+    var btns = [
+      'minimize', 'maximize', 'close',
+      'zoomIn', 'zoomOut', 'prev', 'next', 'fullscreen', 'actualSize', 'rotateLeft', 'rotateRight'
+    ];
+    var btnsHTML = '';
+
+    $.each(toolbar, function (index, item) {
+      if ($.inArray(item, btns) >= 0) {
+        btnsHTML +=
+          '<button class="magnify-button magnify-button-' + item + '" title="' + self.options.i18n[item] + '">' +
+          self.options.icons[item] +
+          '</button>';
+      } else if (self.options.customButtons[item]) {
+        btnsHTML +=
+          '<button class="magnify-button magnify-button-' + item + '" title="' + (self.options.customButtons[item].title || '') + '">' +
+          self.options.customButtons[item].text +
+          '</button>';
+      }
+    });
+
+    return btnsHTML;
+  },
+  _createTitle: function () {
+    return this.options.title ? '<div class="magnify-title"></div>' : '';
+  },
+  _createTemplate: function () {
+    // Magnify base HTML
+    var magnifyHTML =
+      '<div class="magnify-modal" tabindex="0">\
+        <div class="magnify-header">\
+          <div class="magnify-toolbar">' +
+      this._createBtns(this.options.headerToolbar) + '\
+          </div>' +
+      this._createTitle() + '\
+        </div>\
+        <div class="magnify-stage">\
+          <img class="magnify-image" src="" alt="" />\
+        </div>\
+        <div class="magnify-footer">\
+          <div class="magnify-toolbar">' +
+      this._createBtns(this.options.footerToolbar) + '\
+          </div>\
+        </div>\
+      </div>';
+
+    return magnifyHTML;
+  },
+  build: function () {
+    // Create magnify HTML string
+    var magnifyHTML = this._createTemplate();
+
+    // Make magnify HTML string to jQuery element
+    var $magnify = $(magnifyHTML);
+
+    // Get all magnify element
+    this.$magnify = $magnify;
+    this.$stage = $magnify.find('.magnify-stage');
+    this.$title = $magnify.find('.magnify-title');
+    this.$image = $magnify.find('.magnify-image');
+    this.$close = $magnify.find('.magnify-button-close');
+    this.$maximize = $magnify.find('.magnify-button-maximize');
+    this.$minimize = $magnify.find('.magnify-button-minimize');
+    this.$zoomIn = $magnify.find('.magnify-button-zoomIn');
+    this.$zoomOut = $magnify.find('.magnify-button-zoomOut');
+    this.$actualSize = $magnify.find('.magnify-button-actualSize');
+    this.$fullscreen = $magnify.find('.magnify-button-fullscreen');
+    this.$rotateLeft = $magnify.find('.magnify-button-rotateLeft');
+    this.$rotateRight = $magnify.find('.magnify-button-rotateRight');
+    this.$prev = $magnify.find('.magnify-button-prev');
+    this.$next = $magnify.find('.magnify-button-next');
+
+    // Add class before image loaded
+    this.$stage.addClass('stage-ready');
+    this.$image.addClass('image-ready');
+
+    // Reset modal z-index with multiple instances
+    this.$magnify.css('z-index', PUBLIC_VARS['zIndex']);
+
+    // Set handle element of draggable
+    if (
+      !this.options.dragHandle ||
+      this.options.dragHandle === '.magnify-modal'
+    ) {
+      this.dragHandle = this.$magnify;
+    } else {
+      this.dragHandle = this.$magnify.find(this.options.dragHandle);
+    }
+
+    // Add Magnify to DOM
+    $('body').append(this.$magnify);
+
+    this._addEvents();
+    this._addCustomButtonEvents();
+  },
+  open: function () {
+    this._triggerHook('beforeOpen', this);
+
+    if (!this.options.multiInstances) {
+      $('.magnify-modal').eq(0).remove();
+    }
+
+    // Fixed modal position bug
+    if (!$('.magnify-modal').length && this.options.fixedContent) {
+      $('html').css({ overflow: 'hidden' });
+
+      if (hasScrollbar()) {
+        var scrollbarWidth = getScrollbarWidth();
+        if (scrollbarWidth) {
+          $('html').css({ 'padding-right': scrollbarWidth });
+        }
+      }
+    }
+
+    this.build();
+
+    this.setModalPos(this.$magnify);
+
+    this.$magnify.focus();
+
+    this._triggerHook('opened', this);
+  },
+  close: function (el) {
+    this._triggerHook('beforeClose', this);
+
+    // Remove instance
+    this.$magnify.remove();
+
+    this.isOpened = false;
+    this.isMaximized = false;
+    this.isRotated = false;
+    this.rotateAngle = 0;
+
+    if (!$('.magnify-modal').length) {
+      // Fixed modal position bug
+      if (this.options.fixedContent) {
+        $('html').css({ overflow: '', 'padding-right': '' });
+      }
+
+      // Reset zIndex after close
+      if (this.options.multiInstances) {
+        PUBLIC_VARS['zIndex'] = this.options.zIndex;
+      }
+
+      // off resize events
+      $W.off(RESIZE_EVENT + EVENT_NS);
+    }
+
+    this._triggerHook('closed', this);
+  },
+  setModalPos: function (modal) {
+    var winWidth = $W.width(),
+      winHeight = $W.height(),
+      scrollLeft = $D.scrollLeft(),
+      scrollTop = $D.scrollTop();
+
+    var modalWidth = this.options.modalWidth,
+      modalHeight = this.options.modalHeight;
+
+    // Set modal maximized when init
+    if (this.options.initMaximized) {
+      modal.addClass('magnify-maximize');
+
+      modal.css({
+        width: '100%',
+        height: '100%',
+        left: 0,
+        top: 0
+      });
+
+      this.isOpened = true;
+      this.isMaximized = true;
+    } else {
+      // Make the modal in windows center
+      modal.css({
+        width: modalWidth,
+        height: modalHeight,
+        left: (winWidth - modalWidth) / 2 + scrollLeft + 'px',
+        top: (winHeight - modalHeight) / 2 + scrollTop + 'px'
+      });
+    }
+  },
+  setModalSize: function (img) {
+    var self = this,
+      winWidth = $W.width(),
+      winHeight = $W.height(),
+      scrollLeft = $D.scrollLeft(),
+      scrollTop = $D.scrollTop();
+
+    // Stage css value
+    var stageCSS = {
+      left: this.$stage.css('left'),
+      right: this.$stage.css('right'),
+      top: this.$stage.css('top'),
+      bottom: this.$stage.css('bottom'),
+      borderLeft: this.$stage.css('border-left-width'),
+      borderRight: this.$stage.css('border-right-width'),
+      borderTop: this.$stage.css('border-top-width'),
+      borderBottom: this.$stage.css('border-bottom-width')
+    };
+
+    // Modal size should calc with stage css value
+    var modalWidth = img.width +
+      parseFloat(stageCSS.left) +
+      parseFloat(stageCSS.right) +
+      parseFloat(stageCSS.borderLeft) +
+      parseFloat(stageCSS.borderRight);
+    var modalHeight = img.height +
+      parseFloat(stageCSS.top) +
+      parseFloat(stageCSS.bottom) +
+      parseFloat(stageCSS.borderTop) +
+      parseFloat(stageCSS.borderBottom);
+
+    var gapThreshold = (this.options.gapThreshold > 0 ? this.options.gapThreshold : 0) + 1;
+    // Modal scale to window
+    var scale = Math.min(
+      winWidth / (modalWidth * gapThreshold),
+      winHeight / (modalHeight * gapThreshold),
+      1
+    );
+
+    var minWidth = Math.max(modalWidth * scale, this.options.modalWidth);
+    var minHeight = Math.max(modalHeight * scale, this.options.modalHeight);
+
+    minWidth = this.options.fixedModalSize ? this.options.modalWidth : Math.round(minWidth);
+    minHeight = this.options.fixedModalSize ? this.options.modalHeight : Math.round(minHeight);
+
+    var modalCSSObj = {
+      width: minWidth + 'px',
+      height: minHeight + 'px',
+      left: (winWidth - minWidth) / 2 + scrollLeft + 'px',
+      top: (winHeight - minHeight) / 2 + scrollTop + 'px'
+    };
+
+    // Add modal init animation
+    if (this.options.initAnimation) {
+      this.$magnify.animate(modalCSSObj, function () {
+        self.setImageSize(img);
+      });
+    } else {
+      this.$magnify.css(modalCSSObj);
+      this.setImageSize(img);
+    }
+
+    this.isOpened = true;
+  },
+  getImageScaleToStage: function (stageWidth, stageHeight) {
+    var scale = 1;
+
+    if (!this.isRotated) {
+      scale = Math.min(
+        stageWidth / this.img.width,
+        stageHeight / this.img.height,
+        1
+      );
+    } else {
+      scale = Math.min(
+        stageWidth / this.img.height,
+        stageHeight / this.img.width,
+        1
+      );
+    }
+
+    return scale;
+  },
+  setImageSize: function (img) {
+    var $image = isIE8() ? this.$stage.find('.magnify-image') : this.$image;
+
+    var stageData = {
+      w: this.$stage.width(),
+      h: this.$stage.height()
+    };
+
+    var scale = this.getImageScaleToStage(stageData.w, stageData.h);
+
+    $image.css({
+      width: Math.ceil(img.width * scale) + 'px',
+      height: Math.ceil(img.height * scale) + 'px',
+      left: (stageData.w - Math.ceil(img.width * scale)) / 2 + 'px',
+      top: (stageData.h - Math.ceil(img.height * scale)) / 2 + 'px'
+    });
+
+    if (isIE8()) {
+      $image.find('group').css({
+        width: Math.floor(img.width * scale) + 'px',
+        height: Math.floor(img.height * scale) + 'px'
+      });
+    }
+
+    // Store image initial data
+    $.extend(this.imageData, {
+      initWidth: img.width * scale,
+      initHeight: img.height * scale,
+      initLeft: (stageData.w - img.width * scale) / 2,
+      initTop: (stageData.h - img.height * scale) / 2,
+      width: img.width * scale,
+      height: img.height * scale,
+      left: (stageData.w - img.width * scale) / 2,
+      top: (stageData.h - img.height * scale) / 2
+    });
+
+    // Set grab cursor
+    setGrabCursor(
+      { w: $image.width(), h: $image.height() },
+      { w: this.$stage.width(), h: this.$stage.height() },
+      this.$stage,
+      this.isRotated
+    );
+
+    // Just execute before image loaded
+    if (!this.imageLoaded) {
+      // loader end
+      this.$magnify.find('.magnify-loader').remove();
+
+      // Remove class must when image setting end
+      this.$stage.removeClass('stage-ready');
+      this.$image.removeClass('image-ready');
+
+      // Add image init animation
+      if (this.options.initAnimation && !this.options.progressiveLoading) {
+        $image.fadeIn();
+      }
+
+      this.imageLoaded = true;
+    }
+  },
+  loadImage: function (imgSrc, fn, err) {
+    var self = this;
+
+    // Reset image
+    this.$image.removeAttr('style').attr('src', '');
+    this.isRotated = false;
+    this.rotateAngle = 0;
+
+    this.imageLoaded = false;
+
+    // Loader start
+    this.$magnify.append('<div class="magnify-loader"></div>');
+
+    // Add class before image loaded
+    this.$stage.addClass('stage-ready');
+    this.$image.addClass('image-ready');
+
+    if (this.options.initAnimation && !this.options.progressiveLoading) {
+      this.$image.hide();
+    }
+
+    if (isIE8()) {
+      this.$stage.html(
+        '<img class="magnify-image" id="magnify-image" src="' + imgSrc + '" alt="" />'
+      );
+    } else {
+      this.$image.attr('src', imgSrc);
+    }
+
+    preloadImage(
+      imgSrc,
+      function (img) {
+        // Store HTMLImageElement
+        self.img = img;
+
+        // Store original data
+        self.imageData = {
+          originalWidth: img.width,
+          originalHeight: img.height
+        };
+
+        if (self.isMaximized || (self.isOpened && self.options.fixedModalPos)) {
+          self.setImageSize(img);
+        } else {
+          self.setModalSize(img);
+        }
+
+        // Callback of image loaded successfully
+        if (fn) {
+          fn.call();
+        }
+      },
+      function () {
+        // Loader end
+        self.$magnify.find('.magnify-loader').remove();
+
+        // Callback of image loading failed
+        if (err) {
+          err.call();
+        }
+      }
+    );
+
+    if (this.options.title) {
+      this.setImageTitle(imgSrc);
+    }
+  },
+  getImageGroup: function (list, imgSrc) {
+    var self = this;
+
+    self.groupData = [];
+
+    $(list).each(function (index, item) {
+      var _imgSrc = getImageSrc(this);
+
+      self.groupData.push({
+        src: _imgSrc,
+        caption: $(this).attr('data-caption')
+      });
+      // Get image index
+      if (imgSrc === _imgSrc) {
+        self.groupIndex = index;
+      }
+    });
+  },
+  setImageTitle: function (url) {
+    var title = this.groupData[this.groupIndex].caption || getImageNameFromUrl(url);
+
+    this.$title.html(title);
+  },
+  jump: function (step) {
+    this._triggerHook('beforeChange', [this, this.groupIndex]);
+
+    this.groupIndex = this.groupIndex + step;
+
+    this.jumpTo(this.groupIndex);
+  },
+  jumpTo: function (index) {
+    var self = this;
+
+    index = index % this.groupData.length;
+
+    if (index >= 0) {
+      index = index % this.groupData.length;
+    } else if (index < 0) {
+      index = (this.groupData.length + index) % this.groupData.length;
+    }
+
+    this.groupIndex = index;
+
+    this.loadImage(
+      this.groupData[index].src,
+      function () {
+        self._triggerHook('changed', [self, index]);
+      },
+      function () {
+        self._triggerHook('changed', [self, index]);
+      }
+    );
+  },
+  wheel: function (e) {
+    e.preventDefault();
+
+    var delta = 1;
+
+    if (e.originalEvent.deltaY) {
+      delta = e.originalEvent.deltaY > 0 ? 1 : -1;
+    } else if (e.originalEvent.wheelDelta) {
+      delta = -e.originalEvent.wheelDelta / 120;
+    } else if (e.originalEvent.detail) {
+      delta = e.originalEvent.detail > 0 ? 1 : -1;
+    }
+
+    // Ratio threshold
+    var ratio = -delta * this.options.ratioThreshold;
+
+    // Mouse point position relative to stage
+    var pointer = {
+      x: e.originalEvent.clientX - this.$stage.offset().left + $D.scrollLeft(),
+      y: e.originalEvent.clientY - this.$stage.offset().top + $D.scrollTop()
+    };
+
+    this.zoom(ratio, pointer, e);
+  },
+  zoom: function (ratio, origin, e) {
+    this.$image = isIE8() ? this.$stage.find('.magnify-image') : this.$image;
+
+    // Zoom out ratio & Zoom in ratio
+    ratio = ratio < 0 ? 1 / (1 - ratio) : 1 + ratio;
+
+    // Image ratio
+    ratio = (this.$image.width() / this.imageData.originalWidth) * ratio;
+
+    // Fixed digital error
+    // if (ratio > 0.95 && ratio < 1.05) {
+    //   ratio = 1;
+    // }
+
+    if (ratio > this.options.maxRatio || ratio < this.options.minRatio) {
+      return;
+    }
+
+    this.zoomTo(ratio, origin, e);
+  },
+  zoomTo: function (ratio, origin, e) {
+    var $image = isIE8() ? this.$stage.find('.magnify-image') : this.$image;
+    var $stage = this.$stage;
+    var imgData = {
+      w: this.imageData.width,
+      h: this.imageData.height,
+      x: this.imageData.left,
+      y: this.imageData.top
+    };
+
+    // Image stage position
+    // We will use it to calc the relative position of image
+    var stageData = {
+      w: $stage.width(),
+      h: $stage.height(),
+      x: $stage.offset().left,
+      y: $stage.offset().top
+    };
+
+    var newWidth = this.imageData.originalWidth * ratio;
+    var newHeight = this.imageData.originalHeight * ratio;
+    // Think about it for a while
+    var newLeft = origin.x - ((origin.x - imgData.x) / imgData.w) * newWidth;
+    var newTop = origin.y - ((origin.y - imgData.y) / imgData.h) * newHeight;
+
+    // δ is the difference between image new width and new height
+    var δ = !this.isRotated ? 0 : (newWidth - newHeight) / 2;
+    var imgNewWidth = !this.isRotated ? newWidth : newHeight;
+    var imgNewHeight = !this.isRotated ? newHeight : newWidth;
+
+    var offsetX = stageData.w - newWidth, offsetY = stageData.h - newHeight;
+
+    // Zoom out & Zoom in condition
+    // It's important and it takes me a lot of time to get it
+    // The conditions with image rotate 90 degree drive me crazy alomst!
+    if (imgNewHeight <= stageData.h) {
+      newTop = (stageData.h - newHeight) / 2;
+    } else {
+      newTop = newTop > δ ? δ : newTop > offsetY - δ ? newTop : offsetY - δ;
+    }
+
+    if (imgNewWidth <= stageData.w) {
+      newLeft = (stageData.w - newWidth) / 2;
+    } else {
+      newLeft = newLeft > -δ ? -δ : newLeft > offsetX + δ ? newLeft : offsetX + δ;
+    }
+
+    // If the image scale get to the critical point
+    if (Math.abs(this.imageData.initWidth - newWidth) < this.imageData.initWidth * 0.05) {
+      this.setImageSize(this.img);
+    } else {
+      $image.css({
+        width: Math.round(newWidth) + 'px',
+        height: Math.round(newHeight) + 'px',
+        left: Math.round(newLeft) + 'px',
+        top: Math.round(newTop) + 'px'
+      });
+
+      if (isIE8()) {
+        $image.find('group').css({
+          width: Math.ceil(newWidth) + 'px',
+          height: Math.ceil(newHeight) + 'px'
+        });
+      }
+
+      // Set grab cursor
+      setGrabCursor(
+        { w: Math.round(imgNewWidth), h: Math.round(imgNewHeight) },
+        { w: stageData.w, h: stageData.h },
+        this.$stage
+      );
+    }
+
+    // Update image initial data
+    $.extend(this.imageData, {
+      width: newWidth,
+      height: newHeight,
+      left: newLeft,
+      top: newTop
+    });
+  },
+  rotate: function (angle) {
+    this.rotateAngle = this.rotateAngle + angle;
+
+    if ((this.rotateAngle / 90) % 2 === 0) {
+      this.isRotated = false;
+    } else {
+      this.isRotated = true;
+    }
+
+    this.rotateTo(this.rotateAngle);
+  },
+  rotateTo: function (angle) {
+    var $image = isIE8() ? this.$stage.find('.magnify-image') : this.$image;
+
+    // Depend on jQueryRotate.js
+    $image.rotate({
+      angle: angle
+    });
+
+    this.setImageSize({
+      width: this.imageData.originalWidth,
+      height: this.imageData.originalHeight
+    });
+
+    // Remove grab cursor when rotate
+    this.$stage.removeClass('is-grab');
+  },
+  resize: function () {
+    var self = this;
+
+    var resizeHandler = throttle(function () {
+      if (self.isOpened) {
+        if (self.isMaximized) {
+          self.setImageSize({
+            width: self.imageData.originalWidth,
+            height: self.imageData.originalHeight
+          });
+        } else {
+          self.setModalSize({
+            width: self.imageData.originalWidth,
+            height: self.imageData.originalHeight
+          });
+        }
+      }
+    }, 500);
+
+    return resizeHandler;
+  },
+  maximize: function () {
+    this.$magnify.focus();
+
+    if (!this.isMaximized) {
+      // Store modal data before maximize
+      this.modalData = {
+        width: this.$magnify.width(),
+        height: this.$magnify.height(),
+        left: this.$magnify.offset().left,
+        top: this.$magnify.offset().top
+      };
+
+      this.$magnify.addClass('magnify-maximize');
+
+      this.$magnify.css({
+        width: '100%',
+        height: '100%',
+        left: 0,
+        top: 0
+      });
+
+      this.isMaximized = true;
+    } else {
+      this.$magnify.removeClass('magnify-maximize');
+
+      var initModalLeft = ($W.width() - this.options.modalWidth) / 2 + $D.scrollLeft();
+      var initModalTop = ($W.height() - this.options.modalHeight) / 2 + $D.scrollTop();
+
+      this.$magnify.css({
+        width: this.modalData.width ? this.modalData.width : this.options.modalWidth,
+        height: this.modalData.height ? this.modalData.height : this.options.modalHeight,
+        left: this.modalData.left ? this.modalData.left : initModalLeft,
+        top: this.modalData.top ? this.modalData.top : initModalTop
+      });
+
+      this.isMaximized = false;
+    }
+
+    this.setImageSize({
+      width: this.imageData.originalWidth,
+      height: this.imageData.originalHeight
+    });
+  },
+  fullscreen: function () {
+    this.$magnify.focus();
+    requestFullscreen(this.$magnify[0]);
+  },
+  _keydown: function (e) {
+    var self = this;
+
+    if (!this.options.keyboard) {
+      return false;
+    }
+
+    var keyCode = e.keyCode || e.which || e.charCode,
+      ctrlKey = e.ctrlKey || e.metaKey,
+      altKey = e.altKey || e.metaKey;
+
+    switch (keyCode) {
+      // ←
+      case 37:
+        self.jump(-1);
+        break;
+      // →
+      case 39:
+        self.jump(1);
+        break;
+      // +
+      case 187:
+        self.zoom(
+          self.options.ratioThreshold * 3,
+          { x: self.$stage.width() / 2, y: self.$stage.height() / 2 },
+          e
+        );
+        break;
+      // -
+      case 189:
+        self.zoom(
+          -self.options.ratioThreshold * 3,
+          { x: self.$stage.width() / 2, y: self.$stage.height() / 2 },
+          e
+        );
+        break;
+      // + Firefox
+      case 61:
+        self.zoom(
+          self.options.ratioThreshold * 3,
+          { x: self.$stage.width() / 2, y: self.$stage.height() / 2 },
+          e
+        );
+        break;
+      // - Firefox
+      case 173:
+        self.zoom(
+          -self.options.ratioThreshold * 3,
+          { x: self.$stage.width() / 2, y: self.$stage.height() / 2 },
+          e
+        );
+        break;
+      // Ctrl + Alt + 0
+      case 48:
+        if (ctrlKey && altKey) {
+          self.zoomTo(
+            1,
+            { x: self.$stage.width() / 2, y: self.$stage.height() / 2 },
+            e
+          );
+        }
+        break;
+      // Ctrl + ,
+      case 188:
+        if (ctrlKey) {
+          self.rotate(-90);
+        }
+        break;
+      // Ctrl + .
+      case 190:
+        if (ctrlKey) {
+          self.rotate(90);
+        }
+        break;
+      // Q
+      case 81:
+        this.close();
+        break;
+      default:
+    }
+  },
+  _addEvents: function () {
+    var self = this;
+
+    this.$close.off(CLICK_EVENT + EVENT_NS).on(CLICK_EVENT + EVENT_NS, function (e) {
+      self.close();
+    });
+
+    this.$stage.off(WHEEL_EVENT + EVENT_NS).on(WHEEL_EVENT + EVENT_NS, function (e) {
+      self.wheel(e);
+    });
+
+    this.$zoomIn.off(CLICK_EVENT + EVENT_NS).on(CLICK_EVENT + EVENT_NS, function (e) {
+      self.zoom(
+        self.options.ratioThreshold * 3,
+        { x: self.$stage.width() / 2, y: self.$stage.height() / 2 },
+        e
+      );
+    });
+
+    this.$zoomOut.off(CLICK_EVENT + EVENT_NS).on(CLICK_EVENT + EVENT_NS, function (e) {
+      self.zoom(
+        -self.options.ratioThreshold * 3,
+        { x: self.$stage.width() / 2, y: self.$stage.height() / 2 },
+        e
+      );
+    });
+
+    this.$actualSize.off(CLICK_EVENT + EVENT_NS).on(CLICK_EVENT + EVENT_NS, function (e) {
+      self.zoomTo(
+        1,
+        { x: self.$stage.width() / 2, y: self.$stage.height() / 2 },
+        e
+      );
+    });
+
+    this.$prev.off(CLICK_EVENT + EVENT_NS).on(CLICK_EVENT + EVENT_NS, function () {
+      self.jump(-1);
+    });
+
+    this.$fullscreen.off(CLICK_EVENT + EVENT_NS).on(CLICK_EVENT + EVENT_NS, function () {
+      self.fullscreen();
+    });
+
+    this.$next.off(CLICK_EVENT + EVENT_NS).on(CLICK_EVENT + EVENT_NS, function () {
+      self.jump(1);
+    });
+
+    this.$rotateLeft.off(CLICK_EVENT + EVENT_NS).on(CLICK_EVENT + EVENT_NS, function () {
+      self.rotate(-90);
+    });
+
+    this.$rotateRight.off(CLICK_EVENT + EVENT_NS).on(CLICK_EVENT + EVENT_NS, function () {
+      self.rotate(90);
+    });
+
+    this.$maximize.off(CLICK_EVENT + EVENT_NS).on(CLICK_EVENT + EVENT_NS, function () {
+      self.maximize();
+    });
+
+    this.$magnify.off(KEYDOWN_EVENT + EVENT_NS).on(KEYDOWN_EVENT + EVENT_NS, function (e) {
+      self._keydown(e);
+    });
+
+    $W.on(RESIZE_EVENT + EVENT_NS, self.resize());
+  },
+  _addCustomButtonEvents: function () {
+    var self = this;
+
+    for (var btnKey in self.options.customButtons) {
+      this.$magnify.find('.magnify-button-' + btnKey)
+        .off(CLICK_EVENT + EVENT_NS).on(CLICK_EVENT + EVENT_NS, function (e) {
+          self.options.customButtons[btnKey].click.apply(self, [self, e]);
+        });
+    }
+  },
+  _triggerHook: function (e, data) {
+    if (this.options.callbacks[e]) {
+      this.options.callbacks[e].apply(this, $.isArray(data) ? data : [data]);
+    }
+  }
+};
+
+/**
+ * jQuery plugin
+ */
+
+$.fn.magnify = function (options) {
+  jqEl = $(this);
+
+  // Convert a numeric string into a number
+  for (var key in options) {
+    if (typeof options[key] === 'string' && !isNaN(options[key])) {
+      options[key] = parseFloat(options[key]);
+    }
+  }
+
+  // Get init event, 'click' or 'dblclick'
+  var opts = $.extend(true, {}, DEFAULTS, options);
+
+  // We should get zIndex of options before plugin's init.
+  PUBLIC_VARS['zIndex'] = opts.zIndex;
+
+  if (typeof options === 'string') {
+    // $(this).data('magnify')[options]();
+  } else {
+    if (opts.initEvent === 'dblclick') {
+      jqEl.off('click' + EVENT_NS).on('click' + EVENT_NS, function (e) {
+        e.preventDefault();
+        // This will stop triggering data-api event
+        e.stopPropagation();
+      });
+    }
+
+    jqEl.off(opts.initEvent + EVENT_NS).on(opts.initEvent + EVENT_NS, function (e) {
+      e.preventDefault();
+      // This will stop triggering data-api event
+      e.stopPropagation();
+
+      $(this).data('magnify', new Magnify(this, options));
+    });
+  }
+
+  return jqEl;
+};
+
+/**
+ * MAGNIFY DATA-API
+ */
+$D.on(CLICK_EVENT + EVENT_NS, '[data-magnify]', function (e) {
+  jqEl = $('[data-magnify]');
+
+  e.preventDefault();
+
+  $(this).data('magnify', new Magnify(this, DEFAULTS));
+});
+
+/**
+ * Draggable
+ * @param {Object} modal - The modal element
+ * @param {Object} dragHandle - The handle element when dragging
+ * @param {Object} dragCancel - The cancel element when dragging
+ */
+
+var draggable = function (modal, dragHandle, dragCancel) {
+  var self = this;
+
+  var isDragging = false;
+
+  var startX = 0, startY = 0, left = 0, top = 0;
+
+  var dragStart = function (e) {
+    e = e || window.event;
+
+    // Must be removed
+    // e.preventDefault();
+
+    modal.focus();
+
+    // Get clicked button
+    var elemCancel = $(e.target).closest(dragCancel);
+    // Stop modal moving when click buttons
+    if (elemCancel.length) {
+      return true;
+    }
+
+    if (self.options.multiInstances) {
+      modal.css('z-index', ++PUBLIC_VARS['zIndex']);
+    }
+
+    isDragging = true;
+
+    startX = e.type === 'touchstart' ? e.originalEvent.targetTouches[0].pageX : e.clientX;
+    startY = e.type === 'touchstart' ? e.originalEvent.targetTouches[0].pageY : e.clientY;
+
+    left = $(modal).offset().left;
+    top = $(modal).offset().top;
+
+    $D.on(TOUCH_MOVE_EVENT + EVENT_NS, dragMove).on(
+      TOUCH_END_EVENT + EVENT_NS,
+      dragEnd
+    );
+  };
+
+  var dragMove = function (e) {
+    e = e || window.event;
+
+    e.preventDefault();
+
+    if (isDragging && !PUBLIC_VARS['isMoving'] && !PUBLIC_VARS['isResizing'] && !self.isMaximized) {
+      var endX = e.type === 'touchmove' ? e.originalEvent.targetTouches[0].pageX : e.clientX;
+      var endY = e.type === 'touchmove' ? e.originalEvent.targetTouches[0].pageY : e.clientY;
+      var relativeX = endX - startX;
+      var relativeY = endY - startY;
+
+      $(modal).css({
+        left: relativeX + left + 'px',
+        top: relativeY + top + 'px'
+      });
+    }
+  };
+
+  var dragEnd = function (e) {
+    $D.off(TOUCH_MOVE_EVENT + EVENT_NS, dragMove).off(
+      TOUCH_END_EVENT + EVENT_NS,
+      dragEnd
+    );
+
+    isDragging = false;
+  };
+
+  $(dragHandle).on(TOUCH_START_EVENT + EVENT_NS, dragStart);
+};
+
+// Add to Magnify Prototype
+$.extend(Magnify.prototype, {
+  draggable: draggable
+});
+
+/**
+ * --------------------------------------------------------------------------
+ * 1. No movable
+ * 2. Vertical movable
+ * 3. Horizontal movable
+ * 4. Vertical & Horizontal movable
+ * --------------------------------------------------------------------------
+ *
+ * Image movable
+ * @param {Object} stage - The stage element
+ * @param {Object} image - The image element
+ */
+
+var movable = function (stage, image) {
+  var self = this;
+
+  var isDragging = false;
+
+  var startX = 0,
+    startY = 0,
+    left = 0,
+    top = 0,
+    widthDiff = 0,
+    heightDiff = 0,
+    δ = 0;
+
+  var dragStart = function (e) {
+    e = e || window.event;
+
+    e.preventDefault();
+
+    var $image = isIE8() ? $(stage).find(image) : $(image);
+
+    var imageWidth = $image.width(),
+      imageHeight = $image.height(),
+      stageWidth = $(stage).width(),
+      stageHeight = $(stage).height();
+
+    startX = e.type === 'touchstart' ? e.originalEvent.targetTouches[0].pageX : e.clientX;
+    startY = e.type === 'touchstart' ? e.originalEvent.targetTouches[0].pageY : e.clientY;
+
+    // δ is the difference between image width and height
+    δ = !self.isRotated ? 0 : (imageWidth - imageHeight) / 2;
+
+    // Width or height difference can be use to limit image right or top position
+    widthDiff = !self.isRotated ? imageWidth - stageWidth : imageHeight - stageWidth;
+    heightDiff = !self.isRotated ? imageHeight - stageHeight : imageWidth - stageHeight;
+
+    // Modal can be dragging if image is smaller to stage
+    isDragging = widthDiff > 0 || heightDiff > 0 ? true : false;
+    PUBLIC_VARS['isMoving'] = widthDiff > 0 || heightDiff > 0 ? true : false;
+
+    // Reclac the element position when mousedown
+    // Fixed the issue of stage with a border
+    left = $image.position().left - (isIE8() ? 0 : δ);
+    top = $image.position().top + (isIE8() ? 0 : δ);
+
+    // Add grabbing cursor
+    if (stage.hasClass('is-grab')) {
+      $('html, body, .magnify-modal, .magnify-stage, .magnify-button, .magnify-resizable-handle')
+        .addClass('is-grabbing');
+    }
+
+    $D.on(TOUCH_MOVE_EVENT + EVENT_NS, dragMove).on(
+      TOUCH_END_EVENT + EVENT_NS,
+      dragEnd
+    );
+  };
+
+  var dragMove = function (e) {
+    e = e || window.event;
+
+    e.preventDefault();
+
+    var $image = isIE8() ? $(stage).find(image) : $(image);
+
+    if (isDragging) {
+      var endX = e.type === 'touchmove' ? e.originalEvent.targetTouches[0].pageX : e.clientX;
+      var endY = e.type === 'touchmove' ? e.originalEvent.targetTouches[0].pageY : e.clientY;
+      var relativeX = endX - startX;
+      var relativeY = endY - startY;
+      var newLeft = relativeX + left;
+      var newTop = relativeY + top;
+
+      // Vertical limit
+      if (heightDiff > 0) {
+        if (relativeY + top > δ) {
+          newTop = δ;
+        } else if (relativeY + top < -heightDiff + δ) {
+          newTop = -heightDiff + δ;
+        }
+      } else {
+        newTop = top;
+      }
+      // Horizontal limit
+      if (widthDiff > 0) {
+        if (relativeX + left > -δ) {
+          newLeft = -δ;
+        } else if (relativeX + left < -widthDiff - δ) {
+          newLeft = -widthDiff - δ;
+        }
+      } else {
+        newLeft = left;
+      }
+
+      $image.css({
+        left: newLeft + 'px',
+        top: newTop + 'px'
+      });
+
+      // Update image initial data
+      $.extend(self.imageData, {
+        left: newLeft,
+        top: newTop
+      });
+    }
+  };
+
+  var dragEnd = function (e) {
+    $D.off(TOUCH_MOVE_EVENT + EVENT_NS, dragMove).off(
+      TOUCH_END_EVENT + EVENT_NS,
+      dragEnd
+    );
+
+    isDragging = false;
+    PUBLIC_VARS['isMoving'] = false;
+
+    // Remove grabbing cursor
+    $('html, body, .magnify-modal, .magnify-stage, .magnify-button, .magnify-resizable-handle')
+      .removeClass('is-grabbing');
+  };
+
+  $(stage).on(TOUCH_START_EVENT + EVENT_NS, dragStart);
+};
+
+// Add to Magnify Prototype
+$.extend(Magnify.prototype, {
+  movable: movable
+});
+
+/**
+ * --------------------------------------------------------------------------
+ * 1. Modal resizable
+ * 2. Keep image in stage center
+ * 3. Other image limitations
+ * --------------------------------------------------------------------------
+ *
+ * Resizable
+ * @param {Object} modal - The modal element
+ * @param {Object} stage - The stage element
+ * @param {Object} image - The image element
+ * @param {Number} minWidth - The option of modalWidth
+ * @param {Number} minHeight - The option of modalHeight
+ */
+
+var resizable = function (modal, stage, image, minWidth, minHeight) {
+  var self = this;
+
+  var resizableHandleE = $('<div class="magnify-resizable-handle magnify-resizable-handle-e"></div>'),
+    resizableHandleW = $('<div class="magnify-resizable-handle magnify-resizable-handle-w"></div>'),
+    resizableHandleS = $('<div class="magnify-resizable-handle magnify-resizable-handle-s"></div>'),
+    resizableHandleN = $('<div class="magnify-resizable-handle magnify-resizable-handle-n"></div>'),
+    resizableHandleSE = $('<div class="magnify-resizable-handle magnify-resizable-handle-se"></div>'),
+    resizableHandleSW = $('<div class="magnify-resizable-handle magnify-resizable-handle-sw"></div>'),
+    resizableHandleNE = $('<div class="magnify-resizable-handle magnify-resizable-handle-ne"></div>'),
+    resizableHandleNW = $('<div class="magnify-resizable-handle magnify-resizable-handle-nw"></div>');
+
+  var resizableHandles = {
+    e: resizableHandleE,
+    w: resizableHandleW,
+    s: resizableHandleS,
+    n: resizableHandleN,
+    se: resizableHandleSE,
+    sw: resizableHandleSW,
+    ne: resizableHandleNE,
+    nw: resizableHandleNW
+  };
+
+  $(modal).append(
+    resizableHandleE,
+    resizableHandleW,
+    resizableHandleS,
+    resizableHandleN,
+    resizableHandleSE,
+    resizableHandleSW,
+    resizableHandleNE,
+    resizableHandleNW
+  );
+
+  var isDragging = false;
+
+  var startX = 0,
+    startY = 0,
+    modalData = {
+      w: 0,
+      h: 0,
+      l: 0,
+      t: 0
+    },
+    stageData = {
+      w: 0,
+      h: 0,
+      l: 0,
+      t: 0
+    },
+    imageData = {
+      w: 0,
+      h: 0,
+      l: 0,
+      t: 0
+    };
+  // δ is the difference between image width and height
+  var δ = 0, imgWidth = 0, imgHeight = 0, direction = '';
+
+  // Modal CSS options
+  var getModalOpts = function (dir, offsetX, offsetY) {
+    // Modal should not move when its width to the minwidth
+    var modalLeft = -offsetX + modalData.w > minWidth
+      ? offsetX + modalData.l
+      : modalData.l + modalData.w - minWidth;
+    var modalTop = -offsetY + modalData.h > minHeight
+      ? offsetY + modalData.t
+      : modalData.t + modalData.h - minHeight;
+
+    var opts = {
+      e: {
+        width: Math.max(offsetX + modalData.w, minWidth) + 'px'
+      },
+      s: {
+        height: Math.max(offsetY + modalData.h, minHeight) + 'px'
+      },
+      se: {
+        width: Math.max(offsetX + modalData.w, minWidth) + 'px',
+        height: Math.max(offsetY + modalData.h, minHeight) + 'px'
+      },
+      w: {
+        width: Math.max(-offsetX + modalData.w, minWidth) + 'px',
+        left: modalLeft + 'px'
+      },
+      n: {
+        height: Math.max(-offsetY + modalData.h, minHeight) + 'px',
+        top: modalTop + 'px'
+      },
+      nw: {
+        width: Math.max(-offsetX + modalData.w, minWidth) + 'px',
+        height: Math.max(-offsetY + modalData.h, minHeight) + 'px',
+        top: modalTop + 'px',
+        left: modalLeft + 'px'
+      },
+      ne: {
+        width: Math.max(offsetX + modalData.w, minWidth) + 'px',
+        height: Math.max(-offsetY + modalData.h, minHeight) + 'px',
+        top: modalTop + 'px'
+      },
+      sw: {
+        width: Math.max(-offsetX + modalData.w, minWidth) + 'px',
+        height: Math.max(offsetY + modalData.h, minHeight) + 'px',
+        left: modalLeft + 'px'
+      }
+    };
+
+    return opts[dir];
+  };
+
+  // Image CSS options
+  var getImageOpts = function (dir, offsetX, offsetY) {
+    var $image = isIE8() ? $(stage).find(image) : $(image);
+
+    // In modern browser, the width and height of image won't change after rotated.
+    // But its position top and left will get values from the image rotated.
+    // In IE8 browser, due to the type of rotating, all the value will be the same.
+    var imgPosLeft = isIE8() ? $image.position().left + δ : $image.position().left;
+    var imgPosTop = isIE8() ? $image.position().top - δ : $image.position().top;
+
+    // Image should not move when modal width to the min width
+    // The minwidth is modal width, so we should clac the stage minwidth
+    var widthDiff = offsetX + modalData.w > minWidth
+      ? stageData.w - imgWidth + offsetX - δ
+      : minWidth - (modalData.w - stageData.w) - imgWidth - δ;
+    var heightDiff = offsetY + modalData.h > minHeight
+      ? stageData.h - imgHeight + offsetY + δ
+      : minHeight - (modalData.h - stageData.h) - imgHeight + δ;
+    var widthDiff2 = -offsetX + modalData.w > minWidth
+      ? stageData.w - imgWidth - offsetX - δ
+      : minWidth - (modalData.w - stageData.w) - imgWidth - δ;
+    var heightDiff2 = -offsetY + modalData.h > minHeight
+      ? stageData.h - imgHeight - offsetY + δ
+      : minHeight - (modalData.h - stageData.h) - imgHeight + δ;
+
+    // Get image position in dragging
+    var imgLeft = (widthDiff > 0 ? imgPosLeft : imgPosLeft < 0 ? imgPosLeft : 0) - δ;
+    var imgTop = (heightDiff > 0 ? imgPosTop : imgPosTop < 0 ? imgPosTop : 0) + δ;
+    var imgLeft2 = (widthDiff2 > 0 ? imgPosLeft : imgPosLeft < 0 ? imgPosLeft : 0) - δ;
+    var imgTop2 = (heightDiff2 > 0 ? imgPosTop : imgPosTop < 0 ? imgPosTop : 0) + δ;
+
+    var opts = {
+      e: {
+        left: widthDiff >= -δ
+          ? (widthDiff - δ) / 2 + 'px'
+          : imgLeft > widthDiff
+            ? imgLeft + 'px'
+            : widthDiff + 'px'
+      },
+      s: {
+        top: heightDiff >= δ
+          ? (heightDiff + δ) / 2 + 'px'
+          : imgTop > heightDiff
+            ? imgTop + 'px'
+            : heightDiff + 'px'
+      },
+      se: {
+        top: heightDiff >= δ
+          ? (heightDiff + δ) / 2 + 'px'
+          : imgTop > heightDiff
+            ? imgTop + 'px'
+            : heightDiff + 'px',
+        left: widthDiff >= -δ
+          ? (widthDiff - δ) / 2 + 'px'
+          : imgLeft > widthDiff
+            ? imgLeft + 'px'
+            : widthDiff + 'px'
+      },
+      w: {
+        left: widthDiff2 >= -δ
+          ? (widthDiff2 - δ) / 2 + 'px'
+          : imgLeft2 > widthDiff2
+            ? imgLeft2 + 'px'
+            : widthDiff2 + 'px'
+      },
+      n: {
+        top: heightDiff2 >= δ
+          ? (heightDiff2 + δ) / 2 + 'px'
+          : imgTop2 > heightDiff2
+            ? imgTop2 + 'px'
+            : heightDiff2 + 'px'
+      },
+      nw: {
+        top: heightDiff2 >= δ
+          ? (heightDiff2 + δ) / 2 + 'px'
+          : imgTop2 > heightDiff2
+            ? imgTop2 + 'px'
+            : heightDiff2 + 'px',
+        left: widthDiff2 >= -δ
+          ? (widthDiff2 - δ) / 2 + 'px'
+          : imgLeft2 > widthDiff2
+            ? imgLeft2 + 'px'
+            : widthDiff2 + 'px'
+      },
+      ne: {
+        top: heightDiff2 >= δ
+          ? (heightDiff2 + δ) / 2 + 'px'
+          : imgTop2 > heightDiff2
+            ? imgTop2 + 'px'
+            : heightDiff2 + 'px',
+        left: widthDiff >= -δ
+          ? (widthDiff - δ) / 2 + 'px'
+          : imgLeft > widthDiff
+            ? imgLeft + 'px'
+            : widthDiff + 'px'
+      },
+      sw: {
+        top: heightDiff >= δ
+          ? (heightDiff + δ) / 2 + 'px'
+          : imgTop > heightDiff
+            ? imgTop + 'px'
+            : heightDiff + 'px',
+        left: widthDiff2 >= -δ
+          ? (widthDiff2 - δ) / 2 + 'px'
+          : imgLeft2 > widthDiff2
+            ? imgLeft2 + 'px'
+            : widthDiff2 + 'px'
+      }
+    };
+
+    return opts[dir];
+  };
+
+  var dragStart = function (dir, e) {
+    e = e || window.event;
+
+    e.preventDefault();
+
+    var $image = isIE8() ? $(stage).find(image) : $(image);
+
+    isDragging = true;
+    PUBLIC_VARS['isResizing'] = true;
+
+    startX = e.type === 'touchstart' ? e.originalEvent.targetTouches[0].pageX : e.clientX;
+    startY = e.type === 'touchstart' ? e.originalEvent.targetTouches[0].pageY : e.clientY;
+
+    // Reclac the modal data when mousedown
+    modalData = {
+      w: $(modal).width(),
+      h: $(modal).height(),
+      l: $(modal).offset().left,
+      t: $(modal).offset().top
+    };
+
+    stageData = {
+      w: $(stage).width(),
+      h: $(stage).height(),
+      l: $(stage).offset().left,
+      t: $(stage).offset().top
+    };
+
+    imageData = {
+      w: $image.width(),
+      h: $image.height(),
+      l: $image.position().left,
+      t: $image.position().top
+    };
+
+    // δ is the difference between image width and height
+    δ = !self.isRotated ? 0 : (imageData.w - imageData.h) / 2;
+    imgWidth = !self.isRotated ? imageData.w : imageData.h;
+    imgHeight = !self.isRotated ? imageData.h : imageData.w;
+
+    direction = dir;
+
+    // Add resizable cursor
+    $('html,body,.magnify-modal,.magnify-stage,.magnify-button').css(
+      'cursor',
+      dir + '-resize'
+    );
+
+    $D.on(TOUCH_MOVE_EVENT + EVENT_NS, dragMove).on(
+      TOUCH_END_EVENT + EVENT_NS,
+      dragEnd
+    );
+  };
+
+  var dragMove = function (e) {
+    e = e || window.event;
+
+    e.preventDefault();
+
+    var $image = isIE8() ? $(stage).find(image) : $(image);
+
+    if (isDragging && !self.isMaximized) {
+      var endX = e.type === 'touchmove' ? e.originalEvent.targetTouches[0].pageX : e.clientX;
+      var endY = e.type === 'touchmove' ? e.originalEvent.targetTouches[0].pageY : e.clientY;
+      var relativeX = endX - startX;
+      var relativeY = endY - startY;
+
+      var modalOpts = getModalOpts(direction, relativeX, relativeY);
+
+      $(modal).css(modalOpts);
+
+      var imageOpts = getImageOpts(direction, relativeX, relativeY);
+
+      $image.css(imageOpts);
+
+      self.isDoResize = true;
+    }
+  };
+
+  var dragEnd = function (e) {
+    $D.off(TOUCH_MOVE_EVENT + EVENT_NS, dragMove).off(
+      TOUCH_END_EVENT + EVENT_NS,
+      dragEnd
+    );
+
+    // Set grab cursor
+    if (PUBLIC_VARS['isResizing']) {
+      setGrabCursor(
+        { w: imgWidth, h: imgHeight },
+        { w: $(stage).width(), h: $(stage).height() },
+        stage
+      );
+    }
+
+    isDragging = false;
+    PUBLIC_VARS['isResizing'] = false;
+
+    // Remove resizable cursor
+    $('html, body, .magnify-modal, .magnify-stage, .magnify-button').css('cursor', '');
+
+    // Update image initial data
+    var scale = self.getImageScaleToStage($(stage).width(), $(stage).height());
+
+    $.extend(self.imageData, {
+      initWidth: self.img.width * scale,
+      initHeight: self.img.height * scale,
+      initLeft: ($(stage).width() - self.img.width * scale) / 2,
+      initTop: ($(stage).height() - self.img.height * scale) / 2
+    });
+  };
+
+  $.each(resizableHandles, function (dir, handle) {
+    handle.on(TOUCH_START_EVENT + EVENT_NS, function (e) {
+      dragStart(dir, e);
+    });
+  });
+};
+
+// Add to Magnify Prototype
+$.extend(Magnify.prototype, {
+  resizable: resizable
+});
+
+});
+
+// VERSION: 2.3 LAST UPDATE: 11.07.2013
+/*
+ * Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+ *
+ * Made by Wilq32, wilq32@gmail.com, Wroclaw, Poland, 01.2009
+ * Website: http://jqueryrotate.com
+ */
+
+(function($) {
+  var supportedCSS, supportedCSSOrigin, styles = document.getElementsByTagName('head')[0].style,
+    toCheck = 'transformProperty WebkitTransform OTransform msTransform MozTransform'.split(' ');
+  for (var a = 0; a < toCheck.length; a++)
+    if (styles[toCheck[a]] !== undefined) { supportedCSS = toCheck[a]; }
+  if (supportedCSS) {
+    supportedCSSOrigin = supportedCSS.replace(/[tT]ransform/, 'TransformOrigin');
+    if (supportedCSSOrigin[0] == 'T') supportedCSSOrigin[0] = 't';
+  }
+
+  // Bad eval to preven google closure to remove it from code o_O
+  eval('IE = "v"=="\v"');
+
+  jQuery.fn.extend({
+    rotate: function(parameters) {
+      if (this.length === 0 || typeof parameters == 'undefined') return;
+      if (typeof parameters == 'number') parameters = { angle: parameters };
+      var returned = [];
+      for (var i = 0, i0 = this.length; i < i0; i++) {
+        var element = this.get(i);
+        if (!element.Wilq32 || !element.Wilq32.PhotoEffect) {
+
+          var paramClone = $.extend(true, {}, parameters);
+          var newRotObject = new Wilq32.PhotoEffect(element, paramClone)._rootObj;
+
+          returned.push($(newRotObject));
+        } else {
+          element.Wilq32.PhotoEffect._handleRotation(parameters);
+        }
+      }
+      return returned;
+    },
+    getRotateAngle: function() {
+      var ret = [0];
+      for (var i = 0, i0 = this.length; i < i0; i++) {
+        var element = this.get(i);
+        if (element.Wilq32 && element.Wilq32.PhotoEffect) {
+          ret[i] = element.Wilq32.PhotoEffect._angle;
+        }
+      }
+      return ret;
+    },
+    stopRotate: function() {
+      for (var i = 0, i0 = this.length; i < i0; i++) {
+        var element = this.get(i);
+        if (element.Wilq32 && element.Wilq32.PhotoEffect) {
+          clearTimeout(element.Wilq32.PhotoEffect._timer);
+        }
+      }
+    }
+  });
+
+  // Library agnostic interface
+
+  Wilq32 = window.Wilq32 || {};
+  Wilq32.PhotoEffect = (function() {
+
+    if (supportedCSS) {
+      return function(img, parameters) {
+        img.Wilq32 = {
+          PhotoEffect: this
+        };
+
+        this._img = this._rootObj = this._eventObj = img;
+        this._handleRotation(parameters);
+      };
+    } else {
+      return function(img, parameters) {
+        this._img = img;
+        this._onLoadDelegate = [parameters];
+
+        this._rootObj = document.createElement('span');
+        this._rootObj.style.display = 'inline-block';
+        this._rootObj.Wilq32 = {
+          PhotoEffect: this
+        };
+        img.parentNode.insertBefore(this._rootObj, img);
+
+        if (img.complete) {
+          this._Loader();
+        } else {
+          var self = this;
+          // TODO: Remove jQuery dependency
+          jQuery(this._img).bind('load', function() { self._Loader(); });
+        }
+      };
+    }
+  })();
+
+  Wilq32.PhotoEffect.prototype = {
+    _setupParameters: function(parameters) {
+      this._parameters = this._parameters || {};
+      if (typeof this._angle !== 'number') { this._angle = 0; }
+      if (typeof parameters.angle === 'number') { this._angle = parameters.angle; }
+      this._parameters.animateTo = (typeof parameters.animateTo === 'number') ? (parameters.animateTo) : (this._angle);
+
+      this._parameters.step = parameters.step || this._parameters.step || null;
+      this._parameters.easing = parameters.easing || this._parameters.easing || this._defaultEasing;
+      this._parameters.duration = 'duration' in parameters ? parameters.duration : parameters.duration || this._parameters.duration || 1000;
+      this._parameters.callback = parameters.callback || this._parameters.callback || this._emptyFunction;
+      this._parameters.center = parameters.center || this._parameters.center || ['50%', '50%'];
+      if (typeof this._parameters.center[0] == 'string') {
+        this._rotationCenterX = (parseInt(this._parameters.center[0], 10) / 100) * this._imgWidth * this._aspectW;
+      } else {
+        this._rotationCenterX = this._parameters.center[0];
+      }
+      if (typeof this._parameters.center[1] == 'string') {
+        this._rotationCenterY = (parseInt(this._parameters.center[1], 10) / 100) * this._imgHeight * this._aspectH;
+      } else {
+        this._rotationCenterY = this._parameters.center[1];
+      }
+
+      if (parameters.bind && parameters.bind != this._parameters.bind) { this._BindEvents(parameters.bind); }
+    },
+    _emptyFunction: function() {},
+    _defaultEasing: function(x, t, b, c, d) { return -c * ((t = t / d - 1) * t * t * t - 1) + b; },
+    _handleRotation: function(parameters, dontcheck) {
+      if (!supportedCSS && !this._img.complete && !dontcheck) {
+        this._onLoadDelegate.push(parameters);
+        return;
+      }
+      this._setupParameters(parameters);
+      if (this._angle == this._parameters.animateTo) {
+        this._rotate(this._angle);
+      } else {
+        this._animateStart();
+      }
+    },
+
+    _BindEvents: function(events) {
+      if (events && this._eventObj) {
+        // Unbinding previous Events
+        if (this._parameters.bind) {
+          var oldEvents = this._parameters.bind;
+          for (var a in oldEvents)
+            if (oldEvents.hasOwnProperty(a))
+              // TODO: Remove jQuery dependency
+              jQuery(this._eventObj).unbind(a, oldEvents[a]);
+        }
+
+        this._parameters.bind = events;
+        for (var a in events)
+          if (events.hasOwnProperty(a))
+            // TODO: Remove jQuery dependency
+            jQuery(this._eventObj).bind(a, events[a]);
+      }
+    },
+
+    _Loader: (function() {
+      if (IE)
+        return function() {
+          var width = this._img.width;
+          var height = this._img.height;
+          this._imgWidth = width;
+          this._imgHeight = height;
+          this._img.parentNode.removeChild(this._img);
+
+          this._vimage = this.createVMLNode('image');
+          this._vimage.src = this._img.src;
+          this._vimage.style.height = height + 'px';
+          this._vimage.style.width = width + 'px';
+          this._vimage.style.position = 'absolute'; // FIXES IE PROBLEM - its only rendered if its on absolute position!
+          this._vimage.style.top = '0px';
+          this._vimage.style.left = '0px';
+          this._aspectW = this._aspectH = 1;
+
+          /* Group minifying a small 1px precision problem when rotating object */
+          this._container = this.createVMLNode('group');
+          this._container.style.width = width;
+          this._container.style.height = height;
+          this._container.style.position = 'absolute';
+          this._container.style.top = '0px';
+          this._container.style.left = '0px';
+          this._container.setAttribute('coordsize', width - 1 + ',' + (height - 1)); // This -1, -1 trying to fix ugly problem with small displacement on IE
+          this._container.appendChild(this._vimage);
+
+          this._rootObj.appendChild(this._container);
+          this._rootObj.style.position = 'relative'; // FIXES IE PROBLEM
+          this._rootObj.style.width = width + 'px';
+          this._rootObj.style.height = height + 'px';
+          this._rootObj.setAttribute('id', this._img.getAttribute('id'));
+          this._rootObj.className = this._img.className;
+          this._eventObj = this._rootObj;
+          var parameters;
+          while (parameters = this._onLoadDelegate.shift()) {
+            this._handleRotation(parameters, true);
+          }
+        };
+      else return function() {
+        this._rootObj.setAttribute('id', this._img.getAttribute('id'));
+        this._rootObj.className = this._img.className;
+
+        this._imgWidth = this._img.naturalWidth;
+        this._imgHeight = this._img.naturalHeight;
+        var _widthMax = Math.sqrt((this._imgHeight) * (this._imgHeight) + (this._imgWidth) * (this._imgWidth));
+        this._width = _widthMax * 3;
+        this._height = _widthMax * 3;
+
+        this._aspectW = this._img.offsetWidth / this._img.naturalWidth;
+        this._aspectH = this._img.offsetHeight / this._img.naturalHeight;
+
+        this._img.parentNode.removeChild(this._img);
+
+
+        this._canvas = document.createElement('canvas');
+        this._canvas.setAttribute('width', this._width);
+        this._canvas.style.position = 'relative';
+        this._canvas.style.left = -this._img.height * this._aspectW + 'px';
+        this._canvas.style.top = -this._img.width * this._aspectH + 'px';
+        this._canvas.Wilq32 = this._rootObj.Wilq32;
+
+        this._rootObj.appendChild(this._canvas);
+        this._rootObj.style.width = this._img.width * this._aspectW + 'px';
+        this._rootObj.style.height = this._img.height * this._aspectH + 'px';
+        this._eventObj = this._canvas;
+
+        this._cnv = this._canvas.getContext('2d');
+        var parameters;
+        while (parameters = this._onLoadDelegate.shift()) {
+          this._handleRotation(parameters, true);
+        }
+      };
+    })(),
+
+    _animateStart: function() {
+      if (this._timer) {
+        clearTimeout(this._timer);
+      }
+      this._animateStartTime = +new Date;
+      this._animateStartAngle = this._angle;
+      this._animate();
+    },
+    _animate: function() {
+      var actualTime = +new Date;
+      var checkEnd = actualTime - this._animateStartTime > this._parameters.duration;
+
+      // TODO: Bug for animatedGif for static rotation ? (to test)
+      if (checkEnd && !this._parameters.animatedGif) {
+        clearTimeout(this._timer);
+      } else {
+        if (this._canvas || this._vimage || this._img) {
+          var angle = this._parameters.easing(0, actualTime - this._animateStartTime, this._animateStartAngle, this._parameters.animateTo - this._animateStartAngle, this._parameters.duration);
+          this._rotate((~~(angle * 10)) / 10);
+        }
+        if (this._parameters.step) {
+          this._parameters.step(this._angle);
+        }
+        var self = this;
+        this._timer = setTimeout(function() {
+          self._animate.call(self);
+        }, 10);
+      }
+
+      // To fix Bug that prevents using recursive function in callback I moved this function to back
+      if (this._parameters.callback && checkEnd) {
+        this._angle = this._parameters.animateTo;
+        this._rotate(this._angle);
+        this._parameters.callback.call(this._rootObj);
+      }
+    },
+
+    _rotate: (function() {
+      var rad = Math.PI / 180;
+      if (IE)
+        return function(angle) {
+          this._angle = angle;
+          this._container.style.rotation = (angle % 360) + 'deg';
+          this._vimage.style.top = -(this._rotationCenterY - this._imgHeight / 2) + 'px';
+          this._vimage.style.left = -(this._rotationCenterX - this._imgWidth / 2) + 'px';
+          this._container.style.top = this._rotationCenterY - this._imgHeight / 2 + 'px';
+          this._container.style.left = this._rotationCenterX - this._imgWidth / 2 + 'px';
+
+        };
+      else if (supportedCSS)
+        return function(angle) {
+          this._angle = angle;
+          this._img.style[supportedCSS] = 'rotate(' + (angle % 360) + 'deg)';
+          this._img.style[supportedCSSOrigin] = this._parameters.center.join(' ');
+        };
+      else
+        return function(angle) {
+          this._angle = angle;
+          angle = (angle % 360) * rad;
+          // clear canvas
+          this._canvas.width = this._width; //+this._widthAdd;
+          this._canvas.height = this._height; //+this._heightAdd;
+
+          // REMEMBER: all drawings are read from backwards.. so first function is translate, then rotate, then translate, translate..
+          this._cnv.translate(this._imgWidth * this._aspectW, this._imgHeight * this._aspectH); // at least center image on screen
+          this._cnv.translate(this._rotationCenterX, this._rotationCenterY); // we move image back to its orginal
+          this._cnv.rotate(angle); // rotate image
+          this._cnv.translate(-this._rotationCenterX, -this._rotationCenterY); // move image to its center, so we can rotate around its center
+          this._cnv.scale(this._aspectW, this._aspectH); // SCALE - if needed ;)
+          this._cnv.drawImage(this._img, 0, 0); // First - we draw image
+        };
+
+    })()
+  };
+
+  if (IE) {
+    Wilq32.PhotoEffect.prototype.createVMLNode = (function() {
+      document.createStyleSheet().addRule('.rvml', 'behavior:url(#default#VML)');
+      try {
+        !document.namespaces.rvml && document.namespaces.add('rvml', 'urn:schemas-microsoft-com:vml');
+        return function(tagName) {
+          return document.createElement('<rvml:' + tagName + ' class="rvml">');
+        };
+      } catch (e) {
+        return function(tagName) {
+          return document.createElement('<' + tagName + ' xmlns="urn:schemas-microsoft.com:vml" class="rvml">');
+        };
+      }
+    })();
+  }
+
+})(jQuery);
