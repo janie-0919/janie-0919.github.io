@@ -1,0 +1,17 @@
+@import "variables";
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+#wrap {
+  width: 500%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+}
