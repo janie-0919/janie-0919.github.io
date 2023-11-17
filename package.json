@@ -1,0 +1,10 @@
+{
+  "name": "janie-0919.github.io",
+  "version": "1.0.0",
+  "dependencies": {
+    "sass": "^1.60.0"
+  },
+  "scripts": {
+    "watch": "sass --watch scss/style.scss:css/style.css"
+  }
+}
