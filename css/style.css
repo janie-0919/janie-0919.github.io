@@ -312,7 +312,7 @@ template {
 body {
   -ms-overflow-style: none;
   color: #121212;
-  font-family: "TT Commons";
+  font-family: "Gmarket Sans";
   background-color: #efefe6;
 }
 
@@ -925,57 +925,106 @@ ul, ol {
   }
 }
 @font-face {
-  font-family: "TT Commons";
+  font-family: "GongGothicMedium";
+  font-weight: 400;
   src: local("GongGothicMedium"), url("../fonts/esamanra/esamanru-medium.ttf") format("truetype"), url("../fonts/esamanra/esamanru-medium.woff") format("woff");
-  font-weight: normal;
-  unicode-range: U+AC00-D7A3;
 }
 @font-face {
-  font-family: "TT Commons";
+  font-family: "GongGothicBold";
+  font-weight: 700;
   src: local("GongGothicMedium"), url("../fonts/esamanra/esamanru-bold.ttf") format("truetype"), url("../fonts/esamanra/GongGothicBold.woff") format("woff");
-  font-weight: bold;
-  unicode-range: U+AC00-D7A3;
 }
 @font-face {
-  font-family: "TT Commons";
+  font-family: "GongGothicLight";
+  font-weight: 300;
   src: local("GongGothicMedium"), url("../fonts/esamanra/esamanru-light.ttf") format("truetype"), url("../fonts/esamanra/GongGothicLight.woff") format("woff");
-  font-weight: normal;
-  unicode-range: U+AC00-D7A3;
 }
 @font-face {
   font-family: "TT Commons";
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   src: local("TT Commons"), url("../fonts/TTCommons/TTCommons-Regular.woff") format("woff"), url("../fonts/TTCommons/TTCommons-Regular.eot") format("embedded-opentype"), url("../fonts/TTCommons/TTCommons-Regular.ttf") format("truetype");
-  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+005B-0060, U+007B-007E, U+26;
-}
-@font-face {
-  font-family: "TT Commons";
-  font-weight: normal;
-  font-style: normal;
-  src: local("TT Commons"), url("../fonts/TTCommons/TTCommons-Regular.woff") format("woff"), url("../fonts/TTCommons/TTCommons-Regular.eot") format("embedded-opentype"), url("../fonts/TTCommons/TTCommons-Regular.ttf") format("truetype");
-  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+005B-0060, U+007B-007E, U+26;
-}
-@font-face {
-  font-family: "TT Commons";
-  font-weight: bold;
-  font-style: normal;
-  src: local("TT Commons"), url("../fonts/TTCommons/TTCommons-Bold.woff") format("woff"), url("../fonts/TTCommons/TTCommons-Bold.eot") format("embedded-opentype"), url("../fonts/TTCommons/TTCommons-Bold.ttf") format("truetype");
-  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+005B-0060, U+007B-007E, U+26;
-}
-@font-face {
-  font-family: "TT Commons";
-  font-weight: 800;
-  font-style: normal;
-  src: local("TT Commons"), url("../fonts/TTCommons/TTCommons-ExtraBold.woff") format("woff"), url("../fonts/TTCommons/TTCommons-ExtraBold.eot") format("embedded-opentype"), url("../fonts/TTCommons/TTCommons-ExtraBold.ttf") format("truetype");
-  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
 }
 @font-face {
   font-family: "TT Commons";
   font-weight: 500;
   font-style: normal;
   src: local("TT Commons"), url("../fonts/TTCommons/TTCommons-Medium.woff") format("woff"), url("../fonts/TTCommons/TTCommons-Medium.eot") format("embedded-opentype"), url("../fonts/TTCommons/TTCommons-Medium.ttf") format("truetype");
-  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+@font-face {
+  font-family: "TT Commons";
+  font-weight: 700;
+  font-style: normal;
+  src: local("TT Commons"), url("../fonts/TTCommons/TTCommons-Bold.woff") format("woff"), url("../fonts/TTCommons/TTCommons-Bold.eot") format("embedded-opentype"), url("../fonts/TTCommons/TTCommons-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TT Commons";
+  font-weight: 800;
+  font-style: normal;
+  src: local("TT Commons"), url("../fonts/TTCommons/TTCommons-ExtraBold.woff") format("woff"), url("../fonts/TTCommons/TTCommons-ExtraBold.eot") format("embedded-opentype"), url("../fonts/TTCommons/TTCommons-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Gmarket Sans";
+  font-weight: 300;
+  src: url(../fonts/GmarketSans/GmarketSansTTFLight.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Gmarket Sans";
+  font-weight: 500;
+  src: url(../fonts/GmarketSans/GmarketSansTTFMedium.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Gmarket Sans";
+  font-weight: 700;
+  src: url(../fonts/GmarketSans/GmarketSansTTFBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Gmarket Sans";
+  font-weight: 400;
+  src: url(../fonts/Inter/Inter-Regular.woff) format("woff2"), url(../fonts/Inter/Inter-Regular.ttf) format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+005B-0060, U+007B-007E, U+26;
+}
+@font-face {
+  font-family: "Gmarket Sans";
+  font-weight: 500;
+  src: url(../fonts/Inter/Inter-Medium.woff2) format("woff2"), url(../fonts/Inter/Inter-Medium.ttf) format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+005B-0060, U+007B-007E, U+26;
+}
+@font-face {
+  font-family: "Gmarket Sans";
+  font-weight: 600;
+  src: url(../fonts/Inter/Inter-SemiBold.woff2) format("woff2"), url(../fonts/Inter/Inter-SemiBold.ttf) format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+005B-0060, U+007B-007E, U+26;
+}
+@font-face {
+  font-family: "Gmarket Sans";
+  font-weight: 700;
+  src: url(../fonts/Inter/Inter-Bold.woff2) format("woff2"), url(../fonts/Inter/Inter-Bold.ttf) format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+005B-0060, U+007B-007E, U+26;
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  src: url(../fonts/Pretendard/Pretendard-Regular.eot);
+  src: url(../fonts/Pretendard/Pretendard-Regular.eot?#iefix) format("embedded-opentype"), url(../fonts/Pretendard/Pretendard-Regular.woff2) format("woff2"), url(../fonts/Pretendard/Pretendard-Regular.woff) format("woff"), url(../fonts/Pretendard/Pretendard-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  src: url(../fonts/Pretendard/Pretendard-Medium.eot);
+  src: url(../fonts/Pretendard/Pretendard-Medium.eot?#iefix) format("embedded-opentype"), url(../fonts/Pretendard/Pretendard-Medium.woff2) format("woff2"), url(../fonts/Pretendard/Pretendard-Medium.woff) format("woff"), url(../fonts/Pretendard/Pretendard-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  src: url(../fonts/Pretendard/Pretendard-SemiBold.eot);
+  src: url(../fonts/Pretendard/Pretendard-SemiBold.eot?#iefix) format("embedded-opentype"), url(../fonts/Pretendard/Pretendard-SemiBold.woff2) format("woff2"), url(../fonts/Pretendard/Pretendard-SemiBold.woff) format("woff"), url(../fonts/Pretendard/Pretendard-SemiBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  src: url(../fonts/Pretendard/Pretendard-Bold.eot);
+  src: url(../fonts/Pretendard/Pretendard-Bold.eot?#iefix) format("embedded-opentype"), url(../fonts/Pretendard/Pretendard-Bold.woff2) format("woff2"), url(../fonts/Pretendard/Pretendard-Bold.woff) format("woff"), url(../fonts/Pretendard/Pretendard-Bold.ttf) format("truetype");
 }
 /*!
  * Font Awesome Free 6.0.0-beta2 by @fontawesome - https://fontawesome.com
@@ -9979,7 +10028,6 @@ html {
 
 .font-normal {
   font-style: normal;
-  font-weight: 400;
 }
 
 #wrap {
@@ -10028,6 +10076,7 @@ section {
   position: relative;
   width: 50%;
   overflow: hidden;
+  font-family: "TT Commons";
 }
 .main .inner .main-text .box {
   display: flex;
@@ -10119,17 +10168,14 @@ section {
   width: 100%;
   height: 100%;
   align-items: center;
+  gap: 20px;
 }
 .profile .inner .card-wrap .card {
-  width: 33.3333%;
-  margin-right: 20px;
+  flex: 1;
 }
-.profile .inner .card-wrap .card:nth-child(3) .card-inner .text-item-list li {
-  font-size: 18px;
-  font-weight: 500;
-}
-.profile .inner .card-wrap .card:last-child {
-  margin-right: 0;
+.profile .inner .card-wrap .card:nth-child(2) .card-inner .text-item-list li {
+  font-family: "Pretendard";
+  font-size: 17px;
 }
 .profile .inner .card-wrap .card .card-inner {
   background-color: #fff;
@@ -10144,9 +10190,9 @@ section {
   margin-bottom: 40px;
 }
 .profile .inner .card-wrap .card .card-inner .card-header i {
-  font-weight: bold;
+  font-weight: 500;
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: #f66867;
 }
 .profile .inner .card-wrap .card .card-inner .card-header .title {
@@ -10154,7 +10200,7 @@ section {
   text-align: center;
   font-size: 26px;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 700;
   color: #f66867;
 }
 .profile .inner .card-wrap .card .card-inner .item-list {
@@ -10162,11 +10208,12 @@ section {
 }
 .profile .inner .card-wrap .card .card-inner .item-list ul li span:first-child {
   display: block;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 10px;
   letter-spacing: -0.4px;
+  font-family: "TT Commons";
 }
 .profile .inner .card-wrap .card .card-inner .item-list ul li span:first-child i {
   margin-left: 5px;
@@ -10192,6 +10239,7 @@ section {
 .profile .inner .card-wrap .card .card-inner .text-item-list ul li {
   position: relative;
   font-size: 16px;
+  font-weight: 500;
   line-height: 30px;
   padding-left: 20px;
   margin-bottom: 15px;
@@ -10228,6 +10276,7 @@ section {
   font-weight: 900;
   margin-bottom: 10px;
   text-transform: uppercase;
+  font-family: "TT Commons";
 }
 .career .inner .year-info .year {
   font-size: 18px;
@@ -10269,15 +10318,15 @@ section {
   width: calc(100% - 155px);
   font-size: 20px;
   line-height: 30px;
-  font-weight: bold;
+  font-weight: 700;
   word-break: keep-all;
   padding-top: 3px;
 }
 .career .inner .work-list ul .item .item-header .year {
   display: block;
   width: 155px;
-  font-size: 18px;
-  font-weight: 300;
+  font-size: 16px;
+  font-weight: 500;
   text-align: right;
 }
 .career .inner .work-list ul .item .item-header:hover .title {
@@ -10290,8 +10339,9 @@ section {
   padding: 20px 0;
 }
 .career .inner .work-list ul .item .item-body .text {
+  font-family: "Pretendard";
   font-size: 16px;
-  font-weight: normal;
+  font-weight: 700;
   line-height: 24px;
   margin-bottom: 10px;
 }
@@ -10299,9 +10349,9 @@ section {
   content: "- ";
 }
 .career .inner .work-list ul .item .item-body .desc {
+  font-family: "Pretendard";
   font-size: 16px;
-  font-weight: normal;
-  line-height: 28px;
+  line-height: 30px;
   margin-bottom: 20px;
   padding-left: 30px;
 }
@@ -10407,6 +10457,7 @@ section {
   color: #f66867;
   margin-top: 10px;
   font-size: 14px;
+  font-family: "Pretendard";
 }
 
 .section05 {
@@ -10440,7 +10491,7 @@ section {
   transform: translateY(4px);
 }
 
-@media (max-width: 799px) {
+@media (max-width: 1050px) {
   #wrap {
     display: block;
     width: 100%;
@@ -10554,7 +10605,7 @@ section {
     height: auto;
     width: calc(100% - 40px);
     max-width: 768px;
-    padding: 30px 20px;
+    padding: 50px 20px;
     align-items: initial;
   }
   .career .inner .year-info {
@@ -10563,11 +10614,7 @@ section {
   }
   .career .inner .year-info .heading {
     font-size: 24px;
-    margin-bottom: 20px;
-  }
-  .career .inner .year-info .year {
-    font-size: 20px;
-    font-weight: 600;
+    margin-bottom: 10px;
   }
   .career .inner .work-list {
     width: 100%;
@@ -10586,13 +10633,13 @@ section {
   }
   .career .inner .work-list ul .item .item-header .title {
     display: inline-block;
-    width: calc(100% - 110px);
+    width: calc(100% - 130px);
     font-size: 18px;
     line-height: 24px;
   }
   .career .inner .work-list ul .item .item-header .year {
     display: inline-block;
-    width: 110px;
+    width: 130px;
     font-size: 14px;
     padding-top: 3px;
   }
