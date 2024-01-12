@@ -10577,7 +10577,7 @@ section {
     margin-bottom: 20px;
     padding: 0 20px;
   }
-  .profile .inner .card-wrap .card:nth-child(3) .card-inner .text-item-list li {
+  .profile .inner .card-wrap .card:nth-child(2) .card-inner .text-item-list li {
     font-size: 16px;
   }
   .profile .inner .card-wrap .card .card-inner {
@@ -10595,7 +10595,7 @@ section {
     line-height: 18px;
   }
   .profile .inner .card-wrap .card .card-inner .text-item-list ul li {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 30px;
     margin-bottom: 5px;
   }
