@@ -200,7 +200,7 @@ front.common = (function () {
               }
 
               var getGalleryNum = $(this).siblings().children('.img-container').find('a').eq(0).attr('data-magnify')
-              // console.log(getGalleryNum)
+              console.log(getGalleryNum)
               $(`[data-magnify = ${getGalleryNum}]`).magnify({
                   title: false,
                   headerToolbar: [
