@@ -264,4 +264,3 @@ front.common = (function () {
 $(function () {
   front.common.init();
 });
-

@@ -143,3 +143,4 @@
 /node_modules/to-regex-range/README.md
 /node_modules/.package-lock.json
 /package-lock.json
+/node_modules/sass/types/deprecations.d.ts
