@@ -602,6 +602,12 @@ body {
   font-family: "Inter", "Noto Sans KR", "AppleSDGothicNeo", sans-serif;
   color: #020617;
   margin: 0 auto;
+  min-height: 100vh;
+}
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
 }
 
 em, i {
@@ -1288,7 +1294,7 @@ textarea.form-control {
   margin-bottom: 24px;
 }
 .floating-popup .popup-body {
-  max-height: calc(100vh - 300px);
+  max-height: calc(100dvh - 300px);
   overflow-y: auto;
 }
 .floating-popup .popup-body .img {
@@ -1382,7 +1388,6 @@ textarea.form-control {
   color: #9a9ba2;
 }
 .menu-popup .popup-content {
-  position: relative;
   display: flex;
   height: calc(100dvh - 200px);
   flex-direction: column;
@@ -1410,18 +1415,13 @@ textarea.form-control {
   color: #7e49ff;
 }
 .menu-popup .bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   display: flex;
-  width: 100%;
   align-items: center;
   justify-content: space-between;
   color: #64748b;
   font-size: 15px;
   line-height: 20px;
   padding: 0 24px 36px;
-  padding-bottom: calc(env(safe-area-inset-bottom) + 36px);
 }
 .menu-popup .bottom .btn-logout {
   display: flex;
