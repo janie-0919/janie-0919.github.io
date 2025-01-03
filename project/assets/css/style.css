@@ -1382,6 +1382,7 @@ textarea.form-control {
   color: #9a9ba2;
 }
 .menu-popup .popup-content {
+  position: relative;
   display: flex;
   height: calc(100dvh - 200px);
   flex-direction: column;
@@ -1409,7 +1410,11 @@ textarea.form-control {
   color: #7e49ff;
 }
 .menu-popup .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   color: #64748b;
