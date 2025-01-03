@@ -11,6 +11,19 @@ $('a[href="#"]').on('click', function (e) {
  * */
 
 /**
+ * vh
+ * */
+
+const setVh = () => {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
+};
+
+setVh();
+/**
+ * ******************************************************************
+ * */
+
+/**
  * Input UI
  * */
 $('.btn-eye').on('click', function () {
