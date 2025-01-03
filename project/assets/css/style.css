@@ -534,7 +534,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding-top: 56px;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 .container:only-child {
   padding-top: 32px;
