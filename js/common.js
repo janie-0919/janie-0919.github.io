@@ -56,49 +56,30 @@ front.common = (function () {
 
       gsap.registerPlugin(ScrollTrigger);
 
-      let SECTIONS = gsap.utils.toArray("section");
+      const SECTIONS = gsap.utils.toArray("section");
+      const paginationWrap = document.querySelector(".pagination-wrap ul");
+
+      paginationWrap.innerHTML = SECTIONS.map((_, index) =>
+          `<li${index === 0 ? ' class="active"' : ''}><span class="sr-only">${index + 1}</span></li>`
+      ).join("");
+
+      const paginationItems = document.querySelectorAll(".pagination-wrap li");
+
+      function findActiveIndex(progress, sectionCount) {
+          const step = 1 / sectionCount;
+          return Math.min(Math.floor(progress / step), sectionCount - 1);
+      }
 
       ScrollTrigger.create({
-          trigger:"#wrap",
-          start:"top top",
-          end:"bottom bottom",
+          trigger: "#wrap",
+          start: "top top",
+          end: "bottom bottom",
           markers: false,
-          // onEnter: self => console.log(self.isActive),
           onUpdate(self) {
-              // let progress = self.progress;
-              // progress.toFixed(3);
-              // $('#progress').css('width', `${progress * 100}%`);
-
-              // console.log(self.progress)
-
-              if (self.progress < .18) {
-                  // $('.main').addClass('active').siblings().removeClass('active');
-                  $('.pagination-wrap li').eq(0).addClass('active').siblings().removeClass('active');
-              }
-              else if (self.progress > .18 && self.progress < .4) {
-                  // $('.section02').addClass('active').siblings().removeClass('active');
-                  $('.pagination-wrap li').eq(1).addClass('active').siblings().removeClass('active');
-              }
-              else if (self.progress > .4 && self.progress < .6) {
-                  // $('.section03').addClass('active').siblings().removeClass('active');
-                  $('.pagination-wrap li').eq(2).addClass('active').siblings().removeClass('active');
-              }
-              else if (self.progress > .6 && self.progress < .8) {
-                  // $('.section04').addClass('active').siblings().removeClass('active');
-                  $('.pagination-wrap li').eq(3).addClass('active').siblings().removeClass('active');
-              }
-              else if (self.progress > .9 && self.progress < 1){
-                  // $('.section05').addClass('active').siblings().removeClass('active');
-                  $('.pagination-wrap li').eq(4).addClass('active').siblings().removeClass('active');
-              }
-              else if (self.progress === 1){
-                  // $('.section05').addClass('active').siblings().removeClass('active');
-                  $('.pagination-wrap li').eq(5).addClass('active').siblings().removeClass('active');
-              }
-              // else {
-              //     // $('.section05').addClass('active').siblings().removeClass('active');
-              //     $('.pagination-wrap li').eq(5).addClass('active').siblings().removeClass('active');
-              // }
+              const activeIndex = findActiveIndex(self.progress, SECTIONS.length);
+              paginationItems.forEach((item, index) => {
+                  item.classList.toggle("active", index === activeIndex);
+              });
           }
       });
 
@@ -219,10 +200,10 @@ front.common = (function () {
           // accordion('career2')
 
           $(".img-container").each(function(){
-              var ranNum = Math.random();
-              var galleryNum = Math.floor(ranNum * 100)
+              let ranNum = Math.random();
+              let galleryNum = Math.floor(ranNum * 100)
               // console.log(galleryNum)
-              var $img = $(this).children();
+              let $img = $(this).children();
               // console.log($img)
               $img.attr('data-magnify',galleryNum);
           });
