@@ -8,6 +8,10 @@ html {
   font-weight: 500;
 }
 
+.font-bold {
+  font-weight: bold;
+}
+
 .font-normal {
   font-style: normal;
 }
@@ -502,6 +506,10 @@ section {
 
             .img-container {
               text-align: center;
+
+              + .text {
+                margin-top: 20px;
+              }
 
               a {
                 display: inline-block;

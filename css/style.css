@@ -10026,6 +10026,10 @@ html {
   font-weight: 500;
 }
 
+.font-bold {
+  font-weight: bold;
+}
+
 .font-normal {
   font-style: normal;
 }
@@ -10434,6 +10438,9 @@ section {
 }
 .career .inner .work-list ul .item .item-body .img-container {
   text-align: center;
+}
+.career .inner .work-list ul .item .item-body .img-container + .text {
+  margin-top: 20px;
 }
 .career .inner .work-list ul .item .item-body .img-container a {
   display: inline-block;
