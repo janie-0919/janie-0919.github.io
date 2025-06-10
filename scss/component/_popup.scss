@@ -153,9 +153,23 @@
 }
 
 .magnify-modal {
-  background-color: $orange;
+  background-color: $gray;
 }
 
 .magnify-stage {
   border: 0;
+}
+
+.magnify-button {
+  font-size: 20px;
+
+  .svg-inline-icon {
+    path {
+      fill: $white;
+    }
+  }
+
+  &.magnify-button-close {
+    color: $black;
+  }
 }

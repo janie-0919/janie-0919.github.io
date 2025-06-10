@@ -1,10 +1,41 @@
 @import "variables";
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  overflow: visible !important;
+}
+
 body {
   -ms-overflow-style: none;
+  overflow-x: hidden;
   color: $text;
   font-family: $font;
   background-color: #efefe6;
+}
+
+section {
+  display: block;
+  width: 100%;
+  position: relative;
+  justify-content: initial;
+  align-items: initial;
+  overflow: hidden;
+}
+
+#wrap {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 ::-webkit-scrollbar {
@@ -94,10 +125,20 @@ ul, ol {
   }
 }
 
-@media (max-width: 799px) {
+@media (max-width: $mobileSize) {
   .pagination-wrap {
     display: none;
   }
 }
 
+.font-medium {
+  font-weight: 500;
+}
 
+.font-bold {
+  font-weight: bold;
+}
+
+.font-normal {
+  font-style: normal;
+}
