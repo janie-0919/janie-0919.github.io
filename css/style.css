@@ -10428,13 +10428,13 @@ readers do not read off random characters that represent icons */
   border-top: 2px solid #121212;
   padding: 20px 0;
 }
-.career .inner .work-list .item .item-body .text {
-  font-size: 16px;
+.career .inner .work-list .item .item-body .label {
+  font-size: 18px;
   font-weight: 700;
   line-height: 24px;
   margin-bottom: 10px;
 }
-.career .inner .work-list .item .item-body .text::before {
+.career .inner .work-list .item .item-body .label::before {
   content: "- ";
 }
 .career .inner .work-list .item .item-body .desc {
@@ -10523,7 +10523,7 @@ readers do not read off random characters that represent icons */
 .career .inner .work-list .item .item-body .img-list {
   text-align: center;
 }
-.career .inner .work-list .item .item-body .img-list + .text {
+.career .inner .work-list .item .item-body .img-list + .label {
   margin-top: 20px;
 }
 .career .inner .work-list .item .item-body .img-list a {
