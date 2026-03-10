@@ -10279,6 +10279,10 @@ readers do not read off random characters that represent icons */
   padding-left: 20px;
   margin-bottom: 15px;
   text-transform: uppercase;
+  word-break: keep-all;
+}
+.profile .inner .card-wrap .card .content .info .list .item strong {
+  display: block;
 }
 .profile .inner .card-wrap .card .content .info .list .item:last-child {
   margin-bottom: 0;
