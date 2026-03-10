@@ -635,6 +635,22 @@
         font-size: 14px;
       }
     }
+
+    .project-badge {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 4px 6px;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.2;
+      background: $primary;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-top: -3px;
+      border: 1px solid $primary;
+      color: $primary;
+      background: none;
+    }
   }
 }
 

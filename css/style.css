@@ -10549,6 +10549,21 @@ readers do not read off random characters that represent icons */
   margin-top: 10px;
   font-size: 14px;
 }
+.career .inner .project-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 4px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  background: #f66867;
+  border-radius: 3px;
+  vertical-align: middle;
+  margin-top: -3px;
+  border: 1px solid #f66867;
+  color: #f66867;
+  background: none;
+}
 
 @media (max-width: 1050px) {
   .career .inner {
