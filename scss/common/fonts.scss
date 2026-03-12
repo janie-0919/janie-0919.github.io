@@ -1,0 +1,98 @@
+/*
+  Fonts
+*/
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 300;
+  font-display: swap;
+  src: local('Pretendard Light'), url(../fonts/Pretendard/Pretendard-Light.woff2) format('woff2'),
+  url(../fonts/Pretendard/Pretendard-Light.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Pretendard Regular'), url(../fonts/Pretendard/Pretendard-Regular.woff2) format('woff2'),
+  url(../fonts/Pretendard/Pretendard-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Pretendard Medium'), url(../fonts/Pretendard/Pretendard-Medium.woff2) format('woff2'),
+  url(../fonts/Pretendard/Pretendard-Medium.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Pretendard SemiBold'), url(../fonts/Pretendard/Pretendard-SemiBold.woff2) format('woff2'),
+  url(../fonts/Pretendard/Pretendard-SemiBold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Pretendard Bold'), url(../fonts/Pretendard/Pretendard-Bold.woff2) format('woff2'),
+  url(../fonts/Pretendard/Pretendard-Bold.woff) format('woff');
+}
+
+// -------------------------------------------------------------------------------
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(../fonts/Cormorant/Cormorant-Bold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(../fonts/Cormorant/Cormorant-BoldItalic.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/Cormorant/Cormorant-Italic.woff2) format('woff2');
+}
+
+// -------------------------------------------------------------------------------
+
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(../fonts/DMMono/DM+Mono-light.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(../fonts/DMMono/DM+Mono-light.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/DMMono/DM+Mono-regular.woff2) format('woff2');
+}
