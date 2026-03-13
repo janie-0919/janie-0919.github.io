@@ -88,21 +88,6 @@
   --surf: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #f5f2ee;
-    --ink: #1a1a1a;
-    --sub: #4a4a46;
-    --muted: #888880;
-    --light: #dedad4;
-    --pop: #c17f52;
-    --surf: #ffffff;
-  }
-  html, body {
-    background: #f5f2ee !important;
-    color: #1a1a1a !important;
-  }
-}
 .pj-more-btn, #main-nav .nav-toggle {
   background: none;
   border: none;
