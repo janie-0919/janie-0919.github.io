@@ -56,6 +56,7 @@ function closeNav() {
     document.body.style.overflow = '';
 }
 
+drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
 
 /* ── GSAP 타임라인 ── */

@@ -31,21 +31,6 @@ $bp-sm: 640px;
   --surf: #{$surf};
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #{$bg};
-    --ink: #{$ink};
-    --sub: #{$sub};
-    --muted: #{$muted};
-    --light: #{$light};
-    --pop: #{$pop};
-    --surf: #{$surf};
-  }
-  html, body {
-    background: $bg !important;
-    color: $ink !important;
-  }
-}
 
 
 // ── Mixins ────────────────────────────────────────────────
