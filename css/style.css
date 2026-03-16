@@ -851,9 +851,6 @@ body {
 .pj-card:hover .pj-thumb::after {
   background: rgba(193, 127, 82, 0.12);
 }
-.pj-thumb.has-lb {
-  cursor: zoom-in;
-}
 
 .pj-thumb-gradient {
   background: linear-gradient(135deg, #c17f52 0%, #b87242 40%, #d1a07f 70%, #c17f52 100%);
@@ -1333,6 +1330,8 @@ body {
   border-radius: 4px;
   box-shadow: 0 24px 64px rgba(26, 26, 26, 0.5);
   transition: opacity 0.2s;
+  transform-origin: center;
+  will-change: transform;
 }
 
 .lb-arrow, .lb-close {
@@ -1397,6 +1396,56 @@ body {
 }
 .lb-counter.hidden {
   display: none;
+}
+
+.lb-zoom-controls {
+  position: fixed;
+  bottom: 3.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 2rem;
+  padding: 0.35rem 0.7rem;
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.lb-zoom-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: opacity 0.15s, background 0.15s;
+}
+.lb-zoom-btn:hover:not(:disabled) {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.15);
+}
+.lb-zoom-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.lb-zoom-level {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  min-width: 3.2rem;
+  text-align: center;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
 }
 
 /*# sourceMappingURL=style.css.map */
