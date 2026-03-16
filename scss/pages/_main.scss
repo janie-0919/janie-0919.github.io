@@ -1404,6 +1404,8 @@ $badge-colors: (
     border-radius: 4px;
     box-shadow: 0 24px 64px rgba($ink, .5);
     transition: opacity .2s;
+    transform-origin: center;
+    will-change: transform;
   }
 }
 
@@ -1475,4 +1477,56 @@ $badge-colors: (
   &.hidden {
     display: none;
   }
+}
+
+.lb-zoom-controls {
+  position: fixed;
+  bottom: 3.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  background: rgba(#000, .45);
+  border: 1px solid rgba(#fff, .15);
+  border-radius: 2rem;
+  padding: .35rem .7rem;
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.lb-zoom-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: .8;
+  transition: opacity .15s, background .15s;
+
+  &:hover:not(:disabled) {
+    opacity: 1;
+    background: rgba(#fff, .15);
+  }
+
+  &:disabled {
+    opacity: .3;
+    cursor: default;
+  }
+}
+
+.lb-zoom-level {
+  font-size: .85rem;
+  color: rgba(#fff, .75);
+  min-width: 3.2rem;
+  text-align: center;
+  letter-spacing: .04em;
+  font-variant-numeric: tabular-nums;
 }

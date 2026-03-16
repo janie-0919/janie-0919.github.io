@@ -259,6 +259,11 @@ gsap.utils.toArray('.career-section').forEach(sec => {
         <img id="lb-img" src="" alt="">
     </div>
     <button class="lb-arrow" id="lb-next" aria-label="다음">&#8594;</button>
+    <div class="lb-zoom-controls" id="lb-zoom-controls">
+        <button class="lb-zoom-btn" id="lb-zoom-out" aria-label="축소">−</button>
+        <span class="lb-zoom-level" id="lb-zoom-level">100%</span>
+        <button class="lb-zoom-btn" id="lb-zoom-in" aria-label="확대">＋</button>
+    </div>
     <div class="lb-counter" id="lb-counter"></div>`;
     document.body.appendChild(overlay);
 
@@ -266,8 +271,96 @@ gsap.utils.toArray('.career-section').forEach(sec => {
     const lbPrev    = document.getElementById('lb-prev');
     const lbNext    = document.getElementById('lb-next');
     const lbCounter = document.getElementById('lb-counter');
+    const lbZoomIn  = document.getElementById('lb-zoom-in');
+    const lbZoomOut = document.getElementById('lb-zoom-out');
+    const lbZoomLvl = document.getElementById('lb-zoom-level');
+    const imgWrap   = overlay.querySelector('.lb-img-wrap');
 
     let images = [], cur = 0;
+
+    /* ── 줌 상태 ── */
+    let scale = 1, tx = 0, ty = 0;
+    let isDragging = false, dragSX = 0, dragSY = 0, dragTx = 0, dragTy = 0;
+    const MIN_SCALE = 1, MAX_SCALE = 4, STEP = 0.5;
+
+    function applyTransform(animate) {
+        lbImg.style.transition = animate ? 'transform .15s ease' : 'none';
+        lbImg.style.transform  = `translate(${tx}px, ${ty}px) scale(${scale})`;
+        lbZoomLvl.textContent  = Math.round(scale * 100) + '%';
+        lbZoomOut.disabled     = scale <= MIN_SCALE;
+        lbZoomIn.disabled      = scale >= MAX_SCALE;
+        imgWrap.style.cursor   = scale > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default';
+    }
+
+    function resetZoom() { scale = 1; tx = 0; ty = 0; applyTransform(true); }
+
+    function zoomTo(newScale, pivotX, pivotY) {
+        const rect = imgWrap.getBoundingClientRect();
+        const cx = rect.left + rect.width  / 2;
+        const cy = rect.top  + rect.height / 2;
+        const px = (pivotX != null ? pivotX : cx) - cx;
+        const py = (pivotY != null ? pivotY : cy) - cy;
+
+        newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, newScale));
+        const ratio = newScale / scale;
+        tx = px * (1 - ratio) + tx * ratio;
+        ty = py * (1 - ratio) + ty * ratio;
+        scale = newScale;
+        if (scale === MIN_SCALE) { tx = 0; ty = 0; }
+        applyTransform(true);
+    }
+
+    /* 줌 버튼 */
+    lbZoomIn.addEventListener('click',  e => { e.stopPropagation(); zoomTo(scale + STEP); });
+    lbZoomOut.addEventListener('click', e => { e.stopPropagation(); zoomTo(scale - STEP); });
+
+    /* 마우스 휠 줌 */
+    imgWrap.addEventListener('wheel', e => {
+        e.preventDefault();
+        zoomTo(scale + (e.deltaY < 0 ? STEP : -STEP), e.clientX, e.clientY);
+    }, { passive: false });
+
+    /* 더블클릭 줌 토글 */
+    imgWrap.addEventListener('dblclick', e => {
+        if (scale > 1) resetZoom();
+        else zoomTo(2, e.clientX, e.clientY);
+    });
+
+    /* 드래그 패닝 */
+    imgWrap.addEventListener('mousedown', e => {
+        if (scale <= 1) return;
+        isDragging = true;
+        dragSX = e.clientX; dragSY = e.clientY;
+        dragTx = tx;        dragTy = ty;
+        imgWrap.style.cursor = 'grabbing';
+        e.preventDefault();
+    });
+    document.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+        tx = dragTx + (e.clientX - dragSX);
+        ty = dragTy + (e.clientY - dragSY);
+        applyTransform(false);
+    });
+    document.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        imgWrap.style.cursor = 'grab';
+    });
+
+    /* 핀치 투 줌 */
+    let pinchDist0 = 0, pinchScale0 = 1;
+    function touchDist(t) { return Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY); }
+    imgWrap.addEventListener('touchstart', e => {
+        if (e.touches.length === 2) { pinchDist0 = touchDist(e.touches); pinchScale0 = scale; }
+    }, { passive: true });
+    imgWrap.addEventListener('touchmove', e => {
+        if (e.touches.length !== 2) return;
+        e.preventDefault();
+        const t = e.touches;
+        zoomTo(pinchScale0 * touchDist(t) / pinchDist0,
+               (t[0].clientX + t[1].clientX) / 2,
+               (t[0].clientY + t[1].clientY) / 2);
+    }, { passive: false });
 
     function updateUI() {
         lbImg.src = images[cur].src;
@@ -277,6 +370,7 @@ gsap.utils.toArray('.career-section').forEach(sec => {
         lbNext.classList.toggle('hidden', !multi || cur === images.length - 1);
         lbCounter.classList.toggle('hidden', !multi);
         if (multi) lbCounter.textContent = (cur + 1) + ' / ' + images.length;
+        resetZoom();
     }
 
     function open(imgs, startIdx) {
@@ -291,6 +385,7 @@ gsap.utils.toArray('.career-section').forEach(sec => {
         overlay.classList.remove('active');
         document.body.style.overflow = '';
         lbImg.src = '';
+        resetZoom();
     }
 
     function prev() { if (cur > 0) { cur--; updateUI(); } }
@@ -315,8 +410,11 @@ gsap.utils.toArray('.career-section').forEach(sec => {
 
     document.addEventListener('keydown', e => {
         if (!overlay.classList.contains('active')) return;
-        if (e.key === 'Escape')      close();
-        if (e.key === 'ArrowLeft')   prev();
-        if (e.key === 'ArrowRight')  next();
+        if (e.key === 'Escape')                  close();
+        if (e.key === 'ArrowLeft')               prev();
+        if (e.key === 'ArrowRight')              next();
+        if (e.key === '+' || e.key === '=')      zoomTo(scale + STEP);
+        if (e.key === '-')                        zoomTo(scale - STEP);
+        if (e.key === '0')                        resetZoom();
     });
 })();
