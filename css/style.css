@@ -982,6 +982,22 @@ body {
   border-color: #60b080;
   color: #3a8060;
 }
+.badge.ts {
+  border-color: #6080c0;
+  color: #3a50a0;
+}
+.badge.vite {
+  border-color: #a070c0;
+  color: #7040a0;
+}
+.badge.express {
+  border-color: #707070;
+  color: #404040;
+}
+.badge.zustand {
+  border-color: #8f7a66;
+  color: #5f4c3c;
+}
 
 .pj-desc-wrap {
   flex: 1;

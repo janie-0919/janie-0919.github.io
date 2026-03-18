@@ -182,6 +182,63 @@
           </div>
         </div>
         <div class="pj-card">
+          <div class="pj-thumb">
+            <img src="img/career/real-estate-tracker/og.png" alt="부동산 트래커 | 실거래가 모니터링 플랫폼 미리보기">
+          </div>
+          <div class="pj-body">
+            <div class="pj-date">2026.03</div>
+            <div class="pj-title">부동산 트래커 | 실거래가 모니터링 플랫폼</div>
+            <div class="pj-bar-wrap">
+              <div class="pj-bar-header"><span class="pj-bar-label-txt">기여도</span><span class="pj-bar-pct">100%</span></div>
+              <div class="pj-bar-track"><div class="pj-bar-fill" data-pct="100"></div></div>
+            </div>
+            <div class="pj-badges"><span class="badge react">React</span><span class="badge ts">TypeScript </span><span class="badge vite">Vite</span><span class="badge express">Express</span><span class="badge css">SCSS</span></div>
+            <div class="pj-desc-wrap">
+              <p class="pj-desc-short">국토교통부 실거래 공공 API를 기반으로 서울 및 전국 아파트 매매 데이터를 조회·분석할 수 있는 웹 애플리케이션을 개발했다.<br/><br/>
+                시군구 단위로 데이터를 조회하다 보니 API 요청이 많아지면서 응답 속도가 느려지는 문제가 있었고, 이를 해결하기 위해 서버 상태 관리에 적합한 React Query를 도입하였다. staleTime 기반 캐싱과 서버 인메모리 캐시를 함께 적용하여 중복 요청을 줄였고, 그 결과 요청 수를 약 60% 감소시키며 초기 로딩 속도를 개선하였다.<br/><br/>
+                또한 모바일 환경을 고려하여 반응형 UI를 구현하고, 거래량·평균가·변동률 등의 핵심 정보를 카드 형태로 재구성하여 작은 화면에서도 주요 정보를 빠르게 확인할 수 있도록 UX를 개선하였다.<br/><br/>
+                전국 단위 확장을 고려하여 구조를 설계하였고, 시군구 필터 기반으로 데이터를 조회할 수 있도록 구현하였다. 또한 일부 데이터를 정적 HTML로 제공하여 검색 엔진에서도 주요 콘텐츠를 인식할 수 있도록 SEO를 개선하였다.
+              </p>
+            </div>
+            <div class="pj-footer"><a href="https://real-estate-tracker-nine.vercel.app" target="_blank" class="pj-link"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg>real-estate-tracker-nine.vercel.app</a></div>
+          </div>
+        </div>
+        <div class="pj-card">
+          <div class="pj-thumb">
+            <img src="img/career/lotto/image.png" alt="로또 스마트픽 | 통계 기반 번호 추천 서비스 미리보기">
+          </div>
+          <div class="pj-body">
+            <div class="pj-date">2026.03</div>
+            <div class="pj-title">로또 스마트픽 | 통계 기반 번호 추천 서비스</div>
+            <div class="pj-bar-wrap">
+              <div class="pj-bar-header"><span class="pj-bar-label-txt">기여도</span><span class="pj-bar-pct">100%</span></div>
+              <div class="pj-bar-track"><div class="pj-bar-fill" data-pct="100"></div></div>
+            </div>
+            <div class="pj-badges">
+              <span class="badge react">React</span>
+              <span class="badge vite">Vite</span>
+              <span class="badge zustand">Zustand</span>
+              <span class="badge css">SCSS</span>
+            </div>
+            <div class="pj-desc-wrap">
+              <p class="pj-desc-short">
+                동행복권 데이터를 기반으로 로또 번호를 추천하고, 통계 정보를 확인할 수 있는 웹 애플리케이션을 개발했다. 단순 랜덤 생성이 아니라, 완전 랜덤 / 통계 기반(최근 50회차 출현 빈도를 반영) / 균형형(구간 분산과 홀짝 비율, 합계 범위를 고려) 등 3가지 방식으로 번호를 생성할 수 있도록 구현하였다. 또한 포함하고 싶은 번호와 제외할 번호를 설정할 수 있어 사용자 선택이 가능하도록 구성하였다.<br/><br/>
+                통계 페이지에서는 HOT/COLD 번호, 번호별 출현 빈도, 홀짝 분포, 구간 분포, 최근 당첨 이력 등을 시각화하여 흐름을 한눈에 파악할 수 있도록 구성하였다.<br/><br/>
+                생성한 번호는 localStorage에 저장되도록 구현하였으며, 최신 당첨 결과와 비교하여 일치 개수를 확인할 수 있도록 하여 반복적으로 사용할 수 있도록 개선하였다.<br/><br/>
+                또한 동행복권 API 호출 시 발생하는 불필요한 요청을 줄이기 위해 Vercel Serverless Function으로 프록시를 구성하고, 응답 데이터를 6시간 단위로 캐싱하여 데이터 조회 효율을 개선하였다.
+              </p>
+            </div>
+            <div class="pj-footer">
+              <a href="https://lotto-smart-pick.vercel.app/" target="_blank" class="pj-link">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                  <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                lotto-smart-pick.vercel.app
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="pj-card">
           <div class="pj-thumb has-lb" data-images="img/career/klms/klms_2.png,img/career/klms/klms_3.png">
             <img src="img/career/klms/klms_1.png" alt="국립중앙의료원 | 공공보건의료교육훈련센터 이러닝 미리보기">
           </div>
@@ -194,7 +251,7 @@
             </div>
             <div class="pj-badges"><span class="badge html">HTML</span><span class="badge css">SCSS</span><span class="badge js">JS</span></div>
             <div class="pj-desc-wrap">
-              <p class="pj-desc-short">K·ONEDU 프로젝트 기반으로 공통 컴포넌트와 레이아웃 구조를 정리하고, 메인·서브 페이지 전반에 동일한 UI 규칙을 적용하여 서비스 전반의 화면 일관성과 유지보수성을 확보하였다.<br><br>웹 접근성 품질마크 취득을 목표로 키보드 접근성, 스크린 리더 대응, 명확한 정보 구조 제공 등 관련 지침을 기준으로 마크업과 UI를 개선하였으며, 접근성 점검 항목을 기준으로 자체 검수와 수정 작업을 반복 수행하였다.</p>
+              <p class="pj-desc-short">K·ONEDU 프로젝트 기반으로 메인·서브 페이지 전반에 동일한 UI 규칙을 적용했다. 웹 접근성 품질마크 취득을 목표로 키보드 접근성, 스크린 리더 대응, 명확한 정보 구조 제공 등 관련 지침을 기준으로 마크업과 UI를 개선하였으며, 접근성 점검 항목을 기준으로 자체 검수와 수정 작업을 반복 수행하였다.</p>
             </div>
             <div class="pj-footer"><a href="https://edunmc-stg.konedu.co.kr/main.html" target="_blank" class="pj-link"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg>edunmc-stg.konedu.co.kr</a></div>
           </div>
