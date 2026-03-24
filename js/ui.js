@@ -228,6 +228,41 @@ document.querySelectorAll('.pj-desc-wrap').forEach(wrap => {
     });
 });
 
+/* ── 경력 연차 자동 계산 (2019.11 입사 기준, 반올림) ── */
+(function () {
+    const start = new Date(2019, 10); // 2019년 11월 (month는 0-index)
+    const now = new Date();
+    const diffMonths = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+    const years = Math.round(diffMonths / 12);
+
+    // hero 숫자 카운트업 data-target 업데이트
+    const yearsEl = document.querySelector('.count-num[data-target="6"]');
+    if (yearsEl) yearsEl.dataset.target = years;
+
+    // about 텍스트 연차 업데이트
+    const aboutText = document.querySelector('.about-text');
+    if (aboutText) aboutText.innerHTML = aboutText.innerHTML.replace(/\d+년간/, years + '년간');
+
+    // 총 프로젝트 수 자동 계산 (10단위 반올림)
+    const totalProjects = document.querySelectorAll('.pj-card').length;
+    const roundedProjects = Math.round(totalProjects / 10) * 10;
+    const projectsEl = Array.from(document.querySelectorAll('.stat')).find(
+        s => s.querySelector('.stat-label')?.textContent.trim() === 'Projects'
+    )?.querySelector('.count-num');
+    if (projectsEl) projectsEl.dataset.target = roundedProjects;
+
+    // about 텍스트 프로젝트 수 업데이트
+    if (aboutText) aboutText.innerHTML = aboutText.innerHTML.replace(/\d+개 이상/, roundedProjects + '개 이상');
+})();
+
+/* ── Career 연도별 프로젝트 수 자동 업데이트 ── */
+document.querySelectorAll('.career-section').forEach(sec => {
+    const countEl = sec.querySelector('.career-year-count');
+    if (!countEl) return;
+    const count = sec.querySelectorAll('.pj-card').length;
+    countEl.textContent = count + ' projects';
+});
+
 /* ── Career 카드 스크롤 인 ── */
 gsap.utils.toArray('.career-section').forEach(sec => {
     const yearNum = sec.querySelector('.career-year-num');
