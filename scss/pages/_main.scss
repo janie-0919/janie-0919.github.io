@@ -18,20 +18,11 @@ $font-sans: 'Pretendard', sans-serif;
 $bp-md: 960px;
 $bp-sm: 640px;
 
-
 // ── CSS Custom Properties ──────────────────────────────────
 :root {
   color-scheme: light;
-  --bg: #{$bg};
-  --ink: #{$ink};
-  --sub: #{$sub};
-  --muted: #{$muted};
-  --light: #{$light};
-  --pop: #{$pop};
-  --surf: #{$surf};
+  --nav-h: 65px;
 }
-
-
 
 // ── Mixins ────────────────────────────────────────────────
 @mixin mono($size: .7rem, $spacing: .1em) {
@@ -51,37 +42,6 @@ $bp-sm: 640px;
     @content;
   }
 }
-
-@mixin hover-none {
-  @media (hover: none) {
-    @content;
-  }
-}
-
-
-// ── Placeholders ──────────────────────────────────────────
-%reset-btn {
-  background: none;
-  border: none;
-  cursor: none;
-  padding: 0;
-  @include hover-none {
-    cursor: pointer;
-  }
-}
-
-%section-label {
-  @include mono(.8rem, .22em);
-  text-transform: uppercase;
-  color: var(--pop);
-}
-
-%card-text-mono {
-  @include mono;
-  text-transform: uppercase;
-  color: var(--ink);
-}
-
 
 // ── Keyframes ─────────────────────────────────────────────
 @keyframes cursorBlink {
@@ -130,19 +90,11 @@ html, body {
 }
 
 body {
-  background: var(--bg);
-  color: var(--ink);
+  background: $bg;
+  color: $ink;
   font-family: $font-sans;
   font-weight: 300;
   overflow-x: hidden;
-  cursor: none;
-
-  @include hover-none {
-    cursor: auto;
-    a, button {
-      cursor: pointer;
-    }
-  }
 }
 
 .sr-only {
@@ -155,46 +107,6 @@ body {
   border: 0;
   clip: rect(0, 0, 0, 0);
 }
-
-
-// ============================================================
-//  Cursor
-// ============================================================
-%cursor-base {
-  position: fixed;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  @include hover-none {
-    display: none;
-  }
-}
-
-#cursor-dot {
-  @extend %cursor-base;
-  z-index: 9999;
-  width: 8px;
-  height: 8px;
-  background: var(--pop);
-  border-radius: 50%;
-}
-
-#cursor-ring {
-  @extend %cursor-base;
-  z-index: 9998;
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid var(--pop);
-  border-radius: 50%;
-  opacity: .45;
-  transition: width .3s, height .3s, opacity .3s;
-
-  &.expand {
-    width: 52px;
-    height: 52px;
-    opacity: .85;
-  }
-}
-
 
 // ============================================================
 //  Nav
@@ -212,12 +124,12 @@ body {
   &.scrolled {
     background: rgba($bg, .93);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--light);
+    border-bottom: 1px solid $light;
   }
 
   .nav-logo {
     @include mono(.72rem, .2em);
-    color: var(--ink);
+    color: $ink;
     text-transform: uppercase;
     visibility: hidden;
   }
@@ -228,7 +140,7 @@ body {
 
     a {
       @include mono(.68rem, .12em);
-      color: var(--ink);
+      color: $ink;
       text-decoration: none;
       text-transform: uppercase;
       position: relative;
@@ -242,12 +154,12 @@ body {
         left: 0;
         width: 0;
         height: 1px;
-        background: var(--pop);
+        background: $pop;
         transition: width .3s;
       }
 
       &:hover {
-        color: var(--pop);
+        color: $pop;
 
         &::after {
           width: 100%;
@@ -257,7 +169,10 @@ body {
   }
 
   .nav-toggle {
-    @extend %reset-btn;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
     display: none;
     position: relative;
     width: 22px;
@@ -269,7 +184,7 @@ body {
       left: 0;
       width: 22px;
       height: 1px;
-      background: var(--ink);
+      background: $ink;
       transition: transform .3s, opacity .3s;
 
       &:nth-child(1) {
@@ -321,7 +236,7 @@ body {
   display: none;
   position: fixed;
   inset: 0;
-  background: var(--bg);
+  background: $bg;
   z-index: 99;
   flex-direction: column;
   justify-content: center;
@@ -335,16 +250,15 @@ body {
 
   a {
     @include serif(3.2rem);
-    color: var(--ink);
+    color: $ink;
     text-decoration: none;
     transition: color .2s;
 
     &:hover {
-      color: var(--pop);
+      color: $pop;
     }
   }
 }
-
 
 // ============================================================
 //  Hero
@@ -356,7 +270,7 @@ body {
   padding: 0 8vw;
   position: relative;
   overflow: hidden;
-  background: var(--bg);
+  background: $bg;
 
   .hero-divider {
     display: none;
@@ -413,7 +327,7 @@ body {
   // 이름
   .name-role {
     @include mono(.7rem, .22em);
-    color: var(--pop);
+    color: $pop;
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -425,7 +339,7 @@ body {
   .name-role-line {
     width: 0;
     height: 1px;
-    background: var(--pop);
+    background: $pop;
     flex-shrink: 0;
   }
 
@@ -455,11 +369,11 @@ body {
     line-height: 1.05;
 
     &.pop {
-      color: var(--pop);
+      color: $pop;
     }
 
     &.dot {
-      color: var(--pop);
+      color: $pop;
     }
   }
 
@@ -483,7 +397,7 @@ body {
 
   .info-label {
     @include mono(.7rem, .2em);
-    color: var(--pop);
+    color: $pop;
     text-transform: uppercase;
     margin-bottom: .7rem;
   }
@@ -493,7 +407,7 @@ body {
     line-height: 1.82;
 
     strong {
-      color: var(--ink);
+      color: $ink;
       font-weight: 500;
     }
   }
@@ -501,13 +415,13 @@ body {
   // 타이핑
   .hero-typed {
     @include mono(.85rem, .07em);
-    color: var(--ink);
+    color: $ink;
     min-height: 1.5em;
   }
 
   .typed-prefix {
     display: inline-block;
-    color: var(--pop);
+    color: $pop;
     margin-right: .3rem;
     transform: translateY(-4px);
   }
@@ -516,7 +430,7 @@ body {
     display: inline-block;
     width: 2px;
     height: .9em;
-    background: var(--pop);
+    background: $pop;
     vertical-align: text-bottom;
     animation: cursorBlink .7s step-end infinite;
     transform: translateY(-3px);
@@ -532,20 +446,16 @@ body {
 
   .tag {
     @include mono(.7rem, .07em);
-    color: var(--sub);
+    color: $sub;
     text-transform: uppercase;
-    border: 1px solid var(--light);
+    border: 1px solid $light;
     padding: .28rem .75rem;
     transition: border-color .2s, color .2s;
-    cursor: none;
+    cursor: pointer;
 
     &:hover {
-      border-color: var(--pop);
-      color: var(--pop);
-    }
-
-    @include hover-none {
-      cursor: pointer;
+      border-color: $pop;
+      color: $pop;
     }
   }
 
@@ -563,7 +473,7 @@ body {
     align-items: center;
     padding: 1.2rem 1.5rem;
     margin: 0 -8vw;
-    border-top: 1px solid var(--light);
+    border-top: 1px solid $light;
     opacity: 0;
   }
 
@@ -572,7 +482,7 @@ body {
     display: flex;
     align-items: center;
     gap: .75rem;
-    color: var(--ink);
+    color: $ink;
     text-transform: uppercase;
   }
 
@@ -580,7 +490,7 @@ body {
     width: 10px;
     height: 15px;
     border-radius: 10px;
-    border: 1px solid var(--ink);
+    border: 1px solid $ink;
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
@@ -592,7 +502,7 @@ body {
       left: 0;
       right: 0;
       height: 100%;
-      background: var(--pop);
+      background: $pop;
       animation: dropFill 1.8s ease-in-out infinite;
     }
   }
@@ -609,11 +519,11 @@ body {
     .stat-num {
       @include serif(clamp(2rem, 3.2vw, 3rem));
       line-height: 1;
-      color: var(--ink);
+      color: $ink;
 
       sup {
         font-size: .70em;
-        color: var(--pop);
+        color: $pop;
         vertical-align: super;
       }
     }
@@ -621,7 +531,7 @@ body {
     .stat-label {
       @include mono(.7rem, .15em);
       text-transform: uppercase;
-      color: var(--muted);
+      color: $muted;
       margin-top: .4rem;
     }
   }
@@ -669,54 +579,53 @@ body {
   border: 1px solid;
   border-radius: 0;
   transition: all .25s;
-  cursor: none;
-  @include hover-none {
-    cursor: pointer;
-  }
+  cursor: pointer;
 
   &.btn-fill {
-    background: var(--ink);
-    color: var(--bg);
-    border-color: var(--ink);
+    background: $ink;
+    color: $bg;
+    border-color: $ink;
 
     &:hover {
-      background: var(--pop);
-      border-color: var(--pop);
+      background: $pop;
+      border-color: $pop;
       color: #fff;
     }
   }
 
   &.btn-ghost {
     background: transparent;
-    color: var(--ink);
-    border-color: var(--ink);
+    color: $ink;
+    border-color: $ink;
 
     &:hover {
-      background: var(--ink);
-      color: var(--bg);
+      background: $ink;
+      color: $bg;
     }
   }
 }
-
 
 // ============================================================
 //  About
 // ============================================================
 .about {
-  background: var(--surf);
-  border-top: 1px solid var(--light);
+  background: $surf;
+  border-top: 1px solid $light;
   padding: 8rem;
 
   .about-header {
+    max-width: 1920px;
     display: flex;
     align-items: flex-end;
     padding-bottom: 2.5rem;
-    margin-bottom: 4rem;
-    border-bottom: 1px solid var(--light);
+    margin: 0 auto 4rem;
+    border-bottom: 1px solid $light;
   }
 
   .sec-label {
-    @extend %section-label;
+    @include mono(.8rem, .22em);
+    text-transform: uppercase;
+    color: $pop;
     margin-bottom: .8rem;
   }
 
@@ -726,26 +635,27 @@ body {
 
     em {
       font-style: italic;
-      color: var(--pop);
+      color: $pop;
     }
   }
 
   .about-body {
+    max-width: 1920px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
     align-items: start;
+    margin: 0 auto 4rem;
   }
 
   .about-text {
     font-family: $font-sans;
     font-size: .97rem;
-    color: var(--sub);
     line-height: 1.95;
     word-break: keep-all;
 
     strong {
-      color: var(--ink);
+      color: $ink;
       font-weight: 500;
     }
   }
@@ -755,20 +665,22 @@ body {
     justify-content: space-between;
     align-items: baseline;
     padding: .88rem 0;
-    border-bottom: 1px solid var(--light);
+    border-bottom: 1px solid $light;
 
     &:first-child {
-      border-top: 1px solid var(--light);
+      border-top: 1px solid $light;
     }
   }
 
   .skill-cat {
     @include mono(.8rem, .08em);
-    color: var(--muted);
+    color: $muted;
   }
 
   .skill-name {
-    @extend %card-text-mono;
+    @include mono;
+    text-transform: uppercase;
+    color: $ink;
     font-size: .8rem;
     letter-spacing: .08em;
   }
@@ -786,20 +698,19 @@ body {
   }
 }
 
-
 // ============================================================
 //  Career
 // ============================================================
 #career {
-  background: var(--bg);
+  background: $bg;
 }
 
 .career-section {
-  border-top: 1px solid var(--light);
+  border-top: 1px solid $light;
   padding: 5rem 8vw 6rem;
 
   &:nth-child(even) {
-    background: var(--surf);
+    background: $surf;
   }
 }
 
@@ -809,32 +720,32 @@ body {
   gap: 1.2rem;
   margin: 0 (-8vw) 2rem;
   padding: .6rem 8vw .7rem;
-  border-bottom: 1px solid var(--light);
+  border-bottom: 1px solid $light;
   position: sticky;
   top: var(--nav-h, 65px);
   z-index: 10;
-  background: var(--bg);
+  background: $bg;
 }
 
 .career-section:nth-child(even) .career-year-header {
-  background: var(--surf);
+  background: $surf;
 }
 
 .career-year-label {
   @include mono(.7rem, .22em);
   text-transform: uppercase;
-  color: var(--pop);
+  color: $pop;
 }
 
 .career-year-num {
   @include serif(clamp(2rem, 3.5vw, 3.5rem));
-  color: var(--ink);
+  color: $ink;
   line-height: 1;
 }
 
 .career-year-count {
   @include mono(.7rem, .1em);
-  color: var(--muted);
+  color: $muted;
   margin-left: auto;
   text-align: right;
 }
@@ -843,11 +754,13 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 .pj-card {
-  background: var(--surf);
-  border: 1px solid var(--light);
+  background: $surf;
+  border: 1px solid $light;
   border-radius: 4px;
   overflow: hidden;
   display: flex;
@@ -862,14 +775,11 @@ body {
 }
 
 // 썸네일 공통
-%thumb-base {
+
+.pj-thumb {
   width: 100%;
   aspect-ratio: 16 / 9;
   flex-shrink: 0;
-}
-
-.pj-thumb {
-  @extend %thumb-base;
   overflow: hidden;
   position: relative;
 
@@ -906,7 +816,9 @@ body {
 }
 
 .pj-thumb-gradient {
-  @extend %thumb-base;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
   background: linear-gradient(135deg, $pop 0%, darken($pop, 5%) 40%, lighten($pop, 12%) 70%, $pop 100%);
   background-size: 200% 200%;
   display: flex;
@@ -951,14 +863,14 @@ body {
 .pj-date {
   @include mono(.8rem, .1em);
   font-weight: 400;
-  color: var(--muted);
+  color: $muted;
   margin-bottom: .5rem;
 }
 
 .pj-title {
   font-size: 1rem;
   font-weight: 500;
-  color: var(--ink);
+  color: $ink;
   line-height: 1.35;
   margin-bottom: .8rem;
 }
@@ -979,24 +891,24 @@ body {
   font-family: $font-sans;
   font-size: 0.9rem;
   text-transform: uppercase;
-  color: var(--muted);
+  color: $muted;
 }
 
 .pj-bar-pct {
   @include mono(.8rem);
-  color: var(--pop);
+  color: $pop;
 }
 
 .pj-bar-track {
   height: 2px;
-  background: var(--light);
+  background: $light;
   border-radius: 2px;
   overflow: hidden;
 }
 
 .pj-bar-fill {
   height: 100%;
-  background: var(--pop);
+  background: $pop;
   border-radius: 2px;
   width: 0;
   transition: width 1.1s cubic-bezier(.4, 0, .2, 1);
@@ -1027,8 +939,8 @@ $badge-colors: (
   text-transform: uppercase;
   padding: .25em .6em;
   border-radius: 2px;
-  border: 1px solid var(--light);
-  color: var(--sub);
+  border: 1px solid $light;
+  color: $sub;
 
   @each $name, $colors in $badge-colors {
     &.#{$name} {
@@ -1045,7 +957,7 @@ $badge-colors: (
 
 .pj-desc-short {
   font-size: .95rem;
-  //color: var(--sub);
+  // color: $sub;
   line-height: 1.75;
   overflow: hidden;
   max-height: calc(1.75em * 3);
@@ -1059,11 +971,13 @@ $badge-colors: (
 }
 
 .pj-more-btn {
-  @extend %reset-btn;
+  background: none;
+  border: none;
+  padding: .4rem 0 0;
+  cursor: pointer;
   font-family: $font-sans;
   font-size: .85rem;
-  color: var(--pop);
-  padding-top: .4rem;
+  color: $pop;
   display: inline-flex;
   align-items: center;
   gap: .35rem;
@@ -1086,12 +1000,12 @@ $badge-colors: (
 .pj-footer {
   margin-top: 1rem;
   padding-top: .9rem;
-  border-top: 1px solid var(--light);
+  border-top: 1px solid $light;
 }
 
 .pj-link {
   @include mono(.9rem, .08em);
-  color: var(--ink);
+  color: $ink;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -1101,7 +1015,7 @@ $badge-colors: (
   overflow-wrap: break-word;
 
   &:hover {
-    color: var(--pop);
+    color: $pop;
   }
 
   svg {
@@ -1112,10 +1026,10 @@ $badge-colors: (
 .work-alert {
   font-family: $font-sans;
   font-size: 1rem;
-  color: var(--muted);
+  color: $muted;
   margin-top: 2rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--light);
+  border-top: 1px solid $light;
 }
 
 // Career 반응형
@@ -1161,7 +1075,7 @@ $badge-colors: (
     border-radius: 0;
     box-shadow: none;
     border: none;
-    border-bottom: 1px solid var(--light);
+    border-bottom: 1px solid $light;
     padding: .85rem 0;
     background: transparent;
     overflow: visible;
@@ -1254,8 +1168,8 @@ $badge-colors: (
 //  Contact
 // ============================================================
 #contact {
-  background: var(--ink);
-  color: var(--surf);
+  background: $ink;
+  color: $surf;
   padding: 8rem 8vw 6rem;
   position: relative;
   overflow: hidden;
@@ -1282,24 +1196,24 @@ $badge-colors: (
 .contact-inner {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 .contact-label {
   @include mono(.8rem, .15em);
-  color: var(--pop);
+  color: $pop;
   margin-bottom: 1.5rem;
 }
 
 .contact-heading {
   @include serif(clamp(2.2rem, 6vw, 5.5rem));
   line-height: 1.2;
-  color: var(--surf);
+  color: $surf;
   margin-bottom: 3rem;
   word-break: keep-all;
 
   em {
-    color: var(--pop);
+    color: $pop;
     font-style: italic;
   }
 }
@@ -1317,7 +1231,7 @@ $badge-colors: (
   padding: 1.2rem 0;
   border-bottom: 1px solid rgba(#fff, .1);
   text-decoration: none;
-  color: var(--surf);
+  color: $surf;
   transition: color .25s, padding-left .25s;
 
   &:first-child {
@@ -1325,7 +1239,7 @@ $badge-colors: (
   }
 
   &:hover {
-    color: var(--pop);
+    color: $pop;
     padding-left: .6rem;
   }
 }
@@ -1413,19 +1327,15 @@ $badge-colors: (
   }
 }
 
-%lb-fixed-btn {
+.lb-close {
   position: fixed;
+  top: 1.4rem;
+  right: 1.6rem;
+  z-index: 10;
   background: none;
   border: none;
   color: #fff;
   cursor: pointer;
-  z-index: 10;
-}
-
-.lb-close {
-  @extend %lb-fixed-btn;
-  top: 1.4rem;
-  right: 1.6rem;
   font-size: 1.8rem;
   line-height: 1;
   opacity: .7;
@@ -1437,8 +1347,11 @@ $badge-colors: (
 }
 
 .lb-arrow {
-  @extend %lb-fixed-btn;
+  position: fixed;
   top: 50%;
+  z-index: 10;
+  color: #fff;
+  cursor: pointer;
   transform: translateY(-50%);
   background: rgba(#fff, .12) !important;
   border: 1px solid rgba(#fff, .2) !important;

@@ -264,21 +264,21 @@ document.querySelectorAll('.career-section').forEach(sec => {
 });
 
 /* ── Career 카드 스크롤 인 ── */
-gsap.utils.toArray('.career-section').forEach(sec => {
-    const yearNum = sec.querySelector('.career-year-num');
-    if (yearNum) {
-        gsap.from(yearNum, {
-            scrollTrigger: { trigger: sec, start: 'top 80%', once: true },
-            opacity: 0, x: -20, duration: .65, ease: 'power2.out'
-        });
-    }
-    gsap.utils.toArray(sec.querySelectorAll('.pj-card')).forEach((card, i) => {
-        gsap.from(card, {
-            scrollTrigger: { trigger: card, start: 'top 92%', once: true },
-            opacity: 0, y: 18, duration: .5, delay: i * .06, ease: 'power2.out'
-        });
-    });
-});
+// gsap.utils.toArray('.career-section').forEach(sec => {
+//     const yearNum = sec.querySelector('.career-year-num');
+//     if (yearNum) {
+//         gsap.from(yearNum, {
+//             scrollTrigger: { trigger: sec, start: 'top 80%', once: true },
+//             opacity: 0, x: -20, duration: .65, ease: 'power2.out'
+//         });
+//     }
+//     gsap.utils.toArray(sec.querySelectorAll('.pj-card')).forEach((card, i) => {
+//         gsap.from(card, {
+//             scrollTrigger: { trigger: card, start: 'top 92%', once: true },
+//             opacity: 0, y: 18, duration: .5, delay: i * .06, ease: 'power2.out'
+//         });
+//     });
+// });
 
 /* ── 라이트박스 ── */
 (function () {
