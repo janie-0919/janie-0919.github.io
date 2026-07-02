@@ -1,0 +1,24 @@
+// init
+@import "component/normalize";
+@import "component/variables";
+@import "component/common";
+@import "component/config";
+
+// library
+@import "lib/jquery.magnify";
+
+// fonts
+@import "fonts/TTCommons";
+@import "fonts/gmarketSans";
+@import "fonts/inter";
+@import "fonts/pretendard";
+@import "fonts/fontAwesome";
+
+// components
+@import "component/btn";
+@import "component/input";
+@import "component/popup";
+
+
+// pages
+@import "pages/pages";

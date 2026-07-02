@@ -1,0 +1,12 @@
+{
+  "name": "janie-0919.github.io",
+  "version": "1.0.0",
+  "dependencies": {
+    "sass": "^1.60.0"
+  },
+  "scripts": {
+    "watch": "sass --watch scss/style.scss:css/style.css",
+    "build:nex": "sass resouces/scss/style.scss:index_nex/css/style.css --no-source-map",
+    "watch:nex": "sass --watch resouces/scss/style.scss:index_nex/css/style.css --no-source-map"
+  }
+}

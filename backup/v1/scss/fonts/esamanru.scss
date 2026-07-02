@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'GongGothicMedium';
+  font-weight: 400;
+  src: local('GongGothicMedium'),
+  url('../fonts/esamanra/esamanru-medium.ttf') format('truetype'),
+  url('../fonts/esamanra/esamanru-medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GongGothicBold';
+  font-weight: 700;
+  src: local('GongGothicMedium'),
+  url('../fonts/esamanra/esamanru-bold.ttf') format('truetype'),
+  url('../fonts/esamanra/GongGothicBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GongGothicLight';
+  font-weight: 300;
+  src: local('GongGothicMedium'),
+  url('../fonts/esamanra/esamanru-light.ttf') format('truetype'),
+  url('../fonts/esamanra/GongGothicLight.woff') format('woff');
+}
