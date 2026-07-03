@@ -56,6 +56,10 @@ body::after {
   mix-blend-mode: multiply;
 }
 
+main {
+  overflow-x: hidden;
+}
+
 ::selection {
   background: var(--violet);
   color: var(--white);
@@ -102,8 +106,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 12px clamp(16px, 4vw, 48px);
+  gap: 15px;
+  padding: 10px clamp(15px, 4vw, 48px);
   border-bottom: var(--line);
   background: rgba(255, 253, 246, 0.92);
   backdrop-filter: blur(12px);
@@ -147,6 +151,7 @@ a {
   border: 2px solid transparent;
   border-radius: 999px;
   text-decoration: none;
+  white-space: nowrap;
   transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
 }
 
@@ -436,6 +441,9 @@ a {
 }
 
 .section-title {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
   margin: 0;
   font-family: "Bricolage Grotesque", sans-serif;
   font-size: clamp(38px, 6vw, 92px);
@@ -463,6 +471,7 @@ a {
   font-size: 13px;
   font-weight: 800;
   transform: rotate(2deg);
+  white-space: nowrap;
 }
 
 .career-badge {
@@ -724,14 +733,14 @@ a {
 
 .why-card h3 {
   margin: 0;
-  font-size: clamp(20px, 2vw, 27px);
+  font-size: clamp(18px, 2vw, 27px);
   line-height: 1.35;
 }
 
 .why-card p:not(.why-num):not(.proof) {
   margin: 0;
   color: #2f2b25;
-  font-size: 16px;
+  font-size: clamp(14px, 15px, 16px);
   font-weight: 600;
   line-height: 1.75;
 }
@@ -980,7 +989,7 @@ a {
   gap: 12px;
   flex-wrap: wrap;
   margin-top: auto;
-  padding-top: 16px;
+  padding-top: 15px;
   border-top: 2px dashed var(--ink);
   color: #6b6156;
   font-size: 15px;
@@ -1031,7 +1040,7 @@ a {
 .career-card {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 8px 20px;
+  gap: 10px 20px;
   padding: 20px;
   border-width: 2px;
   box-shadow: none;
@@ -1086,8 +1095,11 @@ a {
 }
 
 .career-card h4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
   margin: 0;
-  font-size: clamp(15px, 1.5vw, 18px);
+  font-size: clamp(16px, 1.5vw, 18px);
   line-height: 1.45;
 }
 
@@ -1107,7 +1119,6 @@ a {
   text-decoration: none;
   font-size: 13px;
   font-weight: 700;
-  margin-left: 10px;
 }
 
 .career-link:hover,
@@ -1169,7 +1180,6 @@ a {
 .career-date {
   min-width: 128px;
   text-align: right;
-  font-family: "DM Mono Portfolio", monospace;
   font-size: 13px;
   font-weight: 800;
 }
@@ -1195,7 +1205,7 @@ a {
 .contact {
   position: relative;
   overflow: hidden;
-  padding: clamp(82px, 11vw, 150px) clamp(16px, 4vw, 48px) 32px;
+  padding: clamp(80px, 11vw, 150px) clamp(15px, 4vw, 50px) 30px;
   border-top: var(--line);
   background: var(--violet);
   color: var(--paper);
@@ -1207,7 +1217,7 @@ a {
   right: -0.12em;
   bottom: -0.18em;
   color: rgba(255, 255, 255, 0.08);
-  font-size: clamp(88px, 18vw, 260px);
+  font-size: clamp(12vw, 18vw, 260px);
   font-weight: 800;
   line-height: 1;
   pointer-events: none;
@@ -1314,7 +1324,8 @@ a {
   .site-nav {
     width: 100%;
     overflow-x: auto;
-    padding-bottom: 2px;
+    padding: 6px 0 6px;
+    margin: -6px 0 -6px;
   }
   .hero {
     padding-top: 144px;
@@ -1348,16 +1359,38 @@ a {
   .career-date {
     grid-column: 1 / -1;
     min-width: 0;
-    text-align: left;
   }
 }
 
 @media (max-width: 560px) {
+  .site-header {
+    padding: 10px 0;
+    gap: 10px;
+  }
+  .brand {
+    width: 100%;
+    padding: 0 15px;
+  }
+  .site-nav {
+    padding: 6px 15px 6px;
+    margin: -6px 0 -6px;
+  }
   .site-nav a {
     padding: 7px 11px;
   }
   .hero-title {
-    font-size: clamp(48px, 17vw, 72px);
+    font-size: clamp(48px, 13.5vw, 72px);
+  }
+  .section-title {
+    flex-direction: column-reverse;
+  }
+  .career-badge {
+    order: 0;
+    margin-bottom: 10px;
+    margin-left: auto;
+  }
+  .career-date {
+    font-size: 12px;
   }
   .stats {
     grid-template-columns: 1fr;
@@ -1365,6 +1398,36 @@ a {
   .strength-list li {
     align-items: flex-start;
     border-radius: 18px;
+  }
+  .project-card {
+    gap: 10px 15px;
+  }
+  .project-card h3 {
+    margin: 10px 0 0;
+  }
+  .project-desc {
+    font-size: 14px;
+  }
+  .project-meta {
+    padding-top: 10px;
+    font-size: 13px;
+    width: 100%;
+  }
+  .career-card {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 15px;
+  }
+  .career-thumb, .career-thumb-gradient {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+  .career-thumb-gradient {
+    font-size: 13px;
+  }
+  .career-card p {
+    font-size: 13px;
   }
   .info-item {
     align-items: flex-start;
@@ -1380,6 +1443,13 @@ a {
   .mobile-screen {
     width: 27%;
     min-width: 74px;
+  }
+  .contact::after {
+    bottom: auto;
+    top: 0;
+  }
+  .copyright {
+    justify-content: center;
   }
 }
 

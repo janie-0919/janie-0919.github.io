@@ -6,7 +6,7 @@
   },
   "scripts": {
     "watch": "sass --watch scss/style.scss:css/style.css",
-    "build:nex": "sass resouces/scss/style.scss:index_nex/css/style.css --no-source-map",
-    "watch:nex": "sass --watch resouces/scss/style.scss:index_nex/css/style.css --no-source-map"
+    "build:nex": "sass resources/scss/style.scss:resources/css/style.css --no-source-map",
+    "watch:nex": "sass --watch resources/scss/style.scss:resources/css/style.css --no-source-map"
   }
 }

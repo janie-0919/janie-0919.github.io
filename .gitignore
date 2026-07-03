@@ -144,3 +144,4 @@
 /node_modules/.package-lock.json
 /package-lock.json
 /node_modules/sass/types/deprecations.d.ts
+/node_modules/
