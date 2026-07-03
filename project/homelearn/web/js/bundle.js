@@ -10639,11 +10639,15 @@ window.onload = function () {
       v.placeholder = langData[lang][v.dataset.placeholder]
     });
   };
-  koBtn.addEventListener("click" , function (v) {
-    setLanguage("ko");
-  });
-  enBtn.addEventListener("click" , function (v) {
-    setLanguage("en");
-  });
+  if (koBtn) {
+    koBtn.addEventListener("click" , function (v) {
+      setLanguage("ko");
+    });
+  }
+  if (enBtn) {
+    enBtn.addEventListener("click" , function (v) {
+      setLanguage("en");
+    });
+  }
   setLanguage("ko");
 };

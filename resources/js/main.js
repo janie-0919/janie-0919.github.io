@@ -305,6 +305,14 @@
             { label: '직원교육-여름', pc: 'project/cnr/html/main-02.html', mo: 'project/cnr/html/main-02.html' },
             { label: '임원교육',   pc: 'project/cnr/html/main-03.html', mo: 'project/cnr/html/main-03.html' },
             { label: '안내사이트', pc: 'project/cnr/html/main-04.html', mo: 'project/cnr/html/main-04.html' }
+        ],
+        homelearn: [
+            { label: '웹-메인',     pc: 'project/homelearn/web/html/page-01.html', mo: 'project/homelearn/web/html/page-01.html' },
+            { label: '웹-추천학습', pc: 'project/homelearn/web/html/page-02.html', mo: 'project/homelearn/web/html/page-02.html' },
+            { label: '웹-상품상세', pc: 'project/homelearn/web/html/page-03.html', mo: 'project/homelearn/web/html/page-03.html' },
+            { label: '태블릿-수학완성', pc: 'project/homelearn/tablet/html/page-01.html' },
+            { label: '태블릿-영어완성', pc: 'project/homelearn/tablet/html/page-02.html' },
+            { label: '태블릿-영어완성 상세', pc: 'project/homelearn/tablet/html/page-03.html' }
         ]
     };
 
