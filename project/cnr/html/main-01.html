@@ -1,0 +1,1111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../js/lib/jquery-ui.min.js"></script>
+    <script src="../js/lib/swiper.js"></script>
+    <script src="../js/lib/pagination.js"></script>
+    <script src="../js/lib/popper.js"></script>
+    <script src="../js/ui_common.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="shortcut icon" href="../images/common/favicon.ico">
+    <title>메인 (직원교육)</title>
+</head>
+<body>
+<div class="skip-nav" id="skip">
+    <a class="view-content" href="#content">본문 바로가기</a>
+</div>
+<header class="site-header site-header-point" role="banner">
+    <div class="gnb-inner">
+        <a href="javascript:void(0)" class="brand-logo">
+            <img src="../images/common/logo.svg" alt="현대해상 스마트연수원">
+        </a>
+        <nav class="gnb-menu" aria-label="주요 메뉴">
+            <a class="gnb-menu-link on" href="javascript:void(0)" data-col="0">추천과정</a>
+            <a class="gnb-menu-link" href="javascript:void(0)" data-col="1">사이버테마</a>
+            <a class="gnb-menu-link" href="javascript:void(0)" data-col="2">하이브러리</a>
+            <a class="gnb-menu-link" href="javascript:void(0)" data-col="3">열린강의</a>
+            <a class="gnb-menu-link" href="javascript:void(0)" data-col="4">마이페이지</a>
+            <a class="gnb-menu-link" href="javascript:void(0)" data-col="5">고객센터</a>
+        </nav>
+        <div class="gnb-utility">
+            <button type="button" class="gnb-search" aria-label="검색">
+                <i class="ico ico-gnb-search"></i>
+                <span class="txt">검색</span>
+            </button>
+            <button type="button" class="gnb-hamburger" aria-label="메뉴" aria-expanded="false">
+                <span class="gnb-hamburger-icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <span class="txt">전체메뉴</span>
+            </button>
+        </div>
+    </div>
+    <div class="gnb-dropdown" aria-hidden="true">
+        <div class="gnb-dropdown-inner">
+            <!-- 추천과정 -->
+            <div class="gnb-col" data-col="0">
+                <h3 class="gnb-col-title">추천과정</h3>
+                <ul class="gnb-col-list">
+                    <li class="on"><a href="javascript:void(0)">관심분야 추천</a></li>
+                    <li><a href="javascript:void(0)">직무, 직위 추천</a></li>
+                    <li><a href="javascript:void(0)">학습이력 추천</a></li>
+                    <li><a href="javascript:void(0)">신규등록 추천</a></li>
+                </ul>
+            </div>
+            <!-- 사이버테마 -->
+            <div class="gnb-col" data-col="1">
+                <h3 class="gnb-col-title">사이버테마</h3>
+                <ul class="gnb-col-list">
+                    <li class="has-sub open">
+                        <button type="button" class="gnb-sub-toggle" aria-expanded="true">수강신청</button>
+                        <ul class="gnb-sub-list">
+                            <li><a href="javascript:void(0)">DT/IT</a></li>
+                            <li><a href="javascript:void(0)">패스트캠퍼스</a></li>
+                            <li><a href="javascript:void(0)">경영</a></li>
+                            <li><a href="javascript:void(0)">리더십</a></li>
+                            <li><a href="javascript:void(0)">업무스킬</a></li>
+                            <li><a href="javascript:void(0)">전문직무</a></li>
+                            <li><a href="javascript:void(0)">인문교양</a></li>
+                            <li><a href="javascript:void(0)">어학</a></li>
+                            <li><a href="javascript:void(0)">자격</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- 하이브러리 -->
+            <div class="gnb-col" data-col="2">
+                <h3 class="gnb-col-title">하이브러리</h3>
+                <ul class="gnb-col-list">
+                    <li class="has-sub open">
+                        <button type="button" class="gnb-sub-toggle" aria-expanded="true">수강신청</button>
+                        <ul class="gnb-sub-list">
+                            <li><a href="javascript:void(0)">하이브러리 과정<br>(실문도서)</a></li>
+                            <li><a href="javascript:void(0)">하이브러리 과정<br>(전자도서)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- 열린강의 -->
+            <div class="gnb-col" data-col="3">
+                <h3 class="gnb-col-title">열린강의</h3>
+                <ul class="gnb-col-list">
+                    <li><a href="javascript:void(0)">SERI CEO</a></li>
+                    <li><a href="javascript:void(0)">Creative TV</a></li>
+                    <li><a href="javascript:void(0)">직무</a></li>
+                    <li><a href="javascript:void(0)">다이렉트</a></li>
+                </ul>
+            </div>
+            <!-- 마이페이지 -->
+            <div class="gnb-col" data-col="4">
+                <h3 class="gnb-col-title">마이페이지</h3>
+                <ul class="gnb-col-list">
+                    <li><a href="javascript:void(0)">나의 홈</a></li>
+                    <li class="has-sub open">
+                        <button type="button" class="gnb-sub-toggle" aria-expanded="true">나의 강의실</button>
+                        <ul class="gnb-sub-list">
+                            <li><a href="javascript:void(0)">수강중인 과정</a></li>
+                            <li><a href="javascript:void(0)">수강신청 과정</a></li>
+                            <li><a href="javascript:void(0)">수강완료 과정</a></li>
+                            <li><a href="javascript:void(0)">관심과정</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0)">나의 설문</a></li>
+                    <li><a href="javascript:void(0)">나의 일정 관리</a></li>
+                    <li><a href="javascript:void(0)">이벤트 당첨 현황</a></li>
+                    <li class="has-sub open">
+                        <button type="button" class="gnb-sub-toggle" aria-expanded="false">개인정보수정</button>
+                        <ul class="gnb-sub-list">
+                            <li><a href="javascript:void(0)">프로필 수정</a></li>
+                            <li><a href="javascript:void(0)">회원탈퇴</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- 고객센터 -->
+            <div class="gnb-col" data-col="5">
+                <h3 class="gnb-col-title">고객센터</h3>
+                <ul class="gnb-col-list">
+                    <li><a href="javascript:void(0)">공지사항</a></li>
+                    <li><a href="javascript:void(0)">FAQ</a></li>
+                    <li><a href="javascript:void(0)">1:1 상담</a></li>
+                    <li><a href="javascript:void(0)">이벤트</a></li>
+                    <li class="has-sub open">
+                        <button type="button" class="gnb-sub-toggle" aria-expanded="false">학습방법</button>
+                        <ul class="gnb-sub-list">
+                            <li><a href="javascript:void(0)">수강신청</a></li>
+                            <li><a href="javascript:void(0)">학습</a></li>
+                            <li><a href="javascript:void(0)">평가/과제</a></li>
+                            <li><a href="javascript:void(0)">아이디/비밀번호찾기</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0)">고용보험환급기준</a></li>
+                    <li><a href="javascript:void(0)">모사답안처리기준</a></li>
+                    <li><a href="javascript:void(0)">학습지원프로그램</a></li>
+                    <li><a href="javascript:void(0)">원격지원 서비스</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 검색 패널 -->
+    <div class="gnb-search-panel" aria-hidden="true">
+        <div class="gnb-search-panel-inner">
+            <form class="gnb-search-form" role="search" action="javascript:void(0)">
+                <input type="search" class="gnb-search-input" placeholder="과정명을 입력하세요" aria-label="과정명 검색">
+                <button type="submit" class="gnb-search-submit" aria-label="검색">
+                    <i class="ico ico-search-orange" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 모바일 GNB -->
+    <div class="gnb-mobile" aria-hidden="true">
+        <div class="gnb-mobile-header">
+            <a href="javascript:void(0)" class="brand-logo">
+                <img src="../images/common/logo.svg" alt="현대해상 스마트연수원">
+            </a>
+            <div class="gnb-utility">
+                <button type="button" class="gnb-mobile-close" aria-label="메뉴 닫기">
+                    <span class="gnb-hamburger-icon is-open" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="txt">닫기</span>
+                </button>
+            </div>
+        </div>
+        <div class="gnb-mobile-user">
+            <span class="gnb-mobile-username"><span>홍길동</span>님</span>
+            <div class="gnb-mobile-user-btns">
+                <a href="javascript:void(0)" class="btn btn-sm btn-gray-line btn-arrow">정보수정</a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-gray-line btn-arrow">로그아웃</a>
+            </div>
+        </div>
+        <nav class="gnb-mobile-nav" aria-label="전체 메뉴">
+            <!-- 추천과정 -->
+            <div class="gnb-mobile-section">
+                <strong class="gnb-mobile-section-title">추천과정</strong>
+                <ul class="gnb-mobile-list">
+                    <li class="on"><a href="javascript:void(0)">관심분야 추천</a></li>
+                    <li><a href="javascript:void(0)">직무, 직위 추천</a></li>
+                    <li><a href="javascript:void(0)">학습이력 추천</a></li>
+                    <li><a href="javascript:void(0)">신규등록 추천</a></li>
+                </ul>
+            </div>
+            <!-- 사이버테마 -->
+            <div class="gnb-mobile-section">
+                <strong class="gnb-mobile-section-title">사이버테마</strong>
+                <ul class="gnb-mobile-list">
+                    <li class="has-sub open">
+                        <button type="button" class="gnb-mobile-sub-toggle" aria-expanded="true">수강신청</button>
+                        <ul class="gnb-mobile-sub-list">
+                            <li><a href="javascript:void(0)">DT/IT</a></li>
+                            <li><a href="javascript:void(0)">패스트캠퍼스</a></li>
+                            <li><a href="javascript:void(0)">경영</a></li>
+                            <li><a href="javascript:void(0)">리더십</a></li>
+                            <li><a href="javascript:void(0)">업무스킬</a></li>
+                            <li><a href="javascript:void(0)">전문직무</a></li>
+                            <li><a href="javascript:void(0)">인문교양</a></li>
+                            <li><a href="javascript:void(0)">어학</a></li>
+                            <li><a href="javascript:void(0)">자격</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- 하이브러리 -->
+            <div class="gnb-mobile-section">
+                <strong class="gnb-mobile-section-title">하이브러리</strong>
+                <ul class="gnb-mobile-list">
+                    <li class="has-sub open">
+                        <button type="button" class="gnb-mobile-sub-toggle" aria-expanded="true">수강신청</button>
+                        <ul class="gnb-mobile-sub-list">
+                            <li><a href="javascript:void(0)">하이브러리 과정 (실문도서)</a></li>
+                            <li><a href="javascript:void(0)">하이브러리 과정 (전자도서)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- 열린강의 -->
+            <div class="gnb-mobile-section">
+                <strong class="gnb-mobile-section-title">열린강의</strong>
+                <ul class="gnb-mobile-list">
+                    <li><a href="javascript:void(0)">SERI CEO</a></li>
+                    <li><a href="javascript:void(0)">Creative TV</a></li>
+                    <li><a href="javascript:void(0)">직무</a></li>
+                    <li><a href="javascript:void(0)">다이렉트</a></li>
+                </ul>
+            </div>
+            <!-- 마이페이지 -->
+            <div class="gnb-mobile-section">
+                <strong class="gnb-mobile-section-title">마이페이지</strong>
+                <ul class="gnb-mobile-list">
+                    <li><a href="javascript:void(0)">나의 홈</a></li>
+                    <li class="has-sub open">
+                        <button type="button" class="gnb-mobile-sub-toggle" aria-expanded="true">나의 강의실</button>
+                        <ul class="gnb-mobile-sub-list">
+                            <li><a href="javascript:void(0)">수강중인 과정</a></li>
+                            <li><a href="javascript:void(0)">수강신청 과정</a></li>
+                            <li><a href="javascript:void(0)">수강완료 과정</a></li>
+                            <li><a href="javascript:void(0)">관심과정</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0)">나의 설문</a></li>
+                    <li><a href="javascript:void(0)">나의 일정 관리</a></li>
+                    <li><a href="javascript:void(0)">이벤트 당첨 현황</a></li>
+                    <li class="has-sub open">
+                        <button type="button" class="gnb-mobile-sub-toggle" aria-expanded="false">개인정보수정</button>
+                        <ul class="gnb-mobile-sub-list">
+                            <li><a href="javascript:void(0)">프로필 수정</a></li>
+                            <li><a href="javascript:void(0)">회원탈퇴</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- 고객센터 -->
+            <div class="gnb-mobile-section">
+                <strong class="gnb-mobile-section-title">고객센터</strong>
+                <ul class="gnb-mobile-list">
+                    <li><a href="javascript:void(0)">공지사항</a></li>
+                    <li><a href="javascript:void(0)">FAQ</a></li>
+                    <li><a href="javascript:void(0)">1:1 상담</a></li>
+                    <li><a href="javascript:void(0)">이벤트</a></li>
+                    <li class="has-sub open">
+                        <button type="button" class="gnb-mobile-sub-toggle" aria-expanded="false">학습방법</button>
+                        <ul class="gnb-mobile-sub-list">
+                            <li><a href="javascript:void(0)">수강신청</a></li>
+                            <li><a href="javascript:void(0)">학습</a></li>
+                            <li><a href="javascript:void(0)">평가/과제</a></li>
+                            <li><a href="javascript:void(0)">아이디/비밀번호찾기</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0)">고용보험환급기준</a></li>
+                    <li><a href="javascript:void(0)">모사답안처리기준</a></li>
+                    <li><a href="javascript:void(0)">학습지원프로그램</a></li>
+                    <li><a href="javascript:void(0)">원격지원 서비스</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="gnb-mobile-overlay"></div>
+</header>
+<main id="content">
+  <!-- HERO -->
+  <div class="main-content-wrap">
+    <section class="hero hero-spring">
+      <div class="hero-pattern" aria-hidden="true">
+        <img class="spring-f spring-f-1" src="../images/main/spring/flower-1.png" alt="">
+        <img class="spring-f spring-f-2" src="../images/main/spring/flower-2.png" alt="">
+        <img class="spring-f spring-f-3" src="../images/main/spring/flower-3.png" alt="">
+        <img class="spring-f spring-f-4" src="../images/main/spring/flower-4.png" alt="">
+        <img class="spring-f spring-f-5" src="../images/main/spring/flower-5.png" alt="">
+        <img class="spring-f spring-f-6" src="../images/main/spring/flower-6.png" alt="">
+        <img class="spring-f spring-f-7" src="../images/main/spring/flower-7.png" alt="">
+        <img class="spring-f spring-f-8" src="../images/main/spring/flower-8.png" alt="">
+        <img class="spring-f spring-f-9" src="../images/main/spring/flower-9.png" alt="">
+        <img class="spring-f spring-f-10" src="../images/main/spring/flower-10.png" alt="">
+      </div>
+      <img class="spring-f spring-f-11" src="../images/main/spring/flower-11.png" alt="">
+      <img class="spring-f spring-f-12" src="../images/main/spring/flower-12.png" alt="">
+      <img class="spring-f spring-f-13" src="../images/main/spring/flower-13.png" alt="">
+      <div class="inner hero-inner">
+        <div class="progress-card">
+          <div class="progress-card-head">
+            <div class="progress-card-title-wrap">
+              <h2 class="progress-card-title">수강중인 과정</h2>
+              <div class="progress-card-desc">현재 수강중인 과정은 총 <strong>3</strong>개 입니다.</div>
+            </div>
+            <a href="javascript:void(0)" class="btn-chip">전체 강의실</a>
+          </div>
+          <div class="category-tabs" role="tablist" aria-label="과정 카테고리">
+            <button type="button" class="category-tab" role="tab" id="tab-cyber" aria-selected="true" aria-controls="panel-course">
+              <span class="category-tab-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 2L1 7L10 12L19 7L10 2Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M4.375 9.5V13.75C4.375 15.125 6.875 16.875 10 16.875C13.125 16.875 15.625 15.125 15.625 13.75V9.5" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M19 7V15.125" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                법정의무교육
+              </span>
+              <span class="category-tab-count">2</span>
+            </button>
+            <button type="button" class="category-tab" role="tab" id="tab-class" aria-selected="false" aria-controls="panel-course">
+              <span class="category-tab-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M15.4167 7.5H4.58333C4.1231 7.5 3.75 7.8731 3.75 8.33333V16.6667C3.75 17.1269 4.1231 17.5 4.58333 17.5H15.4167C15.8769 17.5 16.25 17.1269 16.25 16.6667V8.33333C16.25 7.8731 15.8769 7.5 15.4167 7.5Z" stroke-width="2"/>
+                  <path d="M7.08301 10.625C7.19796 10.625 7.29182 10.7181 7.29199 10.833C7.29199 10.9481 7.19807 11.042 7.08301 11.042C6.9681 11.0418 6.875 10.948 6.875 10.833C6.87518 10.7182 6.96821 10.6252 7.08301 10.625Z" fill="#003087" stroke-width="1.25"/>
+                  <path d="M12.9163 10.625C13.0312 10.625 13.1251 10.7181 13.1252 10.833C13.1252 10.9481 13.0313 11.042 12.9163 11.042C12.8013 11.0418 12.7083 10.948 12.7083 10.833C12.7084 10.7182 12.8015 10.6252 12.9163 10.625Z" fill="#003087" stroke-width="1.25"/>
+                  <path d="M11.042 13.9585V14.3755H8.95801V13.9585H11.042Z" fill="#003087" stroke-width="1.25"/>
+                  <path d="M10 4.1665V7.49984" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M1.66675 10.8335V14.1668" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M18.3333 10.8335V14.1668" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10.0001 4.16667C10.4603 4.16667 10.8334 3.79357 10.8334 3.33333C10.8334 2.8731 10.4603 2.5 10.0001 2.5C9.53984 2.5 9.16675 2.8731 9.16675 3.33333C9.16675 3.79357 9.53984 4.16667 10.0001 4.16667Z" stroke-width="2"/>
+                </svg>
+                사이버테마
+              </span>
+              <span class="category-tab-count">0</span>
+            </button>
+            <button type="button" class="category-tab" role="tab" id="tab-qual" aria-selected="false" aria-controls="panel-course">
+              <span class="category-tab-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M14.9764 6C15.142 4.95618 14.4148 4 13.4556 4H5.54445C4.58513 4 3.85802 4.95618 4.02359 6" stroke-width="2"/>
+                  <path d="M13.9652 5C13.9883 4.58547 13.9998 4.37816 14 4.20696C14.0019 2.56915 13.3758 1.19302 12.5495 1.01827C12.4631 1 12.3574 1 12.1458 1H6.85425C6.64265 1 6.53684 1 6.45045 1.01827C5.62416 1.19302 4.99819 2.56915 5 4.20694C5.00019 4.37816 5.01171 4.58544 5.03474 5" stroke-width="2"/>
+                  <path d="M12 15H7" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M2.28763 11.9815C1.95311 9.66156 1.78585 8.50161 2.49674 7.75081C3.20763 7 4.47319 7 7.0043 7H11.9957C14.5268 7 15.7924 7 16.5033 7.75081C17.2141 8.50161 17.0469 9.66156 16.7124 11.9815L16.3951 14.1815C16.1328 16.0009 16.0017 16.9105 15.3288 17.4553C14.6559 18 13.6634 18 11.6785 18H7.32152C5.33661 18 4.34415 18 3.67126 17.4553C2.99836 16.9105 2.8672 16.0009 2.60486 14.1815L2.28763 11.9815Z" stroke-width="2"/>
+                </svg>
+                하이브러리
+              </span>
+              <span class="category-tab-count">1</span>
+            </button>
+            <button type="button" class="category-tab" role="tab" id="tab-consign" aria-selected="false" aria-controls="panel-course">
+              <span class="category-tab-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M8.33333 15H11.6667M6.00003 2.5H14C14.9334 2.5 15.4002 2.5 15.7567 2.68166C16.0703 2.84144 16.3253 3.09641 16.485 3.41002C16.6667 3.76653 16.6667 4.23325 16.6667 5.16667V9.83333C16.6667 10.7667 16.6667 11.2335 16.485 11.59C16.3253 11.9036 16.0703 12.1586 15.7567 12.3183C15.4002 12.5 14.9334 12.5 14 12.5H6.00003C5.0666 12.5 4.59989 12.5 4.24338 12.3183C3.92977 12.1586 3.6748 11.9036 3.51501 11.59C3.33336 11.2335 3.33336 10.7667 3.33336 9.83333V5.16667C3.33336 4.23325 3.33336 3.76653 3.51501 3.41002C3.6748 3.09641 3.92977 2.84144 4.24338 2.68166C4.59989 2.5 5.0666 2.5 6.00003 2.5ZM3.82407 17.5H16.176C16.8903 17.5 17.2475 17.5 17.4626 17.3496C17.6504 17.2182 17.7759 17.0152 17.8094 16.7885C17.8478 16.5287 17.688 16.2093 17.3686 15.5704L16.9389 14.7112C16.5376 13.9085 16.3369 13.5072 16.0376 13.2139C15.7728 12.9547 15.4538 12.7575 15.1034 12.6367C14.7073 12.5 14.2586 12.5 13.3613 12.5H6.63883C5.74143 12.5 5.29273 12.5 4.8966 12.6367C4.54628 12.7575 4.22722 12.9547 3.96248 13.2139C3.66311 13.5072 3.46244 13.9085 3.06112 14.7112L2.6315 15.5704C2.31203 16.2093 2.1523 16.5287 2.19067 16.7885C2.22417 17.0152 2.3496 17.2182 2.53743 17.3496C2.75255 17.5 3.10972 17.5 3.82407 17.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                열린강의
+              </span>
+              <span class="category-tab-count">1</span>
+            </button>
+          </div>
+
+          <div role="tabpanel" id="panel-course" aria-labelledby="tab-cyber">
+            <div data-panel="tab-cyber">
+              <ul class="course-progress-list">
+                <li class="course-progress-item">
+                  <div class="course-progress-item-main">
+                    <span class="course-progress-item-title">2026년도 준법감시 담당자 교육</span>
+                    <span class="course-progress-item-period">수강기간 (~2026-3-31)</span>
+                  </div>
+                  <div class="course-progress-item-action">
+                    <a href="javascript:void(0)" class="btn btn-sm btn-gray-line btn-play">이어서 보기</a>
+                  </div>
+                  <div class="course-progress-item-bar-wrap">
+                    <span class="course-progress-item-bar-label">진행률</span>
+                    <span class="course-progress-item-percent">50%</span>
+                    <div class="course-progress-item-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="진행률 50%">
+                      <span class="course-progress-item-bar-fill" style="width:50%"></span>
+                    </div>
+                  </div>
+                </li>
+                <li class="course-progress-item">
+                  <div class="course-progress-item-main">
+                    <span class="course-progress-item-title">2026 상반기 금융소비자보호교육</span>
+                    <span class="course-progress-item-period">수강기간 (~2026-3-31)</span>
+                  </div>
+                  <div class="course-progress-item-action">
+                    <a href="javascript:void(0)" class="btn btn-sm btn-gray-line btn-play">이어서 보기</a>
+                  </div>
+                  <div class="course-progress-item-bar-wrap">
+                    <span class="course-progress-item-bar-label">진행률</span>
+                    <span class="course-progress-item-percent">60%</span>
+                    <div class="course-progress-item-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="진행률 60%">
+                      <span class="course-progress-item-bar-fill" style="width:60%"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div data-panel="tab-class" hidden>
+              <p class="tab-empty">수강중인 사이버테마 과정이 없습니다.</p>
+            </div>
+            <div data-panel="tab-qual" hidden>
+              <ul class="course-progress-list">
+                <li class="course-progress-item">
+                  <div class="course-progress-item-main">
+                    <span class="course-progress-item-title">2026 상반기 금융보안 실무 과정</span>
+                    <span class="course-progress-item-period">수강기간 (~2026-6-30)</span>
+                  </div>
+                  <div class="course-progress-item-action">
+                    <a href="javascript:void(0)" class="btn btn-sm btn-gray-line btn-play">이어서 보기</a>
+                  </div>
+                  <div class="course-progress-item-bar-wrap">
+                    <span class="course-progress-item-bar-label">진행률</span>
+                    <span class="course-progress-item-percent">30%</span>
+                    <div class="course-progress-item-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" aria-label="진행률 30%">
+                      <span class="course-progress-item-bar-fill" style="width:25%"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div data-panel="tab-consign" hidden>
+              <ul class="course-progress-list">
+                <li class="course-progress-item">
+                  <div class="course-progress-item-main">
+                    <span class="course-progress-item-title">리더십 역량강화 과정</span>
+                    <span class="course-progress-item-period">수강기간 (~2026-5-31)</span>
+                  </div>
+                  <div class="course-progress-item-action">
+                    <a href="javascript:void(0)" class="btn btn-sm btn-gray-line btn-play">이어서 보기</a>
+                  </div>
+                  <div class="course-progress-item-bar-wrap">
+                    <span class="course-progress-item-bar-label">진행률</span>
+                    <span class="course-progress-item-percent">75%</span>
+                    <div class="course-progress-item-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="진행률 75%">
+                      <span class="course-progress-item-bar-fill" style="width:75%"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="side-card">
+            <div class="side-card-head">
+              <span class="side-card-icon" aria-hidden="true"><i class="ico ico-person"></i></span><div class="side-card-title">홍길동 님</div>
+            </div>
+            <p class="side-card-greet">안녕하세요, 홍길동님.<br/>교육 연수원에 오신 것을 환영합니다.</p>
+            <a href="javascript:void(0)" class="btn btn-sm btn-orange-line btn-arrow">하이플래너 스마트연수원 접속</a>
+            <div class="side-card-sub-actions">
+              <a href="javascript:void(0)" class="btn btn-sm btn-gray-line btn-arrow">정보수정</a>
+              <a href="javascript:void(0)" class="btn btn-sm btn-gray-line btn-arrow">로그아웃</a>
+            </div>
+          </div>
+          <div class="side-card side-card-diagnosis">
+            <div class="side-card-head">
+              <span class="side-card-icon side-card-icon-blue" aria-hidden="true"><i class="ico ico-write"></i></span><div class="side-card-title">역량진단</div>
+            </div>
+            <p class="side-card-body-text">
+              <span class="color-navy">2026년 상반기 역량진단</span>이<br/>
+              시작 되었습니다. 진단 완료 후 맞춤
+              과정을 추천 받으세요.
+            </p>
+            <a href="javascript:void(0)" class="btn btn-sm btn-navy-line btn-arrow">진단 시작하기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 추천과정1 -->
+<section class="section course-bento">
+  <div class="inner">
+    <div class="section-head">
+      <h2 class="section-title">추천과정1</h2>
+      <a href="javascript:void(0)" class="btn-chip" target="_blank" rel="noopener noreferrer">더보기</a>
+    </div>
+    <div class="bento-grid">
+      <div class="bento-item bento-item-tl">
+        <a href="javascript:void(0)" class="bento-item-bg"><img src="../images/common/img-default.png" alt="Hi-Value Leadership 통합진단 피드백 레포트 해설"></a>
+<!--        <div class="bento-item-head">-->
+<!--          <span class="bento-item-meta">사이버테마 <em>|</em> <span class="badge-new">NEW</span></span>-->
+<!--          <div class="bento-item-title">Hi-Value Leadership 통합진단 피드백 레포트 해설</div>-->
+<!--        </div>-->
+<!--        <div class="bento-item-actions">-->
+<!--          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-arrow">수강신청 하기</a>-->
+<!--          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-play">학습하기</a>-->
+<!--        </div>-->
+      </div>
+      <div class="bento-item bento-item-bl">
+        <a href="javascript:void(0)" class="bento-item-bg"><img src="../images/common/img-default.png" alt="Hi-Value Leadership 통합진단 피드백 레포트 해설"></a>
+<!--        <div class="bento-item-head">-->
+<!--          <span class="bento-item-meta">사이버테마 <em>|</em> <span class="badge-new">NEW</span></span>-->
+<!--          <div class="bento-item-title">[AI 치트키]인공지능 × 인간지능 새 판짜기</div>-->
+<!--        </div>-->
+<!--        <div class="bento-item-actions">-->
+<!--          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-arrow">수강신청 하기</a>-->
+<!--          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-play">학습하기</a>-->
+<!--        </div>-->
+      </div>
+      <div class="bento-item bento-item-feature">
+        <a href="javascript:void(0)" class="bento-item-bg"><img src="../images/common/img-default.png" alt="Hi-Value Leadership 통합진단 피드백 레포트 해설"></a>
+<!--        <div class="bento-item-head">-->
+<!--          <span class="bento-item-meta">사이버테마 <em>|</em> <span class="badge-new">NEW</span></span>-->
+<!--          <div class="bento-item-title">Hi-Value Leadership 통합진단 피드백 레포트 해설</div>-->
+<!--        </div>-->
+<!--        <div class="bento-item-actions">-->
+<!--          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-arrow">수강신청 하기</a>-->
+<!--          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-play">학습하기</a>-->
+<!--        </div>-->
+      </div>
+      <div class="bento-item bento-item-tr">
+        <a href="javascript:void(0)" class="bento-item-bg"><img src="../images/common/img-default.png" alt="박물관을 빌려드립니다(영국)_예술, 시간을 넘다"></a>
+<!--        <div class="bento-item-head">-->
+<!--          <span class="bento-item-meta">사이버테마 <em>|</em> <span class="badge-new">NEW</span></span>-->
+<!--          <div class="bento-item-title">박물관을 빌려드립니다(영국)_예술, 시간을 넘다</div>-->
+<!--        </div>-->
+<!--        <div class="bento-item-actions">-->
+<!--          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-arrow">수강신청 하기</a>-->
+<!--          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-play">학습하기</a>-->
+<!--        </div>-->
+      </div>
+      <div class="bento-item bento-item-br">
+        <a href="javascript:void(0)" class="bento-item-bg"><img src="../images/common/img-default.png" alt="금융 패권을 위한 미중 화폐전쟁 달러vs위안화"></a>
+<!--        <div class="bento-item-head">-->
+<!--          <span class="bento-item-meta">사이버테마 <em>|</em> <span class="badge-new">NEW</span></span>-->
+<!--          <div class="bento-item-title">금융 패권을 위한 미중 화폐전쟁 달러vs위안화</div>-->
+<!--        </div>-->
+<!--        <div class="bento-item-actions">-->
+<!--          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-arrow">수강신청 하기</a>-->
+<!--          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-play">학습하기</a>-->
+<!--        </div>-->
+      </div>
+    </div>
+<!--    <div class="bento-row-bottom">-->
+<!--      <div class="bento-item">-->
+<!--        <a href="javascript:void(0)" class="bento-item-bg"><img src="../images/common/img-default.png" alt="[AI 치트키]인공지능 × 인간지능 새 판짜기"></a>-->
+<!--&lt;!&ndash;        <div class="bento-item-head">&ndash;&gt;-->
+<!--&lt;!&ndash;          <span class="bento-item-meta">사이버테마 <em>|</em> <span class="badge-new">NEW</span></span>&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="bento-item-title">[AI 치트키]인공지능 × 인간지능 새 판짜기</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="bento-item-actions">&ndash;&gt;-->
+<!--&lt;!&ndash;          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-arrow">수강신청 하기</a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-play">학습하기</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class="bento-item">-->
+<!--        <a href="javascript:void(0)" class="bento-item-bg"><img src="../images/common/img-default.png" alt="[AI 치트키]인공지능 × 인간지능 새 판짜기"></a>-->
+<!--&lt;!&ndash;        <div class="bento-item-head">&ndash;&gt;-->
+<!--&lt;!&ndash;          <span class="bento-item-meta">사이버테마 <em>|</em> <span class="badge-new">NEW</span></span>&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="bento-item-title">[AI 치트키]인공지능 × 인간지능 새 판짜기</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="bento-item-actions">&ndash;&gt;-->
+<!--&lt;!&ndash;          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-arrow">수강신청 하기</a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-play">학습하기</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+  </div>
+</section>
+
+<!-- 추천과정2 -->
+<section class="section rec-list-section">
+  <div class="inner">
+    <div class="section-head">
+      <h2 class="section-title">추천과정2</h2>
+      <a href="javascript:void(0)" class="btn-chip">관심분야 설정</a>
+    </div>
+    <div class="rec-list-outer _recListOuter">
+      <ul class="rec-list _recList">
+        <li class="_recSlide">
+          <div class="rec-card">
+            <div class="rec-card-thumb">
+              <img src="../images/@temp/course-1.png" alt="비율수록 편안해진다! 불쾌감정 소통하기">
+            </div>
+            <div class="rec-card-body">
+              <span class="rec-card-category">리더십</span>
+              <h3 class="rec-card-title">비율수록 편안해진다! 불쾌감정 소통하기</h3>
+              <p class="rec-card-period">2026-04-01 ~ 2026-04-30</p>
+              <div class="rec-card-tags"><span>#감정노동자</span><span>#소통하기</span></div>
+              <div class="rec-card-actions">
+                <a href="javascript:void(0)" class="btn btn-sm btn-navy-line btn-arrow">수강신청 하기</a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-orange-line btn-arrow">학습하기</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="_recSlide">
+          <div class="rec-card">
+            <div class="rec-card-thumb">
+              <img src="../images/@temp/course-2.png" alt="금융 X AI: 실무 가이드">
+            </div>
+            <div class="rec-card-body">
+              <span class="rec-card-category rec-card-category-blue">전문직무</span>
+              <h3 class="rec-card-title">금융 X AI: 실무 가이드</h3>
+              <p class="rec-card-period">2026-04-01 ~ 2026-04-30</p>
+              <div class="rec-card-tags"><span>#금융</span><span>#AI</span></div>
+              <div class="rec-card-actions">
+                <a href="javascript:void(0)" class="btn btn-sm btn-navy-line btn-arrow">수강신청 하기</a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-orange-line btn-arrow">학습하기</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="_recSlide">
+          <div class="rec-card">
+            <div class="rec-card-thumb">
+              <img src="../images/@temp/course-3.png" alt="AI는 어떻게 보험 컨설팅의 파트너가 되는가">
+            </div>
+            <div class="rec-card-body">
+              <span class="rec-card-category rec-card-category-blue">전문직무</span>
+              <h3 class="rec-card-title">AI는 어떻게 보험 컨설팅의 파트너가 되는가</h3>
+              <p class="rec-card-period">2026-04-01 ~ 2026-04-30</p>
+              <div class="rec-card-tags"><span>#금융</span><span>#AI</span><span>#컨설팅</span></div>
+              <div class="rec-card-actions">
+                <a href="javascript:void(0)" class="btn btn-sm btn-navy-line btn-arrow">수강신청 하기</a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-orange-line btn-arrow">학습하기</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="_recSlide">
+          <div class="rec-card">
+            <div class="rec-card-thumb">
+              <img src="../images/@temp/course-4.png" alt="NEW 신용정보 및 신용평점의 이해">
+            </div>
+            <div class="rec-card-body">
+              <span class="rec-card-category rec-card-category-blue">전문직무</span>
+              <h3 class="rec-card-title">NEW 신용정보 및 신용평점의 이해</h3>
+              <p class="rec-card-period">2026-04-01 ~ 2026-04-30</p>
+              <div class="rec-card-tags"><span>#금융</span><span>#신용평점</span></div>
+              <div class="rec-card-actions">
+                <a href="javascript:void(0)" class="btn btn-sm btn-navy-line btn-arrow">수강신청 하기</a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-orange-line btn-arrow">학습하기</a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 추천과정3 -->
+<section class="section course-grid">
+  <div class="inner">
+    <div class="section-head">
+      <h2 class="section-title">추천과정3</h2>
+      <a href="javascript:void(0)" class="btn-chip" target="_blank" rel="noopener noreferrer">더보기</a>
+    </div>
+    <div class="course-grid-swiper-wrap">
+      <button type="button" class="banner-nav banner-prev _courseGridSliderPrev" aria-label="이전 슬라이드" tabindex="0"><i class="ico ico-nav-prev"></i></button>
+      <div class="swiper course-grid-slider _courseGridSlider">
+        <ul class="swiper-wrapper course-grid-list">
+          <li class="swiper-slide course-grid-slide">
+            <div class="course-card">
+              <div class="course-card-bg"><img src="../images/common/img-default.png" alt="[SERI]AI의 실수"></div>
+              <div class="course-card-head">
+<!--                <h3 class="course-card-title">[SERI]AI의 실수</h3>-->
+<!--                <p class="course-card-tags"><span>#AI</span><span>#리더십</span></p>-->
+              </div>
+              <div class="course-card-actions">
+                <a class="btn btn-sm btn-navy-line btn-arrow" href="#">수강신청</a>
+              </div>
+            </div>
+          </li>
+          <li class="swiper-slide course-grid-slide">
+            <div class="course-card">
+              <div class="course-card-bg"><img src="../images/common/img-default.png" alt="[SERI]AI의 실수"></div>
+              <div class="course-card-head">
+                <h3 class="course-card-title">[직무]Hi-Value Leadership 통합진단 피드백 레포트 해설</h3>
+                <p class="course-card-tags"><span>#임원</span><span>#리더십</span></p>
+              </div>
+              <div class="course-card-actions">
+                <a class="btn btn-sm btn-navy-line btn-arrow" href="#">수강신청</a>
+              </div>
+            </div>
+          </li>
+          <li class="swiper-slide course-grid-slide">
+            <div class="course-card">
+              <div class="course-card-bg"><img src="../images/common/img-default.png" alt="[SERI]AI의 실수"></div>
+              <div class="course-card-head">
+                <h3 class="course-card-title">[CREATIVE TV] 열정 있는 직원으로 만드는 법</h3>
+                <p class="course-card-tags"><span>#워크</span><span>#업무역량</span></p>
+              </div>
+              <div class="course-card-actions">
+                <a class="btn btn-sm btn-navy-line btn-arrow" href="#">수강신청</a>
+              </div>
+            </div>
+          </li>
+          <li class="swiper-slide course-grid-slide">
+            <div class="course-card">
+              <div class="course-card-bg"><img src="../images/common/img-default.png" alt="[SERI]AI의 실수"></div>
+              <div class="course-card-head">
+                <h3 class="course-card-title">[다이렉트]보이는 TM 모바일 청약(자동차)</h3>
+                <p class="course-card-tags"><span>#자율주행</span><span>#자동차</span></p>
+              </div>
+              <div class="course-card-actions">
+                <a class="btn btn-sm btn-navy-line btn-arrow" href="#">수강신청</a>
+              </div>
+            </div>
+          </li>
+          <li class="swiper-slide course-grid-slide">
+            <div class="course-card">
+              <div class="course-card-bg"><img src="../images/common/img-default.png" alt="[SERI]AI의 실수"></div>
+              <div class="course-card-head">
+                <h3 class="course-card-title">[CREATIVE TV] 부정적인 평가를 넘어 성공한 사람의 태도</h3>
+                <p class="course-card-tags"><span>#워크</span><span>#업무역량</span></p>
+              </div>
+              <div class="course-card-actions">
+                <a class="btn btn-sm btn-navy-line btn-arrow" href="#">수강신청</a>
+              </div>
+            </div>
+          </li>
+          <li class="swiper-slide course-grid-slide">
+            <div class="course-card">
+              <div class="course-card-bg"><img src="../images/common/img-default.png" alt="[SERI]AI의 실수"></div>
+              <div class="course-card-head">
+                <h3 class="course-card-title">[SERI]AI의 실수</h3>
+                <p class="course-card-tags"><span>#AI</span><span>#리더십</span></p>
+              </div>
+              <div class="course-card-actions">
+                <a class="btn btn-sm btn-navy-line btn-arrow" href="#">수강신청</a>
+              </div>
+            </div>
+          </li>
+          <li class="swiper-slide course-grid-slide">
+            <div class="course-card">
+              <div class="course-card-bg"><img src="../images/common/img-default.png" alt="[SERI]AI의 실수"></div>
+              <div class="course-card-head">
+                <h3 class="course-card-title">[직무]Hi-Value Leadership 통합진단 피드백 레포트 해설</h3>
+                <p class="course-card-tags"><span>#임원</span><span>#리더십</span></p>
+              </div>
+              <div class="course-card-actions">
+                <a class="btn btn-sm btn-navy-line btn-arrow" href="#">수강신청</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button type="button" class="banner-nav banner-next _courseGridSliderNext" aria-label="다음 슬라이드" tabindex="0"><i class="ico ico-nav-next"></i></button>
+    </div>
+<!--    <div class="course-grid-outer _courseGridOuter">-->
+<!--      <ul class="course-grid-list _courseGridList">-->
+<!--        <li class="course-grid-slide _cgSlide">-->
+<!--          <div class="course-card">-->
+<!--            <div class="course-card-bg"><img src="../images/@temp/thumb-course-v-1.png" alt="[SERI]AI의 실수"></div>-->
+<!--            <div class="course-card-head">-->
+<!--              <h3 class="course-card-title">[SERI]AI의 실수</h3>-->
+<!--              <p class="course-card-tags"><span>#AI</span><span>#리더십</span></p>-->
+<!--            </div>-->
+<!--            <div class="course-card-actions">-->
+<!--              <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-arrow">수강신청 하기</a>-->
+<!--              <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-play">학습하기</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--        <li class="course-grid-slide _cgSlide">-->
+<!--          <div class="course-card">-->
+<!--            <div class="course-card-bg"><img src="../images/@temp/thumb-course-v-2.png" alt="[직무]Hi-Value Leadership 통합진단 피드백 레포트 해설"></div>-->
+<!--            <div class="course-card-head">-->
+<!--              <h3 class="course-card-title">[직무]Hi-Value-->
+<!--                Leadership 통합진단-->
+<!--                피드백 레포트 해설</h3>-->
+<!--              <p class="course-card-tags"><span>#임원</span><span>#리더십</span></p>-->
+<!--            </div>-->
+<!--            <div class="course-card-actions">-->
+<!--              <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-arrow">수강신청 하기</a>-->
+<!--              <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-play">학습하기</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--        <li class="course-grid-slide _cgSlide">-->
+<!--          <div class="course-card">-->
+<!--            <div class="course-card-bg"><img src="../images/@temp/thumb-course-v-3.png" alt="[CREATIVE TV] 열정 있는 직원으로 만드는 법"></div>-->
+<!--            <div class="course-card-head">-->
+<!--              <h3 class="course-card-title">[CREATIVE TV]-->
+<!--                열정-->
+<!--                있는 직원으로 만드는 법</h3>-->
+<!--              <p class="course-card-tags"><span>#워크</span><span>#업무역량</span></p>-->
+<!--            </div>-->
+<!--            <div class="course-card-actions">-->
+<!--              <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-arrow">수강신청 하기</a>-->
+<!--              <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-play">학습하기</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--        <li class="course-grid-slide _cgSlide">-->
+<!--          <div class="course-card">-->
+<!--            <div class="course-card-bg"><img src="../images/@temp/thumb-course-v-4.png" alt="[다이렉트]보이는 TM 모바일 청약(자동차)"></div>-->
+<!--            <div class="course-card-head">-->
+<!--              <h3 class="course-card-title">[다이렉트]보이는 TM-->
+<!--                모바일 청약(자동차)</h3>-->
+<!--              <p class="course-card-tags"><span>#자율주행</span><span>#자동차</span></p>-->
+<!--            </div>-->
+<!--            <div class="course-card-actions">-->
+<!--              <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-arrow">수강신청 하기</a>-->
+<!--              <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-play">학습하기</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--        <li class="course-grid-slide _cgSlide">-->
+<!--          <div class="course-card">-->
+<!--            <div class="course-card-bg"><img src="../images/@temp/thumb-course-v-5.png" alt="[CREATIVE TV] 부정적인 평가를 넘어 성공한 사람의 태도"></div>-->
+<!--            <div class="course-card-head">-->
+<!--              <h3 class="course-card-title">[CREATIVE TV]-->
+<!--                부정적인 평가를 넘어-->
+<!--                성공한 사람의 태도</h3>-->
+<!--              <p class="course-card-tags"><span>#워크</span><span>#업무역량</span></p>-->
+<!--            </div>-->
+<!--            <div class="course-card-actions">-->
+<!--              <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-arrow">수강신청 하기</a>-->
+<!--              <a href="javascript:void(0)" class="btn btn-sm btn-white-line btn-play">학습하기</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+  </div>
+</section>
+
+<!-- 법정의무교육 + 공지사항 -->
+<section class="section">
+  <div class="inner info-row">
+    <div class="info-card">
+      <div class="info-card-head">
+        <h2 class="section-title">법정·의무교육 안내</h2>
+        <a href="javascript:void(0)" class="btn-chip" target="_blank" rel="noopener noreferrer">FAQ 확인하기</a>
+      </div>
+      <div class="calendar">
+        <p class="calendar-head">월별일정</p>
+        <ol class="calendar-months">
+          <li><button type="button" class="calendar-month" aria-label="1월">1</button></li>
+          <li><button type="button" class="calendar-month" aria-label="2월">2</button></li>
+          <li><button type="button" class="calendar-month this-month" aria-label="3월, 현재 달">3</button></li>
+          <li><button type="button" class="calendar-month" aria-label="4월">4</button></li>
+          <li><button type="button" class="calendar-month has-event" aria-label="5월, 일정 있음">5</button></li>
+          <li><button type="button" class="calendar-month" aria-label="6월">6</button></li>
+          <li><button type="button" class="calendar-month" aria-label="7월">7</button></li>
+          <li><button type="button" class="calendar-month" aria-label="8월">8</button></li>
+          <li><button type="button" class="calendar-month" aria-label="9월">9</button></li>
+          <li><button type="button" class="calendar-month has-event" aria-label="10월, 일정 있음">10</button></li>
+          <li><button type="button" class="calendar-month has-event" aria-label="11월, 일정 있음">11</button></li>
+          <li><button type="button" class="calendar-month has-event" aria-label="12월, 일정 있음">12</button></li>
+        </ol>
+
+        <ul class="calendar-events" aria-label="3월 일정">
+          <li class="calendar-event">
+            <a href="javascript:void(0)" class="calendar-event-title" target="_blank" rel="noopener noreferrer"><span>2026년 법정필수교육(성희롱예방교육 외)</span></a>
+            <span class="calendar-event-period">2026-03-06 ~ 2026-03-25</span>
+          </li>
+          <li class="calendar-event">
+            <a href="javascript:void(0)" class="calendar-event-title" target="_blank" rel="noopener noreferrer"><span>2026년 안전관리 교육</span></a>
+            <span class="calendar-event-period">2026-04-01 ~ 2026-04-15</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-head">
+        <h2 class="section-title">공지사항</h2>
+        <a href="javascript:void(0)" class="btn-chip" target="_blank" rel="noopener noreferrer">더보기</a>
+      </div>
+      <ul class="notice-list">
+        <li class="notice-list-item">
+          <a href="javascript:void(0)" class="notice-list-link" target="_blank" rel="noopener noreferrer">
+            <span class="notice-list-title">개인정보처리방침 변경 공지(시행일 : 2025.02.18) 개인정보처리방침 변경 공지(시행일 : 2025.02.18)</span>
+          </a>
+          <span class="notice-list-date">2026-03-25</span>
+        </li>
+        <li class="notice-list-item">
+          <a href="javascript:void(0)" class="notice-list-link" target="_blank" rel="noopener noreferrer">
+            <span class="notice-list-title">스마트연수원 IOS 앱 업데이트 안내</span>
+          </a>
+          <span class="notice-list-date">2026-03-25</span>
+        </li>
+        <li class="notice-list-item">
+          <a href="javascript:void(0)" class="notice-list-link" target="_blank" rel="noopener noreferrer">
+            <span class="notice-list-title">개인정보처리방침 변경 공지(시행일 : 2025.01.01)</span>
+          </a>
+          <span class="notice-list-date">2026-03-20</span>
+        </li>
+        <li class="notice-list-item">
+          <a href="javascript:void(0)" class="notice-list-link" target="_blank" rel="noopener noreferrer">
+            <span class="notice-list-title">고용보험 환급과정 진도학습 인증 방식 변경 안내</span>
+          </a>
+          <span class="notice-list-date">2026-03-15</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 배너 + 고객센터 -->
+<section class="section banner-section">
+  <div class="inner">
+    <div class="banner-swiper-wrap">
+      <button type="button" class="banner-nav banner-prev _bannerSwiperPrev" aria-label="이전 배너"><i class="ico ico-nav-prev"></i></button>
+      <div class="swiper banner-swiper _bannerSwiper" aria-roledescription="carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="javascript:void(0)" class="banner-card" target="_blank" rel="noopener noreferrer">
+              <img src="../images/main/banner-1.png" alt="밀리의 서재 하이브러리(전자도서)">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)" class="banner-card" target="_blank" rel="noopener noreferrer">
+              <img src="../images/main/banner-2.png" alt="과정 개설리스트 다운로드">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)" class="banner-card" target="_blank" rel="noopener noreferrer">
+              <img src="../images/main/banner-3.png" alt="금융보안교육센터 바로가기">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)" class="banner-card" target="_blank" rel="noopener noreferrer">
+              <img src="../images/main/banner-4.png" alt="안드로이드 앱 설치 문자 전송">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)" class="banner-card" target="_blank" rel="noopener noreferrer">
+              <img src="../images/main/banner-5.png" alt="IOS 앱 설치 문자 전송">
+            </a>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="banner-nav banner-next _bannerSwiperNext" aria-label="다음 배너"><i class="ico ico-nav-next"></i></button>
+    </div>
+    <div class="support-center support-center-orange">
+      <i class="ico ico-main-call" aria-hidden="true"></i>
+      <div class="support-center-title">
+        <span class="support-center-label">학습지원센터</span>
+        <a href="tel:1661-9061" class="support-center-phone">1661-9061</a>
+      </div>
+      <div class="support-center-hours">
+        <span>평일  9:00~18:00</span>
+        <span class="support-center-hours-sep"> / </span>
+        <span>점심 12:00~13:00 (토,일 ,공휴일 휴무)</span>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // 카테고리 탭
+  const categoryTabs = document.querySelectorAll('.category-tab');
+  const panelCourse = document.getElementById('panel-course');
+
+  categoryTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      categoryTabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+      tab.setAttribute('aria-selected', 'true');
+      panelCourse.setAttribute('aria-labelledby', tab.id);
+      panelCourse.querySelectorAll('[data-panel]').forEach(p => p.hidden = true);
+      panelCourse.querySelector(`[data-panel="${tab.id}"]`).hidden = false;
+    });
+  });
+
+  // let courseGridSwiper = null;
+  //
+  // function handleCourseGridSwiper() {
+  //   const isMobile = window.innerWidth <= 1280;
+  //   const outer = document.querySelector('._courseGridOuter');
+  //   const list  = document.querySelector('._courseGridList');
+  //   const slides = document.querySelectorAll('._cgSlide');
+  //
+  //   if (isMobile && !courseGridSwiper) {
+  //     outer.classList.add('swiper');
+  //     list.classList.add('swiper-wrapper');
+  //     slides.forEach(el => el.classList.add('swiper-slide'));
+  //
+  //     courseGridSwiper = new Swiper('._courseGridOuter', {
+  //       slidesPerView: 1.5,
+  //       spaceBetween: 20,
+  //       grabCursor: true,
+  //       breakpoints: {
+  //         577: {
+  //           slidesPerView: 2.5,
+  //           spaceBetween: 30,
+  //         },
+  //       },
+  //     });
+  //   } else if (!isMobile && courseGridSwiper) {
+  //     courseGridSwiper.destroy(true, true);
+  //     courseGridSwiper = null;
+  //     outer.classList.remove('swiper');
+  //     list.classList.remove('swiper-wrapper');
+  //     slides.forEach(el => el.classList.remove('swiper-slide'));
+  //   }
+  // }
+  //
+  // handleCourseGridSwiper();
+  // window.addEventListener('resize', handleCourseGridSwiper);
+  //
+  // 추천과정 리스트 모바일 swiper
+  let recListSwiper = null;
+
+  function handleRecListSwiper() {
+    const isMobile = window.innerWidth <= 1280;
+    const outer = document.querySelector('._recListOuter');
+    const list  = document.querySelector('._recList');
+    const slides = document.querySelectorAll('._recSlide');
+
+    if (isMobile && !recListSwiper) {
+      outer.classList.add('swiper');
+      list.classList.add('swiper-wrapper');
+      slides.forEach(el => el.classList.add('swiper-slide'));
+
+      recListSwiper = new Swiper('._recListOuter', {
+        slidesPerView: 1.3,
+        spaceBetween: 16,
+        grabCursor: true,
+        breakpoints: {
+          577: { slidesPerView: 2.3, spaceBetween: 20 },
+        },
+      });
+    } else if (!isMobile && recListSwiper) {
+      recListSwiper.destroy(true, true);
+      recListSwiper = null;
+      outer.classList.remove('swiper');
+      list.classList.remove('swiper-wrapper');
+      slides.forEach(el => el.classList.remove('swiper-slide'));
+    }
+  }
+
+  handleRecListSwiper();
+  window.addEventListener('resize', handleRecListSwiper);
+
+  // 추천과정3 모바일 swiper
+  new Swiper('._courseGridSlider', {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    navigation: {
+      prevEl: '._courseGridSliderPrev',
+      nextEl: '._courseGridSliderNext',
+    },
+    breakpoints: {
+      0: { spaceBetween: 20 },
+      1281: { spaceBetween: 30 },
+    },
+  });
+
+  // 배너 swiper
+  new Swiper('._bannerSwiper', {
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 16,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false
+    },
+    navigation: {
+      prevEl: '._bannerSwiperPrev',
+      nextEl: '._bannerSwiperNext',
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1
+      },
+      577: {
+        slidesPerView: 2
+      },
+      1281: {
+        slidesPerView: 3
+      },
+    },
+  });
+</script>
+  </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+    <nav class="footer-nav" aria-label="정책 메뉴">
+        <a href="서브_이용약관.html" class="footer-nav-link">이용약관</a>
+        <a href="서브_개인정보처리방침.html" class="footer-nav-link">개인정보처리방침</a>
+        <a href="서브_이메일무단수집거부.html" class="footer-nav-link">이메일무단수집거부</a>
+        <a href="서브_운영규칙.html" class="footer-nav-link">평생교육시설 운영규칙</a>
+        <a href="https://hrd.hihrd.co.kr/usrs/portal/hi/companyIntroduceForm.do" target="_blank" rel="noopener noreferrer" class="footer-nav-link">회사소개</a>
+    </nav>
+    <div class="footer-info">
+        <ul class="footer-info-list">
+            <li>원격평생교육시설신고 제원격-97호</li>
+            <li>통신판매업신고 제2017-서울송파-0653호</li>
+            <li>서울특별시 송파구 송파대로 570 타워730빌딩 27층</li>
+            <li>TEL : <a href="tel:16619061"><strong>1661-9061</strong></a></li>
+            <li>FAX : <a href="tel:0237095882">02-3709-5882</a></li>
+        </ul>
+        <div class="footer-brand">
+            <img src="../images/common/footer-logo.svg" alt="현대 C&R">
+        </div>
+        <p class="footer-copy">Copyright Hyundai C&R Co., Ltd. All Rights Reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="Referrer" content="origin"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-title" content="Dr.G"/>
+    <meta name="robots" content="index,nofollow"/>
+    <meta name="description" content="Dr.G"/>
+    <meta name="keywords" content="Dr.G"/>
+    <link rel="shortcut icon" href="../../img/@temp/favicon.ico">
+    <title>Dr.G Mobile</title>
+    <link type="text/css" rel="stylesheet" href="../../css/Dr.G_mobile_components.css"/>
+    <link type="text/css" rel="stylesheet" href="../../css/Dr.G_mobile_pages.css"/>
+    <script src="../../js/bundle.js?"></script>
+    <script src="../../js/common.js?"></script>
+
+    <!-- Chrome, Firefox, Opera -->
+    <meta content='#ffffff' name='theme-color'/>
+
+    <!-- Windows Phone -->
+    <meta content='#ffffff' name='msapplication-navbutton-color'/>
+
+    <!-- iOS Safari -->
+    <meta content='#ffffff' name='apple-mobile-web-app-status-bar-style'/>
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
+</head>
+
+<body>
+<div class="wrap">
+    <!-- s header -->
+    <div class="header _header-sticky">
+    <div class="brand-logo"><a href="#"><img src="../../img/common/logo-black.svg" alt="Dr.G"></a></div>
+    <div class="btn-menu"><a class="_gnbShow" href="#"><i class="icon ico-menu"></i></a></div>
+<!--    <div class="btn-alert on _noticePopupOpen"><a href="#"><i class="icon ico-alert"></i></a></div> &lt;!&ndash; 활성화 시, on 클래스 추가 &ndash;&gt;-->
+</div>
+
+    <!-- e header -->
+
+    <!-- s contents -->
+    <div class="container">
+        <div class="AI-wrap">
+            <div class="skin-change-report">
+                <div class="heading-box">
+                    <div class="font-body-1">피부 변화 리포트</div>
+                    <div class="font-h2 font-bold">
+                        조수인님의 피부,<br/>
+                        건강해지고 있을까요?
+                    </div>
+                    <div class="animation-box">
+                        <ul>
+                            <li><img src="../../img/AI/img-report-4.svg"></li>
+                            <li><img src="../../img/AI/img-report-1.svg"></li>
+                            <li><img src="../../img/AI/img-report-2.svg"></li>
+                            <li><img src="../../img/AI/img-report-3.svg"></li>
+                            <li><img src="../../img/AI/img-report-4.svg"></li>
+                        </ul>
+                    </div>
+                    <div class="font-h5 color-green">축하합니다!</div>
+                    <!-- color-red / color-blue / color-yellow / color-green -->
+                    <div class="desc">지난번보다 건강한 피부로 거듭나고 있어요.</div>
+                </div>
+                <div class="result">
+                    <div class="analysis-result">
+                        <div class="line-chart-box">
+                            <div class="btn-tab _btnTab">
+                                <a class="btn btn-sm on" href="#">회차별</a>
+                                <a class="btn btn-sm" href="#">계절별</a>
+                            </div>
+                            <div class="chart-box roundChart _chartContent">
+                                <div class="line-chart-wrap _roundChart">
+                                    <div class="line-chart">
+                                        <div class="line-chart-inner">
+                                            <svg preserveAspectRatio="none" viewBox="0 0 375 200">
+                                                <defs>
+                                                    <linearGradient id="Gradient" gradientTransform="rotate(90)">
+                                                        <stop style="stop-color:#2DAFF9" offset="0%"></stop>
+                                                        <stop style="stop-color:#35BBCA" offset="10%"></stop>
+                                                        <stop style="stop-color:#6BD665" offset="20%"></stop>
+                                                        <stop style="stop-color:#45D26D" offset="30%"></stop>
+                                                        <stop style="stop-color:#6BD665" offset="40%"></stop>
+                                                        <stop style="stop-color:#9ED86E" offset="50%"></stop>
+                                                        <stop style="stop-color:#CFDA77" offset="60%"></stop>
+                                                        <stop style="stop-color:#ECD17D" offset="70%"></stop>
+                                                        <stop style="stop-color:#ECB67F" offset="80%"></stop>
+                                                        <stop style="stop-color:#EB9C80" offset="90%"></stop>
+                                                        <stop style="stop-color:#EA8181" offset="100%"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                                <path style="stroke:url(#Gradient)" d="" class="line"></path>
+                                            </svg>
+                                            <!--
+                                                     1. 현재 구간에서 마지막 요소, .item에 item-last 클래스 추가
+                                                     2. 데이터 값이 0 ~ 20인 경우, .item에 top 클래스 추가
+                                                     3. 이전 데이터가 없는 경우, .item에 .item-old 클래스 추가
+                                                     4. 다음 데이터가 있는 경우, .item에 .item-new 클래스 추가
+                                             -->
+                                            <div class="chart-info">
+                                                <!-- s 이전 구간 -->
+                                                <div class="item item-old">
+                                                    <input type="range" title="range" min="0" max="100" />
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box">
+                                                        <div class="tooltip-box"><a href="#">0</a></div>
+                                                        <div class="label-box"><span class="font-poppins">OS+</span><br/>민지형</div>
+                                                    </div>
+                                                </div>
+                                                <!-- e 이전 구간 -->
+
+                                                <!-- s 현재 구간 -->
+                                                <div class="item item-top">
+                                                    <input type="range" title="range" min="0" max="100" />
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box">
+                                                        <div class="tooltip-box"><a href="#">0</a></div>
+                                                        <div class="label-box"><span class="font-poppins">OS+</span><br/>민지형</div>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <input type="range" title="range" min="0" max="100" />
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box">
+                                                        <div class="tooltip-box"><a href="#">67</a></div>
+                                                        <div class="label-box"><span class="font-poppins">OS+</span><br/>민지형</div>
+                                                    </div>
+                                                </div>
+                                                <div class="item item-last">
+                                                    <input type="range" title="range" min="0" max="100" />
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box">
+                                                        <div class="tooltip-box"><a href="#">100</a></div>
+                                                        <div class="label-box"><span class="font-poppins">OS+</span><br/>민지형</div>
+                                                    </div>
+                                                </div>
+                                                <!-- s 현재 구간 -->
+
+                                                <!-- s 다음 구간 -->
+                                                <div class="item item-new">
+                                                    <input type="range" title="range" min="0" max="100" />
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box top">
+                                                        <div class="tooltip-box"><a href="#">0</a></div>
+                                                        <div class="label-box"><span class="font-poppins">OS+</span><br/>민지형</div>
+                                                    </div>
+                                                </div>
+                                                <!-- e 다음 구간 -->
+                                            </div>
+                                            <div class="x-axis">
+                                                <ul>
+                                                    <li>2021-09-01</li>
+                                                    <li>2021-10-01</li>
+                                                    <li>2021-11-01</li>
+                                                </ul>
+                                            </div>
+                                            <div class="chart-nav">
+                                                <a href="#" class="btn-nav left"><i class="icon ico-chart-nav-right"></i></a>
+                                                <a href="#" class="btn-nav right disabled"><i class="icon ico-chart-nav-left"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line-chart-wrap season _seasonChart">
+                                    <div class="line-chart">
+                                        <div class="line-chart-inner">
+                                            <svg preserveAspectRatio="none" viewBox="0 0 375 200">
+                                                <defs>
+                                                    <linearGradient id="Gradient" gradientTransform="rotate(90)">
+                                                        <stop style="stop-color:#2DAFF9" offset="0%"></stop>
+                                                        <stop style="stop-color:#35BBCA" offset="10%"></stop>
+                                                        <stop style="stop-color:#6BD665" offset="20%"></stop>
+                                                        <stop style="stop-color:#45D26D" offset="30%"></stop>
+                                                        <stop style="stop-color:#6BD665" offset="40%"></stop>
+                                                        <stop style="stop-color:#9ED86E" offset="50%"></stop>
+                                                        <stop style="stop-color:#CFDA77" offset="60%"></stop>
+                                                        <stop style="stop-color:#ECD17D" offset="70%"></stop>
+                                                        <stop style="stop-color:#ECB67F" offset="80%"></stop>
+                                                        <stop style="stop-color:#EB9C80" offset="90%"></stop>
+                                                        <stop style="stop-color:#EA8181" offset="100%"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                                <path style="stroke:url(#Gradient)" d="" class="line"></path>
+                                            </svg>
+                                            <!--
+                                                     **
+                                                     1. 현재 구간에서 마지막 요소, .item에 item-last 클래스 추가
+                                                     2. 데이터 값이 없을 경우, .item에 item-empty 클래스 추가
+                                                     3. 이전 데이터가 없는 경우, .item에 .item-old 클래스 추가
+                                                     4. 다음 데이터가 있는 경우, .item에 .item-new 클래스 추가
+                                             -->
+                                            <div class="chart-info">
+                                                <!-- s 이전 구간 -->
+                                                <div class="item item-old">
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box">
+                                                        <div class="tooltip-box"><a href="#">70</a></div>
+                                                    </div>
+                                                </div>
+                                                <!-- e 이전 구간 -->
+
+                                                <!-- s 현재 구간 -->
+                                                <div class="item">
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box">
+                                                        <div class="tooltip-box"><a href="#" onclick="console.log('10 클릭')">10</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box">
+                                                        <div class="tooltip-box"><a href="#" onclick="console.log('35 클릭')">35</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box">
+                                                        <div class="tooltip-box"><a href="#" onclick="console.log('67 클릭')">67</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="item item-last">
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box">
+                                                        <div class="tooltip-box"><a href="#" onclick="console.log('100 클릭')">100</a></div>
+                                                    </div>
+                                                </div>
+                                                <!-- s 현재 구간 -->
+
+                                                <!-- s 다음 구간 -->
+                                                <div class="item item-new">
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box top">
+                                                        <div class="tooltip-box"><a href="#">50</a></div>
+                                                    </div>
+                                                </div>
+                                                <!-- e 다음 구간 -->
+                                            </div>
+                                            <div class="x-axis">
+                                                <ul>
+                                                    <li>봄</li>
+                                                    <li>여름</li>
+                                                    <li>가을</li>
+                                                    <li>겨울</li>
+                                                </ul>
+                                            </div>
+                                            <div class="year">2021</div>
+                                            <div class="chart-nav">
+                                                <a href="#" class="btn-nav left"><i class="icon ico-chart-nav-right"></i></a>
+                                                <a href="#" class="btn-nav right disabled"><i class="icon ico-chart-nav-left"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="care-point">
+                    <div class="font-h2 font-bold">
+                        조수인님!<br/>
+                        이번 달은 이렇게<br/>
+                        관리해보세요.
+                    </div>
+                    <div class="font-h5 font-bold">
+                        <span class="color-primary">#월</span>의 케어 포인트
+                    </div>
+<!--                    <div class="font-h6">-->
+<!--                        이번 달에는 <span class="color-primary font-bold">수분충전</span>에 신경을 써보는 것은<br/>-->
+<!--                        어떨까요?-->
+<!--                    </div>-->
+                    <div class="swiper-container _skinReportSlider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <div class="img">
+                                        <img src="../../img/@temp/AI/sample-banner.png">
+                                    </div>
+                                    <div class="img-front">
+                                        <div class="title">수분충전 잘하고 있어요!</div>
+                                        <div class="tag">#미온수 샤워 #가습기 사용</div>
+                                    </div>
+                                    <div class="txt-area">
+                                        <p>
+                                            피부 내 수분량이 좋아지셨네요.<br/>
+                                            뜨거운 물로 샤워하면 탈수되기 쉬우니<br/>
+                                            미온수를 권장드리며, 건조한 겨울철엔 가습기를 사용해서 주변 습도를 맞춰주시는 것이
+                                            좋아요.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <div class="img">
+                                        <img src="../../img/@temp/AI/sample-banner.png">
+                                    </div>
+                                    <div class="img-front">
+                                        <div class="title">수분충전 잘하고 있어요!2</div>
+                                        <div class="tag">#미온수 샤워 #가습기 사용</div>
+                                    </div>
+                                    <div class="txt-area">
+                                        <p>
+                                            피부 내 수분량이 좋아지셨네요.<br/>
+                                            뜨거운 물로 샤워하면 탈수되기 쉬우니<br/>
+                                            미온수를 권장드리며, 건조한 겨울철엔 가습기를 사용해서 주변 습도를 맞춰주시는 것이
+                                            좋아요.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <div class="img">
+                                        <img src="../../img/@temp/AI/sample-banner.png">
+                                    </div>
+                                    <div class="img-front">
+                                        <div class="title">수분충전 잘하고 있어요!3</div>
+                                        <div class="tag">#미온수 샤워 #가습기 사용</div>
+                                    </div>
+                                    <div class="txt-area">
+                                        <p>
+                                            피부 내 수분량이 좋아지셨네요.<br/>
+                                            뜨거운 물로 샤워하면 탈수되기 쉬우니<br/>
+                                            미온수를 권장드리며, 건조한 겨울철엔 가습기를 사용해서 주변 습도를 맞춰주시는 것이
+                                            좋아요.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skin-report-slider-pagination _skinReportPagination"></div>
+                    </div>
+<!--                    <div class="label">지난 케어 포인트가 궁금하다면?</div>-->
+<!--                    <select title="select" class="custom-select">-->
+<!--                        <option selected="" value="0">2021.10</option>-->
+<!--                        <option value="1">2021.11</option>-->
+<!--                        <option value="2">2021.12</option>-->
+<!--                        <option value="3">2022.01</option>-->
+<!--                        <option value="4">2022.02</option>-->
+<!--                    </select>-->
+<!--                    <div class="select-popup s-select-box _selectBox">-->
+<!--                        <a href="#" class="btn-select selected">-->
+<!--                            <span class="text">2021.10</span>-->
+<!--                        </a>-->
+<!--                        <div class="list">-->
+<!--                            <ul>-->
+<!--                                <li><a href="#">2021.10</a></li>-->
+<!--                                <li><a href="#">2021.11</a></li>-->
+<!--                                <li><a href="#">2021.12</a></li>-->
+<!--                                <li><a href="#">2021.01</a></li>-->
+<!--                                <li><a href="#">2021.02</a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <hr class="divider"/>
+                </div>
+                <div class="ai-report">
+                    <div class="heading">
+                        <div class="font-h2 font-bold">닥터지 <span class="color-primary">Ai 리포트</span></div>
+                        <div class="font-h6">변화를 확인하고 싶은 기간을 선택해주세요.</div>
+                        <div class="input-range-calendar">
+                            <input title="기간선택" class="form-control _calendarInput" value="2022-01-05 ~ 2022-01-21">
+                            <a class="btn-calendar _showCal" href="#"><i class="icon ico-calendar"></i></a>
+                        </div>
+<!--                        <div class="font-h5 font-bold">피부변화 포인트</div>-->
+                        <div class="desc">
+                            지난번보다 <span class="color-primary font-bold">민감 점수가 10점</span> 오르며 더 건강해지고 있어요. <span
+                                class="color-red font-bold">수분 점수는 8점</span> 내려가고 있으니 꾸준히 관리해주세요!
+                        </div>
+                        <div class="font-h6">각 지표를 선택하여 피부 변화를 확인하세요.</div>
+                    </div>
+                    <div class="result">
+                        <div class="analysis">
+                            <div class="skin-type-list">
+                                <ul class="clearfix">
+                                    <li class=""><a href="#"><span class="type"><i
+                                            class="icon ico-skin-type-1"></i></span><span class="font-body-2">수분</span></a>
+                                    </li>
+                                    <li><a href="#"><span class="type"><i class="icon ico-skin-type-2"></i></span><span
+                                            class="font-body-2">유분</span></a></li>
+                                    <li class="on"><a href="#"><span class="type"><i
+                                            class="icon ico-skin-type-3"></i></span><span class="font-body-2">민감</span></a>
+                                    </li>
+                                    <li><a href="#"><span class="type"><i class="icon ico-skin-type-5"></i></span><span
+                                            class="font-body-2">색소</span></a></li>
+                                    <li><a href="#"><span class="type"><i class="icon ico-skin-type-6"></i></span><span
+                                            class="font-body-2">주름</span></a></li>
+                                    <li><a href="#"><span class="type"><i class="icon ico-skin-type-7"></i></span><span
+                                            class="font-body-2">모공</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="analysis-result">
+                            <div class="chart-box _skinChangeChart">
+                                <div class="line-chart-wrap">
+                                    <div class="line-chart">
+                                        <div class="line-chart-inner">
+                                            <svg preserveAspectRatio="none" viewBox="0 0 375 200">
+                                                <defs>
+                                                    <linearGradient id="Gradient" gradientTransform="rotate(90)">
+                                                        <stop style="stop-color:#2DAFF9" offset="0%"></stop>
+                                                        <stop style="stop-color:#35BBCA" offset="10%"></stop>
+                                                        <stop style="stop-color:#6BD665" offset="20%"></stop>
+                                                        <stop style="stop-color:#45D26D" offset="30%"></stop>
+                                                        <stop style="stop-color:#6BD665" offset="40%"></stop>
+                                                        <stop style="stop-color:#9ED86E" offset="50%"></stop>
+                                                        <stop style="stop-color:#CFDA77" offset="60%"></stop>
+                                                        <stop style="stop-color:#ECD17D" offset="70%"></stop>
+                                                        <stop style="stop-color:#ECB67F" offset="80%"></stop>
+                                                        <stop style="stop-color:#EB9C80" offset="90%"></stop>
+                                                        <stop style="stop-color:#EA8181" offset="100%"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                                <path style="stroke:url(#Gradient)" d="" class="line"></path>
+                                            </svg>
+                                            <!--
+                                                     1. 현재 구간에서 마지막 요소, .item에 item-last 클래스 추가
+                                                     2. 데이터 값이 0 ~ 20인 경우, .item에 top 클래스 추가
+                                                     3. 이전 데이터가 없는 경우, .item에 .item-old 클래스 추가
+                                                     4. 다음 데이터가 있는 경우, .item에 .item-new 클래스 추가
+                                             -->
+                                            <div class="chart-info">
+                                                <!-- s 현재 구간 -->
+                                                <div class="item item-top">
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box">
+                                                        <div class="tooltip-box"><a href="#">0</a></div>
+                                                        <div class="label-box"><span class="font-poppins">OS+</span><br/>민지형</div>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box">
+                                                        <div class="tooltip-box"><a href="#">67</a></div>
+                                                        <div class="label-box"><span class="font-poppins">OS+</span><br/>민지형</div>
+                                                    </div>
+                                                </div>
+                                                <div class="item item-last">
+                                                    <div class="percentage"></div>
+                                                    <div class="line-box">
+                                                        <div class="tooltip-box"><a href="#">100</a></div>
+                                                        <div class="label-box"><span class="font-poppins">OS+</span><br/>민지형</div>
+                                                    </div>
+                                                </div>
+                                                <!-- s 현재 구간 -->
+                                            </div>
+                                            <div class="x-axis">
+                                                <ul>
+                                                    <li>2021-09-01</li>
+                                                    <li>2021-10-01</li>
+                                                    <li>2021-11-01</li>
+                                                </ul>
+                                            </div>
+                                            <div class="chart-nav">
+                                                <a href="#" class="btn-nav left"><i class="icon ico-chart-nav-right"></i></a>
+                                                <a href="#" class="btn-nav right disabled"><i class="icon ico-chart-nav-left"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skin-trouble">
+                    <div class="font-h2 font-bold">
+                        조수인님의 <span class="color-primary">피부고민</span>,<br/>
+                        나아지고 있을까요?
+                    </div>
+                    <!--
+                        피부 고민 이미지 경로
+                        http://localhost:2022/dist/html/AI/Ai%ED%94%BC%EB%B6%80%EB%B6%84%EC%84%9D_component.html 참고
+                    -->
+                    <div class="bubble-chart">
+                        <div class="bubble bubble-green pos-1" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="0">
+                            <img src="../../img/AI/ico-skin-trouble-5-lg.svg">
+                            <span class="txt">여드름성 피부</span>
+                        </div>
+                        <div class="bubble bubble-blue pos-2" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="10">
+                            <img src="../../img/AI/ico-skin-trouble-1-lg.svg">
+                            <span class="txt">수분부족</span>
+                        </div>
+                        <div class="bubble bubble-yellow pos-3" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="20">
+                            <img src="../../img/AI/ico-skin-trouble-2-md.svg">
+                            <span class="txt">유분과다</span>
+                        </div>
+                        <div class="bubble bubble-red pos-4" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="30">
+                            <img src="../../img/AI/ico-skin-trouble-7-sm.svg">
+                            <span class="txt">주름</span>
+                        </div>
+                        <div class="bubble bubble-gray pos-5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="40">
+                            <span class="txt">유분부족</span>
+                        </div>
+                        <div class="bubble bubble-gray-light pos-6" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="50">
+                            <span class="txt">민감</span>
+                        </div>
+                        <div class="bubble bubble-gray pos-7" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="60">
+                            <span class="txt">색소침착</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skin-diary">
+                    <div class="font-h2 font-bold">조수인님의 <span class="color-primary">피부일기</span></div>
+                    <div class="font-h6">어떤 일들이 있었는지 되돌아 볼까요?</div>
+                    <div class="list">
+                        <div class="item">
+                            <span class="date">2021-09-01</span>
+                            <ul>
+                                <li><i class="icon ico-diary-1-on"></i></li>
+                                <li><i class="icon ico-diary-3-on"></i></li>
+                                <li><i class="icon ico-diary-5-on"></i></li>
+                                <li><i class="icon ico-diary-7-on"></i></li>
+                                <li><i class="icon ico-diary-9-on"></i></li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <span class="date">2021-10-01</span>
+                            <ul>
+                                <li><i class="icon ico-diary-1-on"></i></li>
+                                <li><i class="icon ico-diary-3-on"></i></li>
+                                <li><i class="icon ico-diary-5-on"></i></li>
+                                <li><i class="icon ico-diary-8-on"></i></li>
+                                <li><i class="icon ico-diary-10-on"></i></li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <span class="date">2021-11-01</span>
+                            <ul>
+                                <li><i class="icon ico-diary-1-on"></i></li>
+                                <li><i class="icon ico-diary-3-on"></i></li>
+                                <li><i class="icon ico-diary-5-on"></i></li>
+                                <li><i class="icon ico-diary-7-on"></i></li>
+                                <li><i class="icon ico-diary-10-on"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="btn-wrap">
+                        <a class="btn btn-black btn-lg" href="#">더보기</a>
+                    </div>
+                </div>
+                <div class="skin-diary">
+                    <div class="font-h2 font-bold">조수인님의 <span class="color-primary">피부일기</span></div>
+                    <div class="font-h6">어떤 일들이 있었는지 되돌아 볼까요?</div>
+                    <div class="list">
+                        <div class="item disabled">
+                            <span class="date">2021-09-01</span>
+                            <ul>
+                                <li><i class="icon ico-diary-1-off"></i></li>
+                                <li><i class="icon ico-diary-3-off"></i></li>
+                                <li><i class="icon ico-diary-5-off"></i></li>
+                                <li><i class="icon ico-diary-7-off"></i></li>
+                                <li><i class="icon ico-diary-9-off"></i></li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <a class="btn-cancel" href="#"><span class="sr-only">수정 취소</span></a>
+                            <span class="date">2021-10-01</span>
+                            <ul>
+                                <li><i class="icon ico-diary-1-on"></i></li>
+                                <li><i class="icon ico-diary-3-on"></i></li>
+                                <li><i class="icon ico-diary-5-on"></i></li>
+                                <li><i class="icon ico-diary-8-on"></i></li>
+                                <li><i class="icon ico-diary-10-on"></i></li>
+                            </ul>
+                            <div class="user-product">
+                                <div class="font-body-2 font-bold">사용제품</div>
+                                <div class="label">클렌징/필링</div>
+                                <div class="name">닥터지 레드 블레미쉬 클렌징</div>
+                                <div class="label">보습케어</div>
+                                <div class="name">로션, 수면팩</div>
+                                <div class="label">자외선 케어</div>
+                                <div class="name">그린 마일드 업 선 플러스 35ml</div>
+                            </div>
+                            <div class="txt">매운 음식을 많이 먹었고, 최근에는 모임이<br/>
+                                많아서 수면이 불규직하고 컨디션이 저조 했었다.
+                            </div>
+                        </div>
+                        <div class="item disabled">
+                            <span class="date">2021-11-01</span>
+                            <ul>
+                                <li><i class="icon ico-diary-1-off"></i></li>
+                                <li><i class="icon ico-diary-3-off"></i></li>
+                                <li><i class="icon ico-diary-5-off"></i></li>
+                                <li><i class="icon ico-diary-7-off"></i></li>
+                                <li><i class="icon ico-diary-10-off"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="btn-wrap">
+                        <a class="btn btn-black btn-lg" href="#">더보기</a>
+                    </div>
+                </div>
+                <div class="skin-diary">
+                    <div class="font-h2 font-bold">조수인님의 <span class="color-primary">피부일기</span></div>
+                    <div class="font-h6">어떤 일들이 있었는지 되돌아 볼까요?</div>
+                    <div class="empty">
+                        <div class="img"><img src="../../img/AI/img-empty.svg"></div>
+                        <div class="desc">
+                            작성한 피부일기가 없습니다.<br>
+                            <span class="color-light-gray">지금 작성해보시겠어요?</span>
+                        </div>
+                    </div>
+                    <div class="btn-wrap">
+                        <a class="btn btn-lg" href="#">작성하기</a>
+                    </div>
+                </div>
+                <div class="recommendation-contents">
+                    <div class="font-h2 font-bold">
+                        조수인님을 위한<br/>
+                        <span class="color-primary">추천 콘텐츠</span>를 확인하세요.
+                    </div>
+                    <div class="story-wrap">
+                        <div class="list list-scroll _listScroll">
+                            <ul class="clearfix">
+                                <li class="item">
+                                    <a href="#">
+                                        <span class="img"><img src="../../img/@temp/img-product-1.png" alt="우리 모두가 편리할 권리"><em class="category">스킨 리포트</em></span>
+                                        <span class="title">트러블 생활 백서</span>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="#">
+                                        <span class="img"><img src="../../img/@temp/img-product-2.png" alt="우리 모두가 편리할 권리"><em class="category">닥터안 영상</em></span>
+                                        <span class="title">피부 속담김, 이것알면 OUT!</span>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="#">
+                                        <span class="img"><img src="../../img/@temp/img-product-1.png" alt="우리 모두가 편리할 권리"><em class="category">스킨 리포트</em></span>
+                                        <span class="title">트러블 생활 백서</span>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="#">
+                                        <span class="img"><img src="../../img/@temp/img-product-2.png" alt="우리 모두가 편리할 권리"><em class="category">닥터안 영상</em></span>
+                                        <span class="title">피부 속담김, 이것알면 OUT!</span>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="#">
+                                        <span class="img"><img src="../../img/@temp/img-product-1.png" alt="우리 모두가 편리할 권리"><em class="category">스킨 리포트</em></span>
+                                        <span class="title">트러블 생활 백서</span>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="#">
+                                        <span class="img"><img src="../../img/@temp/img-product-2.png" alt="우리 모두가 편리할 권리"><em class="category">닥터안 영상</em></span>
+                                        <span class="title">피부 속담김, 이것알면 OUT!</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- e contents -->
+
+    <!-- s footer -->
+    
+    <!-- e footer -->
+    <div class="calendar-modal fade">
+        <div class="calendar-container _calendarModal">
+            <a href="#" class="btn-close _btnClose"><i class="icon ico-close-sm"></i></a>
+        </div>
+    </div>
+</div>
+<script>
+    /* 피부변화리포트 */
+    var swiper = new Swiper("._skinReportSlider", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        effect: 'fade',
+        pagination: {
+            el: "._skinReportPagination",
+            clickable: true
+        },
+    });
+
+    /* 피부고민 리스트 */
+    $('.skin-type-list a').on('click', function () {
+        $(this).parent().addClass('on').siblings().removeClass('on')
+    })
+
+    /* 달력모달 */
+
+    $triggerBtn = $('._showCal');
+    $closeBtn = $('._btnClose');
+    $calendalInput = $('._calendarInput');
+    $calendarModal = $('.calendar-modal');
+
+    // https://longbill.github.io/jquery-date-range-picker/
+    $triggerBtn.dateRangePicker({
+        inline: true,
+        container: '._calendarModal',
+        format: 'YYYY-MM-DD',
+        alwaysOpen: true,
+        singleMonth: true,
+        separator: " ~ ",
+        showTopbar: false,
+        language: "en",
+    })
+        .bind('datepicker-first-date-selected', function (event, obj) {
+            // console.log(obj);
+            $('.calendar-container').removeClass('done')
+        })
+        .bind('datepicker-change', (e, data) => {
+            // console.log(data.date1, data.date2, data.value)
+            $calendalInput.val(data.value);
+            $('.calendar-container').addClass('done')
+            hideCalendarModal()
+        })
+
+    $triggerBtn.on('click', function () {
+        showCalendarModal()
+    })
+
+    $closeBtn.on('click', function () {
+        hideCalendarModal()
+    })
+
+    $calendarModal.on('mouseup', function (e) {
+        if ($(this).has(e.target).length === 0) {
+            hideCalendarModal()
+        }
+    })
+
+    function hideCalendarModal() {
+        $calendarModal.addClass('hide');
+        setTimeout(() => {
+            $calendarModal.removeClass('fade show hide').css('display', 'none');
+        }, 400);
+    }
+
+    function showCalendarModal() {
+        $calendarModal.addClass('show fade').css('display', 'block');
+    }
+
+    /* 차트 버튼 클릭 이벤트 */
+    $('._btnTab a').on('click',function (){
+        $(this).addClass('on').siblings().removeClass('on');
+        var idx = $(this).index();
+        var chartContent = $('._chartContent')
+
+        chartContent.children().eq(idx).css({
+            'z-index' : '1',
+            'opacity' : '1'
+        }).siblings().css({
+            'z-index' : '-1',
+            'opacity' : '0'
+        });
+
+        lineDrawing()
+
+        if(idx===0) {
+            chartContent.addClass('roundChart').removeClass('seasonChart')
+        } else {
+            chartContent.addClass('seasonChart').removeClass('roundChart')
+        }
+    })
+
+    /* 추천 콘텐츠 리스트 */
+    var sum = 0;
+    var listItem = $('._listScroll .item');
+
+    listItem.each(function () {
+        sum = sum + $(this).outerWidth(true);
+    });
+
+    $('._listScroll ul').css('width', sum + 24 * 100 / 375 + 'px');
+</script>
+<script>
+    // data
+    var data = [
+        {
+            "date": "2021-08-01",
+            "value": 70,
+        },
+        {
+            "date": "2021-09-01",
+            "value": 0,
+        },
+        {
+            "date": "2021-10-01",
+            "value": 67,
+        },
+        {
+            "date": "2021-11-01",
+            "value": 100,
+        },
+        {
+            "date": "2021-12-01",
+            "value": 75,
+        },
+    ];
+
+    var dataSeason = [
+        {
+            "category": "",
+            "value": 70,
+        },
+        {
+            "category": "봄",
+            "value": 10,
+        },
+        {
+            "category": "여름",
+            "value": 35,
+        },
+        {
+            "category": "가을",
+            "value": 67,
+        },
+        {
+            "category": "겨울",
+            "value": 100,
+        },
+        {
+            "category": "",
+            "value": 50,
+        },
+    ];
+
+    var dataSkinChange = [
+        {
+            "date": "2021-09-01",
+            "value": 0,
+        },
+        {
+            "date": "2021-10-01",
+            "value": 67,
+        },
+        {
+            "date": "2021-11-01",
+            "value": 100,
+        },
+    ];
+
+    // String formatter
+    if (!String.prototype.format) {
+        String.prototype.format = function() {
+            var args = arguments;
+            return this.replace(/{(\d+)}/g, function(match, number) {
+                return typeof args[number] != 'undefined' ? args[number] : match;
+            });
+        };
+    }
+
+    let app = (() => {
+        const $svgLine = document.querySelector('._roundChart svg .line');
+        const $svgSeasonLine = document.querySelector('._seasonChart svg .line');
+        const $svgSkinChangeLine = document.querySelector('._skinChangeChart svg .line');
+        const sliderHeight = 200;
+        const svgViewBoxHeight = 200;
+        const svgViewBoxThumbLimit = svgViewBoxHeight / sliderHeight;
+        const svgViewBoxGraphMax = svgViewBoxHeight - svgViewBoxThumbLimit;
+        const svgViewBoxGraphMin = svgViewBoxThumbLimit;
+
+        let ranges = {
+            range1: null,
+            range2: null,
+            range3: null,
+            range4: null,
+            range5: null,
+        };
+
+        let rangesSeason = {
+            range1: null,
+            range2: null,
+            range3: null,
+            range4: null,
+            range5: null,
+            range6: null,
+        };
+
+        let rangesSkinChange = {
+            range1: null,
+            range2: null,
+            range3: null,
+        };
+
+        let temp = {
+            begin: {
+                x: 0,
+                y: 0
+            },
+            point : [
+                {
+                    x: 0,
+                    y: 0
+                },
+                {
+                    x: 87,
+                    y: 0
+                },
+                {
+                    x: 187,
+                    y: 0
+                },
+                {
+                    x: 287,
+                    y: 0
+                },
+                {
+                    x: 387,
+                    y: 0
+                },
+            ],
+            control : [
+                {
+                    x: 35,
+                    y: 0
+                },
+                {
+                    x: 40,
+                    y: 0
+                },
+                {
+                    x: 130,
+                    y: 0
+                },
+                {
+                    x: 230,
+                    y: 0
+                },
+                {
+                    x: 370,
+                    y: 0
+                },
+            ]
+        };
+
+        let tempSeason = {
+            begin: {
+                x: 0,
+                y: 0
+            },
+            point : [
+                {
+                    x: 0,
+                    y: 0
+                },
+                {
+                    x: 65,
+                    y: 0
+                },
+                {
+                    x: 146,
+                    y: 0
+                },
+                {
+                    x: 230,
+                    y: 0
+                },
+                {
+                    x: 315,
+                    y: 0
+                },
+                {
+                    x: 387,
+                    y: 0
+                },
+            ],
+            control : [
+                {
+                    x: 20,
+                    y: 0
+                },
+                {
+                    x: 36,
+                    y: 0
+                },
+                {
+                    x: 109,
+                    y: 0
+                },
+                {
+                    x: 188,
+                    y: 0
+                },
+                {
+                    x: 273,
+                    y: 0
+                },
+                {
+                    x: 351,
+                    y: 0
+                },
+            ]
+        };
+
+        let tempSkinChange = {
+            begin: {
+                x: 87,
+                y: 0
+            },
+            point : [
+                {
+                    x: 87,
+                    y: 0
+                },
+                {
+                    x: 187,
+                    y: 0
+                },
+                {
+                    x: 287,
+                    y: 0
+                },
+            ],
+            control : [
+                {
+                    x: 130,
+                    y: 0
+                },
+                {
+                    x: 130,
+                    y: 0
+                },
+                {
+                    x: 230,
+                    y: 0
+                },
+            ]
+        };
+
+        function mapDataRange(value) {
+            return (((value - 0) * (svgViewBoxGraphMax - svgViewBoxGraphMin)) / svgViewBoxHeight) + svgViewBoxGraphMin;
+        }
+
+        function updateSlider($element) {
+            if ($element) {
+
+                let rangeIndex = $element.getAttribute('data-slider-index'),
+                    range = ranges[rangeIndex],
+                    value = $element.value;
+
+                if (range === value) {
+                    return;
+                }
+
+                ranges[rangeIndex] = value;
+
+                let parent = $element.parentElement,
+                    $tootip = parent.querySelector('._roundChart .line-box'),
+                    $bar = parent.querySelector('._roundChart .percentage'),
+                    pct = value * (sliderHeight / sliderHeight)
+
+                $tootip.style.bottom = `${pct}%`;
+                $bar.style.height = `${pct}%`;
+
+                renderSliderGraph();
+            }
+        }
+
+        function updateSeasonSlider($element) {
+            if ($element) {
+
+                let rangeIndex = $element.getAttribute('data-slider-index'),
+                    range = rangesSeason[rangeIndex],
+                    value = $element.value;
+
+                if (range === value) {
+                    return;
+                }
+
+                rangesSeason[rangeIndex] = value;
+
+                let parent = $element.parentElement,
+                    $tootip = parent.querySelector('._seasonChart .line-box'),
+                    $bar = parent.querySelector('._seasonChart .percentage'),
+                    pct = value * (sliderHeight / sliderHeight)
+
+                $tootip.style.bottom = `${pct}%`;
+                $bar.style.height = `${pct}%`;
+
+                renderSliderGraph();
+            }
+        }
+
+        function updateSkinChangeSlider($element) {
+            if ($element) {
+
+                let rangeIndex = $element.getAttribute('data-slider-index'),
+                    range = rangesSkinChange[rangeIndex],
+                    value = $element.value;
+
+                if (range === value) {
+                    return;
+                }
+
+                rangesSkinChange[rangeIndex] = value;
+
+                let parent = $element.parentElement,
+                    $tootip = parent.querySelector('._skinChangeChart .line-box'),
+                    $bar = parent.querySelector('._skinChangeChart .percentage'),
+                    pct = value * (sliderHeight / sliderHeight)
+
+                $tootip.style.bottom = `${pct}%`;
+                $bar.style.height = `${pct}%`;
+
+                renderSliderGraph();
+            }
+        }
+
+        function updatePoints() {
+            temp.point.forEach((item, index)=>{
+                item.y = svgViewBoxHeight - (svgViewBoxHeight * (ranges[`range${index+1}`]) / 100) | 0;
+                item.y = mapDataRange(item.y);
+            })
+            temp.begin.y = temp.point[0].y
+
+            temp.control.forEach((item, index)=>{
+                item.y = temp.point[index].y
+            })
+        }
+
+        function updateSeasonPoints() {
+            tempSeason.point.forEach((item, index)=>{
+                item.y = svgViewBoxHeight - (svgViewBoxHeight * (rangesSeason[`range${index+1}`]) / 100) | 0;
+                item.y = mapDataRange(item.y);
+            })
+            tempSeason.begin.y = tempSeason.point[0].y
+
+            tempSeason.control.forEach((item, index)=>{
+                item.y = tempSeason.point[index].y
+            })
+        }
+
+        function updateSkinChange() {
+            tempSkinChange.point.forEach((item, index)=>{
+                item.y = svgViewBoxHeight - (svgViewBoxHeight * (rangesSkinChange[`range${index+1}`]) / 100) | 0;
+                item.y = mapDataRange(item.y);
+            })
+            tempSkinChange.begin.y = tempSkinChange.point[0].y
+
+            tempSkinChange.control.forEach((item, index)=>{
+                item.y = tempSkinChange.point[index].y
+            })
+        }
+
+        function getInterpolatedLine() {
+            return 'M {0},{1} L {2},{3} C {4},{5} {6},{7} {8},{9} S {10} {11}, {12} {13} S {14} {15}, {16} {17} S {18} {19}, {20} {21}'.format(
+                // M
+                temp.begin.x, temp.begin.y,
+                // L
+                temp.point[0].x, temp.point[0].y,
+                // C
+                temp.control[0].x, temp.control[0].y,
+                temp.control[1].x, temp.control[1].y,
+                temp.point[1].x, temp.point[1].y,
+                // S
+                temp.control[2].x, temp.control[2].y,
+                temp.point[2].x, temp.point[2].y,
+                // S
+                temp.control[3].x, temp.control[3].y,
+                temp.point[3].x, temp.point[3].y,
+                // S
+                temp.control[4].x, temp.point[4].y,
+                temp.point[4].x, temp.point[4].y,
+            )
+        }
+
+        function getInterpolatedSeasonLine() {
+            return 'M {0},{1} L {2},{3} C {4},{5} {6},{7} {8},{9} S {10} {11}, {12} {13} S {14} {15}, {16} {17} S {18} {19}, {20} {21} S {22} {23}, {24} {25}'.format(
+                // M
+                tempSeason.begin.x, tempSeason.begin.y,
+                // L
+                tempSeason.point[0].x, tempSeason.point[0].y,
+                // C
+                tempSeason.control[0].x, tempSeason.control[0].y,
+                tempSeason.control[1].x, tempSeason.control[1].y,
+                tempSeason.point[1].x, tempSeason.point[1].y,
+                // S
+                tempSeason.control[2].x, tempSeason.control[2].y,
+                tempSeason.point[2].x, tempSeason.point[2].y,
+                // S
+                tempSeason.control[3].x, tempSeason.control[3].y,
+                tempSeason.point[3].x, tempSeason.point[3].y,
+                // S
+                tempSeason.control[4].x, tempSeason.point[4].y,
+                tempSeason.point[4].x, tempSeason.point[4].y,
+                // S
+                tempSeason.control[5].x, tempSeason.point[5].y,
+                tempSeason.point[5].x, tempSeason.point[5].y,
+            )
+        }
+
+        function getInterpolatedSkinChangeLine() {
+            return 'M {0},{1} L {2},{3} C {4},{5} {6},{7} {8},{9} S {10} {11}, {12} {13}'.format(
+                // M
+                tempSkinChange.begin.x, tempSkinChange.begin.y,
+                // L
+                tempSkinChange.point[0].x, tempSkinChange.point[0].y,
+                // C
+                tempSkinChange.control[0].x, tempSkinChange.control[0].y,
+                tempSkinChange.control[1].x, tempSkinChange.control[1].y,
+                tempSkinChange.point[1].x, tempSkinChange.point[1].y,
+                // S
+                tempSkinChange.control[2].x, tempSkinChange.control[2].y,
+                tempSkinChange.point[2].x, tempSkinChange.point[2].y,
+            )
+        }
+
+        function renderSliderGraph() {
+            updatePoints();
+            updateSeasonPoints();
+            updateSkinChange();
+            $svgLine.setAttribute('d', getInterpolatedLine());
+            $svgSeasonLine.setAttribute('d', getInterpolatedSeasonLine());
+            $svgSkinChangeLine.setAttribute('d', getInterpolatedSkinChangeLine());
+        }
+
+        function drawChart() {
+            const percentageList = app.percentage;
+            percentageList.forEach((item, index) => {item.value = data[index]?.value | 0});
+            percentageList.forEach(item => app.updateSlider(item));
+
+            const percentageSeasonList = app.percentageSeason;
+            percentageSeasonList.forEach((item, index) => {item.value = dataSeason[index]?.value | 0});
+            percentageSeasonList.forEach(item => app.updateSeasonSlider(item));
+
+            const percentageSkinChangeList = app.percentageSkinChange;
+            percentageSkinChangeList.forEach((item, index) => {item.value = dataSkinChange[index]?.value | 0});
+            percentageSkinChangeList.forEach(item => app.updateSkinChangeSlider(item));
+        }
+
+        return {
+            percentage: [].slice.call(document.querySelectorAll('._roundChart .line-chart-inner .percentage')),
+            percentageSeason: [].slice.call(document.querySelectorAll('._seasonChart .line-chart-inner .percentage')),
+            percentageSkinChange: [].slice.call(document.querySelectorAll('._skinChangeChart .line-chart-inner .percentage')),
+            updateSlider,
+            updateSeasonSlider,
+            updateSkinChangeSlider,
+            drawChart,
+        };
+    })();
+
+    (function initAndSetupTheSliders() {
+        const percentageList = app.percentage;
+        const percentageSeasonList = app.percentageSeason;
+        const percentageSkinChangeList = app.percentageSkinChange;
+
+        // 회차별
+        percentageList.forEach((item,index) => item.setAttribute('data-slider-index', 'range' + String(index + 1)));
+        percentageList.forEach(item => item.value = 50);
+        percentageList.forEach(item => app.updateSlider(item));
+
+        // 계절별
+        percentageSeasonList.forEach((item,index) => item.setAttribute('data-slider-index', 'range' + String(index + 1)));
+        percentageSeasonList.forEach(item => item.value = 50);
+        percentageSeasonList.forEach(item => app.updateSeasonSlider(item));
+
+        // 피부변화
+        percentageSkinChangeList.forEach((item,index) => item.setAttribute('data-slider-index', 'range' + String(index + 1)));
+        percentageSkinChangeList.forEach(item => item.value = 50);
+        percentageSkinChangeList.forEach(item => app.updateSkinChangeSlider(item));
+
+        app.drawChart();
+    })();
+
+    /** -------------------------- line animation --------------------------- **/
+    anime({
+        targets: 'path',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutCubic',
+        duration: 2000,
+    });
+
+    function lineDrawing() {
+        anime({
+            targets: 'path',
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: 'easeInOutCubic',
+            duration: 2000,
+        });
+    }
+
+    /** -------------------------- swipe event --------------------------- **/
+    let swipeEl =  $('.line-chart-inner');
+
+    swipeEl.on('swipeleft',function(){
+        console.log('to the left')
+        alert('to the left')
+    });
+
+    swipeEl.on('swiperight',function(){
+        console.log('to the right')
+        alert('to the right')
+    });
+
+    /** -------------------------- scroll event --------------------------- **/
+    function skinChangeChartDrawing() {
+        anime({
+            targets: '._skinChangeChart path',
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: 'easeInOutCubic',
+            duration: 2000,
+        });
+    }
+
+    new Waypoint({
+        element: document.querySelector('._skinChangeChart'),
+        handler: function () {
+            skinChangeChartDrawing()
+        },
+        offset: "50%"
+    })
+</script>
+
+</body>
+</html>

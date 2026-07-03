@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45.873" height="54.712" viewBox="0 0 45.873 54.712">
+    <defs>
+        <style>
+            .cls-1,.cls-2{fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.5px}.cls-1{stroke:#333}.cls-2{stroke:#35ceb3}
+        </style>
+    </defs>
+    <g id="icon" transform="translate(-1104.316 -391.114)">
+        <path id="패스_503" d="M1118.71 392.035c.5 1.837 1.759 5.676 1.759 8.263s-.251 5.217 2.891 8.3 6.074 5.3 5.948 6.719-3.058 3.881-3.812 3.839.084 1.92.461 2.337 1.466 1.169.712 2-1.131 2.253-5.153 3.213" class="cls-1"/>
+        <path id="패스_504" d="M1125.032 425.284s1.469 3.017.757 3.518-2.723 1.836-2.555 2.67 1.382 6.886-1.005 7.93-4.19 1.21-17.008-1.878" class="cls-1"/>
+        <path id="패스_505" d="M1113.141 439.3a6.345 6.345 0 0 0-3.857 5.731" class="cls-1"/>
+        <path id="패스_506" d="M1132.509 420.267s4.242 4.631 12.248 2.242" class="cls-2"/>
+        <path id="패스_507" d="M1131.144 424.512s2.84 5.7 6.2 8.269" class="cls-2"/>
+        <path id="패스_508" d="M1136.124 426.267s2.841 2.756 8.633 2.683" class="cls-2"/>
+        <path id="패스_509" d="M1139.813 434.215a27.844 27.844 0 0 0 3.394 1.948" class="cls-2"/>
+        <path id="선_146" d="M0 0.338L0.885 0" class="cls-2" transform="translate(1148.335 421.562)"/>
+        <path id="선_147" d="M0 0.148L1.144 0" class="cls-2" transform="translate(1147.764 428.803)"/>
+        <path id="선_148" d="M0 0L1.058 0.368" class="cls-2" transform="translate(1146.269 437.265)"/>
+    </g>
+</svg>

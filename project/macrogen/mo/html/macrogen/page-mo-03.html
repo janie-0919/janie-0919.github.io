@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="Referrer" content="origin"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-title" content="macrogen"/>
+    <meta name="robots" content="index,nofollow"/>
+    <meta name="description" content="macrogen"/>
+    <meta name="keywords" content="macrogen"/>
+    <!--  <link rel="shortcut icon" href="../../img/favicon.ico">-->
+    <title>Mobile-KO</title>
+    <link type="text/css" rel="stylesheet" href="../../css/macrogen_component_mobile.css?"/>
+    <link type="text/css" rel="stylesheet" href="../../css/macrogen_page_mobile_ko.css?"/>
+    <script src="../../js/bundle.js?"></script>
+    <script src="../../js/common.js?"></script>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="full-bg" style="background-image: url(../../img/macrogen/bg-vision.png);">
+        <header class="header header-white">
+    <div class="inner">
+        <h1 class="logo"><a href="#">마크로젠 로고</a></h1>
+        <a href="#" class="btn-menu" data-bs-toggle="modal" data-bs-target="#gnb"><span class="sr-only">메뉴</span></a>
+    </div>
+</header>
+<script>
+    $(function(){
+        var lastScroll = 0;
+        $(window).scroll(function(){
+            var st = $(this).scrollTop();
+            if (st > lastScroll){
+                // console.log('Down');
+                $('.header').show().css({'position': 'absolute','top':'0'});
+            }
+            else if (st === 0) {
+                // console.log('Top');
+                $('.header').show().css({'position': 'absolute','top':'0'}).addClass('header-white');
+            }
+            else {
+                // console.log('Up');
+                $('.header').show().css({'position': 'fixed','top':'0'}).removeClass('header-white');
+            }
+            lastScroll = st;
+        });
+    });
+</script>
+
+        <div class="frame">
+            <div class="font-h4">비전</div>
+            <div class="font-slogan">글로벌 정밀의학<br/>선도기업입니다</div>
+            <div class="font-h7-r">질병을 예측하고 진단하며, 맞춤 치료의 방안을 제시합니다</div>
+            <div class="scroll-wrap">
+    <div class="scroll"><span class="bar" style="bottom: 0"></span></div>
+</div>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="macrogen macrogen-vision">
+            <!-- s vision -->
+            <div class="section-vision">
+                <div class="inner" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="title">Vision</div>
+                    <div class="diagram">
+                        <div class="img img-ko">
+                            <img src="../../img/macrogen/img-vision-diagram.png" alt="Vision">
+                        </div>
+                        <div class="font-body-h">
+                            마크로젠의 비전은 빅데이터 유전체 정보 기반의 연구개발 및 의료기관 협업을 통해 질병을 예측하고 진단하며, 맞춤 치료의 방안을 제시하는 정밀의학 분야의 글로벌 선도기업 입니다.<br/><br/>
+                            30억 쌍에 달하는 인간 유전체의 염기서열을 읽기 위한 핵심기술과 생산시설, 우수인력을 보유하고 있으며, 국내뿐 아니라 해외 네트워크를 통해 매년 대량의 유전체 정보 및 의료정보를 통합한 빅데이터를 구축해나가고 있습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- e vision -->
+
+            <!-- s vision -->
+            <div class="section-slogan">
+                <div class="bg">
+                    <div class="inner" data-aos="fade-up" data-aos-duration="2000">
+                        <div class="font-h7">슬로건</div>
+                        <div class="title">Humanizing<br/>Genomics</div>
+                        <div class="font-body-h">인간의 유전체 정보 및 데이터 분석 기술을 통해 환자 개개인의 유전적 특성에 따른 맞춤 의학을 제시한다는 뜻을 담고 있습니다. 널리 인간 세계를 이롭게 한다는<br/>'홍익인간(弘益人間)'의 사상이 바탕 되었습니다.</div>
+                        <div class="img-wrap">
+                            <div class="img img-1" data-aos="fade-up" data-aos-duration="2000"> <!-- rellax 속성 제거 -- 2021.11.25 -->
+                                <img src="../../img/macrogen/img-vision-parallax-1.png" alt="dna">
+                            </div>
+                            <div class="img img-2" data-aos="fade-up" data-aos-duration="2000"> <!-- rellax 속성 제거 -- 2021.11.25 -->
+                                <img src="../../img/macrogen/img-vision-parallax-2.png" alt="dna">
+                            </div>
+                            <div class="img img-3" data-aos="fade-up" data-aos-duration="2000"> <!-- rellax 속성 제거 -- 2021.11.25 -->
+                                <img src="../../img/macrogen/img-vision-parallax-3.png" alt="dna">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script> <!-- script 수정 -- 2021.11.25 -->
+                $(document).ready(function() {
+                    $(window).on("load scroll", function() {
+                        var parallaxElement = $(".img-wrap").find('.img'),
+                            parallaxQuantity = parallaxElement.length;
+                        window.requestAnimationFrame(function() {
+                            for (var i = 0; i < parallaxQuantity; i++) {
+                                var currentElement = parallaxElement.eq(i),
+                                    windowTop = $(window).scrollTop(),
+                                    elementTop = currentElement.offset().top,
+                                    elementHeight = currentElement.height(),
+                                    viewPortHeight = window.innerHeight * 0.5 - elementHeight * 0.5,
+                                    scrolled = windowTop - elementTop + viewPortHeight;
+                                currentElement.css({
+                                    transform: "translate3d(0," + scrolled * -0.15 + "px, 0)"
+                                });
+                            }
+                        });
+                    });
+                });
+            </script>
+            <!-- e vision -->
+
+            <!-- s 경영이념 -->
+            <div class="section-management-philosophy" data-aos="fade-up" data-aos-duration="2000">
+                <div class="font-h7">경영이념</div>
+                <div class="img"><img src="../../img/macrogen/img-management-philosophy.png" alt="경영이념"></div>
+                <div class="info">
+                    <div class="font-h4">
+                        누구나 자신의 유전체 정보를 이용하여 무병장수의 꿈을 이룰 수 있도록 돕는다.
+                    </div>
+                    <div class="font-body">
+                        마크로젠의 경영이념은 인류가 질병 및 고통에서 벗어나
+                        행복하고 건강한 삶을 영위할 수 있도록 돕는 것입니다.
+                        깊이 있는 지식을 탐구하고 관련된 기술을 개발함으로써
+                        완벽하게 밝혀지지 않은 질병의 유전자 원인 규명을 목표로 합니다.
+                    </div>
+                    <hr class="divider" />
+                </div>
+            </div>
+            <!-- e 경영이념 -->
+
+            <!-- s 핵심가치 -->
+            <div class="section-core-values">
+                <div class="inner" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="font-h7">핵심가치</div>
+                    <div class="values">
+                        <div class="item">
+                            <div class="img"><img src="../../img/macrogen/img-vision-core-1.png" alt="탁월한 생각"></div>
+                            <div class="font-h5">탁월한 <span class="color-point-primary">생각</span></div>
+                            <div class="font-body">
+                                탁월한 생각을 통해 세상을 변화시킬 수 있는
+                                새로운 가치를 발견한다.
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../img/macrogen/img-vision-core-2.png" alt="멈추지 않는 도전"></div>
+                            <div class="font-h5">멈추지 않는 <span class="color-point-primary">도전</span></div>
+                            <div class="font-body">
+                                고객의 기대를 뛰어 넘는 가치와 서비스를 창출하기 위한 도전을 멈추지 않는다.
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../img/macrogen/img-vision-core-3.png" alt="초일류 리더"></div>
+                            <div class="font-h5">초일류 <span class="color-point-primary">리더</span></div>
+                            <div class="font-body">
+                                탁월한 생각, 멈추지 않는 도전으로
+                                미래를 선도하는 초일류 리더로 성장한다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- e 핵심가치 -->
+        </div>
+    </div>
+    <!--footer 수정사항 있을시 메인페이지에 있는 footer도 같이변경해주세요-->
+<footer class="footer main">
+    <div class="font-h5">Macrogen</div>
+    <div class="info">
+        <p>서울특별시 강남구 역삼2동 테헤란로 238 마크로젠 빌딩</p>
+        <p>대표번호 : <a href="tel:02-2180-7000">02-2180-7000</a></p>
+        <p>ⓒMacrogen, Inc. All Rights Reserved.</p>
+    </div>
+    <div class="link-list">
+        <ul>
+            <li>
+                <select class="select" title="serviceSite" onchange="if(this.value) location.href=(this.value);">
+                    <option selected value="https://dna.macrogen.com/">서비스 신청/견적 문의</option>
+                    <option value="/ko/policy/privacy">개인정보 처리방침</option>
+                    <option value="/ko/policy/inside">내부정보관리규정</option>
+                    <option value="/ko/policy/image/">영상정보처리기기 운영.관리방침</option>
+                </select>
+            </li>
+            <li>
+                <select class="select" title="familySite" onchange="if(this.value) location.href=(this.value);">
+                    <option selected>Family Site</option>
+                    <option value="https://thebiome.life/">더바이옴</option>
+                    <option value="https://www.my-genomestory.com/">마이지놈스토리</option>
+                    <option value="https://www.mypetgene.com/main/main.php">마이펫진</option>
+                    <option value="https://psomagen.com/">소마젠(Psomagen)</option>
+                    <option value="https://www.macrogen-japan.co.jp/">마크로젠 일본</option>
+                    <option value="https://www.macrogen-europe.com">마크로젠 유럽</option>
+                    <option value="https://www.macrogen-apac.com/">마크로젠 싱가포르</option>
+                    <option value="http://gmi.ac.kr/index.php">유전체의학연구소</option>
+                    <option value="http://www.g2if.org/">공우생명정보재단</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <ul class="sns">
+        <li><a href="https://www.facebook.com/macrogenkr/" target="_blank"><i class="icon icon-facebook"></i></a></li>
+        <li><a href="https://www.youtube.com/channel/UCT1qyaOiPM7syCEC_T8jmTw" target="_blank"><i class="icon icon-youtube"></i></a></li>
+        <li><a href="https://blog.naver.com/macrogen_official" target="_blank"><i class="icon icon-blog"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/macrogen" target="_blank"><i class="icon icon-linkedin"></i></a></li>
+    </ul>
+</footer>
+
+    <a href="#" class="btn-totop"></a>
+<script>
+    $(document).ready(function(){
+        $('.btn-totop').click(function(){
+            $('html,body').animate( { scrollTop:0 },{duration : 100});
+            return false;
+        });
+        $(window).on('scroll', function (){
+            var scrollTop = $(window).scrollTop()
+            if (scrollTop > 150) {
+                $('.btn-totop').css({'opacity' : 1})
+            } else {
+                $('.btn-totop').css({'opacity' : 0})
+            }
+        })
+    });
+</script>
+
+</div>
+<div class="modal gnb" tabindex="-1" id="gnb" data-bs-backdrop="static" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="gnb-content">
+            <div class="gnb-header">
+                <h2 class="logo"><a href="#">마크로젠 로고</a></h2>
+                <a href="#" class="btn-close-black" data-bs-dismiss="modal" aria-label="Close"><span class="sr-only">닫기</span></a>
+            </div>
+            <div class="gnb-body" id="menu">
+                <ul>
+                    <li><a href="#none">MACROGEN</a>
+                        <ul>
+                            <li><a href="#none">- 회사소개</a>
+                                <ul>
+                                    <li><a href="#none">- 기업개요</a></li>
+                                    <li><a href="#none">- 경영진</a></li>
+                                    <li><a href="#none">- 연혁</a></li>
+                                    <li><a href="#none">- 비전</a></li>
+                                    <li><a href="#none">- 인증</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#none">- 글로벌 네트워크</a></li>
+                            <li><a href="#none">- 채용</a>
+                                <ul>
+                                    <li><a href="#none">- 인재상</a></li>
+                                    <li><a href="#none">- 인사제도</a></li>
+                                    <li><a href="#none">- 채용안내</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#none">business</a>
+                        <ul>
+                            <li><a href="#none">- 연구서비스</a>
+                                <ul>
+                                    <li><a href="#none">- NGS</a></li>
+                                    <li><a href="#none">- CES</a></li>
+                                    <li><a href="#none">- Gene Sythesis</a></li>
+                                    <li><a href="#none">- Oligo</a></li>
+                                    <li><a href="#none">- Microarray</a></li>
+                                    <li><a href="#none">- 모델동물사업부</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#none">- 임상진단서비스</a>
+                                <ul>
+                                    <li><a href="#none">- 암 유전체 검사</a></li>
+                                    <li><a href="#none">- 태아 및 신생아 유전질환</a></li>
+                                    <li><a href="#none">- COVID-19</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#none">- 헬스케어서비스</a>
+                                <ul>
+                                    <li><a href="#none">- 개인유전체분석</a></li>
+                                    <li><a href="#none">- 마이크로바이옴분석</a></li>
+                                    <li><a href="#none">- 반려동물유전자분석</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#none">r&d</a>
+                        <ul>
+                            <li><a href="#none">- 정밀의학연구소</a></li>
+                            <li><a href="#none">- 생명정보학연구소</a></li>
+                            <li><a href="#none">- 더바이옴연구소</a></li>
+                            <li><a href="#none">- 싱크진연구소</a></li>
+                            <li><a href="#none">- 빅데이터연구소</a></li>
+                            <li><a href="#none">- 특허/논문</a>
+                                <ul>
+                                    <li><a href="#none">- 특허</a></li>
+                                    <li><a href="#none">- 논문</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#none">NEWSROOM</a>
+                        <ul>
+                            <li><a href="#none">- 뉴스</a></li>
+                            <li><a href="#none">- 미디어라이브러리</a></li>
+                            <li><a href="#none">- 공지사항</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#none">ir</a>
+                        <ul>
+                            <li><a href="#none">- 재무정보</a></li>
+                            <li><a href="#none">- 공시정보</a>
+                                <ul>
+                                    <li><a href="#none">- 공고</a></li>
+                                    <li><a href="#none">- 공시정보</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#none">- IR소식</a></li>
+                            <li><a href="#none">- 투자자 문의</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#none">esg</a>
+                        <ul>
+                            <li><a href="#none">- ESG경영</a></li>
+                            <li><a href="#none">- 윤리경영</a></li>
+                            <li><a href="#none">- 사회공헌</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="gnb-footer">
+                <a href="#" class="btn-lang on">K0R</a>
+                <a href="#" class="btn-lang">ENG</a>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // gnb show
+    var gnbEl = document.getElementById('gnb')
+    var gnb = new bootstrap.Modal(gnbEl);
+
+    // gnb.show();
+
+    // gnb menu
+    (function ($) {
+        var gnbSet = {
+            click: function (target, speed) {
+                var _self = this, $target = $(target);
+                _self.speed = speed || 300;
+                $target.each(function () {
+                    if (findChildren($(this))) {
+                        return;
+                    }
+                    $(this).addClass('noDepth');
+                });
+
+                function findChildren(obj) {
+                    return obj.find('> ul').length > 0;
+                }
+
+                $target.on('click', 'a', function (e) {
+                    e.stopPropagation();
+                    var $this = $(this), $depthTarget = $this.next(), $siblings = $this.parent().siblings();
+                    $this.parent('li').find('ul li').removeClass('on');
+                    $siblings.removeClass('on');
+                    $siblings.find('ul').slideUp(250);
+                    if ($depthTarget.css('display') == 'none') {
+                        _self.activeOn($this);
+                        $depthTarget.slideDown(_self.speed);
+                    } else {
+                        $depthTarget.slideUp(_self.speed);
+                        _self.activeOff($this);
+                    }
+                })
+            }, activeOff: function ($target) {
+                $target.parent().removeClass('on');
+            }, activeOn: function ($target) {
+                $target.parent().addClass('on');
+            }
+        };
+        $(function () {
+            gnbSet.click('#menu li', 300)
+        });
+    }(jQuery));
+
+    // btn-lang
+    $('.btn-lang').on('click',function (){
+        $(this).addClass('on').siblings().removeClass('on')
+    })
+</script>
+
+</body>
+</html>

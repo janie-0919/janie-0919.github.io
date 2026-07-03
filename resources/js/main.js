@@ -282,6 +282,161 @@
     });
 })();
 
+/* ── 사이트 미리보기(iframe) 팝업 ── */
+(function () {
+    const triggers = document.querySelectorAll('.preview-btn');
+    if (!triggers.length) return;
+
+    const CATALOG = {
+        macrogen: [
+            { label: '메인',   pc: 'project/macrogen/pc/html/macrogen/page-pc-01.html', mo: 'project/macrogen/mo/html/macrogen/page-mo-01.html' },
+            { label: '회사소개', pc: 'project/macrogen/pc/html/macrogen/page-pc-02.html', mo: 'project/macrogen/mo/html/macrogen/page-mo-02.html' },
+            { label: '연혁',   pc: 'project/macrogen/pc/html/macrogen/page-pc-03.html', mo: 'project/macrogen/mo/html/macrogen/page-mo-04.html' },
+            { label: '비전',   pc: 'project/macrogen/pc/html/macrogen/page-pc-04.html', mo: 'project/macrogen/mo/html/macrogen/page-mo-03.html' }
+        ],
+        drg: [
+            { label: '메인',       pc: 'project/drg/pc/html/drg/main.html',     mo: 'project/drg/mo/html/drg/main.html' },
+            { label: 'AI 피부분석', pc: 'project/drg/pc/html/drg/sub-ai.html',   mo: 'project/drg/mo/html/drg/sub-ai.html' },
+            { label: 'AI 분석결과', pc: 'project/drg/pc/html/drg/sub-ai2.html',  mo: 'project/drg/mo/html/drg/sub-ai2.html' },
+            { label: 'AI 리포트',   pc: 'project/drg/pc/html/drg/sub-ai3.html',  mo: 'project/drg/mo/html/drg/sub-ai3.html' }
+        ],
+        cnr: [
+            { label: '직원교육-봄', pc: 'project/cnr/html/main-01.html', mo: 'project/cnr/html/main-01.html' },
+            { label: '직원교육-여름', pc: 'project/cnr/html/main-02.html', mo: 'project/cnr/html/main-02.html' },
+            { label: '임원교육',   pc: 'project/cnr/html/main-03.html', mo: 'project/cnr/html/main-03.html' },
+            { label: '안내사이트', pc: 'project/cnr/html/main-04.html', mo: 'project/cnr/html/main-04.html' }
+        ]
+    };
+
+    const overlay = document.createElement('div');
+    overlay.className = 'preview-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', '사이트 미리보기');
+    overlay.innerHTML = `
+    <div class="preview-modal">
+        <div class="preview-modal-header">
+            <div class="preview-page-tabs" id="preview-page-tabs"></div>
+            <div class="preview-modal-actions">
+                <div class="preview-device-toggle" id="preview-device-toggle">
+                    <button class="preview-device-btn active" data-device="pc">PC</button>
+                    <button class="preview-device-btn" data-device="mo">Mobile</button>
+                </div>
+                <a class="preview-newtab" id="preview-newtab" href="#" target="_blank" rel="noreferrer">새 탭에서 열기 ↗</a>
+                <button class="preview-close" id="preview-close" aria-label="닫기">✕</button>
+            </div>
+        </div>
+        <div class="preview-frame-wrap">
+            <iframe id="preview-iframe" title="사이트 미리보기" src="about:blank" allow="unload"></iframe>
+        </div>
+    </div>`;
+    document.body.appendChild(overlay);
+
+    const modal      = overlay.querySelector('.preview-modal');
+    const frameWrap  = overlay.querySelector('.preview-frame-wrap');
+    const iframe     = document.getElementById('preview-iframe');
+    const newTabLink = document.getElementById('preview-newtab');
+    const deviceWrap = document.getElementById('preview-device-toggle');
+    const deviceBtns = overlay.querySelectorAll('.preview-device-btn');
+    const tabsWrap   = document.getElementById('preview-page-tabs');
+
+    const PHONE_RATIO = 430 / 932; // 실제 모바일 기기 화면 비율 (width / height)
+
+    let pages = [];
+    let pageIdx = 0;
+    let device = 'pc';
+
+    function sizeFrame() {
+        if (device !== 'mo') {
+            frameWrap.style.width = '';
+            frameWrap.style.height = '';
+            return;
+        }
+        const header = overlay.querySelector('.preview-modal-header');
+        const modalRect = modal.getBoundingClientRect();
+        const headerH = header.getBoundingClientRect().height;
+        const gap = parseFloat(getComputedStyle(modal).rowGap || getComputedStyle(modal).gap || '0');
+        const availW = modalRect.width;
+        const availH = modalRect.height - headerH - gap;
+
+        let w = Math.min(430, availW);
+        let h = w / PHONE_RATIO;
+        if (h > availH) {
+            h = availH;
+            w = h * PHONE_RATIO;
+        }
+        frameWrap.style.width = w + 'px';
+        frameWrap.style.height = h + 'px';
+    }
+
+    function render() {
+        const page = pages[pageIdx];
+        const hasMo = !!page.mo;
+        if (!hasMo) device = 'pc';
+
+        deviceWrap.classList.toggle('hidden', !hasMo);
+        deviceBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.device === device));
+        modal.classList.toggle('device-mo', device === 'mo');
+        sizeFrame();
+
+        const src = device === 'mo' ? page.mo : page.pc;
+        iframe.src = src;
+        newTabLink.href = src;
+
+        tabsWrap.querySelectorAll('.preview-tab-btn').forEach((btn, i) => {
+            btn.classList.toggle('active', i === pageIdx);
+        });
+    }
+
+    function renderTabs() {
+        tabsWrap.innerHTML = '';
+        pages.forEach((page, i) => {
+            const btn = document.createElement('button');
+            btn.className = 'preview-tab-btn' + (i === pageIdx ? ' active' : '');
+            btn.textContent = page.label;
+            btn.addEventListener('click', () => {
+                pageIdx = i;
+                render();
+            });
+            tabsWrap.appendChild(btn);
+        });
+    }
+
+    function open(projectKey) {
+        pages = CATALOG[projectKey] || [];
+        if (!pages.length) return;
+        pageIdx = 0;
+        device = 'pc';
+        renderTabs();
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        render();
+    }
+
+    function close() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        iframe.src = 'about:blank';
+    }
+
+    triggers.forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+            open(btn.dataset.project);
+        });
+    });
+
+    deviceBtns.forEach(btn => btn.addEventListener('click', () => { device = btn.dataset.device; render(); }));
+    document.getElementById('preview-close').addEventListener('click', close);
+    overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+    document.addEventListener('keydown', e => {
+        if (overlay.classList.contains('active') && e.key === 'Escape') close();
+    });
+    window.addEventListener('resize', () => {
+        if (overlay.classList.contains('active')) sizeFrame();
+    });
+})();
+
 /* ── 더 보기 토글 ── */
 (function () {
     document.querySelectorAll('.career-desc-wrap').forEach(wrap => {

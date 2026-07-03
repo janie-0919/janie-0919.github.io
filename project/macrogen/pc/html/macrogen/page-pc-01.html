@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="Referrer" content="origin"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <meta name="viewport" content="width=1366,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+
+  <meta name="apple-mobile-web-app-title" content="macrogen" />
+  <meta name="viewport" content="width=1244"/>
+  <!-- IE 10 이하 -->
+  <link rel="shortcut icon" href="../../favicon/favicon.ico">
+  <!-- Android -->
+  <link rel="icon" type="image/png" sizes="36x36" href="../../favicon/android-icon-36x36.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="../../favicon/android-icon-48x48.png">
+  <link rel="icon" type="image/png" sizes="72x72" href="../../favicon/android-icon-72x72.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../favicon/android-icon-96x96.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="../../favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../favicon/android-icon-192x192.png">
+  <!-- apple -->
+  <link rel="apple-touch-icon" sizes="57x57" href="../../favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../../favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../../favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../../favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../../favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../../favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../../favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-icon-180x180.png">
+  <!-- 브라우저용 표준 -->
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../favicon/favicon-96x96.png">
+  <!-- ms -->
+  <meta name="msapplication-TileImage" content="../../favicon/ms-icon-70x70.png">
+  <meta name="msapplication-TileImage" content="../../favicon/ms-icon-144x144.png">
+  <meta name="msapplication-TileImage" content="../../favicon/ms-icon-150x150.png">
+  <meta name="msapplication-TileImage" content="../../favicon/ms-icon-310x310.png">
+  <!-- manifest -->
+<!--  <link rel="manifest" href="../../favicon/manifest.json">-->
+  <!-- Windows 8.1 + IE11 이상 -->
+  <meta name="msapplication-config" content="../../favicon/browserconfig.xml">
+
+  <meta name="robots" content="ALL">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="마크로젠">
+  <meta property="og:description" content="유전체 통합 빅데이터를 구축하여 미래의학을 혁신하는 글로벌 정밀의학 선도기업">
+<!--  <meta property="og:image" content="www.macrogen.co.kr/myimage.jpg">-->
+  <meta property="og:url" content="www.macrogen.co.kr">
+  <link rel="canonical" href="http://www.macrogen.co.kr">
+  <title>Macrogen</title>
+  <meta name="keywords" content="마크로젠 키워드">
+  <meta name="description" content="유전체 통합 빅데이터를 구축하여 미래의학을 혁신하는 글로벌 정밀의학 선도기업">
+  <link type="text/css" rel="stylesheet" href="../../css/macrogen_component_pc.css?"/>
+  <link type="text/css" rel="stylesheet" href="../../css/macrogen_page_pc_ko.css?"/>
+  <link type="text/css" rel="stylesheet" href="../../css/bootstrap-ie11.css" media="all and (-ms-high-contrast: active), (-ms-high-contrast: none)">
+
+  <script src="../../js/bundle.js?"></script>
+  <![if !IE]><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script><![endif]>
+  <script nomodule>window.MSInputMethodContext && document.documentMode && document.write('<script src="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js,npm/ie11-custom-properties@4,npm/element-qsa-scope@1"><\/script><script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=default%2CNumber.parseInt%2CNumber.parseFloat%2CArray.prototype.find%2CArray.prototype.includes"><\/script>');</script>
+  <script src="../../js/common.js?"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+</head>
+
+<body>
+<div class="wrap main-wrap">
+    
+    
+    <div class="full-bg main-bg">
+
+        <header class="header header-bg-white header-main" id="header">
+            <div class="inner">
+                <div class="section_gnb">
+                    <h1 class="logo"><a href="#">마크로젠 로고</a></h1>
+                    <nav>
+                        <ul id="gnb">
+                            <li><span class="font-bold">macrogen</span></li> <!-- active 시, 활성화 -->
+                            <li><span class="font-bold">business</span></li>
+                            <li><span class="font-bold">r&#38;d</span></li>
+                            <li><span class="font-bold">newsroom</span></li>
+                            <li><span class="font-bold">ir</span></li>
+                            <li><span class="font-bold">esg</span></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="section_btn">
+                    <ul class="sns">
+                        <li><a href="#"><i class="icon icon-facebook-circle"></i></a></li>
+                        <li><a href="#"><i class="icon icon-youtube-circle"></i></a></li>
+                        <li><a href="#"><i class="icon icon-blog-circle"></i></a></li>
+                        <li><a href="#"><i class="icon icon-linkedin-circle"></i></a></li>
+                    </ul>
+                    <div class="btn_eng">
+                        <a href="#" class="btn btn-round"><i class="icon icon-earth-black"></i><span>ENG</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="gnb-2depth" id="gnb2Depth">
+                <!--Macrogen-->
+                <div class="box clearfix">
+                    <div class="item">
+                        <div class="title"><a href="#">회사소개</a></div>
+                        <ul>
+                            <li><a href="#">기업개요</a></li>
+                            <li><a href="#">경영진</a></li>
+                            <li><a href="#">연혁</a></li>
+                            <li><a href="#">비전</a></li>
+                            <li><a href="#">인증</a></li>
+                            <!-- <li><a href="#">Contact us</a></li>-->
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">글로벌 네트워크</a></div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">채용</a></div>
+                        <ul>
+                            <li><a href="#">인재상</a></li>
+                            <li><a href="#">인사제도</a></li>
+                            <li><a href="#">채용안내</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Business-->
+                <div class="box clearfix">
+                    <div class="item">
+                        <div class="title"><a href="#">연구서비스</a></div>
+                        <ul>
+                            <li><a href="#">NGS</a></li>
+                            <li><a href="#">CES</a></li>
+                            <li><a href="#">Gene Sythesis</a></li>
+                            <li><a href="#">Oligo</a></li>
+                            <li><a href="#">Microarray</a></li>
+                            <li><a href="#">모델동물사업부</a></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">임상진단서비스</a></div>
+                        <ul>
+                            <li><a href="#">암 유전체 검사</a></li>
+                            <li><a href="#">태아 및 희귀질환 검사</a></li>
+                            <li><a href="#">COVID&#45;19</a></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">헬스케어서비스</a></div>
+                        <ul>
+                            <li><a href="#">개인유전체분석</a></li>
+                            <li><a href="#">마이크로바이옴분석</a></li>
+                            <li><a href="#">반려동물유전자분석</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--R&D-->
+                <div class="box clearfix">
+                    <div class="item">
+                        <div class="title"><a href="#">정밀의학연구소</a></div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">생명정보학연구소</a></div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">더바이옴연구소</a></div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">싱크진연구소</a></div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">빅데이터연구소</a></div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">특허&#47;논문</a></div>
+                        <ul>
+                            <li><a href="#">특허</a></li>
+                            <li><a href="#">논문</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Newsroom-->
+                <div class="box clearfix">
+                    <div class="item">
+                        <div class="title"><a href="#">뉴스</a></div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">미디어라이브러리</a></div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">공지사항</a></div>
+                    </div>
+                </div>
+                <!--IR-->
+                <div class="box clearfix">
+                    <div class="item">
+                        <div class="title"><a href="#">재무정보</a></div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">공시정보</a></div>
+                        <ul>
+                            <li><a href="#">공고</a></li>
+                            <li><a href="#">공시정보</a></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">IR소식</a></div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">투자자 문의</a></div>
+                    </div>
+                </div>
+                <!--ESG-->
+                <div class="box clearfix">
+                    <div class="item">
+                        <div class="title"><a href="#">ESG경영</a></div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">윤리경영</a></div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><a href="#">사회공헌</a></div>
+                    </div>
+                    <!-- <div class="item">
+                         <div class="title"><a href="#">ESG평가</a></div>
+                     </div>-->
+                </div>
+            </div>
+        </header>
+
+        <script>
+            var gnb2depth = $('#gnb2Depth .box')
+            let gnbIndex = $('#gnb li')
+
+            $('#gnb li').mouseover(function () {
+                $('.header-main').css('background','#fff');
+                $(this).parents('#header').addClass('header-bg-white')
+                gnbIndex.removeClass('active');
+                $(this).addClass('active');
+                gnb2depth.removeClass('active');
+                let idx = $(this).index();
+                gnb2depth.eq(idx).addClass('active');
+                $('#gnb2Depth').css({
+                    borderBottom:"1px solid #e9e9e9",
+                    borderTop:"1px solid #e9e9e9"
+                })
+            });
+
+            gnb2depth.mouseover(function () {
+                gnbIndex.removeClass('active');
+                let idx = $(this).index();
+                gnbIndex.eq(idx).addClass('active');
+
+            });
+
+            $('#header').on({
+                "mouseleave focusout" : function () {
+                    gnb2depth.removeClass('active')
+                    gnbIndex.removeClass('active')
+                    $('.header-main').css('background','none');
+                    $('#gnb2Depth').css('border','none')
+                    if ($('html').is('.animated')) {
+                        $('#header').removeClass('header-bg-white')
+                    }
+                }
+            })
+        </script>
+
+        <!-- s intro -->
+        <div class="intro">
+            <div class="box">
+                <p class="text" data-aos="fade-left" data-aos-duration="600" data-aos-delay="500">유전체 맞춤 의학으로</p>
+                <p class="text" data-aos="fade-left" data-aos-duration="600" data-aos-delay="1000">
+                    <img src="../../img/main/txt-intro.png" alt="78억 인류와 세상을 향합니다."></p>
+            </div>
+        </div>
+        <!-- e intro -->
+
+        <!-- s 메인비주얼 영역 -->
+        <div class="swiper-container" id="key-swiper-container">
+            <div class="swiper-wrapper" id="key-swiper-wrapper">
+                <div class="swiper-slide visual_01">
+                    <div class="text-box" data-aos="fade-down" data-aos-duration="800" data-aos-delay="2000">
+                        <p class="text-gradient"><img src="../../img/main/txt-main_01.png" alt="유전체 분석기술의"></p>
+                        <p class="slogan-sub">글로벌 리더</p>
+                        <p class="desc">독보적 유전체 분석 기술로<br>인류의 건강한 미래를 선도합니다.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide visual_02">
+                    <div class="text-box">
+                        <p class="text-gradient"><img src="../../img/main/txt-main_02.png" alt="빅데이터 ai기반"></p>
+                        <p class="slogan-sub">정밀맞춤의학</p>
+                        <p class="desc">인공지능을 통해 분석된 빅데이터를 기반으로<br>미래 정밀맞춤의학의 시대를 만들어갑니다</p>
+                    </div>
+                </div>
+                <div class="swiper-slide visual_03">
+                    <div class="text-box">
+                        <p class="text-gradient"><img src="../../img/main/txt-main_03.png" alt="희망과 함께하는"></p>
+                        <p class="slogan-sub">건강한 미래</p>
+                        <p class="desc">마크로젠은 인류의 건강을 위한<br>내 몸 설계도로 새로운 미래를 열어갑니다</p>
+                    </div>
+                </div>
+                <div class="swiper-slide visual_04">
+                    <div class="text-box phrase">
+                        <p>DNA가 세상을 구할 것이다<br>나의 DNA에는 과거와 미래가 공존한다</p>
+                        <span class="name">마크로젠 창립자&#47;회장<span>서정선</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-wrap">
+    <div class="scroll"><span class="bar" style="bottom: 0"></span></div>
+</div>
+
+            <!-- If we need pagination -->
+            <div class="swiper-pagination" id="key-swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev swiper_btn"></div>
+            <div class="swiper-button-next swiper_btn"></div>
+        </div>
+        <script>
+            var $container = $('#key-swiper-container');
+            var $wrapper = $('#key-swiper-wrapper');
+            var $pagination = $('#key-swiper-pagination');
+            var delay = 5000;
+            var mainSwiper;
+            setTimeout(function () {
+                step1();
+            }, delay)
+
+            function step1() {
+                $wrapper.css({
+                    'transform': 'translateY(0)',
+                    'transition-duration': '1s'
+                })
+                $('.bg-DNA').addClass('DNA-move')
+                $wrapper.animate({
+                    height: "100%"
+                }, 1000, function () {
+                    $('.swiper-wrapper').css({'overflow': 'visible'})
+                    $pagination.show()
+                    setSlider()
+
+                    $('html').addClass('animated')
+                })
+            }
+
+            function step2() {
+                //after 기능
+                $('.header')
+                    .addClass('header-main')
+                    .removeClass('header-bg-white')
+                $wrapper.css({'overflow': 'visible'})
+                $container.css({'overflow': 'hidden'})
+                $('.text-box').fadeIn()
+                $('.scroll-wrap').delay(1000).fadeIn()
+
+                $('.swiper_btn').delay(1000).fadeIn()
+                $('.stock_information').delay(1500).fadeIn()
+            }
+
+            function setSlider() {
+                if (mainSwiper !== undefined) {
+                    console.log('mainSwiper');
+                    return false
+                }
+                console.log('setSlider');
+                mainSwiper = new Swiper($container, {
+                    effect : 'fade', // 페이드 효과
+                    loop: true, //반복
+                    speed: 1200,//속도
+                    autoplay: {
+                        delay: 3500,
+                        waitForTransition: true,
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    pagination: {
+                        el: $pagination,
+                        clickable: true,
+
+                        renderBullet: function (index, className) {
+                            var bu = '<span class="' + className + '">' + '<svg class="fp-arc-loader" width="50" height="50">' +
+                                '<circle class="path" cx="50%" cy="50%" r="23" fill="none"  stroke="#FFF"' +
+                                'stroke-opacity="1" stroke-width="1px"></circle>' +
+                                '<circle cx="50%" cy="50%" r="5" fill="#FFF"></circle>' +
+                                '</svg></span>';
+                            console.log('setSlider222');
+                            return bu;
+
+                        },
+                    },
+                })
+
+                step2()
+            }
+        </script>
+
+        <div class="bg-DNA"></div>
+
+
+        <!-- e 메인비주얼 영역 -->
+
+        <!-- s 주가 영역 -->
+        <!--   <div class="stock_information">
+
+               <span class="close_btn"></span>
+               <div class="stock_cont">
+                   <div class="stock_box">
+                       <p class="title">Stock Information</p>
+                       <div class="content"></div>
+                   </div>
+               </div>
+           </div>
+           <script>
+               $(document).ready(function () {
+                   $(".stock_information .close_btn").on('click', function () {
+                       if ($(this).next().hasClass('active') == true) {
+                           $(this).removeClass('active')
+                           $(this).next().removeClass('active')
+                           $(this).parents('body').css("overflow-y", "auto")
+
+                       } else {
+                           $(this).addClass('active')
+                           $(this).next().addClass('active')
+                           $(this).parents('body').css("overflow-y", " hidden")
+                       }
+                   })
+               })
+           </script>-->
+        <!-- e 주가 영역 -->
+    </div>
+
+
+    <div class="container container-fluid">
+        <div class="main-page company-define">
+            <!-- s  바로가기 -->
+            <div class="section-define">
+                <div class="info-box">
+                    <div class="title">
+                        <span data-aos="fade-up" data-aos-duration="600">Humanizing</span>
+                        <span data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">Genomics</span>
+                    </div>
+                    <div class="text-box">
+                        <div class="text">
+                            <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">인간의 유전체 정보 및 데이터 분석 기술을
+                                바탕으로</p>
+                            <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="550">환자 개개인의 유전적 특성에 따른
+                                맞춤의학으로 세계를 이끄는</p>
+                            <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="700">생명공학기업 마크로젠 입니다</p>
+                        </div>
+                        <a href="#" class="btn btn-text" data-aos="fade-up" data-aos-duration="900"
+                           data-aos-delay="1000"><span>MORE</span><i class="icon icon-arrow-right-long"></i></a>
+                    </div>
+                </div>
+                <div class="shortcuts-box" data-aos="fade-up" data-aos-duration="500">
+                    <ul class="btn-list clearfix">
+                        <li>
+                            <a href="#">
+                                <p>기업개요</p>
+                                <p class="sub-text">대한민국 바이오 벤처 대표기업<br>마크로젠 입니다</p>
+                                <p class="btn btn-circle btn-white btn-md"><i class="icon icon-arrow-right-short"></i>
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p>글로벌 마크로젠</p>
+                                <p class="sub-text">유전체  분석 연구를 이끄는<br>글로벌 파트너와 함께 합니다</p>
+                                <p class="btn btn-circle btn-white btn-md"><i class="icon icon-arrow-right-short"></i>
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p>ESG</p>
+                                <p class="sub-text">인류의 건강한 미래가<br>지속가능한 세계를 만들어갑니다</p>
+                                <p class="btn btn-circle btn-white btn-md"><i class="icon icon-arrow-right-short"></i>
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="bg_section bg0"></div>
+
+                    <div class="bg_section bg1 active">
+                        <video class="video" autoplay muted loop>
+                            <source src="../../img/video/main_기업개요.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="bg_section bg2">
+                        <video class="video" autoplay muted loop>
+                            <source src="../../img/video/main_글로벌마크로젠.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="bg_section bg3">
+                        <video class="video" autoplay muted loop>
+                            <source src="../../img/video/main_ESG.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <script>
+                        var currentIdx = 1;
+                        $('.shortcuts-box .btn-list li').mouseover(function () {
+                            var index = $(this).index() + 1;
+                            console.log(index)
+
+                            if (index !== currentIdx) {
+                                console.log('wun')
+                                $('.bg_section').eq(index).addClass('active')
+                                    .siblings().removeClass('active')
+                                currentIdx = index
+                            }
+
+                            $('.bg_section .video').play().currentTime()
+
+                        }).mouseout(function(){
+                            $('.bg_section .video').pause()
+                        });
+                    </script>
+                </div>
+            </div>
+            <!-- e  바로가기 -->
+
+            <!-- s  business  slide -->
+            <div class="section-business">
+                <div class="info-box">
+                    <div class="title" data-aos="fade-up" data-aos-duration="500">Our Business</div>
+                    <div class="desc">
+                        <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">유전체 정보, 의료 정보 및 생활 정보 통합
+                            빅데이터를 구축하고 질병을 예측하여<br>
+                            미래의학을 혁신하는 글로벌 정밀의학 선도기업으로서 인간 유전체 연구로 인류의 건강과 행복에 이바지합니다</p>
+                    </div>
+                </div>
+                <div class="business" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200" >
+    <div class="slider">
+        <div class="swiper-container _businessSlider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background: url(../../img/main/img-business_01.png) no-repeat center center / cover">
+                    <div class="text-area">
+                            <div class="title">
+                                <span>퍼스널 헬스케어</span><a href="#">
+                                    <span class="btn btn-circle btn-white btn-md">
+                                        <i class="icon icon-arrow-right-short"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="desc">
+                                유전자 특성에 따라 건강관리에 도움을 주는<br/>
+                                개인 맞춤형 헬스케어 솔루션입니다
+                            </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background: url(../../img/main/img-business_02.png) no-repeat center center / cover">
+                    <div class="text-area">
+                        <div class="title">
+                            <span>더바이옴</span><a href="#">
+                             <span class="btn btn-circle btn-white btn-md">
+                                 <i class="icon icon-arrow-right-short"></i>
+                             </span>
+                            </a>
+                        </div>
+                        <div class="desc">
+                            마이크로바이옴을 분석하여<br/>
+                            나에게 가장 잘 맞는 맞춤형 솔루션을 제공합니다
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background: url(../../img/main/img-business_03.png) no-repeat center center / cover">
+                    <div class="text-area">
+                        <div class="title">
+                            <span>임상진단&#47;치료</span><a href="#">
+                             <span class="btn btn-circle btn-white btn-md">
+                                 <i class="icon icon-arrow-right-short"></i>
+                             </span>
+                        </a>
+                        </div>
+                        <div class="desc">
+                            COVID19&#44; 암 유전체 검사 등 질병 발생원인 연구로<br/>
+                            맞춤치료에 도움이 될 수 있습니다
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background: url(../../img/main/img-business_04.png) no-repeat center center / cover">
+                    <div class="text-area">
+                        <div class="title">
+                            <span>반려동물</span><a href="#">
+                             <span class="btn btn-circle btn-white btn-md">
+                                 <i class="icon icon-arrow-right-short"></i>
+                             </span>
+                        </a>
+                        </div>
+                        <div class="desc">
+                            소중한 가족인 반려동물의 건강한 삶을 위해<br/>
+                            유전질환예측&#44; 질병 예방 등 맞춤 관리 솔루션을 제공합니다
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background: url(../../img/main/img-business_05.png) no-repeat center center / cover">
+                    <div class="text-area">
+                        <div class="title">
+                            <span>연구서비스</span><a href="#">
+                             <span class="btn btn-circle btn-white btn-md">
+                                 <i class="icon icon-arrow-right-short"></i>
+                             </span>
+                        </a>
+                        </div>
+                        <div class="desc">
+                            글로벌 스탠다드 인프라 기반의<br/>
+                            빠른 염기서열 분석 연구데이터로 경쟁력을 갖추고 있습니다
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function (){
+            /*slide 영역*/
+             new Swiper ("._businessSlider", {
+                slidesPerView: "auto",
+                centeredSlides: true,
+                loop: true,
+            });
+        })
+    </script>
+</div>
+
+            </div>
+            <script>
+                $(document).ready(function(){
+                    $('.business').css("cursor","url('../../img/main/img-cursor.cur'), auto");
+                });
+            </script>
+
+
+            <!-- e  business slide -->
+
+            <!-- s  news -->
+            <div class="section-news">
+                <div class="info-box" data-aos="fade-up" data-aos-duration="500">
+                    <div class="title">News</div>
+                    <div class="desc">전세계 모든 인류가 건강한 세상을 꿈꾸는<br>마크로젠의 새로운 소식을 알려드립니다</div>
+                </div>
+                <div class="board">
+                    <div class="list list-border hover">
+                        <div class="item" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
+                            <span class="date">2021.06.28.</span>
+                            <a href="#" class="tit">마크로젠, 업계 유일 정보보호 인증 3종 모두 획득··· 신뢰성 제고</a>
+                            <a href="#" class="arrow"><i class="icon icon-arrow-right-short"></i></a>
+                        </div>
+                        <div class="item" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
+                            <span class="date">2021.06.14.</span>
+                            <a href="#" class="tit">서정선 마크로젠 회장, ‘서울대 관악대상’ 수상</a>
+                            <a href="#" class="arrow"><i class="icon icon-arrow-right-short"></i></a>
+                        </div>
+                        <div class="item" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                            <span class="date">2021.05.17.</span>
+                            <a href="#" class="tit">마크로젠, 1분기 영업이익 62억원… 전년비 42억↑ 매출액 342억 전년동기 대비 전년비 42억↑ 매출액 342억
+                                전년동기 대비 전년비 42억↑</a>
+                            <a href="#" class="arrow"><i class="icon icon-arrow-right-short"></i></a>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-text" data-aos="fade-up" data-aos-duration="1000"
+                       data-aos-delay="500"><span>MORE</span><i class="icon icon-arrow-right-long"></i></a>
+                </div>
+                <div class="video-box" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="info-box">
+                        <div class="title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">#Macrogen TV</div>
+                        <div class="desc" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">마크로젠의 새로운 소식을 영상으로 만나보세요</div>
+                        <a href="#" class="btn btn-white btn-round btn_play" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><i class="icon icon_youtube"></i><span>마크로젠 유튜브채널</span><i class="icon icon-arrow-right-short"></i></a>
+                    </div>
+
+                    <!-- more 영역 제거-->
+                    <!--<a href="#" class="btn btn-text" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><span>MORE</span><i class="icon icon-arrow-right-long-white"></i></a>-->
+                </div>
+            </div>
+            <!-- e  news -->
+
+            <!-- s  media -->
+            <div class="section-media">
+                <div class="info-box">
+                    <div class="title" data-aos="fade-up" data-aos-duration="1000">Social Media </div>
+                    <div class="desc" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">다양한 채널을 통해 마크로젠의
+                        소식을 만나실 수 있습니다
+                    </div>
+                </div>
+                <div class="media" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
+    <div class="slider">
+        <div class="slider-navigation">
+            <a href="#" class="btn btn-circle btn-white btn-sm _btnPrev"><i class="icon icon-arrow-left-sm"></i></a>
+            <a href="#" class="btn btn-circle btn-white btn-sm _btnNext"><i class="icon icon-arrow-right-sm"></i></a>
+        </div>
+        <div class="swiper-container _mediaSlider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="https://youtu.be/2BHy_3FxjUk" target="_blank">
+                        <div class="img">
+                            <img src="../../img/main/img-media_01.png" alt="물만 마셔도 살찌는 유전자가 있을까?">
+                            <span class="sns">Youtube</span>
+                        </div>
+                        <div class="content">물만 마셔도 살이 찐다구?! 체중이 변하는 이유가 나의 유전자와 관련이 있다는 사실! 알고계셨나요? 유.잘.알 마크로젠 전문가들이
+                            확실히 알려드립니다.
+                        </div>
+                        <div class="date">2021.09.09</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://blog.naver.com/macrogen_official/222481324813" target="_blank">
+                        <div class="img">
+                            <img src="../../img/main/img-media_02.png" alt="미래의학의 새로운 패러다임 정밀의학의 모든 것">
+                            <span class="sns">blog</span>
+                        </div>
+                        <div class="content">유전체 데이터로 질병 극복을 꿈꾸는 미래, 정밀의학! 질병 예측 및 예방, 맞춤 진단, 치료를 제공하는 미래의학의 새로운 패러다임,
+                            정밀의학에 대해 알아보아요.
+                        </div>
+                        <div class="date">2021.08.23</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://blog.naver.com/macrogen_official/222462577508" target="_blank">
+                        <div class="img">
+                            <img src="../../img/main/img-media_03.png" alt="함께하는 건강한 세상 ESG경영으로 실천합니다">
+                            <span class="sns">blog</span>
+                        </div>
+                        <div class="content">환경보호, 사회적 책임 그리고 투명한 지배구조로 마크로젠이 실천하고 있는 ESG 경영 활동 내역을 소개합니다.</div>
+                        <div class="date">2021.08.09</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://youtu.be/1GxtiISWwTg" target="_blank">
+                        <div class="img">
+                            <img src="../../img/main/img-media_04.png" alt="마크로젠 NGS 영업부문 인터뷰">
+                            <span class="sns">Youtube</span></div>
+                        <div class="content">유전체 분석 기업 직원들은 어떻게 일할까?<br>마크로젠 직원들의 찐(gene) 이야기! 유튜브 마크로젠 채널의 찐톡에서 만나보세요.
+                        </div>
+                        <div class="date">2021.07.29</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.facebook.com/macrogenkr/posts/4139457679509293" target="_blank">
+                        <div class="img">
+                            <img src="../../img/main/img-media_05.png" alt="장미남 / 장미녀 체크리스트">
+                            <span class="sns">Facebook</span>
+                        </div>
+                        <div class="content">오늘의 장은 안녕하신가요?<br>생활 습관과 장의 건강상태를 체크해보세요. 장 건강이우리 몸 건강의 시작이랍니다.</div>
+                        <div class="date">2021.07.22</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.facebook.com/macrogenkr/posts/4081205675334494" target="_blank">
+                        <div class="img">
+                            <img src="../../img/main/img-media_06.png" alt="반려동물에게도 발생할 수 있는 유전질환, 미리 알아보고 예방할 수 있는 방법">
+                            <span class="sns">Facebook</span>
+                        </div>
+                        <div class="content">반려동물에게도 발생할 수 있는 유전질환, 미리 알아보고 예방할 수 있다면 좋겠죠. 마크로젠이 견종별, 묘종별 주의해야 할 유전질환의
+                            종류를 알려드릴게요!
+                        </div>
+                        <div class="date">2021.07.21</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.facebook.com/macrogenkr/posts/4081205675334494" target="_blank">
+                        <div class="img">
+                            <img src="../../img/main/img-media_06.png" alt="반려동물에게도 발생할 수 있는 유전질환, 미리 알아보고 예방할 수 있는 방법">
+                            <span class="sns">Facebook</span>
+                        </div>
+                        <div class="content">반려동물에게도 발생할 수 있는 유전질환, 미리 알아보고 예방할 수 있다면 좋겠죠. 마크로젠이 견종별, 묘종별 주의해야 할 유전질환의
+                            종류를 알려드릴게요!
+                        </div>
+                        <div class="date">2021.07.21</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        new Swiper("._mediaSlider", {
+            slidesPerView: "auto",
+            slidesPerGroup: 3,
+            grabCursor: true,
+            loopFillGroupWithBlank : true, // 그룹수가 맞지 않을 경우 빈칸으로 메우기(3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듦)
+           /* loop : true, // 무한 반복*/
+            navigation: {
+                nextEl: "._btnNext",
+                prevEl: "._btnPrev",
+            },
+        });
+    </script>
+</div>
+
+            </div>
+            <!-- e  media -->
+
+            <!-- s  global map -->
+            <div class="section-map" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="inner">
+                    <div class="info-box">
+                        <div class="title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Global Network</div>
+                        <div class="desc" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                            국내 지사를 포함하여 세계 각지의 글로벌 네트워크를 통해<br/>현지 고객의 다양한 요구에 부합하는 맞춤형 서비스를 더욱 신속하고 체계적으로 제공합니다
+                        </div>
+                    </div>
+                    <div class="map">
+                        <a class="pin amsterdam" onClick="location.href='01Macrogen_06글로벌네트워크.html#amsterdam'"><i></i><span>Amsterdam, The Netherlands</span></a>
+                        <a class="pin seoul" onClick="location.href='01Macrogen_06글로벌네트워크.html#seoul'"><i></i><span>Seoul, Korea</span></a>
+                        <a class="pin boston" onClick="location.href='01Macrogen_06글로벌네트워크.html#rockville'"><i></i><span>Boston, USA</span></a>
+                        <a class="pin tokyo" onClick="location.href='01Macrogen_06글로벌네트워크.html#tokyo'"><i></i><span>Tokyo, japan</span></a>
+                        <a class="pin virginia" onClick="location.href='01Macrogen_06글로벌네트워크.html#rockville'"><i></i><span>Virginia, USA</span></a>
+                        <a class="pin madrid" onClick="location.href='01Macrogen_06글로벌네트워크.html#madrid'"><i></i><span>Madrid, Spain</span></a>
+                        <a class="pin kyoto" onClick="location.href='01Macrogen_06글로벌네트워크.html#tokyo'"><i></i><span>Kyoto, japan</span></a>
+                        <a class="pin newyork" onClick="location.href='01Macrogen_06글로벌네트워크.html#rockville'"><i></i><span>New york, USA</span></a>
+                        <a class="pin synapse" onClick="location.href='01Macrogen_06글로벌네트워크.html#synapse'"><i></i><span>Synapse, Singapore</span></a>
+                        <a class="pin rockville" onClick="location.href='01Macrogen_06글로벌네트워크.html#rockville'"><i></i><span>Rockville, USA</span></a>
+                    </div>
+                    <script>
+                        $('.map .pin').on('click', function () {
+                            $(this).addClass('active')
+                                .siblings().removeClass('active')
+                        })
+                    </script>
+                </div>
+            </div>
+            <!-- e  global map -->
+
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="inner" data-aos="fade-up" data-aos-duration="1000">
+            <div class="section_information">
+                <div class="title font-bold">
+                    <p>MACROGEN</p>
+                </div>
+                <div class="info">
+                    <ul class="text">
+                        <li>
+                            <ul class="terms clearfix">
+                                <li><span class="font-medium"><a href="#">서비스 신청&#47;견적 문의</a></span></li>
+                                <li><span class="font-medium"><a href="#">개인정보 처리방침</a></span></li>
+                                <li><span class="font-medium"><a href="#">내부정보관리규정</a></span></li>
+                                <li><span class="font-medium"><a href="#">영상정보처리기기 운영&#46;관리방침</a></span></li>
+                                <li><span class="font-medium"><a href="#">Contact us</a></span></li>
+                            </ul>
+                        </li>
+                        <li><span>서울특별시 강남구 테헤란로 238 &#40;마크로젠빌딩&#41;</span><span>대표번호 &#58; 02&#45;2180&#45;7000</span></li>
+                        <li><span>&#169;Macrogen&#44; Inc&#46; All Rights Reserved&#46;</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section_familysite">
+                <div class="family-box">
+                    <a href="#" class="select_site _select_site"><span class="text">FAMILY SITE</span></a>
+                    <div class="popup_box _popup_box">
+                        <a href="https://thebiome.life/" target="_blank" class="list"><span class="text">더바이옴</span></a>
+                        <a href="https://www.my-genomestory.com/" target="_blank" class="list"><span class="text">마이지놈스토리</span></a>
+                        <a href="https://www.mypetgene.com/main/main.php" target="_blank" class="list"><span class="text">마이펫진</span></a>
+                        <a href="https://psomagen.com/" target="_blank" class="list"><span class="text">소마젠&#40;Psomagen&#41;</span></a>
+                        <a href="https://www.macrogen-japan.co.jp/" target="_blank" class="list"><span class="text">마크로젠 일본</span></a>
+                        <a href="https://www.macrogen-europe.com" target="_blank" class="list"><span class="text">마크로젠 유럽</span></a>
+                        <a href="https://www.macrogen-apac.com/" target="_blank" class="list"><span class="text">마크로젠 싱가포르</span></a>
+                        <a href="http://gmi.ac.kr/index.php" target="_blank" class="list"><span class="text">유전체의학연구소</span></a>
+                        <a href="http://www.g2if.org/" target="_blank" class="list"><span class="text">공우생명정보재단</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section_sns">
+                <ul class="sns clearfix">
+                    <li class="facebook"><a href="https://www.facebook.com/macrogenkr/" target="_blank"></a></li>
+                    <li class="youtube"><a href="https://www.youtube.com/channel/UCT1qyaOiPM7syCEC_T8jmTw" target="_blank"></a></li>
+                    <li class="blog"><a href="https://blog.naver.com/macrogen_official" target="_blank"></a></li>
+                    <li class="linkedin"><a href="https://www.linkedin.com/company/macrogen" target="_blank"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="btn btn-text btn-totop">
+    <i class="icon icon-arrow-top-long"></i>
+    <span>TOP</span>
+</a>
+
+<script>
+    $(document).ready(function(){
+        $('.btn-totop').click(function(){
+            $('html,body').animate( { scrollTop:0 },{duration : 100});
+            $('.header').css({'display' : 'block'});
+            return false;
+        });
+        $(window).on('scroll', function (){
+            var scrollTop = $(window).scrollTop()
+            if (scrollTop > 150) {
+                $('.btn-totop').css({'opacity' : 1})
+            } else {
+                $('.btn-totop').css({'opacity' : 0})
+            }
+        })
+    });
+</script>
+
+</div>
+</body>
+</html>
+<script>
+
+</script>

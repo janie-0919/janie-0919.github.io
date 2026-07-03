@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../js/lib/jquery-ui.min.js"></script>
+    <script src="../js/lib/swiper.js"></script>
+    <script src="../js/lib/pagination.js"></script>
+    <script src="../js/lib/popper.js"></script>
+    <script src="../js/ui_common.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="shortcut icon" href="../images/common/favicon.ico">
+    <title>메인 (안내사이트)</title>
+</head>
+<body class="page-guide-site">
+<div class="skip-nav" id="skip">
+  <a class="view-content" href="#content">본문 바로가기</a>
+</div>
+<header class="site-header site-header-guide" role="banner">
+  <div class="gnb-inner">
+    <a href="javascript:void(0)" class="brand-logo">
+      <img src="../images/common/logo-cnr.png" alt="현대 C&R">
+    </a>
+    <nav class="gnb-menu" aria-label="주요 메뉴">
+       
+      <a class="gnb-menu-link" href="javascript:void(0)">원격평생교육원</a>
+      
+       
+      <a class="gnb-menu-link" href="javascript:void(0)">HRD서비스</a>
+      
+       
+      <a class="gnb-menu-link" href="javascript:void(0)">교육과정</a>
+      
+       
+      <a class="gnb-menu-link" href="javascript:void(0)">고객센터</a>
+      
+    </nav>
+    <div class="gnb-utility">
+      <button type="button" class="gnb-hamburger" aria-label="메뉴" aria-expanded="false">
+        <span class="gnb-hamburger-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="txt">전체메뉴</span>
+      </button>
+    </div>
+  </div>
+  <div class="gnb-dropdown" aria-hidden="true">
+    <div class="gnb-dropdown-inner">
+      <!-- 원격평생교육원 -->
+      <div class="gnb-col" data-col="0">
+        <h3 class="gnb-col-title">원격평생교육원</h3>
+        <ul class="gnb-col-list">
+           <li><a href="javascript:void(0)">소개</a></li>
+           <li><a href="javascript:void(0)">CEO 인사말</a></li>
+           <li><a href="javascript:void(0)">수상내역</a></li>
+           <li><a href="javascript:void(0)">찾아오시는길</a></li>
+        </ul>
+      </div>
+      <!-- HRD서비스 -->
+      <div class="gnb-col" data-col="1">
+        <h3 class="gnb-col-title">HRD서비스</h3>
+        <ul class="gnb-col-list">
+           <li><a href="javascript:void(0)">이러닝</a></li>
+           <li><a href="javascript:void(0)">스마트러닝</a></li>
+           <li><a href="javascript:void(0)">집체</a></li>
+           <li><a href="javascript:void(0)">콘텐츠 개발</a></li>
+           <li><a href="javascript:void(0)">콘텐츠 유통</a></li>
+        </ul>
+      </div>
+      <!-- 교육과정 -->
+      <div class="gnb-col" data-col="2">
+        <h3 class="gnb-col-title">교육과정</h3>
+        <ul class="gnb-col-list">
+           <li><a href="javascript:void(0)">전체과정</a></li>
+           <li><a href="javascript:void(0)">신규&amp;추천 과정</a></li>
+           <li><a href="javascript:void(0)">인기과정</a></li>
+        </ul>
+      </div>
+      <!-- 고객센터 -->
+      <div class="gnb-col" data-col="3">
+        <h3 class="gnb-col-title">고객센터</h3>
+        <ul class="gnb-col-list">
+           <li><a href="javascript:void(0)">공지사항</a></li>
+           <li><a href="javascript:void(0)">FAQ</a></li>
+           <li><a href="javascript:void(0)">학습가이드</a></li>
+           <li><a href="javascript:void(0)">기업교육안내 문의</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 모바일 GNB -->
+  <div class="gnb-mobile" aria-hidden="true">
+    <div class="gnb-mobile-header">
+      <a href="javascript:void(0)" class="brand-logo">
+        <img src="../images/common/logo-cnr.png" alt="현대 C&R">
+      </a>
+      <div class="gnb-utility">
+        <button type="button" class="gnb-mobile-close" aria-label="메뉴 닫기">
+          <span class="gnb-hamburger-icon is-open" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="txt">닫기</span>
+        </button>
+      </div>
+    </div>
+    <nav class="gnb-mobile-nav" aria-label="전체 메뉴">
+      <!-- 원격평생교육원 -->
+      <div class="gnb-mobile-section">
+        <strong class="gnb-mobile-section-title">원격평생교육원</strong>
+        <ul class="gnb-mobile-list">
+          <li><a href="javascript:void(0)">소개</a></li>
+          <li><a href="javascript:void(0)">CEO 인사말</a></li>
+          <li><a href="javascript:void(0)">수상내역</a></li>
+          <li><a href="javascript:void(0)">찾아오시는길</a></li>
+        </ul>
+      </div>
+      <!-- HRD서비스 -->
+      <div class="gnb-mobile-section">
+        <strong class="gnb-mobile-section-title">HRD서비스</strong>
+        <ul class="gnb-mobile-list">
+          <li><a href="javascript:void(0)">이러닝</a></li>
+          <li><a href="javascript:void(0)">스마트러닝</a></li>
+          <li><a href="javascript:void(0)">집체</a></li>
+          <li><a href="javascript:void(0)">콘텐츠 개발</a></li>
+          <li><a href="javascript:void(0)">콘텐츠 유통</a></li>
+        </ul>
+      </div>
+      <!-- 교육과정 -->
+      <div class="gnb-mobile-section">
+        <strong class="gnb-mobile-section-title">교육과정</strong>
+        <ul class="gnb-mobile-list">
+          <li><a href="javascript:void(0)">전체과정</a></li>
+          <li><a href="javascript:void(0)">신규&amp;추천 과정</a></li>
+          <li><a href="javascript:void(0)">인기과정</a></li>
+        </ul>
+      </div>
+      <!-- 고객센터 -->
+      <div class="gnb-mobile-section">
+        <strong class="gnb-mobile-section-title">고객센터</strong>
+        <ul class="gnb-mobile-list">
+          <li><a href="javascript:void(0)">공지사항</a></li>
+          <li><a href="javascript:void(0)">FAQ</a></li>
+          <li><a href="javascript:void(0)">학습가이드</a></li>
+          <li><a href="javascript:void(0)">기업교육안내 문의</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="gnb-mobile-overlay"></div>
+</header>
+
+<main id="content">
+  <div class="main-content-wrap">
+
+    <!-- HERO: 메인 배너 슬라이더 -->
+    <section class="guide-hero">
+      <div class="inner">
+      <div class="guide-hero-inner">
+        <div class="swiper guide-hero-swiper _guideHeroSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="javascript:void(0)">
+                <picture>
+                  <source srcset="../images/info/img-visual-mo.png" media="(max-width: 768px)">
+                  <img src="../images/info/img-visual.png" alt="현대C&R 원격평생교육원">
+                </picture>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="javascript:void(0)">
+                <picture>
+                  <source srcset="../images/info/img-visual-mo.png" media="(max-width: 768px)">
+                  <img src="../images/info/img-visual.png" alt="현대C&R 원격평생교육원">
+                </picture>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="javascript:void(0)">
+                <picture>
+                  <source srcset="../images/info/img-visual-mo.png" media="(max-width: 768px)">
+                  <img src="../images/info/img-visual.png" alt="현대C&R 원격평생교육원">
+                </picture>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 우측 과정 목록 패널 -->
+        <div class="guide-hero-list" aria-label="슬라이드 목록">
+          <button type="button" class="guide-hero-list-btn _guideHeroUp" aria-label="이전">
+            <img src="../images/info/ico-arrow-up.svg" alt="" aria-hidden="true">
+          </button>
+          <ul class="guide-hero-list-items _guideHeroItems">
+            <li class="guide-hero-list-item is-active">
+              <button type="button" data-index="0">피그마 디자인 레시피</button>
+            </li>
+            <li class="guide-hero-list-item">
+              <button type="button" data-index="1">엑셀 왕초보 탈출</button>
+            </li>
+            <li class="guide-hero-list-item">
+              <button type="button" data-index="2">취사병 전설이 되다</button>
+            </li>
+          </ul>
+          <button type="button" class="guide-hero-list-btn _guideHeroDown" aria-label="다음">
+            <img src="../images/info/ico-arrow-down.svg" alt="" aria-hidden="true">
+          </button>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 추천과정 슬라이더 -->
+    <section class="section guide-course-section">
+      <div class="inner">
+        <div class="section-head">
+          <h2 class="section-title">추천과정</h2>
+          <div class="guide-slider-nav">
+            <button type="button" class="guide-slider-btn _guideCoursesPrev" aria-label="이전">
+              <i class="ico ico-nav-prev" aria-hidden="true"></i>
+            </button>
+            <span class="guide-slider-page" aria-live="polite">
+              <em class="guide-slider-current _guideCoursesCurrent">1</em>/<em class="guide-slider-total _guideCoursesTotal">3</em>
+            </span>
+            <button type="button" class="guide-slider-btn _guideCoursesNext" aria-label="다음">
+              <i class="ico ico-nav-next" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <div class="swiper guide-courses-swiper _guideCourseSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-1.png" alt="[AI 기초] 생성형 AI, 비즈니스에 입히기">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-play-lect.svg" alt="">
+                      <span>열린강의</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">[AI 기초] 생성형 AI, 비즈니스에 입히기</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-2.png" alt="미래를 주도하는 필수템, 기획자의 생각법">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-laptop.svg" alt="">
+                      <span>사이버테마</span>
+                    </a>
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-player.svg" alt="">
+                      <span>맛보기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">미래를 주도하는 필수템, 기획자의 생각법</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/common/img-default.png" alt="최상위 일잘러의 AI 활용법_기획, 전략편">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-laptop.svg" alt="">
+                      <span>사이버테마</span>
+                    </a>
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-player.svg" alt="">
+                      <span>맛보기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">최상위 일잘러의 AI 활용법_기획, 전략편</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-4.png" alt="[SERI] 연결력 : 고립된 천재는 없다">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-play-lect.svg" alt="">
+                      <span>학습하기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">[SERI] 연결력 : 고립된 천재는 없다</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-5.png" alt="나 혼자만 레벨업! AI도 배우는 SSS급 창의적 사고 스킬">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-laptop.svg" alt="">
+                      <span>사이버테마</span>
+                    </a>
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-player.svg" alt="">
+                      <span>맛보기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">나 혼자만 레벨업! AI도 배우는 SSS급 창의적 사고 스킬</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-1.png" alt="[SERI] 판안을 에너지로 바꾸는 법">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-play-lect.svg" alt="">
+                      <span>학습하기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">[SERI] 판안을 에너지로 바꾸는 법</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-2.png" alt="새로운 시장을 성공으로 이끄는 판교의 젊은 기획자들">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-laptop.svg" alt="">
+                      <span>사이버테마</span>
+                    </a>
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-player.svg" alt="">
+                      <span>맛보기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">새로운 시장을 성공으로 이끄는 판교의 젊은 기획자들</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-3.png" alt="스테이블코인 금융 혁신의 미래">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-laptop.svg" alt="">
+                      <span>사이버테마</span>
+                    </a>
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-player.svg" alt="">
+                      <span>맛보기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">스테이블코인 금융 혁신의 미래</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-4.png" alt="[SERI] 볼안을 잠재우는 Sense Making">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-play-lect.svg" alt="">
+                      <span>학습하기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">[SERI] 볼안을 잠재우는 Sense Making</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-5.png" alt="금융 X AI : 실무 가이드">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-laptop.svg" alt="">
+                      <span>사이버테마</span>
+                    </a>
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-player.svg" alt="">
+                      <span>맛보기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">금융 X AI : 실무 가이드</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-1.png" alt="[AI 기초] 생성형 AI, 비즈니스에 입히기">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-play-lect.svg" alt="">
+                      <span>열린강의</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">[AI 기초] 생성형 AI, 비즈니스에 입히기</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-2.png" alt="미래를 주도하는 필수템, 기획자의 생각법">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-laptop.svg" alt="">
+                      <span>사이버테마</span>
+                    </a>
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-player.svg" alt="">
+                      <span>맛보기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">미래를 주도하는 필수템, 기획자의 생각법</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/common/img-default.png" alt="최상위 일잘러의 AI 활용법_기획, 전략편">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-laptop.svg" alt="">
+                      <span>사이버테마</span>
+                    </a>
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-player.svg" alt="">
+                      <span>맛보기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">최상위 일잘러의 AI 활용법_기획, 전략편</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-4.png" alt="[SERI] 연결력 : 고립된 천재는 없다">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-play-lect.svg" alt="">
+                      <span>학습하기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">[SERI] 연결력 : 고립된 천재는 없다</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="interest-card">
+                <div class="interest-card-thumb">
+                  <img src="../images/@temp/latest-5.png" alt="나 혼자만 레벨업! AI도 배우는 SSS급 창의적 사고 스킬">
+                  <div class="interest-card-overlay">
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-laptop.svg" alt="">
+                      <span>사이버테마</span>
+                    </a>
+                    <a href="javascript:void(0)" class="interest-card-action">
+                      <img src="../images/common/ico-player.svg" alt="">
+                      <span>맛보기</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="interest-card-caption">
+                  <p class="interest-card-title">나 혼자만 레벨업! AI도 배우는 SSS급 창의적 사고 스킬</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="btn btn-md btn-gray-line guide-course-more-btn">더보기</a>
+      </div>
+    </section>
+
+    <!-- HRD서비스 -->
+    <section class="section guide-hrd-section">
+      <div class="inner">
+        <div class="section-head">
+          <h2 class="section-title">HRD서비스</h2>
+        </div>
+        <div class="guide-hrd-wrap">
+          <div class="guide-hrd-services">
+            <a href="javascript:void(0)" class="guide-hrd-item">
+              <span class="guide-hrd-icon"><img src="../images/info/ico-hrd-1.svg" alt=""></span>
+              <span class="guide-hrd-label">이러닝</span>
+            </a>
+            <a href="javascript:void(0)" class="guide-hrd-item">
+              <span class="guide-hrd-icon"><img src="../images/info/ico-hrd-2.svg" alt=""></span>
+              <span class="guide-hrd-label">스마트러닝</span>
+            </a>
+            <a href="javascript:void(0)" class="guide-hrd-item">
+              <span class="guide-hrd-icon"><img src="../images/info/ico-hrd-3.svg" alt=""></span>
+              <span class="guide-hrd-label">콘텐츠개발</span>
+            </a>
+            <a href="javascript:void(0)" class="guide-hrd-item">
+              <span class="guide-hrd-icon"><img src="../images/info/ico-hrd-4.svg" alt=""></span>
+              <span class="guide-hrd-label">콘텐츠유통</span>
+            </a>
+            <a href="javascript:void(0)" class="guide-hrd-item">
+              <span class="guide-hrd-icon"><img src="../images/info/ico-hrd-5.svg" alt=""></span>
+              <span class="guide-hrd-label">집체</span>
+            </a>
+          </div>
+          <div class="guide-hrd-contact-wrap">
+            <div class="guide-hrd-contact">
+              <div class="guide-hrd-contact-icon" aria-hidden="true">
+                <img src="../images/info/ico-info-1.svg" alt="">
+              </div>
+              <div class="guide-hrd-contact-info">
+                <p class="guide-hrd-contact-label">e-러닝 콘텐츠 유통 및 개발 문의</p>
+                <a href="tel:0237095874" class="guide-hrd-contact-phone">02-3709-5874</a>
+                <p class="guide-hrd-contact-hours">문의시간 : 평일 09시 ~ 18시</p>
+              </div>
+            </div>
+            <div class="guide-hrd-contact-divider"></div>
+            <div class="guide-hrd-contact">
+              <div class="guide-hrd-contact-icon" aria-hidden="true">
+                <img src="../images/info/ico-info-2.svg" alt="">
+              </div>
+              <div class="guide-hrd-contact-info">
+                <p class="guide-hrd-contact-label">e-러닝 위탁교육 및 집체교육 문의</p>
+                <a href="tel:0237095897" class="guide-hrd-contact-phone">02-3709-5897</a>
+                <p class="guide-hrd-contact-hours">문의시간 : 평일 09시 ~ 18시</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 협력기관 슬라이더 -->
+    <section class="section guide-partner-section">
+      <button type="button" class="guide-partner-prev _guidePartnerPrev" aria-label="이전">
+        <i class="ico ico-nav-prev" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="guide-partner-next _guidePartnerNext" aria-label="다음">
+        <i class="ico ico-nav-next" aria-hidden="true"></i>
+      </button>
+      <div class="inner">
+        <div class="guide-partner-slider-wrap">
+          <div class="swiper guide-partner-swiper _guidePartnerSwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="guide-partner-item">
+                  <img src="../images/info/img-sponsor-1.png" alt="고용노동부" width="120" height="48">
+                  <p class="guide-partner-label">직업능력개발 훈련기관</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="guide-partner-item">
+                  <img src="../images/info/img-sponsor-2.png" alt="한국장애인고용공단" width="172" height="48">
+                  <p class="guide-partner-label">장애인 인식개선 교육기관</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="guide-partner-item">
+                  <img src="../images/info/img-sponsor-3.png" alt="서울특별시교육청" width="161" height="36">
+                  <p class="guide-partner-label">평생 교육시설 등록</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="guide-partner-item">
+                  <img src="../images/info/img-sponsor-4.png" alt="대한상공회의소" width="164" height="30">
+                  <p class="guide-partner-label">교육훈련사업 협약</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="guide-partner-item">
+                  <img src="../images/info/img-sponsor-5.jpg" alt="소프트웨어사업자 등록" width="65.5" height="35.5">
+                  <p class="guide-partner-label">소프트웨어사업자 등록</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+    <nav class="footer-nav" aria-label="정책 메뉴">
+        <a href="서브_이용약관.html" class="footer-nav-link">이용약관</a>
+        <a href="서브_개인정보처리방침.html" class="footer-nav-link">개인정보처리방침</a>
+        <a href="서브_이메일무단수집거부.html" class="footer-nav-link">이메일무단수집거부</a>
+        <a href="서브_운영규칙.html" class="footer-nav-link">평생교육시설 운영규칙</a>
+        <a href="https://hrd.hihrd.co.kr/usrs/portal/hi/companyIntroduceForm.do" target="_blank" rel="noopener noreferrer" class="footer-nav-link">회사소개</a>
+    </nav>
+    <div class="footer-info">
+        <ul class="footer-info-list">
+            <li>원격평생교육시설신고 제원격-97호</li>
+            <li>통신판매업신고 제2017-서울송파-0653호</li>
+            <li>서울특별시 송파구 송파대로 570 타워730빌딩 27층</li>
+            <li>TEL : <a href="tel:16619061"><strong>1661-9061</strong></a></li>
+            <li>FAX : <a href="tel:0237095882">02-3709-5882</a></li>
+        </ul>
+        <div class="footer-brand">
+            <img src="../images/common/footer-logo.svg" alt="현대 C&R">
+        </div>
+        <p class="footer-copy">Copyright Hyundai C&R Co., Ltd. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+  // 메인 배너 swiper
+  const guideHeroSwiper = new Swiper('._guideHeroSwiper', {
+    loop: true,
+    direction: 'vertical',
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    on: {
+      slideChange() {
+        updateHeroList(this.realIndex);
+      },
+      init() {
+        updateHeroList(this.realIndex);
+      },
+    },
+  });
+
+  // 우측 목록 active 상태 업데이트
+  function updateHeroList(realIndex) {
+    document.querySelectorAll('._guideHeroItems .guide-hero-list-item').forEach((el, i) => {
+      el.classList.toggle('is-active', i === realIndex);
+    });
+  }
+
+  // 목록 버튼 클릭 → 슬라이드 이동
+  document.querySelectorAll('._guideHeroItems button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      guideHeroSwiper.slideToLoop(Number(btn.dataset.index));
+    });
+  });
+
+  // 위/아래 버튼 (슬라이드 prev/next)
+  document.querySelector('._guideHeroUp').addEventListener('click', () => guideHeroSwiper.slidePrev());
+  document.querySelector('._guideHeroDown').addEventListener('click', () => guideHeroSwiper.slideNext());
+
+  // 추천과정 swiper
+  const totalSlides = document.querySelectorAll('._guideCourseSwiper .swiper-slide').length;
+
+  function updateCoursesPagination(swiper) {
+    const perGroup = swiper.params.slidesPerGroup || 1;
+    const total = Math.ceil(totalSlides / perGroup);
+    const current = Math.floor(swiper.activeIndex / perGroup) + 1;
+    document.querySelector('._guideCoursesTotal').textContent = total;
+    document.querySelector('._guideCoursesCurrent').textContent = Math.min(current, total);
+  }
+
+  const guideCourseSwiper = new Swiper('._guideCourseSwiper', {
+    slidesPerView: 5,
+    slidesPerGroup: 5,
+    spaceBetween: 20,
+    navigation: {
+      prevEl: '._guideCoursesPrev',
+      nextEl: '._guideCoursesNext',
+    },
+    breakpoints: {
+      0: { enabled: false },
+      577: { enabled: true, slidesPerView: 2.5, slidesPerGroup: 2, spaceBetween: 16 },
+      1025: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: 20 },
+      1281: { slidesPerView: 5, slidesPerGroup: 5, spaceBetween: 20 },
+    },
+    on: {
+      init(swiper) { updateCoursesPagination(swiper); },
+      slideChange(swiper) { updateCoursesPagination(swiper); },
+      breakpoint(swiper) { updateCoursesPagination(swiper); },
+    },
+  });
+
+  // 협력기관 swiper
+  new Swiper('._guidePartnerSwiper', {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 4,
+    spaceBetween: 25,
+    navigation: {
+      prevEl: '._guidePartnerPrev',
+      nextEl: '._guidePartnerNext',
+    },
+    breakpoints: {
+      0: { slidesPerView: 1, spaceBetween: 12 },
+      577: { slidesPerView: 2, spaceBetween: 16 },
+      769: { slidesPerView: 3, spaceBetween: 25 },
+      1025: { slidesPerView: 4, spaceBetween: 25 },
+    },
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="165" height="30" viewBox="0 0 165 30">
+    <defs>
+        <style>
+            .cls-7{stroke-width:.5px}.cls-7,.cls-9{fill:none}.cls-7{stroke:#ddd;opacity:.456}.cls-8{stroke:none}
+        </style>
+    </defs>
+    <g id="Price_bt">
+        <g id="사각형_209" fill="#fff" stroke="#ebebeb" stroke-width="0.5px">
+            <path d="M0 0H165V30H0z" class="cls-8"/>
+            <path d="M0.25 0.25H164.75V29.75H0.25z" class="cls-9"/>
+        </g>
+        <g id="Icon" transform="translate(16.274 7.222)">
+            <g id="_1" transform="translate(0 2.226)">
+                <g id="Heart" fill="none">
+                    <path d="M6 11L1 5.96a3.546 3.546 0 0 1 0-4.941 3.405 3.405 0 0 1 4.85-.007l.007.007.143.147.141-.147a3.405 3.405 0 0 1 4.85-.007l.009.007a3.551 3.551 0 0 1 0 4.941z" class="cls-8" transform="translate(0 -.001)"/>
+                    <path fill="#999" d="M6.001 9.58l4.285-4.32c.947-.978.947-2.564 0-3.54l-.003-.003C9.825 1.255 9.217 1 8.571 1c-.646 0-1.254.254-1.712.716l-.137.142-.72.75-.722-.75-.136-.142C4.683 1.255 4.076 1 3.43 1c-.647 0-1.256.255-1.714.718-.95.976-.95 2.563-.001 3.54L6 9.58m0 1.42L1.002 5.96c-1.336-1.37-1.336-3.57 0-4.941C1.672.34 2.552 0 3.432 0c.875 0 1.751.337 2.42 1.01l.008.008.141.147.142-.147C6.813.34 7.692 0 8.57 0c.876 0 1.753.337 2.422 1.01L11 1.02c1.334 1.371 1.334 3.57 0 4.94l-4.999 5.042z" transform="translate(0 -.001)"/>
+                </g>
+            </g>
+            <g id="_2" fill="none" stroke="#999" transform="translate(61.154 1.778)">
+                <g id="사각형_20" stroke-miterlimit="10">
+                    <path d="M0 0h12v5a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z" class="cls-8" transform="translate(-.427 3)"/>
+                    <path d="M1 .5h10a.5.5 0 0 1 .5.5v4A3.5 3.5 0 0 1 8 8.5H4A3.5 3.5 0 0 1 .5 5V1A.5.5 0 0 1 1 .5z" class="cls-9" transform="translate(-.427 3)"/>
+                </g>
+                <path id="패스_219" d="M46.727 5.482v-4a2 2 0 0 1 4 0v4" transform="translate(-42.845 .518)"/>
+            </g>
+            <g id="_3" transform="translate(119.948)">
+                <g id="Icon-2" transform="rotate(45 4.242 10.242)">
+                    <g id="사각형_206" fill="none" stroke="#999" stroke-linecap="round" stroke-miterlimit="10">
+                        <rect width="10" height="12" class="cls-8" rx="2"/>
+                        <rect width="9" height="11" x=".5" y=".5" class="cls-9" rx="1.5"/>
+                    </g>
+                    <path id="사각형_207" fill="#999" d="M0 0H2V12H0z" transform="translate(3)"/>
+                </g>
+            </g>
+            <path id="선_6" d="M0 0L0 12.946" class="cls-7" transform="translate(37.442 1.296)"/>
+            <path id="선_7" d="M0 0L0 12.946" class="cls-7" transform="translate(96.652 1.296)"/>
+        </g>
+    </g>
+</svg>
