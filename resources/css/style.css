@@ -442,6 +442,10 @@ a {
   line-height: 1;
   letter-spacing: 0;
   text-transform: uppercase;
+
+  em {
+    color: var(--lime);
+  }
 }
 
 .section-title em {
