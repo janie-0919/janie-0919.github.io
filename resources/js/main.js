@@ -445,6 +445,43 @@
     });
 })();
 
+/* ── 기여도 바 ── */
+(function () {
+    document.querySelectorAll('.career-card').forEach(card => {
+        const date = card.querySelector('.career-date');
+        const stack = card.querySelector('.career-stack');
+        if (!date || !stack) return;
+
+        const match = date.textContent.match(/기여도\s*(\d+)\s*%/);
+        if (!match) return;
+        const percent = Math.min(100, parseInt(match[1], 10));
+
+        const bar = document.createElement('div');
+        bar.className = 'career-contrib';
+        bar.innerHTML =
+            '<span class="career-contrib-label">기여도 <b>' + percent + '%</b></span>' +
+            '<span class="career-contrib-track" aria-hidden="true"><span class="career-contrib-fill" style="width:' + percent + '%"></span></span>';
+        stack.before(bar);
+
+        date.textContent = date.textContent.replace(/\s*\/\s*기여도\s*\d+\s*%/, '');
+    });
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (window.gsap && window.ScrollTrigger && !reduceMotion) {
+        gsap.utils.toArray('.career-contrib-fill').forEach(fill => {
+            gsap.from(fill, {
+                width: 0,
+                duration: 0.9,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: fill,
+                    start: 'top 90%'
+                }
+            });
+        });
+    }
+})();
+
 /* ── 더 보기 토글 ── */
 (function () {
     document.querySelectorAll('.career-desc-wrap').forEach(wrap => {

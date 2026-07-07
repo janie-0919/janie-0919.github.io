@@ -1036,8 +1036,10 @@ a {
 }
 
 .career-list {
+  position: relative;
   display: grid;
   gap: 15px;
+  z-index: 1;
 }
 
 .career-card {
@@ -1183,14 +1185,52 @@ a {
 .career-date {
   min-width: 128px;
   text-align: right;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 800;
+}
+
+.career-contrib {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.career-contrib-label {
+  flex-shrink: 0;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+}
+.career-contrib-label b {
+  font-weight: bold;
+}
+
+.career-contrib-track {
+  overflow: hidden;
+  flex: 1;
+  max-width: 220px;
+  height: 12px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+}
+
+.career-contrib-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--yellow);
 }
 
 .career-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  margin-top: 15px;
+}
+
+.career-contrib + .career-stack {
   margin-top: 15px;
 }
 
@@ -1342,6 +1382,9 @@ a {
   }
   .about-grid {
     display: grid;
+  }
+  .wave-b {
+    top: 100%;
   }
   .project-grid,
   .why-grid {
