@@ -442,10 +442,6 @@ a {
   line-height: 1;
   letter-spacing: 0;
   text-transform: uppercase;
-
-  em {
-    color: var(--lime);
-  }
 }
 
 .section-title em {
@@ -771,7 +767,7 @@ a {
 }
 
 .wave-b {
-  top: 98%;
+  top: 103%;
   right: 2%;
   width: clamp(160px, 20vw, 300px);
   color: var(--violet);
@@ -870,7 +866,6 @@ a {
   border-radius: 16px;
   background: var(--paper);
   box-shadow: 5px 5px 0 var(--ink);
-  cursor: pointer;
 }
 
 .screen-bar {
@@ -1127,7 +1122,6 @@ a {
   text-decoration: none;
   font-size: 13px;
   font-weight: 700;
-  cursor: pointer;
 }
 
 .career-link:hover,
