@@ -1,0 +1,1195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="PLINTH — 서울의 3D 브랜딩 스튜디오 포트폴리오 콘셉트">
+<title>PLINTH Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Manrope:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* Layout: full-bleed colour chapters; one shared clay world behind hero + manifesto assembles on a plinth, then scatters as you scroll; a fixed counter tracks the 7 chapters */
+:root{
+  --green:#0D8350;
+  --ink:#15173A;
+  --pink:#F49AC2;
+  --lilac:#E7E1FA;
+  --butter:#F7CB47;
+  --cream:#F6F1E7;
+  --tangerine:#FF7438;
+  --navy:#2433A6;
+  --violet:#5530E0;
+  --head-h:76px;
+  --white:#FFFFFF;
+  --f-display:"Archivo","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Manrope","Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --gl:max(clamp(16px,4.4vw,56px),env(safe-area-inset-left,0px));
+  --gr:max(clamp(16px,4.4vw,56px),env(safe-area-inset-right,0px));
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--white);font-family:var(--f-body);font-size:16px;line-height:1.65;word-break:keep-all;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--ink)}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+:focus-visible{outline:3px solid var(--butter);outline-offset:3px}
+.tone-light :focus-visible{outline-color:var(--navy)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1360px;margin-inline:auto;padding-left:var(--gl);padding-right:var(--gr)}
+.display{font-family:var(--f-display);font-weight:900;font-stretch:62%;font-variation-settings:"wdth" 62;text-transform:uppercase;line-height:.86;letter-spacing:-.005em;text-wrap:balance}
+.label{font-family:var(--f-body);font-weight:700;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.skip{position:fixed;left:16px;top:-80px;z-index:60;background:var(--butter);color:var(--ink);padding:10px 16px;font-weight:700;text-decoration:none}
+.skip:focus{top:calc(env(safe-area-inset-top,0px) + 10px)}
+
+/* header */
+.head{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:30;color:var(--white);background:var(--violet);transition:color .35s ease,background-color .35s ease}
+.head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;opacity:.14}
+.head .wrap{min-height:var(--head-h)}
+.head.on-light{color:var(--ink)}
+.head .wrap{display:flex;align-items:center;gap:24px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:2px;text-decoration:none;font-family:var(--f-display);font-weight:900;font-stretch:80%;font-variation-settings:"wdth" 80;font-size:26px;letter-spacing:.02em;line-height:1}
+.logo i{display:inline-block;width:.24em;height:.74em;border-radius:999px;background:var(--butter);margin:0 .07em;box-shadow:inset -.04em -.06em 0 rgba(0,0,0,.18)}
+.head.on-light .logo i{background:var(--tangerine)}
+.nav{display:flex;gap:34px;margin:0 auto}
+.nav a{text-decoration:none;font-weight:700;font-size:12px;letter-spacing:.2em;padding-block:6px;border-bottom:2px solid transparent}
+.nav a:hover,.nav a[aria-current="true"]{border-bottom-color:currentColor}
+.head-tools{display:flex;gap:10px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 20px;font:800 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0}
+.pill-cream{background:var(--cream);color:var(--ink)}
+.pill-line{background:transparent;color:inherit;border:1.5px solid currentColor;padding:10px 14px}
+.pill-line .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill-line[aria-pressed="true"] .dot{background:transparent;box-shadow:inset 0 0 0 1.5px currentColor}
+@media (max-width:860px){.nav{display:none}.head-tools{margin-left:auto}.pill-cream{display:none}}
+
+.counter{position:fixed;right:var(--gr);bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:30;font-weight:700;font-size:13px;letter-spacing:.18em;font-variant-numeric:tabular-nums;color:var(--white);transition:color .35s ease;pointer-events:none}
+.counter.on-light{color:var(--ink)}
+@media (max-width:720px){.counter{display:none}}
+
+.chapter{position:relative;scroll-margin-top:var(--head-h)}
+.tone-dark{color:var(--white)}
+.tone-light{color:var(--ink)}
+.tag{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.tag b{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--c,var(--butter))}
+
+/* shared 3D world (hero + manifesto) */
+.zone{position:relative;background:var(--violet)}
+.world{position:sticky;top:0;height:100vh;height:100svh;margin-bottom:-100vh;margin-bottom:-100svh;z-index:0;pointer-events:none}
+.world canvas{display:block;width:100%;height:100%}
+.zone .chapter{z-index:1}
+
+/* 01 hero */
+.hero{padding-block:clamp(110px,13vw,150px) clamp(40px,6vw,72px);min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+.hero .wrap{width:100%}
+.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(12px,3vw,40px);align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:26px;min-width:0}
+.hero h1{font-size:clamp(76px,11.6vw,184px)}
+.hero h1 .out{color:transparent;-webkit-text-stroke:2px var(--white)}
+.hero .sub{font-size:clamp(16px,1.4vw,19px);max-width:30em}
+.btn-box{display:inline-flex;align-items:center;gap:22px;background:var(--white);color:var(--ink);padding:18px 24px;text-decoration:none;font:800 13px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;align-self:flex-start;transition:gap .25s ease}
+.btn-box:hover{gap:32px}
+.btn-box svg{width:24px;height:12px}
+.stage{position:relative;height:clamp(400px,44vw,680px);min-width:0;cursor:grab;touch-action:pan-y}
+.stage.dragging{cursor:grabbing}
+.stage .hint{position:absolute;right:4px;top:0;display:flex;gap:10px;align-items:center;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.85;pointer-events:none;transition:opacity .4s ease}
+.stage .hint i{width:22px;height:22px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;font-style:normal;font-size:11px}
+.stage .hint.gone{opacity:0}
+.hero-foot{display:flex;justify-content:space-between;align-items:center;margin-top:clamp(16px,3vw,32px);gap:20px}
+.scroll-cue{display:flex;align-items:center;gap:14px}
+.scroll-cue span{display:block;width:1.5px;height:44px;background:currentColor;opacity:.7;transform-origin:top;animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+.no-3d .stage{background:radial-gradient(circle at 50% 70%,var(--cream) 0 34%,transparent 35%);cursor:default}
+
+/* 02 manifesto */
+.manifesto{height:200vh}
+.manifesto .pin{position:sticky;top:0;height:100vh;height:100svh;display:grid;place-items:center;padding-top:var(--head-h);box-sizing:border-box}
+.manifesto .inner{text-align:center;display:flex;flex-direction:column;align-items:center;gap:28px;pointer-events:none}
+.manifesto .inner *{pointer-events:auto}
+.manifesto .tag{margin:0}
+.mani-text{font-size:clamp(46px,7.2vw,118px);max-width:12.5em;line-height:.92}
+.mani-text .w{--f:0;--fc:var(--white);color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.45);background:linear-gradient(90deg,var(--fc) calc(var(--f) * 100%),transparent calc(var(--f) * 100%));-webkit-background-clip:text;background-clip:text}
+.mani-text .w.hl{--fc:var(--butter)}
+.mani-kr{max-width:34em;font-size:15px;opacity:.8}
+.flow{display:flex;align-items:center;gap:18px;font-weight:700;font-size:12px;letter-spacing:.24em;text-transform:uppercase;opacity:.65}
+.flow i{width:44px;height:1.5px;background:currentColor;display:block}
+
+/* 03 services */
+.services{background:var(--pink);padding-block:clamp(90px,11vw,150px)}
+.ch-title{font-size:clamp(68px,10vw,164px);margin-bottom:clamp(40px,5vw,72px)}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);perspective:1100px}
+.card{position:relative;border:1.5px solid rgba(21,23,58,.45);border-radius:22px;padding:0 24px 30px;display:flex;flex-direction:column;min-width:0;transition:background-color .3s ease,border-color .3s ease,transform .25s ease;transform-style:preserve-3d;cursor:pointer}
+.card:hover{background:rgba(255,255,255,.24);border-color:var(--ink)}
+.card canvas{display:block;width:calc(100% + 48px);margin-inline:-24px;height:clamp(180px,18vw,250px);transform:translateZ(40px)}
+.card h3{font-size:clamp(34px,3.2vw,48px);margin-bottom:12px}
+.card p{font-size:14px;line-height:1.6;max-width:24em}
+.card ul{list-style:none;margin:20px 0 0;padding:16px 0 0;border-top:1.5px solid rgba(21,23,58,.25);display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:700}
+.card .peek{position:absolute;right:16px;top:16px;font-weight:700;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:0;transition:opacity .25s ease}
+.card:hover .peek{opacity:.7}
+@media (max-width:1040px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.cards{grid-template-columns:minmax(0,1fr)}}
+
+/* 04 work — pinned: vertical scroll drives the track sideways, the centred case wakes up */
+.work{background:var(--lilac)}
+.work-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,2.4vw,32px);padding-top:calc(env(safe-area-inset-top,0px) + var(--head-h));padding-bottom:20px}
+.work-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 24px;flex-wrap:wrap;width:100%}
+.work-head .ch-title{margin:0;font-size:clamp(56px,8vw,128px)}
+.work-head .tag{margin-bottom:14px}
+.work-nav{display:flex;align-items:center;gap:14px;font-weight:800;font-size:14px;letter-spacing:.14em;font-variant-numeric:tabular-nums}
+.arrow{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.arrow:hover{background:var(--ink);color:var(--lilac)}
+.arrow:disabled{opacity:.3;cursor:default;background:transparent;color:var(--ink)}
+.arrow svg{width:20px;height:12px}
+.track{display:flex;gap:clamp(14px,2vw,26px);padding-left:var(--gl);padding-right:var(--gr);will-change:transform}
+.case{flex:0 0 min(80vw,900px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);border-radius:14px;overflow:hidden;height:min(clamp(340px,36vw,480px),56vh);opacity:.42;transform:scale(.93);transform-origin:center;transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.case.is-active{opacity:1;transform:none}
+.case-txt{background:var(--c);color:var(--t);padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:16px;min-width:0;overflow:hidden}
+.case-txt .rule{width:34px;height:1.5px;background:currentColor;opacity:.7}
+.case-txt h3{font-size:clamp(44px,5vw,84px);overflow-wrap:anywhere}
+.case-txt p{font-size:14px;max-width:22em}
+.case-txt a{margin-top:auto;align-self:flex-start;border:1.5px solid currentColor;padding:13px 18px;text-decoration:none;font:800 12px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase}
+.case-txt a:hover{background:var(--t);color:var(--c)}
+.case-vis{background:var(--v);position:relative;min-width:0;cursor:pointer}
+.case-vis canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.case-vis .label{position:absolute;left:18px;bottom:16px;color:var(--ink);opacity:.6;pointer-events:none}
+.work-progress{height:3px;border-radius:3px;background:rgba(21,23,58,.15);overflow:hidden}
+.work-progress i{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+@media (max-width:720px){
+  .case{flex-basis:84vw;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;height:min(64vh,560px)}
+  .case-vis{order:-1;min-height:0}
+  .case-txt{gap:10px}
+  .case-txt h3{font-size:clamp(40px,11vw,56px)}
+  .case-txt h3 br{display:none}
+  .case-txt .rule{display:none}
+  .work-nav .arrow{width:44px;height:44px}
+}
+@media (prefers-reduced-motion: reduce){.case{transition:none}}
+
+/* 05 process — sticky clay lump that morphs through the four steps */
+.process{background:var(--butter);padding-block:clamp(90px,11vw,150px)}
+.process .ch-title{margin-bottom:clamp(24px,3vw,40px)}
+.proc-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,4vw,64px);align-items:start}
+.proc-stage{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--head-h) + 16px);height:min(72vh,640px);border-radius:28px;background:radial-gradient(90% 70% at 50% 62%,rgba(255,255,255,.55),rgba(255,255,255,0) 70%);cursor:grab;touch-action:pan-y}
+.proc-stage.dragging{cursor:grabbing}
+.proc-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.proc-meta{position:absolute;left:20px;right:20px;bottom:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;pointer-events:none}
+.proc-now{display:flex;flex-direction:column;gap:2px}
+.proc-now b{font-family:var(--f-display);font-weight:900;font-stretch:62%;font-variation-settings:"wdth" 62;font-size:28px;line-height:1;text-transform:uppercase}
+.proc-dots{display:flex;gap:6px;pointer-events:auto}
+.proc-dots button{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:800 11px/1 var(--f-body);cursor:pointer;font-variant-numeric:tabular-nums;transition:background-color .2s ease,color .2s ease}
+.proc-dots button[aria-current="step"]{background:var(--ink);color:var(--butter)}
+.proc-bar{position:absolute;left:20px;right:20px;top:18px;height:3px;border-radius:3px;background:rgba(21,23,58,.15);overflow:hidden}
+.proc-bar i{display:block;height:100%;width:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+.proc-hint{position:absolute;right:20px;top:32px;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;pointer-events:none}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.step{min-height:58vh;display:flex;flex-direction:column;justify-content:center;gap:14px;padding-block:32px;border-top:1.5px solid rgba(21,23,58,.3);opacity:.32;transition:opacity .35s ease}
+.step:last-child{border-bottom:1.5px solid rgba(21,23,58,.3)}
+.step.is-active{opacity:1}
+.step .n{font-size:clamp(96px,10vw,168px);line-height:.8}
+.step h3{font-weight:800;font-size:clamp(22px,2vw,28px);line-height:1.3}
+.step .en{display:block;font-weight:700;font-size:12px;letter-spacing:.22em;text-transform:uppercase;opacity:.65;margin-bottom:6px}
+.step p{font-size:16px;max-width:28em}
+.step .out{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;list-style:none;padding:0}
+.step .out li{border:1.5px solid var(--ink);border-radius:999px;padding:5px 12px;font-weight:700;font-size:12px}
+@media (max-width:860px){
+  .proc-grid{grid-template-columns:minmax(0,1fr);gap:0}
+  .proc-stage{top:calc(env(safe-area-inset-top,0px) + var(--head-h));height:44vh;z-index:2;background:var(--butter);border-radius:0 0 24px 24px}
+  .step{min-height:62vh}
+}
+.no-3d .proc-stage{display:none}
+.motion-off .step{opacity:1}
+
+/* 06 clients */
+.clients{background:var(--ink);padding-block:clamp(64px,8vw,110px);overflow:hidden}
+.marquee{overflow:hidden;margin-top:28px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-row{display:flex;width:max-content;animation:slide 38s linear infinite}
+.marquee:hover .marquee-row{animation-play-state:paused}
+.marquee-row span{display:flex;align-items:center;gap:clamp(24px,3vw,48px);padding-right:clamp(24px,3vw,48px);font-size:clamp(56px,7vw,112px);white-space:nowrap}
+.marquee-row i{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:var(--c)}
+@keyframes slide{to{transform:translateX(-50%)}}
+.clients-note{font-size:13px;opacity:.65;margin-top:22px}
+
+/* 07 contact */
+.contact{background:var(--green);padding-block:clamp(90px,11vw,150px) 40px}
+.contact-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,5vw,80px);align-items:start}
+.contact h2{font-size:clamp(72px,10.4vw,172px)}
+.contact h2 .out{color:transparent;-webkit-text-stroke:2px var(--white)}
+.contact-vis{position:relative;height:clamp(220px,22vw,300px);margin-top:12px}
+.contact-vis canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:20px}
+.mail code{font-family:var(--f-body);font-weight:800;font-size:clamp(20px,2.2vw,28px);user-select:all}
+.mail button{background:transparent;color:var(--white);border:1.5px solid var(--white);border-radius:999px;padding:9px 16px;font:800 11px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+.status{font-size:14px;min-height:1.6em;margin-top:10px}
+form{display:grid;gap:18px;min-width:0}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.field label,legend{font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+input,textarea{font:inherit;font-size:16px;color:var(--white);background:transparent;border:0;border-bottom:1.5px solid rgba(255,255,255,.6);padding:10px 0;width:100%;border-radius:0}
+input:focus,textarea:focus{border-bottom-color:var(--white);outline:none}
+input:focus-visible,textarea:focus-visible{outline:3px solid var(--butter);outline-offset:4px}
+input[aria-invalid="true"]{border-bottom-color:var(--butter)}
+textarea{min-height:110px;resize:vertical}
+::placeholder{color:rgba(255,255,255,.7)}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+legend{width:100%;margin-bottom:10px;padding:0}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;width:1px;height:1px}
+.chip span{display:inline-block;padding:9px 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.7);font-weight:700;font-size:13px;cursor:pointer}
+.chip input:checked + span{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.chip input:focus-visible + span{outline:3px solid var(--butter);outline-offset:2px}
+.submit{justify-self:start;background:var(--butter);color:var(--ink);border:0;padding:18px 28px;font:800 13px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;margin-top:clamp(80px,9vw,130px);padding-top:24px;border-top:1.5px solid rgba(255,255,255,.35);font-size:13px}
+@media (max-width:860px){.hero-grid,.contact-grid{grid-template-columns:minmax(0,1fr)}.stage{height:clamp(320px,84vw,500px)}}
+@media (max-width:560px){.hero{padding-block:calc(var(--head-h) + 24px) 32px;min-height:0}.hero-copy{gap:18px}.hero h1{font-size:clamp(60px,18vw,84px)}.hero-grid{gap:4px}.hero-foot{display:none}}
+
+/* motion off */
+.motion-off .marquee-row,.motion-off .scroll-cue span{animation-play-state:paused}
+.motion-off .mani-text .w{--f:1!important}
+.motion-off .card{transform:none!important}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .btn-box,.card,.head,.counter{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="head" id="head">
+  <div class="wrap">
+    <a class="logo" href="#hero" aria-label="PLINTH 홈">PL<i aria-hidden="true"></i>NTH</a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="head-tools">
+      <button class="pill pill-line" id="motion-toggle" type="button" aria-pressed="false"><span class="dot" aria-hidden="true"></span><span id="motion-label">모션 끄기</span></button>
+      <a class="pill pill-cream" href="#contact">프로젝트 문의</a>
+    </div>
+  </div>
+</header>
+<p class="counter" id="counter" aria-hidden="true">01 / 07</p>
+
+<main id="main">
+  <div class="zone" id="zone">
+    <div class="world" aria-hidden="true"><canvas id="world"></canvas></div>
+
+    <!-- 01 -->
+    <section class="chapter hero tone-dark" id="hero" data-tone="dark" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="label tag"><b aria-hidden="true"></b>3D Branding Studio · Seoul</p>
+            <h1 class="display" id="hero-title">Soft forms,<br><span class="out">loud</span> brands.</h1>
+            <p class="sub">형태와 질감으로 기억되는 브랜드를 만듭니다. PLINTH는 점토처럼 만지고 싶은 3D 아이덴티티와 웹 경험을 빚는 서울의 스튜디오예요.</p>
+            <a class="btn-box" href="#work">See the work <svg viewBox="0 0 24 12" fill="none" aria-hidden="true"><path d="M0 6h22M17 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          </div>
+          <div class="stage" id="stage" aria-hidden="true">
+            <p class="hint" id="hint"><i>↔</i>Drag to turn · Click a shape</p>
+          </div>
+        </div>
+        <div class="hero-foot">
+          <p class="label scroll-cue"><span aria-hidden="true"></span>Scroll</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="chapter manifesto tone-dark" id="studio" data-tone="dark" aria-labelledby="mani-label">
+      <div class="pin">
+        <div class="inner wrap">
+          <p class="label tag" id="mani-label"><b style="--c:var(--pink)" aria-hidden="true"></b>Manifesto</p>
+          <p class="display mani-text" id="mani-text">A brand should feel like something you want to <span data-hl>pick up.</span> We round the edges, add the weight and let colour do the talking.</p>
+          <p class="mani-kr">브랜드는 손에 쥐고 싶은 물건처럼 느껴져야 해요. 우리는 모서리를 둥글리고, 무게를 더하고, 말은 색에게 맡깁니다.</p>
+          <p class="flow" aria-hidden="true">Shape<i></i>Weight<i></i>Colour</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 03 -->
+  <section class="chapter services tone-light" id="services" data-tone="light" aria-labelledby="services-title">
+    <div class="wrap">
+      <p class="label tag"><b style="--c:var(--ink)" aria-hidden="true"></b>Services</p>
+      <h2 class="display ch-title" id="services-title">Things we make</h2>
+      <div class="cards">
+        <article class="card" data-mini="flower">
+          <span class="peek" aria-hidden="true">Click to squish</span>
+          <canvas aria-hidden="true"></canvas>
+          <h3 class="display">Identity</h3>
+          <p>로고에서 멈추지 않고, 브랜드를 대표하는 오브제 세트와 컬러, 머티리얼 규칙까지 만듭니다.</p>
+          <ul><li>오브제 세트</li><li>컬러 &amp; 머티리얼 가이드</li></ul>
+        </article>
+        <article class="card" data-mini="sphere">
+          <span class="peek" aria-hidden="true">Click to squish</span>
+          <canvas aria-hidden="true"></canvas>
+          <h3 class="display">3D &amp; CG</h3>
+          <p>점토의 결과 부드러운 그림자가 살아 있는 제품 렌더와 캐릭터, 실시간 3D 씬을 만듭니다.</p>
+          <ul><li>제품 렌더</li><li>실시간 씬</li></ul>
+        </article>
+        <article class="card" data-mini="squiggle">
+          <span class="peek" aria-hidden="true">Click to squish</span>
+          <canvas aria-hidden="true"></canvas>
+          <h3 class="display">Motion</h3>
+          <p>눌리고 튀어 오르고 굴러가는 움직임으로 런칭 필름과 루프, 키네틱 타이포를 만듭니다.</p>
+          <ul><li>런칭 필름</li><li>소셜 루프</li></ul>
+        </article>
+        <article class="card" data-mini="block">
+          <span class="peek" aria-hidden="true">Click to squish</span>
+          <canvas aria-hidden="true"></canvas>
+          <h3 class="display">Web</h3>
+          <p>WebGL 랜딩부터 반응형 퍼블리싱, 접근성 검수까지 직접 구현해서 넘깁니다.</p>
+          <ul><li>Three.js 퍼블리싱</li><li>KWCAG 2.2 검수</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="chapter work tone-light" id="work" data-tone="light" aria-labelledby="work-title">
+    <div class="work-sticky">
+    <div class="wrap work-head">
+      <div>
+        <p class="label tag"><b style="--c:var(--navy)" aria-hidden="true"></b>Recent work</p>
+        <h2 class="display ch-title" id="work-title">Recent objects</h2>
+      </div>
+      <div class="work-nav">
+        <button class="arrow" id="prev" type="button" aria-label="이전 작업"><svg viewBox="0 0 20 12" fill="none" aria-hidden="true"><path d="M20 6H2M7 1L2 6l5 5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <span id="work-count" aria-live="polite">01 / 04</span>
+        <button class="arrow" id="next" type="button" aria-label="다음 작업"><svg viewBox="0 0 20 12" fill="none" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      </div>
+    </div>
+    <div class="track" id="track" role="region" aria-label="작업 목록">
+      <article class="case" style="--c:var(--navy);--t:var(--white);--v:#C9CEF6">
+        <div class="case-txt"><span class="rule" aria-hidden="true"></span><p class="label">Product 3D</p><h3 class="display">Orbit<br>Radio</h3><p>둥근 라디오 브랜드의 제품 렌더와 런칭 페이지. 다이얼처럼 돌아가는 링을 브랜드 형태로 삼았어요.</p><a href="#contact">View case →</a></div>
+        <div class="case-vis"><canvas data-case="orbit" aria-hidden="true"></canvas><p class="label" aria-hidden="true">Move · Click</p></div>
+      </article>
+      <article class="case" style="--c:var(--tangerine);--t:var(--ink);--v:#FFD9C4">
+        <div class="case-txt"><span class="rule" aria-hidden="true"></span><p class="label">Identity</p><h3 class="display">Moss<br>&amp; Co.</h3><p>식물 편집숍의 아이덴티티. 꽃잎과 화분을 닮은 오브제 세 개로 매장과 패키지를 채웠어요.</p><a href="#contact">View case →</a></div>
+        <div class="case-vis"><canvas data-case="moss" aria-hidden="true"></canvas><p class="label" aria-hidden="true">Move · Click</p></div>
+      </article>
+      <article class="case" style="--c:var(--pink);--t:var(--ink);--v:#FCDCEA">
+        <div class="case-txt"><span class="rule" aria-hidden="true"></span><p class="label">Digital</p><h3 class="display">Nap<br>Club</h3><p>수면 앱의 브랜드와 앱 화면. 베개처럼 말랑한 캡슐 형태가 모든 버튼과 아이콘의 기준이에요.</p><a href="#contact">View case →</a></div>
+        <div class="case-vis"><canvas data-case="nap" aria-hidden="true"></canvas><p class="label" aria-hidden="true">Move · Click</p></div>
+      </article>
+      <article class="case" style="--c:var(--green);--t:var(--white);--v:#CDEBD9">
+        <div class="case-txt"><span class="rule" aria-hidden="true"></span><p class="label">Web · Accessibility</p><h3 class="display">Small<br>Museum</h3><p>어린이 박물관의 3D 전시 웹사이트. 키보드와 스크린리더로도 모든 전시물을 둘러볼 수 있어요.</p><a href="#contact">View case →</a></div>
+        <div class="case-vis"><canvas data-case="museum" aria-hidden="true"></canvas><p class="label" aria-hidden="true">Move · Click</p></div>
+      </article>
+    </div>
+    <div class="wrap"><div class="work-progress" aria-hidden="true"><i id="work-bar"></i></div></div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="chapter process tone-light" id="process" data-tone="light" aria-labelledby="process-title">
+    <div class="wrap">
+      <p class="label tag"><b style="--c:var(--tangerine)" aria-hidden="true"></b>How it works · 6–10 weeks</p>
+      <h2 class="display ch-title" id="process-title">From lump to launch</h2>
+      <div class="proc-grid">
+        <div class="proc-stage" id="proc-stage">
+          <canvas id="proc-canvas" aria-hidden="true"></canvas>
+          <div class="proc-bar" aria-hidden="true"><i id="proc-bar"></i></div>
+          <p class="proc-hint" aria-hidden="true">Drag · Click</p>
+          <div class="proc-meta">
+            <p class="proc-now label" aria-hidden="true"><span id="proc-step-no">Step 01</span><b id="proc-step-name">Raw lump</b></p>
+            <nav class="proc-dots" aria-label="단계로 이동">
+              <button type="button" data-go="0" aria-label="01 듣기로 이동" aria-current="step">01</button>
+              <button type="button" data-go="1" aria-label="02 빚기로 이동">02</button>
+              <button type="button" data-go="2" aria-label="03 굽기로 이동">03</button>
+              <button type="button" data-go="3" aria-label="04 내보내기로 이동">04</button>
+            </nav>
+          </div>
+        </div>
+        <ol class="steps" id="steps">
+          <li class="step is-active"><span class="display n" aria-hidden="true">01</span><h3><span class="en">Listen · Week 1</span>듣기</h3><p>아직 모양이 없는 덩어리에서 시작해요. 브랜드가 어떤 질감과 무게로 기억되고 싶은지 인터뷰와 워크숍으로 찾아요.</p><ul class="out"><li>인터뷰</li><li>무드 키워드</li></ul></li>
+          <li class="step"><span class="display n" aria-hidden="true">02</span><h3><span class="en">Mould · Week 2–4</span>빚기</h3><p>점토와 3D 스케치로 오브제 후보를 빠르게 빚고, 세 방향으로 좁힌 뒤 하나의 형태를 고릅니다.</p><ul class="out"><li>형태 스케치</li><li>오브제 후보 3종</li></ul></li>
+          <li class="step"><span class="display n" aria-hidden="true">03</span><h3><span class="en">Bake · Week 5–7</span>굽기</h3><p>머티리얼과 색, 조명을 다듬어 텍스처에 굽고, 화면과 모션 시스템으로 확장해요.</p><ul class="out"><li>컬러 &amp; 머티리얼</li><li>모션 가이드</li></ul></li>
+          <li class="step"><span class="display n" aria-hidden="true">04</span><h3><span class="en">Ship · Week 8–10</span>내보내기</h3><p>받침대 위에 올려 세상에 내놓아요. 퍼블리싱, 성능 측정, 접근성 검수를 마치고 운영 가이드와 함께 넘깁니다.</p><ul class="out"><li>웹 퍼블리싱</li><li>KWCAG 2.2 검수</li></ul></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section class="chapter clients tone-dark" id="clients" data-tone="dark" aria-labelledby="clients-title">
+    <div class="wrap"><p class="label tag" id="clients-title"><b style="--c:var(--butter)" aria-hidden="true"></b>Teams we've shaped with</p></div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-row">
+        <span class="display">Orbit Radio<i style="--c:var(--butter)"></i>Moss &amp; Co.<i style="--c:var(--pink)"></i>Nap Club<i style="--c:var(--tangerine)"></i>Small Museum<i style="--c:var(--cream)"></i>Daon Foods<i style="--c:var(--lilac)"></i></span>
+        <span class="display">Orbit Radio<i style="--c:var(--butter)"></i>Moss &amp; Co.<i style="--c:var(--pink)"></i>Nap Club<i style="--c:var(--tangerine)"></i>Small Museum<i style="--c:var(--cream)"></i>Daon Foods<i style="--c:var(--lilac)"></i></span>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="sr-only">함께한 팀: Orbit Radio, Moss &amp; Co., Nap Club, Small Museum, Daon Foods</p>
+      <p class="clients-note">모두 포트폴리오를 위해 만든 가상의 브랜드예요.</p>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="chapter contact tone-dark" id="contact" data-tone="dark" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <p class="label tag"><b style="--c:var(--cream)" aria-hidden="true"></b>Contact</p>
+          <h2 class="display" id="contact-title">Bring us a <span class="out">rough</span> idea.</h2>
+          <div class="contact-vis"><canvas data-case="contact" aria-hidden="true"></canvas></div>
+          <div class="mail"><code id="mail">hello@plinth.studio</code><button type="button" id="copy-mail">Copy</button></div>
+          <p class="status" id="copy-status" aria-live="polite"></p>
+        </div>
+        <form id="inquiry" novalidate>
+          <div class="field"><label for="f-name">Name · 이름</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">Email · 이메일</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <fieldset>
+            <legend>Interested in</legend>
+            <label class="chip"><input id="f-s1" type="checkbox" name="svc" value="identity" checked><span>Identity</span></label>
+            <label class="chip"><input id="f-s2" type="checkbox" name="svc" value="3d"><span>3D &amp; CG</span></label>
+            <label class="chip"><input id="f-s3" type="checkbox" name="svc" value="motion"><span>Motion</span></label>
+            <label class="chip"><input id="f-s4" type="checkbox" name="svc" value="web" checked><span>Web</span></label>
+          </fieldset>
+          <div class="field"><label for="f-msg">Project · 프로젝트 소개</label><textarea id="f-msg" name="message" placeholder="브랜드와 일정, 지금 가장 고민되는 점을 알려주세요."></textarea></div>
+          <button class="submit" type="submit">Send inquiry</button>
+          <p class="status" id="form-status" role="status"></p>
+        </form>
+      </div>
+      <footer class="foot">
+        <span>© 2026 PLINTH Studio · Seoul</span>
+        <span>가상의 스튜디오로 만든 포트폴리오 콘셉트예요.</span>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+<script>
+(function(){
+  var root = document.documentElement;
+  var reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var paused = reduceMQ.matches;
+  try { var saved = localStorage.getItem('plinth-motion'); if (saved === 'off') paused = true; if (saved === 'on') paused = false; } catch (e) {}
+  var dirtyFns = [];
+  function dirtyAll(){ dirtyFns.forEach(function(f){ f(); }); }
+  var squishContact = function(){};
+
+  var toggle = document.getElementById('motion-toggle');
+  var toggleLabel = document.getElementById('motion-label');
+  function syncMotion(){
+    toggle.setAttribute('aria-pressed', paused ? 'true' : 'false');
+    toggleLabel.textContent = paused ? '모션 켜기' : '모션 끄기';
+    root.classList.toggle('motion-off', paused);
+    dirtyAll();
+  }
+  toggle.addEventListener('click', function(){
+    paused = !paused;
+    try { localStorage.setItem('plinth-motion', paused ? 'off' : 'on'); } catch (e) {}
+    syncMotion(); fillWords();
+  });
+  if (reduceMQ.addEventListener) reduceMQ.addEventListener('change', function(e){ paused = e.matches; syncMotion(); fillWords(); });
+
+  /* header tone + chapter counter */
+  var head = document.getElementById('head');
+  var counter = document.getElementById('counter');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('.chapter'));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+  function idxAt(y){ for (var i = 0; i < chapters.length; i++) { var r = chapters[i].getBoundingClientRect(); if (r.top <= y && r.bottom > y) return i; } return 0; }
+  var zoneEl = document.getElementById('zone'), headIdx = 0;
+  function setHeadBg(){
+    var el = chapters[headIdx], bgc = getComputedStyle(el).backgroundColor;
+    if (!bgc || bgc === 'transparent' || bgc === 'rgba(0, 0, 0, 0)') bgc = zoneEl.contains(el) ? getComputedStyle(zoneEl).backgroundColor : '';
+    head.style.backgroundColor = bgc;
+  }
+  function onScrollUI(){
+    var h = idxAt(40), m = idxAt(window.innerHeight * 0.5), c = idxAt(window.innerHeight - 30);
+    headIdx = h; setHeadBg();
+    head.classList.toggle('on-light', chapters[h].dataset.tone === 'light');
+    counter.classList.toggle('on-light', chapters[c].dataset.tone === 'light');
+    counter.textContent = ('0' + (m + 1)).slice(-2) + ' / 0' + chapters.length;
+    var id = chapters[m].id;
+    navLinks.forEach(function(a){ a.setAttribute('aria-current', a.getAttribute('href') === '#' + id ? 'true' : 'false'); });
+    fillWords();
+  }
+
+  /* manifesto word fill */
+  var mani = document.getElementById('studio');
+  var maniText = document.getElementById('mani-text');
+  (function(){
+    var html = '';
+    maniText.childNodes.forEach(function(node){
+      var hl = node.nodeType === 1 && node.hasAttribute('data-hl');
+      node.textContent.split(/(\s+)/).forEach(function(part){
+        if (!part) return;
+        if (/^\s+$/.test(part)) { html += ' '; return; }
+        html += '<span class="w' + (hl ? ' hl' : '') + '">' + part.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span>';
+      });
+    });
+    maniText.innerHTML = html;
+  })();
+  var words = Array.prototype.slice.call(maniText.querySelectorAll('.w'));
+  function maniProgress(){
+    var r = mani.getBoundingClientRect(), span = r.height - window.innerHeight;
+    if (span <= 0) return 1;
+    return Math.max(0, Math.min(1, -r.top / span));
+  }
+  /* each word owns a slice of the scroll range sized by its length, so the fill edge tracks the scroll position exactly */
+  var wordStops = (function(){
+    var total = 0, acc = 0, lens = words.map(function(w){ var l = w.textContent.length + 1; total += l; return l; });
+    return lens.map(function(l){ var a = acc / total; acc += l; return [a, acc / total]; });
+  })();
+  function fillWords(){
+    var raw = paused ? 1 : maniProgress();
+    var p = Math.max(0, Math.min(1, (raw - 0.04) / 0.8));
+    for (var i = 0; i < words.length; i++) {
+      var a = wordStops[i][0], b = wordStops[i][1];
+      var f = Math.max(0, Math.min(1, (p - a) / (b - a)));
+      words[i].style.setProperty('--f', f.toFixed(3));
+    }
+  }
+  window.addEventListener('scroll', onScrollUI, { passive: true });
+  window.addEventListener('resize', onScrollUI);
+
+  /* work: vertical scroll drives the track sideways; the centred case gets .is-active */
+  var workSec = document.getElementById('work');
+  var track = document.getElementById('track');
+  var cases = Array.prototype.slice.call(track.querySelectorAll('.case'));
+  var workCount = document.getElementById('work-count'), workBar = document.getElementById('work-bar');
+  var prevBtn = document.getElementById('prev'), nextBtn = document.getElementById('next');
+  var stops = [], workDist = 0, hold = 0, activeCase = -1;
+  function clamp01(x){ return x < 0 ? 0 : x > 1 ? 1 : x; }
+  /* each case gets a stop where it sits centred on screen; the track rests on the first and last stop for a moment */
+  function moved(){ var r = workSec.getBoundingClientRect(); return Math.max(0, Math.min(workDist, -r.top - hold)); }
+  function updateWork(){
+    var m = moved(), x = stops[0] + m;
+    track.style.transform = 'translate3d(' + (-x).toFixed(1) + 'px,0,0)';
+    workBar.style.transform = 'scaleX(' + (workDist ? m / workDist : 0).toFixed(4) + ')';
+    var i = 0, best = 1e9;
+    stops.forEach(function(sx, k){ var d = Math.abs(sx - x); if (d < best) { best = d; i = k; } });
+    if (i !== activeCase) {
+      activeCase = i;
+      cases.forEach(function(c, k){ c.classList.toggle('is-active', k === i); });
+      workCount.textContent = '0' + (i + 1) + ' / 0' + cases.length;
+      prevBtn.disabled = i === 0; nextBtn.disabled = i === cases.length - 1;
+    }
+  }
+  function layoutWork(){
+    track.style.transform = 'none';
+    var vw = track.clientWidth;
+    stops = cases.map(function(c){ return c.offsetLeft + c.offsetWidth / 2 - vw / 2; });
+    workDist = Math.max(0, stops[stops.length - 1] - stops[0]);
+    hold = Math.round(window.innerHeight * 0.3);
+    workSec.style.height = (window.innerHeight + workDist + hold * 2) + 'px';
+    updateWork();
+  }
+  function goCase(i){
+    i = Math.max(0, Math.min(cases.length - 1, i));
+    var top = window.scrollY + workSec.getBoundingClientRect().top;
+    window.scrollTo({ top: top + hold + (stops[i] - stops[0]), behavior: paused ? 'auto' : 'smooth' });
+  }
+  prevBtn.addEventListener('click', function(){ goCase(activeCase - 1); });
+  nextBtn.addEventListener('click', function(){ goCase(activeCase + 1); });
+  cases.forEach(function(c, i){ c.addEventListener('focusin', function(){ if (i !== activeCase) goCase(i); }); });
+  window.addEventListener('scroll', updateWork, { passive: true });
+  window.addEventListener('resize', layoutWork);
+  if (window.ResizeObserver) new ResizeObserver(layoutWork).observe(cases[0]);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutWork);
+  layoutWork();
+
+  /* service card tilt */
+  document.querySelectorAll('.card').forEach(function(card){
+    card.addEventListener('pointermove', function(e){
+      if (paused) return;
+      var b = card.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - 0.5, y = (e.clientY - b.top) / b.height - 0.5;
+      card.style.transform = 'rotateY(' + (x * 12).toFixed(2) + 'deg) rotateX(' + (-y * 10).toFixed(2) + 'deg) translateZ(0)';
+    });
+    card.addEventListener('pointerleave', function(){ card.style.transform = ''; });
+  });
+
+  /* copy + form */
+  var mail = document.getElementById('mail'), copyStatus = document.getElementById('copy-status');
+  document.getElementById('copy-mail').addEventListener('click', function(){
+    function fallback(){ var r = document.createRange(); r.selectNodeContents(mail); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); copyStatus.textContent = '주소를 선택했어요. 복사 단축키로 복사하세요.'; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(mail.textContent).then(function(){ copyStatus.textContent = '이메일 주소를 복사했어요.'; }, fallback); else fallback();
+  });
+  var form = document.getElementById('inquiry'), formStatus = document.getElementById('form-status');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('f-name'), email = document.getElementById('f-email');
+    name.removeAttribute('aria-invalid'); email.removeAttribute('aria-invalid');
+    if (!name.value.trim()) { name.setAttribute('aria-invalid', 'true'); name.focus(); formStatus.textContent = '이름을 입력해 주세요.'; return; }
+    if (!email.value || !email.validity.valid) { email.setAttribute('aria-invalid', 'true'); email.focus(); formStatus.textContent = '이메일 주소를 example@domain.com 형식으로 입력해 주세요.'; return; }
+    formStatus.textContent = name.value.trim() + '님, 고마워요. 데모 페이지라 실제로 전송되지는 않았어요.';
+    squishContact();
+  });
+
+  syncMotion();
+  onScrollUI();
+
+  /* ================= 3D ================= */
+  if (!window.THREE) { root.classList.add('no-3d'); return; }
+  var T = THREE;
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  function col(h){ return new T.Color(h).convertSRGBToLinear(); }
+  function clamp(x, a, b){ return Math.max(a, Math.min(b, x)); }
+  function smooth(x){ x = clamp(x, 0, 1); return x * x * (3 - 2 * x); }
+  var C = { cream:'#F6F1E7', pink:'#F49AC2', butter:'#F7CB47', tangerine:'#FF7438', navy:'#2433A6', mint:'#7FD3A8' };
+
+  function grainTex(){
+    var c = document.createElement('canvas'); c.width = c.height = 256;
+    var x = c.getContext('2d'), d = x.createImageData(256, 256);
+    for (var i = 0; i < d.data.length; i += 4) { var v = 185 + Math.random() * 70; d.data[i] = d.data[i+1] = d.data[i+2] = v; d.data[i+3] = 255; }
+    x.putImageData(d, 0, 0);
+    var t = new T.CanvasTexture(c); t.wrapS = t.wrapT = T.RepeatWrapping; t.repeat.set(5, 5); return t;
+  }
+  var bump = grainTex();
+  function clay(hex){
+    return new T.MeshPhysicalMaterial({ color: col(hex), roughness: 0.84, metalness: 0, sheen: 1, sheenRoughness: 0.75, sheenColor: new T.Color(0xffffff), bumpMap: bump, bumpScale: 0.012 });
+  }
+  function flowerGeo(R, depth){
+    var s = new T.Shape(), N = 240;
+    for (var i = 0; i <= N; i++) { var a = i / N * Math.PI * 2, r = R * (0.78 + 0.22 * Math.cos(6 * a)); if (i) s.lineTo(Math.cos(a) * r, Math.sin(a) * r); else s.moveTo(Math.cos(a) * r, Math.sin(a) * r); }
+    var g = new T.ExtrudeGeometry(s, { depth: depth, bevelEnabled: true, bevelThickness: 0.12, bevelSize: 0.1, bevelSegments: 8, curveSegments: 1 });
+    g.center(); return g;
+  }
+  function blockGeo(w, h, d, r){
+    var s = new T.Shape(), x = -w / 2, y = -h / 2;
+    s.moveTo(x + r, y); s.lineTo(x + w - r, y); s.quadraticCurveTo(x + w, y, x + w, y + r); s.lineTo(x + w, y + h - r); s.quadraticCurveTo(x + w, y + h, x + w - r, y + h); s.lineTo(x + r, y + h); s.quadraticCurveTo(x, y + h, x, y + h - r); s.lineTo(x, y + r); s.quadraticCurveTo(x, y, x + r, y);
+    var g = new T.ExtrudeGeometry(s, { depth: Math.max(0.01, d - 0.16), bevelEnabled: true, bevelThickness: 0.08, bevelSize: 0.08, bevelSegments: 6, curveSegments: 12 });
+    g.center(); return g;
+  }
+  function puckGeo(R, h, r){
+    var pts = [new T.Vector2(0, 0), new T.Vector2(R - r, 0)];
+    for (var i = 1; i <= 8; i++) { var a = -Math.PI / 2 + i / 8 * Math.PI / 2; pts.push(new T.Vector2(R - r + Math.cos(a) * r, r + Math.sin(a) * r)); }
+    for (var j = 0; j <= 8; j++) { var b = j / 8 * Math.PI / 2; pts.push(new T.Vector2(R - r + Math.cos(b) * r, h - r + Math.sin(b) * r)); }
+    pts.push(new T.Vector2(0, h));
+    return new T.LatheGeometry(pts, 96);
+  }
+  function squiggle(len, amp, rad, mat){
+    var p = [];
+    for (var i = 0; i <= 8; i++) p.push(new T.Vector3(-len / 2 + len * i / 8, 0, Math.sin(i / 8 * Math.PI * 2) * amp));
+    var curve = new T.CatmullRomCurve3(p), g = new T.Group();
+    g.add(new T.Mesh(new T.TubeGeometry(curve, 140, rad, 24, false), mat));
+    var cap = new T.SphereGeometry(rad, 24, 16);
+    var a = new T.Mesh(cap, mat); a.position.copy(curve.getPoint(0)); g.add(a);
+    var b = new T.Mesh(cap, mat); b.position.copy(curve.getPoint(1)); g.add(b);
+    return g;
+  }
+  function shadows(o){ o.traverse(function(m){ if (m.isMesh) { m.castShadow = true; m.receiveShadow = true; } }); return o; }
+  function setupRenderer(r){
+    r.setPixelRatio(DPR); r.outputEncoding = T.sRGBEncoding; r.toneMapping = T.ACESFilmicToneMapping; r.toneMappingExposure = 1.02;
+    r.shadowMap.enabled = true; r.shadowMap.type = T.PCFSoftShadowMap; r.setClearColor(0x000000, 0);
+  }
+  function makeRenderer(canvas){
+    try { var r = new T.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); if (!r.getContext()) return null; setupRenderer(r); return r; }
+    catch (e) { return null; }
+  }
+  function keyLight(size){
+    var k = new T.DirectionalLight(0xfff2e4, 1.9);
+    k.castShadow = true; k.shadow.mapSize.set(2048, 2048);
+    var sc = k.shadow.camera; sc.left = -size; sc.right = size; sc.top = size; sc.bottom = -size; sc.near = 0.5; sc.far = 40;
+    k.shadow.bias = -0.0004; k.shadow.normalBias = 0.02; return k;
+  }
+  function spring(u, dt){
+    var a = -170 * (u.s - 1) - 11 * u.v; u.v += a * dt; u.s += u.v * dt;
+    if (Math.abs(u.s - 1) < 0.0005 && Math.abs(u.v) < 0.0005) { u.s = 1; u.v = 0; return false; }
+    return true;
+  }
+  function blobTexture(){
+    var c = document.createElement('canvas'); c.width = c.height = 128;
+    var x = c.getContext('2d'), g = x.createRadialGradient(64, 64, 4, 64, 64, 64);
+    g.addColorStop(0, 'rgba(22,8,70,0.9)'); g.addColorStop(0.55, 'rgba(22,8,70,0.35)'); g.addColorStop(1, 'rgba(22,8,70,0)');
+    x.fillStyle = g; x.fillRect(0, 0, 128, 128);
+    return new T.CanvasTexture(c);
+  }
+
+  var loops = [];
+
+  /* ---------- shared world: hero set → manifesto scatter ---------- */
+  (function(){
+    var zone = document.getElementById('zone'), heroEl = document.getElementById('hero'), stage = document.getElementById('stage');
+    var canvas = document.getElementById('world'), hint = document.getElementById('hint');
+    var r = makeRenderer(canvas); if (!r) { root.classList.add('no-3d'); return; }
+    var scene = new T.Scene(), cam = new T.PerspectiveCamera(35, 1, 0.1, 100);
+    cam.position.set(0, 0, 14); cam.lookAt(0, 0, 0);
+    var hemi = new T.HemisphereLight(0xffffff, col('#3b2a8f'), 0.85); scene.add(hemi);
+    var key = keyLight(6); scene.add(key); scene.add(key.target);
+    var rim = new T.DirectionalLight(0xffffff, 0.55); rim.position.set(5, 3, -6); scene.add(rim);
+    var fill = new T.DirectionalLight(0xffffff, 0.3); fill.position.set(6, -1, 6); scene.add(fill);
+    var blob = new T.Mesh(new T.PlaneGeometry(1, 1), new T.MeshBasicMaterial({ map: blobTexture(), transparent: true, depthWrite: false, opacity: 0.6 }));
+    scene.add(blob);
+
+    var CENTER = new T.Vector3(0, 1.6, 0);
+    var parts = [];
+    /* local = position on the plinth set; b = [x fraction, y fraction, z, scale] in the scatter */
+    function part(obj, local, rot, b, o){
+      o = o || {}; shadows(obj); scene.add(obj);
+      obj.userData = {
+        lp: new T.Vector3(local[0], local[1], local[2]), lq: new T.Quaternion().setFromEuler(new T.Euler(rot[0], rot[1], rot[2])),
+        b: b, o: o, s: 1, v: 0, lift: 0, push: new T.Vector3(), spinA: 0, spinV: 0,
+        tq: new T.Quaternion().setFromEuler(new T.Euler(Math.random() * 6, Math.random() * 6, Math.random() * 6)),
+        tw: new T.Vector3(0.25 + Math.random() * 0.35, 0.35 + Math.random() * 0.45, 0.1 + Math.random() * 0.2),
+        i: parts.length, base: new T.Vector3()
+      };
+      parts.push(obj); return obj;
+    }
+    part(new T.Mesh(puckGeo(2.3, 0.45, 0.1), clay(C.cream)), [0, 0, 0], [0, 0, 0], null, { plinth: true });
+    part(new T.Mesh(puckGeo(1.55, 0.38, 0.1), clay('#EFE7D8')), [0, 0.45, 0], [0, 0, 0], null, { plinth: true });
+    part(new T.Mesh(flowerGeo(1.0, 0.3), clay(C.butter)), [-0.55, 1.93, -0.35], [0, 0.35, Math.PI / 6], [-0.8, -0.42, -0.5, 1.0]);
+    part(new T.Mesh(new T.CapsuleGeometry(0.32, 1.0, 16, 40), clay(C.pink)), [0.78, 1.65, 0.12], [0, 0, 0], [0.84, -0.6, 0, 0.85]);
+    part(new T.Mesh(blockGeo(1.0, 0.55, 0.55, 0.16), clay(C.navy)), [1.32, 0.725, 1.02], [0, -0.5, 0], [0.82, 0.3, -0.8, 0.95]);
+    part(squiggle(1.3, 0.17, 0.13, clay(C.tangerine)), [-0.12, 0.96, 0.92], [0, 0.12, 0], [-0.5, 0.68, -1, 1.15]);
+    part(new T.Mesh(new T.SphereGeometry(0.22, 40, 30), clay(C.cream)), [-1.5, 0.67, 1.1], [0, 0, 0], [0.36, 0.74, -1.5, 1.6]);
+    part(new T.Mesh(new T.ConeGeometry(0.26, 0.52, 48), clay(C.navy)), [-1.62, 0.71, -0.85], [0, 0, 0], [-0.06, -0.82, 0.3, 1.3]);
+    part(new T.Mesh(new T.TorusGeometry(0.4, 0.15, 30, 80), clay(C.cream)), [2.25, 2.9, -0.3], [0.5, -0.6, 0], [-0.88, 0.3, -1, 1.25], { float: true });
+    part(new T.Mesh(new T.ConeGeometry(0.22, 0.42, 40), clay(C.pink)), [-2.3, 2.6, 0.2], [0, 0, 0.5], [0.56, -0.86, 0.5, 1.3], { float: true });
+    part(new T.Mesh(new T.SphereGeometry(0.2, 40, 30), clay(C.tangerine)), [2.0, 1.75, 1.45], [0, 0, 0], [0.62, 0.55, 0, 1.4], { float: true });
+    part(new T.Mesh(new T.SphereGeometry(0.15, 40, 30), clay(C.navy)), [-0.95, 3.35, -0.6], [0, 0, 0], [-0.6, -0.84, -0.5, 2.0], { float: true });
+    part(new T.Mesh(flowerGeo(0.26, 0.1), clay(C.cream)), [2.6, 1.0, 0.4], [0, -0.6, 0], [0.12, 0.86, -2, 1.6], { float: true });
+    part(new T.Mesh(flowerGeo(0.5, 0.16), clay(C.pink)), [0, 1.2, 0], [0, 0, 0], [-0.93, -0.05, -2, 1.0], { extra: true });
+    part(new T.Mesh(new T.SphereGeometry(0.4, 48, 36), clay(C.butter)), [0, 1.2, 0], [0, 0, 0], [0.95, -0.12, -1.5, 1.0], { extra: true });
+    part(new T.Mesh(new T.CapsuleGeometry(0.22, 0.6, 12, 32), clay(C.cream)), [0, 1.2, 0], [0, 0, 1.2], [-0.3, 0.86, -1.8, 1.0], { extra: true });
+    part(new T.Mesh(new T.TorusGeometry(0.32, 0.12, 24, 64), clay(C.navy)), [0, 1.2, 0], [0, 0, 0], [0.32, -0.66, -2.2, 1.0], { extra: true });
+
+    var vw = 1, vh = 1, halfH = 1, halfW = 1, stageRel = { x: 0, y: 0, w: 1, h: 1 };
+    function measure(){
+      var zr = zone.getBoundingClientRect(), sr = stage.getBoundingClientRect();
+      stageRel = { x: sr.left + sr.width / 2, y: sr.top - zr.top + sr.height / 2, w: sr.width, h: sr.height };
+    }
+    function resize(){
+      vw = canvas.clientWidth; vh = canvas.clientHeight; if (!vw || !vh) return;
+      r.setSize(vw, vh, false); cam.aspect = vw / vh; cam.updateProjectionMatrix();
+      halfH = 14 * Math.tan(T.MathUtils.degToRad(17.5)); halfW = halfH * cam.aspect; measure();
+    }
+    if (window.ResizeObserver) { var ro = new ResizeObserver(resize); ro.observe(canvas); ro.observe(stage); } else window.addEventListener('resize', resize);
+    resize();
+
+    /* pointer state */
+    var ndc = new T.Vector2(-9, -9), ray = new T.Raycaster(), plane = new T.Plane(new T.Vector3(0, 0, 1), 0), cursor = new T.Vector3(999, 999, 0);
+    var pointerIn = false, hovered = null, tiltX = 0, tiltY = 0, tX = 0, tY = 0;
+    var rotY = 0, rotV = 0, dragging = false, lastX = 0, dragMoved = 0;
+    function setPointer(e){
+      var b = canvas.getBoundingClientRect();
+      ndc.set(((e.clientX - b.left) / b.width) * 2 - 1, -((e.clientY - b.top) / b.height) * 2 + 1);
+      ray.setFromCamera(ndc, cam); ray.ray.intersectPlane(plane, cursor);
+      tX = ndc.x; tY = ndc.y; pointerIn = true;
+    }
+    function hitPart(){
+      ray.setFromCamera(ndc, cam);
+      var list = parts.filter(function(p){ return !p.userData.o.plinth && p.visible; });
+      var h = ray.intersectObjects(list, true); if (!h.length) return null;
+      var o = h[0].object; while (o && parts.indexOf(o) < 0) o = o.parent; return o;
+    }
+    function interactiveTarget(t){ return !t.closest('a,button,input,textarea,label,h1,h2,.mani-text,.sub,.mani-kr'); }
+    zone.addEventListener('pointermove', function(e){
+      setPointer(e);
+      if (dragging) { var dx = e.clientX - lastX; lastX = e.clientX; dragMoved += Math.abs(dx); rotV = dx * 0.008; rotY += rotV; }
+    });
+    zone.addEventListener('pointerleave', function(){ pointerIn = false; cursor.set(999, 999, 0); tX = 0; tY = 0; });
+    zone.addEventListener('pointerdown', function(e){
+      if (!interactiveTarget(e.target)) return;
+      setPointer(e);
+      var o = hitPart();
+      if (o) { var u = o.userData; u.v -= 4.6; u.spinV += 9; hint.classList.add('gone'); return; }
+      if (stage.contains(e.target)) { dragging = true; dragMoved = 0; lastX = e.clientX; stage.classList.add('dragging'); stage.setPointerCapture && stage.setPointerCapture(e.pointerId); hint.classList.add('gone'); }
+    });
+    function endDrag(){ dragging = false; stage.classList.remove('dragging'); }
+    window.addEventListener('pointerup', endDrag); window.addEventListener('pointercancel', endDrag);
+
+    var visible = true;
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ visible = es[0].isIntersecting; }).observe(zone);
+
+    var green = new T.Color('#5530E0'), ink = new T.Color('#15173A'), bg = new T.Color();
+    var qComp = new T.Quaternion(), eComp = new T.Euler(0, 0, 0, 'XYZ'), qa = new T.Quaternion(), qb = new T.Quaternion(), qs = new T.Quaternion(), qTw = new T.Quaternion(), eTw = new T.Euler();
+    var A = new T.Vector3(), B = new T.Vector3(), anchor = new T.Vector3(), tmp = new T.Vector3(), yAxis = new T.Vector3(0, 1, 0), xAxis = new T.Vector3(1, 0, 0);
+    var time = 0, lastBg = -1;
+
+    loops.push({ tick: function(dt){
+      if (!visible) return;
+      if (!paused) time += dt;
+      var zr = zone.getBoundingClientRect(), scrolled = -zr.top;
+      var p = clamp(scrolled / Math.max(1, heroEl.offsetHeight * 0.92), 0, 1);
+
+      var bgT = smooth((p - 0.3) / 0.6);
+      if (Math.abs(bgT - lastBg) > 0.002) { bg.copy(green).lerp(ink, bgT); zone.style.backgroundColor = '#' + bg.getHexString(); lastBg = bgT; setHeadBg(); }
+
+      tiltX += (tX - tiltX) * Math.min(1, dt * 3); tiltY += (tY - tiltY) * Math.min(1, dt * 3);
+      if (!dragging) { rotV *= 0.94; rotY += rotV; }
+      var sway = paused ? 0 : Math.sin(time * 0.35) * 0.16;
+      eComp.set(0.3 - tiltY * 0.08, -0.25 + rotY + sway + tiltX * 0.35, 0);
+      qComp.setFromEuler(eComp);
+
+      var sx = stageRel.x, sy = stageRel.y - scrolled;
+      anchor.set((sx / vw * 2 - 1) * halfW, -(sy / vh * 2 - 1) * halfH, 0);
+      var stW = stageRel.w / vw * 2 * halfW, stH = stageRel.h / vh * 2 * halfH;
+      var cs = Math.max(0.35, Math.min(stW / 5.8, stH / 4.4));
+      var portrait = vw / vh < 0.9;
+      var bScale = portrait ? clamp(halfW / 7, 0.38, 0.6) : clamp(halfW / 7, 0.5, 1.05);
+
+      /* hover */
+      if (pointerIn && !dragging) { var h = hitPart(); if (h !== hovered) { hovered = h; zone.style.cursor = h ? 'pointer' : ''; } }
+      else if (!pointerIn && hovered) { hovered = null; zone.style.cursor = ''; }
+
+      var R = 1.9 * Math.max(cs, 0.8);
+      for (var i = 0; i < parts.length; i++) {
+        var o = parts[i], u = o.userData, opt = u.o;
+        var e = smooth((p - 0.04 - u.i * 0.022) / 0.5);
+
+        tmp.copy(u.lp).sub(CENTER).applyQuaternion(qComp).multiplyScalar(cs);
+        A.copy(anchor).add(tmp);
+        qa.copy(qComp).multiply(u.lq);
+        var aS = opt.extra ? 0.001 : cs;
+
+        if (opt.plinth) { B.set(A.x, -halfH * 1.35 - 4 * cs, A.z); qb.copy(qa); var bS = cs * 0.7; }
+        else {
+          var by = u.b[1]; if (portrait) by = (by < 0 ? -1 : 1) * (0.66 + Math.abs(by) * 0.3);
+          B.set(u.b[0] * halfW * (portrait ? 0.92 : 1), by * halfH, u.b[2]);
+          if (!paused) { eTw.set(u.tw.x * dt, u.tw.y * dt, u.tw.z * dt); qTw.setFromEuler(eTw); u.tq.multiply(qTw); }
+          qb.copy(u.tq); var bS = u.b[3] * bScale;
+        }
+
+        o.position.lerpVectors(A, B, e);
+        var bobAmt = paused ? 0 : (opt.float ? 1 : e) * 0.14 * Math.max(cs, 0.7);
+        o.position.y += Math.sin(time * 1.1 + u.i * 1.9) * bobAmt;
+
+        /* cursor repel */
+        if (!opt.plinth) {
+          u.base.copy(o.position);
+          var dx = o.position.x - cursor.x, dy = o.position.y - cursor.y, d = Math.sqrt(dx * dx + dy * dy);
+          var tx = 0, ty = 0;
+          if (d < R && d > 0.0001 && !dragging) { var f = (R - d) / R * 0.9 * Math.max(cs, 0.8); tx = dx / d * f; ty = dy / d * f; }
+          u.push.x += (tx - u.push.x) * Math.min(1, dt * 6); u.push.y += (ty - u.push.y) * Math.min(1, dt * 6);
+          if (o === hovered) { u.push.x *= 0.2; u.push.y *= 0.2; }
+          o.position.x += u.push.x; o.position.y += u.push.y;
+          var lt = o === hovered ? 0.3 * Math.max(cs, 0.8) : 0;
+          u.lift += (lt - u.lift) * Math.min(1, dt * 8); o.position.y += u.lift;
+        }
+
+        qs.slerpQuaternions(qa, qb, e);
+        u.spinA += u.spinV * dt; u.spinV *= Math.pow(0.12, dt);
+        if (Math.abs(u.spinV) < 0.01) { u.spinA += (Math.round(u.spinA / (Math.PI * 2)) * Math.PI * 2 - u.spinA) * Math.min(1, dt * 3); }
+        tmp.set(0, 1, 0).applyQuaternion(qs);
+        qTw.setFromAxisAngle(tmp, u.spinA + (o === hovered && !paused ? Math.sin(time * 6) * 0.08 : 0));
+        o.quaternion.copy(qTw).multiply(qs);
+
+        spring(u, dt);
+        var sc = aS + (bS - aS) * e, side = 1 + (1 - u.s) * 0.55;
+        o.scale.set(sc * side, sc * u.s, sc * side);
+        o.visible = sc > 0.01;
+      }
+
+      /* contact shadow + key light follow the set */
+      var shadowFade = 1 - smooth(p / 0.45);
+      tmp.set(0, 0.012, 0).sub(CENTER).applyQuaternion(qComp).multiplyScalar(cs);
+      blob.position.copy(anchor).add(tmp);
+      blob.quaternion.copy(qComp); qTw.setFromAxisAngle(xAxis, -Math.PI / 2); blob.quaternion.multiply(qTw);
+      blob.scale.setScalar(6.2 * cs); blob.material.opacity = 0.55 * shadowFade; blob.visible = shadowFade > 0.01;
+      key.target.position.copy(anchor); key.position.copy(anchor).add(tmp.set(-4, 7.5, 6));
+      key.target.updateMatrixWorld();
+      hemi.groundColor.copy(col('#3b2a8f')).lerp(col('#2b2e70'), bgT);
+
+      r.render(scene, cam);
+    } });
+  })();
+
+  /* ---------- shared mini renderer: service cards, case visuals, contact ---------- */
+  (function(){
+    var mini;
+    try { mini = new T.WebGLRenderer({ antialias: true, alpha: true }); if (!mini.getContext()) return; } catch (e) { return; }
+    setupRenderer(mini);
+    var cur = { w: 0, h: 0 };
+    function ensure(w, h){ if (w > cur.w || h > cur.h) { cur.w = Math.max(w, cur.w); cur.h = Math.max(h, cur.h); mini.setSize(cur.w, cur.h, false); } }
+
+    function base(opts){
+      var scene = new T.Scene(), cam = new T.PerspectiveCamera(opts.fov || 30, 1, 0.1, 100), group = new T.Group();
+      scene.add(new T.HemisphereLight(0xffffff, col(opts.ground || '#8a7f9a'), 0.85));
+      var k = keyLight(5); k.position.set(-4, 7.5, 5); scene.add(k);
+      var rim = new T.DirectionalLight(0xffffff, 0.55); rim.position.set(4, 3, -5); scene.add(rim);
+      if (opts.floor) {
+        var f = new T.Mesh(new T.PlaneGeometry(60, 60), new T.ShadowMaterial({ color: col(opts.floor), opacity: opts.op || 0.35 }));
+        f.rotation.x = -Math.PI / 2; f.receiveShadow = true; scene.add(f);
+      }
+      scene.add(group);
+      return { scene: scene, cam: cam, group: group, look: opts.look || new T.Vector3(0, 0, 0), dist: opts.dist || 6, height: opts.height || 0.6 };
+    }
+    function add(g, obj, x, y, z){ obj.position.set(x, y, z); shadows(obj); g.add(obj); return obj; }
+
+    var builders = {
+      flower: function(){ var s = base({ dist: 5.2, height: 0.3 }); add(s.group, new T.Mesh(flowerGeo(0.9, 0.3), clay(C.butter)), 0, 0, 0).rotation.z = Math.PI / 6; return s; },
+      sphere: function(){ var s = base({ dist: 5.2, height: 0.3 }); add(s.group, new T.Mesh(new T.SphereGeometry(0.95, 64, 48), clay(C.cream)), 0, 0, 0); return s; },
+      squiggle: function(){ var s = base({ dist: 5.2, height: 0.6 }); var q = add(s.group, squiggle(1.9, 0.3, 0.2, clay(C.tangerine)), 0, 0, 0); q.rotation.set(0.9, 0, 0.35); return s; },
+      block: function(){ var s = base({ dist: 5.2, height: 0.6 }); var b = add(s.group, new T.Mesh(blockGeo(1.5, 0.75, 0.75, 0.22), clay(C.navy)), 0, 0, 0); b.rotation.set(0.3, 0.6, 0.15); return s; },
+      orbit: function(){
+        var s = base({ floor: '#3a43a0', op: 0.4, look: new T.Vector3(0, 1.0, 0), dist: 7.2, height: 2.4, ground: '#7a82d0' });
+        add(s.group, new T.Mesh(puckGeo(1.6, 0.35, 0.1), clay(C.cream)), 0, 0, 0);
+        add(s.group, new T.Mesh(new T.TorusGeometry(0.8, 0.3, 40, 100), clay(C.navy)), -0.2, 1.45, -0.1).rotation.y = 0.35;
+        add(s.group, new T.Mesh(new T.SphereGeometry(0.34, 48, 36), clay(C.tangerine)), 0.95, 0.69, 0.7);
+        add(s.group, new T.Mesh(new T.SphereGeometry(0.18, 40, 30), clay(C.butter)), -1.35, 2.3, 0.4).userData.float = true;
+        return s;
+      },
+      moss: function(){
+        var s = base({ floor: '#b4532a', op: 0.35, look: new T.Vector3(0, 1.0, 0), dist: 7.2, height: 2.4, ground: '#e89a73' });
+        add(s.group, new T.Mesh(puckGeo(1.6, 0.35, 0.1), clay(C.cream)), 0, 0, 0);
+        add(s.group, new T.Mesh(new T.CylinderGeometry(0.55, 0.42, 0.8, 64), clay(C.tangerine)), 0.3, 0.75, 0);
+        var f = add(s.group, new T.Mesh(flowerGeo(0.7, 0.2), clay(C.butter)), 0.3, 1.95, 0); f.rotation.set(0, -0.3, Math.PI / 6);
+        add(s.group, new T.Mesh(new T.ConeGeometry(0.32, 0.9, 48), clay(C.mint)), -0.9, 0.8, 0.35);
+        add(s.group, new T.Mesh(new T.SphereGeometry(0.2, 40, 30), clay(C.navy)), 1.15, 0.55, 0.8);
+        return s;
+      },
+      nap: function(){
+        var s = base({ floor: '#b44e7d', op: 0.32, look: new T.Vector3(0, 0.8, 0), dist: 7.0, height: 2.6, ground: '#e7a1c0' });
+        var a = add(s.group, new T.Mesh(new T.CapsuleGeometry(0.42, 1.4, 16, 40), clay(C.pink)), 0, 0.42, 0); a.rotation.set(0, 0.3, Math.PI / 2);
+        var b = add(s.group, new T.Mesh(new T.CapsuleGeometry(0.36, 1.1, 16, 40), clay(C.cream)), 0.1, 1.18, 0.05); b.rotation.set(0, -0.35, Math.PI / 2);
+        var c = add(s.group, new T.Mesh(new T.CapsuleGeometry(0.28, 0.7, 16, 40), clay(C.navy)), -0.05, 1.8, 0); c.rotation.set(0, 0.2, Math.PI / 2);
+        add(s.group, new T.Mesh(new T.SphereGeometry(0.26, 40, 30), clay(C.butter)), 1.5, 0.26, 0.7);
+        return s;
+      },
+      museum: function(){
+        var s = base({ floor: '#1f6b46', op: 0.35, look: new T.Vector3(0, 0.6, 0), dist: 7.0, height: 2.8, ground: '#86c9a2' });
+        add(s.group, new T.Mesh(blockGeo(3.0, 0.4, 1.6, 0.14), clay(C.cream)), 0, 0.2, 0);
+        add(s.group, new T.Mesh(new T.SphereGeometry(0.34, 40, 30), clay(C.butter)), -1.0, 0.74, 0);
+        add(s.group, new T.Mesh(new T.ConeGeometry(0.3, 0.7, 48), clay(C.pink)), -0.25, 0.75, 0.1);
+        var bb = add(s.group, new T.Mesh(blockGeo(0.55, 0.55, 0.55, 0.12), clay(C.navy)), 0.5, 0.675, -0.05); bb.rotation.y = 0.5;
+        var q = add(s.group, squiggle(0.7, 0.12, 0.09, clay(C.tangerine)), 1.15, 0.49, 0.3); q.rotation.y = -0.4;
+        return s;
+      },
+      contact: function(){
+        var s = base({ dist: 7.5, height: 0.4, ground: '#1f5a48' });
+        var f = add(s.group, new T.Mesh(flowerGeo(1.0, 0.32), clay(C.butter)), -0.3, 0, 0); f.rotation.z = Math.PI / 6;
+        add(s.group, new T.Mesh(new T.SphereGeometry(0.42, 48, 36), clay(C.pink)), 1.35, 0.55, 0.2).userData.float = true;
+        var cp = add(s.group, new T.Mesh(new T.CapsuleGeometry(0.2, 0.55, 12, 32), clay(C.cream)), 1.2, -0.75, 0.4); cp.rotation.z = 1.1; cp.userData.float = true;
+        add(s.group, new T.Mesh(new T.SphereGeometry(0.16, 40, 30), clay(C.navy)), -1.9, 0.9, 0.3).userData.float = true;
+        return s;
+      }
+    };
+
+    var minis = [];
+    var ray = new T.Raycaster(), nd = new T.Vector2();
+    function register(canvas, kind, el, spin, global){
+      var sc = builders[kind]();
+      sc.group.children.forEach(function(c){ c.userData.s = 1; c.userData.v = 0; c.userData.base = c.scale.clone(); c.userData.p0 = c.position.clone(); c.userData.r0 = c.rotation.clone(); c.userData.spin = 0; c.userData.spinV = 0; });
+      var it = { caseEl: canvas.closest('.case'), wasActive: false, awakeT: 99, canvas: canvas, ctx: canvas.getContext('2d'), sc: sc, spin: spin, boost: 0, t: Math.random() * 6, dirty: true, px: 0, py: 0, rx: 0, ry: 0, visible: true, w: 0, h: 0 };
+      if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ it.visible = es[0].isIntersecting; if (it.visible) it.dirty = true; }, { rootMargin: '120px' }).observe(canvas);
+      var src = global ? window : el;
+      src.addEventListener('pointermove', function(e){
+        var b = canvas.getBoundingClientRect();
+        if (global) { it.px = clamp((e.clientX - (b.left + b.width / 2)) / (window.innerWidth / 2), -1, 1); it.py = clamp((e.clientY - (b.top + b.height / 2)) / (window.innerHeight / 2), -1, 1); }
+        else { it.px = (e.clientX - b.left) / b.width * 2 - 1; it.py = (e.clientY - b.top) / b.height * 2 - 1; }
+        it.dirty = true;
+      }, { passive: true });
+      if (!global) {
+        el.addEventListener('pointerenter', function(){ it.boost = 1; it.dirty = true; });
+        el.addEventListener('pointerleave', function(){ it.boost = 0; it.px = 0; it.py = 0; it.dirty = true; });
+      }
+      var clickEl = global ? canvas.parentElement : el;
+      clickEl.addEventListener('pointerdown', function(e){
+        if (e.target.closest('a,button,input,textarea,label')) return;
+        var b = canvas.getBoundingClientRect();
+        nd.set(((e.clientX - b.left) / b.width) * 2 - 1, -((e.clientY - b.top) / b.height) * 2 + 1);
+        ray.setFromCamera(nd, sc.cam);
+        var hit = ray.intersectObjects(sc.group.children, true), target = null;
+        if (hit.length) { target = hit[0].object; while (target && target.parent !== sc.group) target = target.parent; }
+        var list = target ? [target] : (spin ? sc.group.children : []);
+        list.forEach(function(c){ c.userData.v -= 4.4; c.userData.spinV += 8; });
+        it.dirty = true;
+      });
+      it.squishAll = function(){ sc.group.children.forEach(function(c, i){ c.userData.v -= 3.6 + i * 0.4; c.userData.spinV += 7; }); it.dirty = true; };
+      minis.push(it); return it;
+    }
+    document.querySelectorAll('.card').forEach(function(card){ register(card.querySelector('canvas'), card.dataset.mini, card, true, false); });
+    document.querySelectorAll('[data-case]').forEach(function(c){
+      var kind = c.dataset.case, it = register(c, kind, kind === 'contact' ? null : c.closest('.case-vis'), false, kind === 'contact');
+      if (kind === 'contact') squishContact = it.squishAll;
+    });
+
+    function sizeAll(){
+      minis.forEach(function(it){
+        var w = it.canvas.clientWidth, h = it.canvas.clientHeight; if (!w || !h) return;
+        it.w = w; it.h = h; it.canvas.width = Math.round(w * DPR); it.canvas.height = Math.round(h * DPR);
+        var c = it.sc.cam; c.aspect = w / h;
+        var d = it.sc.dist * (c.aspect < 1 ? 1 / Math.max(c.aspect, 0.6) : 1);
+        c.position.set(0, it.sc.height + it.sc.look.y, d); c.lookAt(it.sc.look); c.updateProjectionMatrix();
+        ensure(w, h); it.dirty = true;
+      });
+    }
+    if (window.ResizeObserver) { var ro = new ResizeObserver(sizeAll); minis.forEach(function(it){ ro.observe(it.canvas); }); } else window.addEventListener('resize', sizeAll);
+    dirtyFns.push(function(){ minis.forEach(function(it){ it.dirty = true; }); });
+    sizeAll();
+
+    loops.push({ tick: function(dt){
+      for (var i = 0; i < minis.length; i++) {
+        var it = minis[i]; if (!it.visible || !it.w) continue;
+        var g = it.sc.group, busy = false;
+        var tRy = it.px * (it.spin ? 0.9 : 0.6), tRx = it.py * (it.spin ? 0.5 : 0.18);
+        if (Math.abs(tRy - it.ry) > 0.0008 || Math.abs(tRx - it.rx) > 0.0008) busy = true;
+        it.ry += (tRy - it.ry) * Math.min(1, dt * 5); it.rx += (tRx - it.rx) * Math.min(1, dt * 5);
+        var isCase = !!it.caseEl, active = isCase && it.caseEl.classList.contains('is-active');
+        if (isCase) { if (active && !it.wasActive) { it.awakeT = 0; it.dirty = true; } it.wasActive = active; it.awakeT += dt; }
+        var auto = !paused && (!isCase || active);
+        if (auto) it.t += dt * (it.spin ? (0.5 + it.boost * 1.8) : 0.45);
+        g.children.forEach(function(c, k){
+          var u = c.userData;
+          if (spring(u, dt)) busy = true;
+          u.spin += u.spinV * dt; u.spinV *= Math.pow(0.1, dt);
+          if (Math.abs(u.spinV) > 0.02) busy = true;
+          var side = 1 + (1 - u.s) * 0.55;
+          var f = 1;
+          if (isCase && !paused) { var x = clamp((it.awakeT - k * 0.13) / 0.55, 0, 1); f = 1 + 2.70158 * Math.pow(x - 1, 3) + 1.70158 * Math.pow(x - 1, 2); if (x < 1) busy = true; }
+          var fs = Math.max(0.001, Math.min(f, 1.15));
+          c.scale.set(u.base.x * side * fs, u.base.y * u.s * fs, u.base.z * side * fs);
+          c.position.y = u.p0.y + (auto && u.float ? Math.sin(it.t * 2.2 + k) * 0.12 : 0) + (1 - u.s) * -0.3 * u.base.y + (1 - f) * 1.8;
+          c.rotation.y = u.r0.y + u.spin;
+        });
+        if (it.spin) { g.rotation.y = it.t + it.ry; g.rotation.x = it.rx; g.position.y = paused ? 0 : Math.sin(it.t * 1.3) * 0.08; }
+        else { g.rotation.y = -0.3 + Math.sin(it.t) * 0.22 + it.ry; g.rotation.x = it.rx; }
+        if (!(auto || busy || it.dirty)) continue;
+        mini.setViewport(0, 0, it.w, it.h); mini.setScissor(0, 0, it.w, it.h); mini.setScissorTest(true);
+        mini.clear(); mini.render(it.sc.scene, it.sc.cam);
+        it.ctx.clearRect(0, 0, it.canvas.width, it.canvas.height);
+        it.ctx.drawImage(mini.domElement, 0, (cur.h - it.h) * DPR, it.w * DPR, it.h * DPR, 0, 0, it.canvas.width, it.canvas.height);
+        it.dirty = false;
+      }
+    } });
+  })();
+
+  /* ---------- process: one lump, four stages ---------- */
+  (function(){
+    var stage = document.getElementById('proc-stage'), canvas = document.getElementById('proc-canvas');
+    var stepEls = Array.prototype.slice.call(document.querySelectorAll('#steps .step'));
+    var dots = Array.prototype.slice.call(document.querySelectorAll('.proc-dots button'));
+    var bar = document.getElementById('proc-bar'), stepNo = document.getElementById('proc-step-no'), stepName = document.getElementById('proc-step-name');
+    var names = ['Raw lump', 'Moulded', 'Kiln-baked', 'On the plinth'];
+    dots.forEach(function(d){ d.addEventListener('click', function(){ stepEls[+d.dataset.go].scrollIntoView({ block: 'center', behavior: paused ? 'auto' : 'smooth' }); }); });
+
+    var r = makeRenderer(canvas); if (!r) return;
+    var scene = new T.Scene(), cam = new T.PerspectiveCamera(30, 1, 0.1, 100);
+    var hemi = new T.HemisphereLight(0xffffff, col('#b88a2a'), 0.85); scene.add(hemi);
+    var key = keyLight(5); key.position.set(-4, 7.5, 5); scene.add(key);
+    var rim = new T.DirectionalLight(0xffffff, 0.55); rim.position.set(4, 3, -5); scene.add(rim);
+    var floor = new T.Mesh(new T.PlaneGeometry(60, 60), new T.ShadowMaterial({ color: col('#7a5a10'), opacity: 0.32 }));
+    floor.rotation.x = -Math.PI / 2; floor.position.y = -1.55; floor.receiveShadow = true; scene.add(floor);
+
+    /* morphing lump: base = irregular raw lump, target 0 = scalloped flower */
+    var geo = new T.SphereGeometry(1, 160, 120), pos = geo.attributes.position, n = pos.count;
+    var lump = new Float32Array(n * 3), flower = new Float32Array(n * 3), v = new T.Vector3();
+    for (var i = 0; i < n; i++) {
+      v.fromBufferAttribute(pos, i).normalize();
+      var nz = Math.sin(3.1 * v.x + 1.7 * v.y) * Math.cos(2.3 * v.z + 0.5) * 0.5 + Math.sin(5.3 * v.y + 2.1 * v.z) * 0.25 + Math.sin(7.7 * v.z + 3.3 * v.x) * 0.12;
+      var rl = 1 + nz * 0.24;
+      lump[i * 3] = v.x * rl * 1.05; lump[i * 3 + 1] = v.y * rl * 0.88; lump[i * 3 + 2] = v.z * rl;
+      var th = Math.atan2(v.y, v.x), k = (0.78 + 0.22 * Math.cos(6 * th)) * 1.25;
+      flower[i * 3] = v.x * k; flower[i * 3 + 1] = v.y * k; flower[i * 3 + 2] = v.z * 0.42;
+    }
+    function normalsFor(arr){ var g = new T.BufferGeometry(); g.setAttribute('position', new T.BufferAttribute(arr, 3)); g.setIndex(geo.index); g.computeVertexNormals(); return g.attributes.normal; }
+    geo.setAttribute('position', new T.BufferAttribute(lump, 3));
+    geo.setAttribute('normal', normalsFor(lump));
+    geo.morphAttributes.position = [new T.BufferAttribute(flower, 3)];
+    geo.morphAttributes.normal = [normalsFor(flower)];
+    var mat = clay('#D8D1C4');
+    var raw = col('#D8D1C4'), baked = col(C.butter), glow = col(C.tangerine);
+    var piece = new T.Mesh(geo, mat); piece.castShadow = true; piece.receiveShadow = true;
+    var holder = new T.Group(); holder.add(piece); scene.add(holder);
+    piece.updateMorphTargets();
+
+    var plinth = new T.Mesh(puckGeo(1.9, 0.5, 0.12), clay(C.cream)); shadows(plinth); scene.add(plinth);
+    var buddies = [
+      [new T.Mesh(new T.SphereGeometry(0.28, 40, 30), clay(C.pink)), 1.35, 0.42],
+      [new T.Mesh(new T.ConeGeometry(0.24, 0.5, 40), clay(C.navy)), -1.3, 0.3],
+      [new T.Mesh(new T.TorusGeometry(0.22, 0.09, 20, 48), clay(C.tangerine)), 0.55, 1.2]
+    ].map(function(b){ shadows(b[0]); b[0].userData = { x: b[1], z: b[2] }; scene.add(b[0]); return b[0]; });
+
+    var u = { s: 1, v: 0 }, rotY = 0, rotV = 0, dragging = false, lastX = 0, px = 0, tpx = 0, time = 0, visible = true, sCur = 0;
+    stage.addEventListener('pointerdown', function(e){
+      if (e.target.closest('button')) return;
+      var b = canvas.getBoundingClientRect(), nd = new T.Vector2(((e.clientX - b.left) / b.width) * 2 - 1, -((e.clientY - b.top) / b.height) * 2 + 1);
+      var ray = new T.Raycaster(); ray.setFromCamera(nd, cam);
+      if (ray.intersectObject(piece).length) { u.v -= 4.6; rotV += 0.25; }
+      dragging = true; lastX = e.clientX; stage.classList.add('dragging');
+    });
+    stage.addEventListener('pointermove', function(e){
+      var b = stage.getBoundingClientRect(); tpx = ((e.clientX - b.left) / b.width) * 2 - 1;
+      if (dragging) { var dx = e.clientX - lastX; lastX = e.clientX; rotV = dx * 0.01; rotY += rotV; }
+    });
+    stage.addEventListener('pointerleave', function(){ tpx = 0; });
+    function endDrag(){ dragging = false; stage.classList.remove('dragging'); }
+    window.addEventListener('pointerup', endDrag); window.addEventListener('pointercancel', endDrag);
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ visible = es[0].isIntersecting; }, { rootMargin: '100px' }).observe(stage);
+
+    function resize(){
+      var w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return;
+      r.setSize(w, h, false); cam.aspect = w / h;
+      var d = 8.6 * (cam.aspect < 1 ? 1 / Math.max(cam.aspect, 0.6) : 1);
+      cam.position.set(0, 1.4, d); cam.lookAt(0, -0.55, 0); cam.updateProjectionMatrix();
+    }
+    if (window.ResizeObserver) new ResizeObserver(resize).observe(stage); else window.addEventListener('resize', resize);
+    resize();
+
+    /* continuous step index from where each step's centre sits relative to the viewport centre */
+    function stepIndex(){
+      var mid = window.innerHeight * 0.5, c = stepEls.map(function(el){ var b = el.getBoundingClientRect(); return b.top + b.height / 2; });
+      if (mid <= c[0]) return 0;
+      for (var i = 0; i < c.length - 1; i++) if (mid <= c[i + 1]) return i + (mid - c[i]) / (c[i + 1] - c[i]);
+      return c.length - 1;
+    }
+    var lastActive = -1;
+
+    loops.push({ tick: function(dt){
+      if (!visible) return;
+      if (!paused) time += dt;
+      var target = stepIndex();
+      sCur += (target - sCur) * Math.min(1, dt * 8);
+      var s = sCur;
+      var active = Math.round(s);
+      if (active !== lastActive) {
+        lastActive = active;
+        stepEls.forEach(function(el, i){ el.classList.toggle('is-active', i === active); });
+        dots.forEach(function(d, i){ if (i === active) d.setAttribute('aria-current', 'step'); else d.removeAttribute('aria-current'); });
+        stepNo.textContent = 'Step 0' + (active + 1); stepName.textContent = names[active];
+      }
+      bar.style.transform = 'scaleX(' + (s / 3).toFixed(4) + ')';
+
+      var mould = smooth(s - 0.35), bake = smooth((s - 1.4) / 0.9), ship = smooth((s - 2.35) / 0.9);
+      var kiln = Math.max(0, 1 - Math.abs(s - 2) / 0.6);
+      piece.morphTargetInfluences[0] = mould;
+      mat.color.copy(raw).lerp(baked, bake);
+      mat.emissive.copy(glow).multiplyScalar(kiln * (0.35 + (paused ? 0 : Math.sin(time * 5) * 0.08)));
+      mat.roughness = 0.9 - bake * 0.18;
+      hemi.groundColor.copy(col('#b88a2a'));
+
+      tpx = tpx; px += (tpx - px) * Math.min(1, dt * 4);
+      if (!dragging) { rotV *= 0.93; rotY += rotV; }
+      var idle = paused ? 0 : time * (0.5 - mould * 0.38);
+      holder.rotation.y = rotY + idle + px * 0.5 + mould * Math.sin(time * 0.6) * (paused ? 0 : 0.35);
+      holder.rotation.x = (1 - mould) * (paused ? 0 : Math.sin(time * 0.7) * 0.15);
+      var breathe = paused ? 0 : (1 - mould) * Math.sin(time * 2.2) * 0.03;
+
+      spring(u, dt);
+      var side = 1 + (1 - u.s) * 0.55;
+      piece.scale.set(side + breathe, u.s - breathe, side + breathe);
+      piece.position.y = (1 - u.s) * -0.4;
+
+      var restY = -0.15 + ship * 0.55 + (paused ? 0 : Math.sin(time * 1.4) * 0.06 * (1 - ship * 0.6));
+      holder.position.y = restY;
+      plinth.position.y = -1.55 - (1 - ship) * 3 + ship * 0.001;
+      plinth.position.y = -1.55 + (ship - 1) * 2.4;
+      plinth.visible = ship > 0.01;
+      floor.material.opacity = 0.32;
+      buddies.forEach(function(b, i){
+        var e = smooth((ship - i * 0.18) / 0.6);
+        b.visible = e > 0.01; b.scale.setScalar(Math.max(0.001, e));
+        b.position.set(b.userData.x, plinth.position.y + 0.5 + (b.geometry.parameters.height ? b.geometry.parameters.height / 2 : (b.geometry.parameters.radius || 0.2) + (b.geometry.parameters.tube || 0)), b.userData.z);
+        if (!paused) b.rotation.y += dt * 0.8;
+      });
+      r.render(scene, cam);
+    } });
+  })();
+
+  var last = 0;
+  function frame(now){
+    requestAnimationFrame(frame);
+    var dt = Math.min((now - (last || now)) / 1000, 0.05); last = now;
+    for (var i = 0; i < loops.length; i++) loops[i].tick(dt);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
